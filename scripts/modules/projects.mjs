@@ -7,14 +7,17 @@ export function createProjectsSection() {
   const appContainer = document.getElementById('app-container');
   appContainer.appendChild(projectsSection);
 
+
 };
 
-export function animationCreateProjectsSection () {  
-  gsap.from(projectsSection, {
-  opacity: 0,
-  duration: 3,
-  ease: 'power2.out',
-});}
+export function animateSections(section) {  
+  gsap.from(section, {
+    opacity: 0,
+    duration: 0.5,
+    delay: 1.2,
+    ease: 'power2.out',
+  });
+}
 
 export function rightWorksButtons() {
   const buttons = [

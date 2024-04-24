@@ -1,4 +1,10 @@
 /* || GENERAL STYLE */
+.hidden {
+
+  display: none;
+
+
+}
 
 .cookies__boton{
 
@@ -547,19 +553,29 @@ section address {
   margin: 0;
 }
 
+.container-portrait {
+  width: fit-content;
+  position: relative;
+  width: 100%;
+  height: max-content;
+  overflow: hidden; /* Asegura que el contenido que desborde del contenedor sea ocultado */
+  align-items: center;
+  justify-content: center;
+}
+
 .portrait {
-  padding-top: 3%;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 3%;
+  max-width: 100%; /* Establece el ancho máximo de la imagen al 100% del contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
+  margin: 0 auto; /* Centra la imagen horizontalmente dentro del contenedor */
+
 }
 
 .portrait-2 {
-  padding-top: 3%;
-  padding-left: 10%;
-  padding-right: 10%;
-  padding-bottom: 3%;
+  max-width: 100%; /* Establece el ancho máximo de la imagen al 100% del contenedor */
+  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
   display: none;
+  margin: 0 auto; /* Centra la imagen horizontalmente dentro del contenedor */
+
 }
 
 .container-portrait:hover .portrait {

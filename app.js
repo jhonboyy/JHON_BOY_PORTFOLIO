@@ -34,6 +34,7 @@ async function init() {
 
   await delay(300);
   menuLeftContainer().then(toggleButtons);
+  toggleContent();
 
 }
 

@@ -67,6 +67,7 @@ function buttonsBehaviour(menuContainer, button) {
       newImage.style.maxWidth = '100%';
       newImage.style.maxHeight = '100%';
       newImage.style.objectFit = 'contain';
+      newImage.classList.add("menuImage");
 
       newImageContainer.appendChild(newImage);
       menuContainer.appendChild(newImageContainer); 
@@ -103,6 +104,7 @@ function buttonsBehaviour(menuContainer, button) {
       newImage.style.maxWidth = '100%';
       newImage.style.maxHeight = '100%';
       newImage.style.objectFit = 'contain';
+      newImage.classList.add("menuImage");
 
 
       newImageContainer.appendChild(newImage);
@@ -116,9 +118,75 @@ function buttonsBehaviour(menuContainer, button) {
   }
 };
 
+export function toggleButtons() {
+  return new Promise(resolve => {
+    const aboutButton = document.getElementById('aboutButton');
+    const worksButton = document.getElementById('worksButton');
+    const container = document.querySelector('.container-index.menu-opened');
 
-import { createProjectsSection, rightWorksButtons } from "./projects.mjs";
+    aboutButton.addEventListener('click', function () {
+      container.style.setProperty('--after-height', '100vh');
+      aboutButton.style.borderBottom = "1px solid black";
+      container.style.setProperty('--after-height', '100vh');
+      
+      // Crear y agregar la imagen al menú
+      const menuImage = document.querySelector('.menuImage');
+      if (menuImage) {
+        menuImage.src = './images/jhon-boy-illustration-works-page-person-upside-down.svg';
+        menuImage.style.paddingTop = '100px';
+
+        // Animación de aparición de la imagen
+        gsap.fromTo(menuImage, { opacity: 1 }, { opacity: 1, duration: 1, ease: 'power2.out', delay: 0});
+      }
+
+      gsap.to(aboutButton, {
+        css: {
+          position: 'relative',
+          top: 'calc(-100vh + 249px)',
+        },
+        duration: 0.5,
+        ease: 'power2.out',
+      });
+      resolve(); // Resolver la promesa inmediatamente después de hacer clic en el botón
+    });
+
+    worksButton.addEventListener('click', function () {
+      container.style.setProperty('--after-height', 'calc(100vh - 50px)');
+      aboutButton.style.zIndex = "3";
+
+      
+      // Crear y agregar la imagen al menú
+      const menuImage = document.querySelector('.menuImage');
+      if (menuImage) {
+        menuImage.src = './images/jhon-boy-illustration-works-page-person-resting.svg';
+        menuImage.style.paddingTop = '0';
+
+
+        // Animación de aparición de la imagen
+        gsap.fromTo(menuImage, { opacity: 1 }, { opacity: 1, duration: 1, ease: 'power2.out', delay: 0});
+      }
+
+      gsap.to(aboutButton, {
+        css: {
+          position: 'relative',
+          top: 'calc(27vh - 241px)',
+        },
+        duration: 0.5,
+        ease: 'power2.out',
+      });
+      resolve(); // Resolver la promesa inmediatamente después de hacer clic en el botón
+    });
+  });
+}
+
+
+import { createProjectsSection, rightWorksButtons, animateSections } from "./projects.mjs";
 import { createAboutSection } from "./about.mjs";
+
+let projectsSectionCreated = false;
+let aboutSectionCreated = false;
+
+let animationStarted = false;
 
 export function toggleContent() {
   const buttons = [document.getElementById('aboutButton'), document.getElementById('worksButton')];
@@ -126,61 +194,31 @@ export function toggleContent() {
   buttons.forEach(button => {
     button.addEventListener('click', function () {
       if (button.id === 'worksButton') {
-        createProjectsSection();
-        rightWorksButtons();
+        if (!projectsSectionCreated) {
+          createProjectsSection();
+          rightWorksButtons();
+          projectsSectionCreated = true;
+
+          if (!animationStarted) {
+            animateSections(document.getElementById('works-content'));
+            animationStarted = true;
+          }
+        }
+        document.getElementById('about-content').style.display = 'none';
+        document.getElementById('works-content').style.display = 'grid';
       } else if (button.id === 'aboutButton') {
-        createAboutSection();
-        
+        if (!aboutSectionCreated) {
+          createAboutSection();
+          aboutSectionCreated = true;
+
+          if (!animationStarted) {
+            animateSections(document.getElementById('about-content'));
+            animationStarted = true;
+          }
+        }
+        document.getElementById('works-content').style.display = 'none';
+        document.getElementById('about-content').style.display = 'grid';
       }
     });
   });
-}
-
-export function toggleButtons() {
-  return new Promise(resolve => {
-    const buttons = [document.getElementById('aboutButton'), document.getElementById('worksButton')];
-    var container = document.querySelector('.container-index.menu-opened');
-
-    buttons[0].addEventListener('click', function () {
-      container.style.setProperty('--after-height', '100vh');
-      buttons[0].style.borderBottom = "1px solid black"
-      container.style.setProperty('--after-height', '100vh');
-      
-      gsap.to(buttons[0], {
-        css: {
-          position: 'relative',
-          top: 'calc(-100vh + 249px)',
-        },
-        duration: 0.5,
-        ease: 'power2.out',
-        onComplete: () => {
-          resolve();
-        },
-      });
-    });
-
-    buttons[1].addEventListener('click', function () {
-      container.style.setProperty('--after-height', 'calc(100vh - 50px)');
-      buttons[0].style.zIndex = "3"
-      gsap.to(buttons[0], {
-        css: {
-          position: 'relative',
-          top: 'calc(27vh - 241px)',
-          
-        },
-        duration: 0.5,
-        ease: 'power2.out',
-        onComplete: () => {
-          resolve();
-        },
-      });
-    });
-
-
-
-
-
-  });
-
-  
 }

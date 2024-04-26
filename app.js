@@ -30,18 +30,10 @@ async function init() {
   updateAnimation();
   introduceAnimationOnLoad();
 
-  // LEFT MENU
-
   await delay(300);
   menuLeftContainer().then(toggleButtons);
   toggleContent();
 
-}
-
-
+} 
 
 document.addEventListener('DOMContentLoaded', init);
-
-
-
-

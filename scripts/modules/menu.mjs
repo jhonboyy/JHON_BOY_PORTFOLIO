@@ -3,12 +3,18 @@ export function menuLeftContainer() {
     const buttons = [document.getElementById('aboutButton'), document.getElementById('worksButton')];
     const menuContainer = document.getElementById('mainContainer');
     const animationContainer = document.querySelector('.container-test-index');
+    let h1Removed = false;
 
     buttons.forEach(button => {
       button.addEventListener('click', function () {
         menuContainer.classList.add('menu-opened');
         menuContainer.style.gridTemplateRows = "1fr";
-        menuContainer.querySelector('h1').remove();
+        
+        if (!h1Removed && menuContainer.querySelector('h1')) {
+          menuContainer.querySelector('h1').remove();
+          h1Removed = true;
+        }
+        
         animationContainer.remove();
         document.querySelector('nav').style.height = "100%";
         document.querySelector('ul').style.position = "absolute";
@@ -54,6 +60,7 @@ function buttonsBehaviour(menuContainer, button) {
 
     setTimeout(() => {
       const newImageContainer = document.createElement('div');
+      newImageContainer.classList.add("MenuImageContainer");
       newImageContainer.style.display = 'flex';
       newImageContainer.style.justifyContent = 'center';
       newImageContainer.style.alignItems = 'center';
@@ -91,6 +98,7 @@ function buttonsBehaviour(menuContainer, button) {
 
     setTimeout(() => {
       const newImageContainer = document.createElement('div');
+      newImageContainer.classList.add("MenuImageContainer");
       newImageContainer.style.display = 'flex';
       newImageContainer.style.justifyContent = 'center';
       newImageContainer.style.alignItems = 'center';
@@ -105,7 +113,6 @@ function buttonsBehaviour(menuContainer, button) {
       newImage.style.maxHeight = '100%';
       newImage.style.objectFit = 'contain';
       newImage.classList.add("menuImage");
-
 
       newImageContainer.appendChild(newImage);
       menuContainer.appendChild(newImageContainer); 
@@ -131,12 +138,12 @@ export function toggleButtons() {
       
       // Crear y agregar la imagen al menú
       const menuImage = document.querySelector('.menuImage');
+      const ImageContainers = document.querySelectorAll('.MenuImageContainer');
       if (menuImage) {
         menuImage.src = './images/jhon-boy-illustration-works-page-person-upside-down.svg';
-        menuImage.style.paddingTop = '100px';
-
-        // Animación de aparición de la imagen
-        gsap.fromTo(menuImage, { opacity: 1 }, { opacity: 1, duration: 1, ease: 'power2.out', delay: 0});
+        ImageContainers.forEach(container => {
+          container.style.paddingTop = '100px';
+        });
       }
 
       gsap.to(aboutButton, {
@@ -147,38 +154,35 @@ export function toggleButtons() {
         duration: 0.5,
         ease: 'power2.out',
       });
-      resolve(); // Resolver la promesa inmediatamente después de hacer clic en el botón
+      resolve(); // Resolver la promesa después de hacer clic en el botón
     });
 
     worksButton.addEventListener('click', function () {
       container.style.setProperty('--after-height', 'calc(100vh - 50px)');
       aboutButton.style.zIndex = "3";
 
-      
       // Crear y agregar la imagen al menú
       const menuImage = document.querySelector('.menuImage');
+      const ImageContainers = document.querySelectorAll('.MenuImageContainer');
       if (menuImage) {
         menuImage.src = './images/jhon-boy-illustration-works-page-person-resting.svg';
-        menuImage.style.paddingTop = '0';
-
-
-        // Animación de aparición de la imagen
-        gsap.fromTo(menuImage, { opacity: 1 }, { opacity: 1, duration: 1, ease: 'power2.out', delay: 0});
+        ImageContainers.forEach(container => {
+          container.style.paddingTop = '50px';
+        });
       }
 
       gsap.to(aboutButton, {
         css: {
           position: 'relative',
-          top: 'calc(27vh - 241px)',
+          top: '1px',
         },
         duration: 0.5,
         ease: 'power2.out',
       });
-      resolve(); // Resolver la promesa inmediatamente después de hacer clic en el botón
+      resolve(); // Resolver la promesa después de hacer clic en el botón
     });
   });
 }
-
 
 import { createProjectsSection, rightWorksButtons, animateSections } from "./projects.mjs";
 import { createAboutSection } from "./about.mjs";
@@ -204,8 +208,14 @@ export function toggleContent() {
             animationStarted = true;
           }
         }
-        document.getElementById('about-content').style.display = 'none';
-        document.getElementById('works-content').style.display = 'grid';
+        const aboutContent = document.getElementById('about-content');
+        if (aboutContent) {
+          aboutContent.style.display = 'none';
+        }
+        const worksContent = document.getElementById('works-content');
+        if (worksContent) {
+          worksContent.style.display = 'grid';
+        }
       } else if (button.id === 'aboutButton') {
         if (!aboutSectionCreated) {
           createAboutSection();
@@ -216,8 +226,14 @@ export function toggleContent() {
             animationStarted = true;
           }
         }
-        document.getElementById('works-content').style.display = 'none';
-        document.getElementById('about-content').style.display = 'grid';
+        const worksContent = document.getElementById('works-content');
+        if (worksContent) {
+          worksContent.style.display = 'none';
+        }
+        const aboutContent = document.getElementById('about-content');
+        if (aboutContent) {
+          aboutContent.style.display = 'grid';
+        }
       }
     });
   });

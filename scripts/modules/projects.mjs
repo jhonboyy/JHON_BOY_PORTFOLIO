@@ -1,3 +1,5 @@
+import { CreateFlourlyContainer } from "./flourly.mjs";
+
 export function createProjectsSection() {
   const projectsSection = document.createElement('section');
   projectsSection.id = 'works-content';
@@ -7,8 +9,14 @@ export function createProjectsSection() {
   const appContainer = document.getElementById('app-container');
   appContainer.appendChild(projectsSection);
 
+  const flourlyButton = document.getElementById("flourlyLink");
 
-};
+  flourlyButton.addEventListener('click', function() {
+    CreateFlourlyContainer();
+  });
+
+}
+
 
 export function animateSections(section) {  
   gsap.from(section, {

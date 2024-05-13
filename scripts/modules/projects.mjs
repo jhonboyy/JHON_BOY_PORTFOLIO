@@ -201,25 +201,17 @@ function showProjects() {
               <p class="text-left">Illustration for WIX Playground Academy ✨</p>
               <p class="text-right">DEC.12.2021</p>
             </figcaption>
-          </figure>
-          <figure class="project-grid personal all">
-            <div class="svg-container">
-              <object loading="lazy" aria-label="view of a desk with a candle" type="image/svg+xml" data="./images/jhon-boy-illustration-desk-smoke-1.svg" width="100%" height="100%" class="svg-content"></object>
-            </div>
-            <div class="svg-container">
-              <object loading="lazy" aria-label="view of a desk with a candle and smoke going out from it" type="image/svg+xml" data="./images/jhon-boy-illustration-desk-smoke-2.svg" width="100%" height="100%" class="svg-content"></object>
-            </div>
-            <div class="svg-container">
-              <object loading="lazy" aria-label="view of a desk with a candle and more smoke going out from it" type="image/svg+xml" data="./images/jhon-boy-illustration-desk-smoke-3.svg" width="100%" height="100%" class="svg-content"></object>
-            </div>
-            <div class="svg-container">
-              <object loading="lazy" aria-label="view of a room full of smoke" type="image/svg+xml" data="./images/jhon-boy-illustration-desk-smoke-4.svg" width="100%" height="100%" class="svg-content"></object>
-            </div>
-            <figcaption>
-              <p class="text-left">Een andere dag zat ik voor het notitieboekje 📖</p>
-              <p class="text-right">JUL.16.2022</p>
-            </figcaption>
-          </figure>
+            </figure>
+            <figure class="project-grid personal all">
+                <img src="./images/jhon-boy-illustration-desk-smoke-2.svg" alt="persons working in a mine one of them is carrying a rock" />
+                <img src="./images/jhon-boy-illustration-desk-smoke-2.svg" alt="persons working in a mine one of them is carrying a rock" />
+                <img src="./images/jhon-boy-illustration-desk-smoke-2.svg" alt="persons working in a mine one of them is carrying a rock" />
+                <img src="./images/jhon-boy-illustration-desk-smoke-2.svg" alt="persons working in a mine one of them is carrying a rock" />
+              <figcaption>
+                <p class="text-left">Een andere dag zat ik voor het notitieboekje 📖</p>
+                <p class="text-right">JUL.16.2022</p>
+              </figcaption>
+            </figure>
           <figure class="project-solo commercial all">
             <div class="image-container"></div>
             <div class="image-container-2"></div>

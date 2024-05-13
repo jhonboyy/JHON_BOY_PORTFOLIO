@@ -1,32 +1,73 @@
 function imageChange() {
-  const images = document.querySelectorAll('.portrait');
-  
-  images.forEach(image => {
-    const originalSrc = image.src;
+  const image = document.querySelector('.portrait');
+  const hoverimage = document.querySelector('.portrait2');
+
     image.addEventListener('mouseover', function() {
-      this.src = "./images/jhon-boy-illustration-portrait-2.webp";
+      image.style.display = 'none';
+      hoverimage.style.display = 'block';
     });
-    image.addEventListener('mouseout', function() {
-      this.src = originalSrc;
+    hoverimage.addEventListener('mouseout', function() {
+      image.style.display = 'block';
+      hoverimage.style.display = 'none';
     });
-  });
+  }
+// Helper function to perform DOM manipulations
+function adjustLayout(elements, width) {
+  const { address, column1, column2, text, signature } = elements;
+
+  if (width <= 920) {
+    address.style.gridRowStart = "3";
+    address.style.gridRowEnd = "4";
+    column1.insertAdjacentElement("afterbegin", text);
+    text.style.gridRowStart = "2";
+    text.style.gridRowEnd = "3";
+    column2.insertAdjacentElement("beforeend", signature);
+    signature.style.gridRowStart = "3";
+    signature.style.gridRowEnd = "4";
+  } else {
+    address.style.gridRowStart = "2";
+    address.style.gridRowEnd = "3";
+    column2.insertAdjacentElement("afterbegin", text);
+    text.style.gridRowStart = "1";
+    text.style.gridRowEnd = "2";
+    column1.insertAdjacentElement("beforeend", signature);
+    signature.style.gridRowStart = "3";
+    signature.style.gridRowEnd = "4";
+  }
+}
+
+// Consolidate element selections to be reused in different functions
+function getElements() {
+  return {
+    column1: document.querySelector(".about-column-1"),
+    column2: document.querySelector(".about-column-2"),
+    address: document.querySelector(".address"),
+    text: document.querySelector(".text"),
+    signature: document.querySelector(".signature")
+  };
 }
 
 export function createAboutSection() {
   const aboutSection = document.createElement('section');
-  aboutSection.style.width = "50vw";
-  aboutSection.style.height = "100vh";
   aboutSection.style.position = "absolute";
   aboutSection.style.right = "0";
   aboutSection.id = 'about-content';
-  aboutSection.innerHTML = showAbout();
+  aboutSection.innerHTML = showAbout(); 
   aboutSection.classList.add("about");
   
   const appContainer = document.getElementById('app-container');
   appContainer.appendChild(aboutSection);
 
-  imageChange();
+  const elements = getElements();
+  adjustLayout(elements, window.innerWidth);
+  imageChange(); 
 }
+
+export function updateContentStylesBasedOnWidth() {
+  const elements = getElements();
+  adjustLayout(elements, window.innerWidth);
+}
+
 
 function showAbout (){
     return `<div class="about-column-1">
@@ -47,6 +88,7 @@ function showAbout (){
     <p class="text">I LIKE TO BUILD VISUAL REPRESENTATIONS OF CONTEMPORARY SCENES, USING SIMPLE CHARACTERING TO REVEAL THE NATURAL COMPLEXITY OF OUR ERA. THROUGH A MINIMALIST APPROACH, I AIM TO INVITE THE VIEWER INTO A DIALOGUE WITH THE ARTWORK, CREATING A SPACE FOR REFLECTION. MY INTENTION IS TO EVOKE A SENSE OF DISCOVERY AND EXPLORATION THAT TRANSCENDS THE BOUNDARIES OF THE VISUAL MEDIUM.</p>
     <figure class="container-portrait">
       <img class="portrait" src="./images/jhon-boy-illustration-portrait.webp" alt="portrait photo of jhon boy">
+      <img class="portrait2" style="display: none" src="./images/jhon-boy-illustration-portrait-2.webp" alt="portrait photo of jhon boy">
     </figure>
     <p class="description">
       JORGE GALLARDO FEBLES <br>
@@ -62,6 +104,7 @@ function showAbout (){
       (ES) FLECHER.CO<br>
       <br>
       BRANDS: <br>
+      (JP) UNIQLO <br>
       (DK) FRAMA <br>
       (IL) WIX <br>
       (CN) OPPO <br>

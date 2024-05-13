@@ -130,13 +130,31 @@ header nav {
 }
 
 .text-left {
-  width: 100%;
+  width: max-content;
   height: 100%;
   text-align: left;
 }
 
+.project-container-top .text-left {
+
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  
+
+}
+
+.project-container-top .text-right {
+
+  text-align: right;
+  width: auto;
+  justify-content: right;  
+  padding-right: 15px;
+
+}
+
 .container-test-index {
-  display: grid;
+  display: flex;
   height: 100%;
   width: 100%;
   align-items: center;
@@ -145,6 +163,15 @@ header nav {
   grid-template-rows: 1fr;
   position: relative;
   background-color: white;
+}
+
+#desktopAnimation, #mobileAnimation {
+
+  max-width: 100%;
+  min-width: 100%;
+  object-fit: contain;
+
+
 }
 
 h1 {
@@ -181,6 +208,23 @@ h1 {
   z-index: 3;
 }
 
+.MenuImageContainer {
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 250px);
+
+}
+
+.MenuImageContainer img {
+
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 0;
+
+}
 
 .nav-collapse {
   display: grid;
@@ -215,10 +259,20 @@ h1 {
   bottom: 0;
   left: 0;
   gap: 1px;
-  border-right: 1px solid black;
   grid-template-rows: 50px 1fr 49px;
   border-top: 1px solid black;
   background-color: black;
+}
+
+.project-container::before{
+
+  content: "";
+  background-color: black;
+  height: calc(100vh - 50px);
+  width: 1px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 .project-container-top {
@@ -233,6 +287,11 @@ h1 {
   width: 100%;
   background-color: white;
   overflow-y: scroll;
+  overflow-x: none;
+}
+
+.project-container-mid p {
+  padding: 15px 0 15px 15px;
 }
 
 .hideBefore::before {
@@ -278,7 +337,7 @@ figure {
 .projects-wrap {
   display: grid;
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 49px);
   overflow-x: scroll;
   grid-row-start: 2;
   grid-row-end: 3;
@@ -393,21 +452,6 @@ figure {
   grid-column-end: 2;
 }
 
-.svg-container {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  padding-bottom: 100%;
-  vertical-align: middle;
-  overflow: hidden;
-}
-
-.svg-content {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
 
 .project-solo-slider {
   display: grid;
@@ -483,7 +527,7 @@ figure {
 .flourly {
   display: grid;
   height: 100%;
-  width: 100%;
+  width: 50vw;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
@@ -514,7 +558,7 @@ figure {
 
 .about {
   height: 100%;
-  width: 100%;
+  width: 50vw;
   display: grid;
   position: absolute;
   grid-template-columns: 55% 45%;
@@ -569,10 +613,11 @@ section address {
   padding: 5% 0 5% 0;
 }
 
-.portrait {
+.portrait, .portrait2 {
   max-width: 90%; /* Establece el ancho máximo de la imagen al 100% del contenedor */
   height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
   margin: 0 auto; /* Centra la imagen horizontalmente dentro del contenedor */
+
 
 }
 
@@ -628,30 +673,23 @@ section address {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-  }
-}
+  }}
+
+
 
 @media screen and (max-width: 900px) {
   /* || MOBILE GENERAL STYLE */
 
-  .mobile-nav {
-    position: fixed;
-    display: grid;
-    width: 100%;
-    height: 50px;
+  .container-index.menu-opened::after {
+    content: '';
+    display: none;
+    position: absolute;
+    width: 1px;
+    height: var(--after-height);
+    right: 0; 
     bottom: 0;
-    z-index: 3;
     background-color: black;
-    border-top: 1px solid black;
-    padding: 0;
-    margin: 0;
-  }
-
-  .mobile-nav ul {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 50px;
-    gap: 1px;
+    z-index: 3;
   }
 
   .split.right {
@@ -663,6 +701,18 @@ section address {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 50px 50px;
     height: 100dvh;
+  }
+
+  .container-index.menu-opened{
+    height: 50px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1;
+  }
+
+  .MenuImageContainer {
+
+    display: none;
   }
 
   .projects nav {
@@ -682,24 +732,41 @@ section address {
     position: absolute;
   }
 
+  .text-left {
+    width: auto;
+    height: 100%;
+    text-align: left;
+  }
+
   /* || MOBILE WORKS */
 
+  .projects {
+
+    width: 100%;
+  }
+
   .projects-wrap {
+
     position: absolute;
     grid-row-start: 1;
     grid-row-end: 2;
     border-top: 0px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
     height: 100%;
+
   }
 
   .projects-nav {
-    position: relative;
+    position: fixed;
     grid-row-start: 2;
     grid-row-end: 3;
-    border-top: 1px solid black;
-    height: 50px;
+    border-top: none;
+    height: 50px !important;
     z-index: 2;
     margin: 0;
+    border-bottom: none;
   }
 
   .right {
@@ -730,7 +797,7 @@ section address {
   .flourly {
     display: grid;
     height: 100%;
-    width: 100%;
+    width: 100vw;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   }
@@ -758,6 +825,11 @@ section address {
   .counter {
 
     align-self: center;
+    text-align: center;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    padding: 20px 0 20px 0;
+
   }
 
   .slider::-webkit-scrollbar {
@@ -800,6 +872,29 @@ section address {
   }
 
   .project-container-top {
+    grid-template-columns: 70% 30% !Important;
+
+}
+
+  .project-container-mid {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    overflow-y: scroll;
+    overflow-x: none;
+  }
+
+  .project-container-mid p {
+    margin: 0;
+    width: 95%;
+  }
+
+  .project-container::before{
+
+    display: none;
+  }
+
+  .project-container-top {
     display: grid;
     height: 100%;
     grid-template-columns: 50% 50%;
@@ -813,11 +908,16 @@ section address {
     width: 100%;
     display: grid;
     position: relative;
+    overflow: scroll;
     grid-template-columns: 1fr;
     grid-template-rows: max-content max-content;
   }
 
-  .portrait {
+  nav ul {
+    height: 50px;
+  }
+
+  .portrait, .portrait2{
     display: absolute;
     text-align: center;
     padding: 12%;
@@ -834,6 +934,7 @@ section address {
     box-sizing: border-box;
     border-right: 0px;
     width: 100%;
+    padding: 0;
     height: calc(100vh - 50px);
    }
 
@@ -845,6 +946,7 @@ section address {
     width: 100%;
     height: max-content;
     grid-template-columns: 1fr;
+    padding: 0;
     grid-template-rows: max-content max-content max-content;
     padding-bottom: 50px;
   }
@@ -874,13 +976,11 @@ section address {
   .container-portrait:hover .portrait {
     display: grid;
   }
-  
-  .container-portrait:hover .portrait-2 {
-    display: none;
-  }
 
   .about-column-2, .about-column-1 p{
     text-align: center;
   }
+
+  
 
 }

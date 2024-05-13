@@ -4,17 +4,20 @@ export function updateAnimation() {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(function () {
     const screenWidth = window.innerWidth;
-    const animationContainer = document.querySelector('.container-test-index');
-    let animationHTML;
+    const mobileAnimation = document.getElementById('mobileAnimation');
+    const desktopAnimation = document.getElementById('desktopAnimation');
 
-    if (screenWidth < 600) {
-      animationHTML = `<dotlottie-player src="./scripts/animations/jhon-boy-animation-index-mobile.lottie" background="white" speed="1" style="position: relative; width:100%; height: auto;" loop autoplay></dotlottie-player>`;
-    } else {
-      animationHTML = `<dotlottie-player src="./scripts/animations/jhon-boy-animation-index.lottie" background="white" speed="1" style="position: relative; width:100%; height: auto;" loop autoplay></dotlottie-player>`;
+    // Solo realiza la acción si ambos elementos existen
+    if (mobileAnimation && desktopAnimation) {
+      if (screenWidth < 600) {
+        mobileAnimation.style.display = 'block';
+        desktopAnimation.style.display = 'none';
+      } else {
+        mobileAnimation.style.display = 'none';
+        desktopAnimation.style.display = 'block';
+      }
     }
-
-    animationContainer.innerHTML = animationHTML;
-  }, 1);
+  }, 100);
 }
 
 export function animateLines() {
@@ -63,7 +66,8 @@ export function index() {
   return `
   <header class="container-index" id="mainContainer">
     <h1 style="height: 51px;"></h1>
-    <div class="container-test-index"></div>
+    <div class="container-test-index">
+    </div>
     <nav>
       <ul>
         <li id="IndexWorksButton" ><a></a></li>
@@ -81,7 +85,10 @@ export function writeText() {
   return `
   <header class="container-index" id="mainContainer">
     <h1 style="height: 51px;">WELCOME TO JHON BOY</h1>
-    <div class="container-test-index"></div>
+    <div class="container-test-index">
+    <dotlottie-player id="mobileAnimation" src="./scripts/animations/jhon-boy-animation-index-mobile.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
+    <dotlottie-player id="desktopAnimation" src="./scripts/animations/jhon-boy-animation-index.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
+    </div>
     <nav>
       <ul>
         <li id="worksButton" ><a>WORKS</a></li>

@@ -1,37 +1,57 @@
 export function CreateFlourlyContainer() {
   const appContainer = document.getElementById('app-container');
 
-  const flourlyContainer = document.createElement('section');
-  flourlyContainer.classList.add("project-container");
-  flourlyContainer.id = 'flourly-container';
+  // Verificar si el contenedor ya existe
+  let flourlyContainer = document.getElementById('flourly-container');
+  if (!flourlyContainer) {
+    // Crear el contenedor si no existe
+    flourlyContainer = document.createElement('section');
+    flourlyContainer.classList.add("project-container");
+    flourlyContainer.id = 'flourly-container';
+    flourlyContainer.innerHTML = RenderflourlyContainer();
+    appContainer.appendChild(flourlyContainer);
+
+    // Añadir el botón de cerrar y otros elementos solo si se está creando por primera vez
+    const flourlyCloseButton = flourlyContainer.querySelector("#flourlyCloseLink");
+    if (flourlyCloseButton) {
+        flourlyCloseButton.addEventListener("click", function() {
+            flourlyContainer.style.display = "none";
+        });
+    }
+
+    // Configuración adicional que se realiza una sola vez
+    const flourlySlider = flourlyContainer.querySelector(".slider");
+    const flourlyMidContainer = document.querySelector(".project-container-mid.flourly");
+
+    const p = document.createElement("p");
+    p.classList.add("counter");
+    p.textContent = "1 / 3";
+    flourlyMidContainer.appendChild(p);
+
+    let currentIndex = 1;
+
+    function updateCounter() {
+        p.textContent = `${currentIndex + 1} / 3`;
+    }
+
+    flourlySlider.addEventListener("scroll", () => {
+      currentIndex = Math.round(flourlySlider.scrollLeft / flourlySlider.clientWidth);
+      updateCounter();
+    });
+  }
+
+  // Siempre asegurar que el contenedor se muestra cuando se llama a la función
   flourlyContainer.style.display = "grid";
-  flourlyContainer.innerHTML = RenderflourlyContainer();
-  appContainer.appendChild(flourlyContainer);
 
-  const flourlyCloseButton = flourlyContainer.querySelector("#flourlyCloseLink");
-  if (flourlyCloseButton) {
-      flourlyCloseButton.addEventListener("click", function() {
-          flourlyContainer.style.display = "none";
-      });
-  }
-  const flourlySlider = flourlyContainer.querySelector(".slider");
-
-  const p = document.createElement("p");
-  p.classList.add("counter");
-  p.textContent = "1 / 3";
-  flourlySlider.appendChild(p);
-
-  let currentIndex = 1;
-
-  function updateCounter() {
-      p.textContent = `${currentIndex + 1} / 3`;
-  }
-
-  flourlySlider.addEventListener("scroll", () => {
-    currentIndex = Math.round(flourlySlider.scrollLeft / flourlySlider.clientWidth);
-    updateCounter();
-});
-
+  // Gestión del evento de redimensionamiento y verificación inicial de la visualización del contador
+  const counter = document.querySelector(".counter");
+  const checkDisplayCounter = () => {
+    const screenWidth = window.innerWidth;
+    counter.style.display = screenWidth >= 920 ? "none" : "block";
+  };
+  
+  window.addEventListener("resize", checkDisplayCounter);
+  checkDisplayCounter();
 }
 
 
@@ -114,7 +134,7 @@ function RenderflourlyContainer() {
       <br>
     </p>
   </div>
-  <div class="text-left" style="padding: 1.5vh; background-color: white; height: 100%; width: 100%;">
+  <div class="text-left" style="padding: 1.5vh 0 0 1.5vh; background-color: white; height: 100%; width: calc(100% - 1.5vh);">
     <a id="flourlyCloseLink"><u>CLOSE</u></a>
   </div>`
 

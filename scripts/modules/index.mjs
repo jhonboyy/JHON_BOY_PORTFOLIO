@@ -29,7 +29,7 @@ export function animateLines() {
 }
 
 export function introduceAnimationOnLoad () {
-  const animationContainer = document.querySelector('.container-test-index');
+  const animationContainer = document.querySelector('.lottie-index');
 
   if (animationContainer) {
     TweenMax.from(animationContainer, 1, {
@@ -43,7 +43,7 @@ export function introduceAnimationOnLoad () {
 };
 
 export function animateHeader () {
-  const header = document.querySelector('.container-index');
+  const header = document.querySelector('.index');
   const h1 = new SplitType(header.querySelector('h1'), { type: 'words,chars' }).chars;
   const navLinks = new SplitType(header.querySelectorAll('nav ul li a'), { type: 'words,chars' }).chars;
 
@@ -64,9 +64,9 @@ export function animateHeader () {
 
 export function index() { 
   return `
-  <header class="container-index" id="mainContainer">
+  <header class="index" id="mainContainer">
     <h1 style="height: 51px;"></h1>
-    <div class="container-test-index">
+    <div class="lottie-index">
     </div>
     <nav>
       <ul>
@@ -83,9 +83,9 @@ export function index() {
 
 export function writeText() { 
   return `
-  <header class="container-index" id="mainContainer">
-    <h1 style="height: 51px;">WELCOME TO JHON BOY</h1>
-    <div class="container-test-index">
+  <header class="index" id="mainContainer">
+    <h1 style="height: 50px;">WELCOME TO JHON BOY</h1>
+    <div class="lottie-index">
     <dotlottie-player id="mobileAnimation" src="./scripts/animations/jhon-boy-animation-index-mobile.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
     <dotlottie-player id="desktopAnimation" src="./scripts/animations/jhon-boy-animation-index.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
     </div>

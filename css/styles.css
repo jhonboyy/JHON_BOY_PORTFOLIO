@@ -152,6 +152,16 @@ header nav {
 
 }
 
+.project-container > .text-left {
+
+  display: flex;
+  height: 50px;
+  align-items: center;
+  padding: 0 0 0 1.5vh !important;
+  
+
+}
+
 .lottie-index {
   display: flex;
   height: 100%;
@@ -205,6 +215,7 @@ h1 {
 
 .menu-opened.works ul {
   
+  display: grid;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -213,6 +224,7 @@ h1 {
 
 .menu-opened.about ul {
   
+  display: grid;
   position: absolute;
   width: 100%;
   bottom: 0;
@@ -238,7 +250,7 @@ h1 {
   right: 0; 
   bottom: 0;
   background-color: black;
-  z-index: 3;
+  z-index: 4;
 }
 
 .MenuImageContainer {
@@ -290,6 +302,10 @@ h1 {
   height: 100%;
   grid-template-columns: 70% 30%;
   background-color: #ffffff;
+}
+
+.project-container-top p {
+  margin: 0;
 }
 
 .project-container-mid {
@@ -399,6 +415,11 @@ figure {
   grid-template-columns: 70% 1fr;
   grid-column-start: 1;
   grid-column-end: 3;
+}
+
+figcaption p {
+
+  margin:0;
 }
 
 .project-grid-top {
@@ -664,17 +685,7 @@ section address {
 @media screen and (max-width: 900px) {
   /* || MOBILE GENERAL STYLE */
 
-  .menu-opened-works::after {
-    content: '';
-    display: none;
-    position: absolute;
-    width: 1px;
-    height: var(--after-height);
-    right: 0; 
-    bottom: 0;
-    background-color: black;
-    z-index: 3;
-  }
+
 
   .split.right {
     width: 100%;
@@ -897,17 +908,24 @@ section address {
     grid-template-rows: max-content max-content;
   }
 
+
   nav ul {
     height: 50px;
+  }
+
+  .container-portrait {
+
+    border-bottom: 1px solid black;
+
   }
 
   .portrait, .portrait2{
     display: absolute;
     text-align: center;
     padding: 12%;
-    border-bottom: 1px solid black;
     grid-row-start: 4;
     grid-row-end: 5;
+    width: 60%;
   }
 
   .about-column-1 {
@@ -918,7 +936,7 @@ section address {
     box-sizing: border-box;
     border-right: 0px;
     width: 100%;
-    padding: 0;
+    padding: 30px 13px 0 13px;
     height: calc(100vh - 50px);
    }
 
@@ -954,62 +972,57 @@ section address {
   .description{
 
     padding-bottom: 15%;
+    padding-top: 15%;
 
   }
 
-  .container-portrait:hover .portrait {
-    display: grid;
-  }
 
   .about-column-2, .about-column-1 p{
     text-align: center;
   }
 
+  .about-column-2 {
+    top:70px;
+  }
+
   .menu-opened{
 
   position: absolute;
-  width: 50%;
-  height: 100%;
+  width: 100vw;
+  height: 50px;
   bottom: 0;
   left: 0;
+  overflow: hidden;
 }
 
-.menu-opened.works ul {
+.menu-opened.works ul,.menu-opened.about ul {
   
   position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   width: 100%;
   bottom: 0;
 
 }
 
-.menu-opened.about ul {
+.menu-opened.about nav,.menu-opened.works nav  {
   
   position: absolute;
   width: 100%;
   bottom: 0;
+  height: 50px;
 
 }
 
-.menu-opened.about nav {
-  
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  height: 150px;
+.menu-opened.works::after,.menu-opened.about::after{
+
+  display: none;
+
+
 
 }
 
 
-.menu-opened.works::after,.menu-opened.about::after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 1px;
-  height: var(--after-height);
-  right: 0; 
-  bottom: 0;
-  background-color: black;
-  z-index: 3;
-}
 
 }

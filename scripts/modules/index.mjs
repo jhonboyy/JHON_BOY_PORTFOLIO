@@ -95,7 +95,7 @@ export function writeText() {
         <li id="aboutButton" ><a>ABOUT</a></li>
         <li><a href="mailto:hello@jhonboy.com">CONTACT</a></li>
         <li><a href="https://github.com/jhonboyy" target="_blank">GITHUB</a></li>
-        <li><a href="https://www.instagram.com/jhon_boy" target="_blank">INSTAGRAM</a></li>
+        <li><a href="https://www.instagram.com/jhon_boy" target="_blank">INSTA</a></li>
       </ul>
     </nav>
   </header>

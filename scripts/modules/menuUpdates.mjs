@@ -2,9 +2,8 @@ import {
   cleanUpIndex,
   ensureImageContainerExists
 } from './menuCleaning.mjs';
-import {
-  updateContentStylesBasedOnWidth
-} from './about.mjs';
+
+import { updateContentStylesBasedOnWidth } from "./about.mjs";
 
 const buttonStates = {
   worksButton: false,
@@ -23,58 +22,68 @@ export function updateMenu(button) {
   adjustMenuBasedOnWidth(nav, ul, menuContainer, button);
 
   let lastWidth = window.innerWidth;
-  window.addEventListener('resize', () => {
-      if ((lastWidth <= 900 && window.innerWidth > 900) || (lastWidth > 900 && window.innerWidth <= 900)) {
-          if (aboutSectionCreated) {
-              updateContentStylesBasedOnWidth();
-          }
-          updateImages(); // Forzar actualización de imágenes
-          lastWidth = window.innerWidth;
-      }
-  });
+  window.addEventListener('resize', debounce(() => {
+    if ((lastWidth <= 900 && window.innerWidth > 900) || (lastWidth > 900 && window.innerWidth <= 900)) {
+      adjustMenuBasedOnWidth(nav, ul, menuContainer, button);
+      updateImages(); // Forzar actualización de imágenes
+      updateContentStylesBasedOnWidth();
+      lastWidth = window.innerWidth;
+    }
+  }, 50));
 }
+
+function debounce(func, wait, immediate) {
+  let timeout;
+  return function() {
+    const context = this, args = arguments;
+    const later = function() {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
 
 function adjustMenuBasedOnWidth(nav, ul, menuContainer, button) {
   if (window.innerWidth <= 900) {
-      adjustMenuForMobileOnWidth(ul, menuContainer, button);
+    adjustMenuForMobileOnWidth(ul, menuContainer, button);
   } else {
-      adjustMenuForDesktopOnWidth(nav, ul, menuContainer, button);
+    adjustMenuForDesktopOnWidth(nav, ul, menuContainer, button);
   }
 }
 
 function adjustMenuForMobileOnWidth(ul, container, button) {
-  ul.style.display = "grid";
-  ul.style.gridTemplateRows = "1fr";
-  ul.style.gridTemplateColumns = "repeat(5, 1fr)";
-  container.style.display = "grid";
-  container.style.width = "100%";
-  const worksButton = document.getElementById('worksButton');
-  const aboutButton = document.getElementById('aboutButton');
+  gsap.set(".menu-opened, #worksButton, #aboutButton", { clearProps: "all" });
 
-  worksButton.style.top = "0";
-  worksButton.style.borderBottom = "0";
+  buttonsBehaviour(container,button)
   worksButton.classList.remove("hideBefore");
-  aboutButton.style.top = "1px";
+  aboutButton.classList.remove("hideBefore");
 
-  toggleButtonState(button.id);
 }
+
 
 function adjustMenuForDesktopOnWidth(nav, ul, container, button) {
+  worksButton.classList.add("hideBefore");
+  aboutButton.classList.add("hideBefore");
 
-  animateDesktopMenu(container, button);
-}
-
-function animateDesktopMenu(container, button) {
+  worksButton.style.borderBottom = "1px solid black";
+  aboutButton.style.borderBottom = "1px solid black";
+  aboutButton.style.borderTop = "1px solid black";
 
   gsap.to(container, {
-      width: '50%',
-      left: 0,
-      duration: 0.2,
-      onComplete: () => {
-          animateMenuButton(button);
-          buttonsBehaviour(container, button);
-      }
+    width: '50%',
+    left: 0,
+    duration: 0.2,
+    onComplete: () => {
+        animateMenuButton(button);
+        buttonsBehaviour(container, button);
+    }
   });
+
 }
 
 function toggleButtonState(buttonId) {
@@ -93,48 +102,49 @@ function buttonsBehaviour(menuContainer, button) {
 
 function updateMenuStyle(buttonId, menuContainer) {
   const settings = {
-      worksButton: {
-          borderBottom: "1px solid black",
-          hideClass: 'hideBefore',
-          afterHeight: 'calc(100vh - 50px)',
-          paddingTop: "50px",
-          paddingBottom: "250px",
-          
-      },
-      aboutButton: {
-          borderBottom: "1px solid black",
-          borderTop: "1px solid black",
-          hideClass: 'hideBefore',
-          marginTop: "-1px",
-          afterHeight: '100vh',
-          paddingTop: "100px",
-          paddingBottom: "150px",
-      }
+    worksButton: {
+      borderBottom: "1px solid black",
+      borderTop: "", // Ensure all properties are defined, even if empty
+      hideClass: 'hideBefore',
+      afterHeight: 'calc(100vh - 50px)',
+      paddingTop: "50px",
+      paddingBottom: "250px",
+      marginTop: "",
+      zIndex: "4", // zIndex specified here
+    },
+    aboutButton: {
+      borderBottom: "1px solid black",
+      borderTop: "1px solid black",
+      hideClass: 'hideBefore',
+      marginTop: "-1px",
+      afterHeight: '100vh',
+      paddingTop: "100px",
+      paddingBottom: "150px",
+      zIndex: "4", // Ensure all properties are defined, even if empty
+    }
   };
-  
 
   const config = settings[buttonId];
   const button = document.getElementById(buttonId);
   const container = document.querySelector('.menu-opened');
   const newImageContainer = ensureImageContainerExists(menuContainer);
 
-  const worksButton = document.getElementById('worksButton');
-  const aboutButton = document.getElementById('aboutButton');
-
-  worksButton.style.borderBottom = settings.worksButton.borderBottom;
-  aboutButton.style.borderBottom = settings.aboutButton.borderBottom;
-
+  // Apply borderBottom and borderTop styles
   button.style.borderBottom = config.borderBottom;
-  button.classList.add(config.hideClass);
   if (config.borderTop) button.style.borderTop = config.borderTop;
   if (config.marginTop) button.style.marginTop = config.marginTop;
+  if (config.zIndex) button.style.zIndex = config.zIndex; 
 
+
+  // Apply class and update container styles
+  button.classList.add(config.hideClass);
   container.style.setProperty('--after-height', config.afterHeight);
   newImageContainer.style.paddingTop = config.paddingTop;
   newImageContainer.style.paddingBottom = config.paddingBottom;
 
   displayRelevantImage(buttonId, newImageContainer);
 }
+
 
 function animateMenuButton(targetButton) {
   const {

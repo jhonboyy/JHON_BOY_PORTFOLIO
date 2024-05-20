@@ -99,6 +99,31 @@ function showProjects() {
       </ul>
     </nav>
     <div class="projects-wrap">
+    <figure class="project-top commercial all">
+    <div style="background-color: white;">
+      <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-levain.lottie"></dotlottie-player>
+    </div>
+    <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg" loading="lazy" alt="cooker with a slice of bread" />
+    <div style="background-color: white;">
+      <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-masterbrand.lottie"></dotlottie-player>
+    </div>
+    <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-hat.svg" loading="lazy" alt="cooker with a hat" />
+    <div style="background-color: white;">
+      <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-hydration.lottie"></dotlottie-player>
+    </div>
+    <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-dough-on-its-face.svg" loading="lazy" alt="cooker with dough on their face" />
+    <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-dough.svg" loading="lazy" alt="rolling dough" />
+    <div style="background: white;"></div>
+    <div style="background-color: white;">
+      <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-flour.lottie"></dotlottie-player>
+    </div>
+    <figcaption>
+      <p class="text-left">FRAMA & TNWC - Kitchen towel 🍷🍇 <br />
+        <a id="flourlyLink"><u>READ MORE</u></a>
+      </p>
+      <p class="text-right">DEC.22.2022</p>
+    </figcaption>
+  </figure>
       <figure class="project-top commercial all">
         <div style="background-color: white;">
           <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-levain.lottie"></dotlottie-player>
@@ -201,22 +226,22 @@ function showProjects() {
       <figure class="project-solo-slider commercial all">
         <div class="slide-track">
           <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg" loading="lazy" alt="two persons working in a mine" />
+            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg" alt="two persons working in a mine" />
           </div>
           <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg" loading="lazy" alt="persons working in a mine one of them is carrying a rock" />
+            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg" alt="persons working in a mine one of them is carrying a rock" />
           </div>
           <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine-2.svg" loading="lazy" alt="persons working in a mine one of them is holding a pick" />
+            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine-2.svg" alt="persons working in a mine one of them is holding a pick" />
           </div>
           <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-helping.svg" loading="lazy" alt="persons helping to go out the people inside the mine" />
+            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-helping.svg" alt="persons helping to go out the people inside the mine" />
           </div>
           <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg" loading="lazy" alt="two persons working in a mine" />
+            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg" alt="two persons working in a mine" />
           </div>
           <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg" loading="lazy" alt="persons working in a mine one of them is carrying a rock" />
+            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg" alt="persons working in a mine one of them is carrying a rock" />
           </div>
         </div>
         <figcaption>

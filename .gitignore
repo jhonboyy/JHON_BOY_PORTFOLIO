@@ -1,0 +1,44 @@
+# Plantilla básica de .gitignore
+
+# Ignorar directorios de configuración de IDE/editores
+/.idea/
+/.vscode/
+*.sublime-workspace
+
+# Archivos temporales y de sistema
+*.log
+*.tmp
+*.bak
+*.swp
+*.lock
+
+# Directorios de dependencias
+/node_modules/
+/vendor/
+
+# Archivos de compilación y directorios de salida
+/build/
+/dist/
+/out/
+*.o
+*.class
+
+# Archivos específicos de configuración del proyecto
+.env
+config.yml
+config.json
+
+# Archivos de paquetes y lockfiles
+*.jar
+*.war
+*.ear
+package-lock.json
+yarn.lock
+
+# Ignorar archivos de bases de datos locales
+*.db
+*.sql
+*.sqlite
+
+# Carpeta de cobertura de tests
+/coverage/

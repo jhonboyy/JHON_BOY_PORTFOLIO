@@ -65,13 +65,13 @@ export function animateHeader () {
 export function index() { 
   return `
   <header class="index" id="mainContainer">
-    <h1 style="height: 51px;"></h1>
+    <h1 style="height: 50px;"></h1>
     <div class="lottie-index">
     </div>
     <nav>
       <ul>
-        <li id="IndexWorksButton" ><a></a></li>
-        <li id="IndexAboutButton" ><a></a></li>
+        <li id="worksButton"><a data-route="/works" ></a></li>
+        <li id="aboutButton" ><a data-route="/about" ></a></li>
         <li><a href="mailto:hello@jhonboy.com"></a></li>
         <li><a href="https://github.com/jhonboyy" target="_blank"></a></li>
         <li><a href="https://www.instagram.com/jhon_boy" target="_blank"></a></li>
@@ -91,8 +91,8 @@ export function writeText() {
     </div>
     <nav>
       <ul>
-        <li id="worksButton" ><a>WORKS</a></li>
-        <li id="aboutButton" ><a>ABOUT</a></li>
+        <li id="worksButton" ><a data-route="/works" >WORKS</a></li>
+        <li id="aboutButton" ><a data-route="/about" >ABOUT</a></li>
         <li><a href="mailto:hello@jhonboy.com">CONTACT</a></li>
         <li><a href="https://github.com/jhonboyy" target="_blank">GITHUB</a></li>
         <li><a href="https://www.instagram.com/jhon_boy" target="_blank">INSTA</a></li>

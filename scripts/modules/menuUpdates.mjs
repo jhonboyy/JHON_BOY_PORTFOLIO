@@ -4,6 +4,7 @@ import {
 } from './menuCleaning.mjs';
 
 import { updateContentStylesBasedOnWidth } from "./about.mjs";
+import { toggleContent } from './contentToggle.mjs';
 
 const buttonStates = {
   worksButton: false,
@@ -11,6 +12,21 @@ const buttonStates = {
 };
 
 let currentButton = null;
+
+export function menuButtonResponse() {
+  return new Promise(resolve => {
+      const aboutButton = document.getElementById('aboutButton');
+      const worksButton = document.getElementById('worksButton');
+
+      [aboutButton, worksButton].forEach(button => {
+          button?.addEventListener('click', () => {
+              updateMenu(button);
+              toggleContent(button);
+              resolve;
+          });
+      });
+  });
+}
 
 export function updateMenu(button) {
   const menuContainer = document.getElementById('mainContainer');
@@ -47,7 +63,6 @@ function debounce(func, wait, immediate) {
   };
 }
 
-
 function adjustMenuBasedOnWidth(nav, ul, menuContainer, button) {
   if (window.innerWidth <= 900) {
     adjustMenuForMobileOnWidth(ul, menuContainer, button);
@@ -64,7 +79,6 @@ function adjustMenuForMobileOnWidth(ul, container, button) {
   aboutButton.classList.remove("hideBefore");
 
 }
-
 
 function adjustMenuForDesktopOnWidth(nav, ul, container, button) {
   worksButton.classList.add("hideBefore");
@@ -144,7 +158,6 @@ function updateMenuStyle(buttonId, menuContainer) {
 
   displayRelevantImage(buttonId, newImageContainer);
 }
-
 
 function animateMenuButton(targetButton) {
   const {

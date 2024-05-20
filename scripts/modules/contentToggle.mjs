@@ -1,4 +1,4 @@
-import { createProjectsSection, rightWorksButtons, animateSections } from "./projects.mjs";
+import { createProjectsSection, rightWorksButtons, animateSections } from "./works.mjs";
 import { createAboutSection } from "./about.mjs";
 
 let projectsSectionCreated = false;

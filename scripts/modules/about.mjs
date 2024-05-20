@@ -15,26 +15,32 @@ function imageChange() {
 function adjustLayout(elements, width) {
   const { address, column1, column2, text, signature } = elements;
 
-  if (width <= 920) {
-    address.style.gridRowStart = "3";
-    address.style.gridRowEnd = "4";
-    column1.insertAdjacentElement("afterbegin", text);
-    text.style.gridRowStart = "2";
-    text.style.gridRowEnd = "3";
-    column2.insertAdjacentElement("beforeend", signature);
-    signature.style.gridRowStart = "3";
-    signature.style.gridRowEnd = "4";
+  // Verificar que todos los elementos existen
+  if (address && column1 && column2 && text && signature) {
+    if (width <= 920) {
+      address.style.gridRowStart = "3";
+      address.style.gridRowEnd = "4";
+      column1.insertAdjacentElement("afterbegin", text);
+      text.style.gridRowStart = "2";
+      text.style.gridRowEnd = "3";
+      column2.insertAdjacentElement("beforeend", signature);
+      signature.style.gridRowStart = "3";
+      signature.style.gridRowEnd = "4";
+    } else {
+      address.style.gridRowStart = "2";
+      address.style.gridRowEnd = "3";
+      column2.insertAdjacentElement("afterbegin", text);
+      text.style.gridRowStart = "1";
+      text.style.gridRowEnd = "2";
+      column1.insertAdjacentElement("beforeend", signature);
+      signature.style.gridRowStart = "3";
+      signature.style.gridRowEnd = "4";
+    }
   } else {
-    address.style.gridRowStart = "2";
-    address.style.gridRowEnd = "3";
-    column2.insertAdjacentElement("afterbegin", text);
-    text.style.gridRowStart = "1";
-    text.style.gridRowEnd = "2";
-    column1.insertAdjacentElement("beforeend", signature);
-    signature.style.gridRowStart = "3";
-    signature.style.gridRowEnd = "4";
+    console.warn("Algunos elementos no existen en 'elements'");
   }
 }
+
 
 // Consolidate element selections to be reused in different functions
 function getElements() {

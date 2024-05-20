@@ -11,6 +11,7 @@
 *.bak
 *.swp
 *.lock
+**/.DS_Store
 
 # Directorios de dependencias
 /node_modules/

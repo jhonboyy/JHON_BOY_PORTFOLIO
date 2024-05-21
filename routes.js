@@ -1,4 +1,4 @@
-import { Home, About, Works, pageNotFound } from '../app.js';
+import { Home, About, Works, pageNotFound } from './app.js';
 
 export async function buttonsRouteInteraction() {
   const aboutButton = document.getElementById('aboutButton');

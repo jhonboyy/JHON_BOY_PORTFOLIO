@@ -8,7 +8,7 @@ import {
   introduceAnimationOnLoad,
 } from './scripts/modules/index.mjs';
 
-import { handleLocationChange, buttonsRouteInteraction } from './scripts/routes.js';
+import { handleLocationChange, buttonsRouteInteraction } from './routes.js';
 import { menuButtonResponse } from './scripts/modules/menuUpdates.mjs';
 
 // Definir appContainer en un ámbito accesible
@@ -90,6 +90,7 @@ export async function About() {
   menuButtonResponse();
   // Simular el clic en el botón de works
   aboutButton.click();
+
 }
 
 // Función para manejar la ruta de Works
@@ -104,6 +105,7 @@ export async function Works() {
   menuButtonResponse();
   // Simular el clic en el botón de works
   worksButton.click();
+
 }
 
 // Manejar la ruta actual al cargar la página
@@ -112,7 +114,7 @@ async function init() {
 }
 
 export function pageNotFound() {
-  appContainer.innerHTML = `<h1>404 - Página no encontrada</h1>`;
+  appContainer.innerHTML = `<h1>404 - You're in the bad way son</h1>`;
 }
 
 // Event Listener para la Carga del DOM

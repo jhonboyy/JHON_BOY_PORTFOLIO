@@ -16,7 +16,8 @@ export function createProjectsSection() {
   });
 
   // Implement lazy loading for images
-  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  const lazyImages = document.querySelectorAll('img[data-src]');
+  
   lazyImages.forEach(img => {
     img.addEventListener('load', () => {
       img.classList.add('loaded');
@@ -29,6 +30,7 @@ export function createProjectsSection() {
       if (entry.isIntersecting) {
         const img = entry.target;
         img.src = img.dataset.src;
+        img.onload = () => img.classList.add('loaded');
         img.removeAttribute('data-src');
         observer.unobserve(img);
       }
@@ -91,6 +93,15 @@ export function rightWorksButtons() {
 
 function showProjects() {
   return `
+    ${generateNavMenu()}
+    <div class="projects-wrap">
+      ${generateProjects()}
+    </div>
+  `;
+}
+
+function generateNavMenu() {
+  return `
     <nav>
       <ul class="projects-nav">
         <li><a class="button active" id="buttonall">SEE ALL</a></li>
@@ -98,194 +109,287 @@ function showProjects() {
         <li><a class="button" id="buttoncommercial">COMMERCIAL</a></li>
       </ul>
     </nav>
-    <div class="projects-wrap">
-    <figure class="project-top commercial all">
+  `;
+}
+
+function generateProject(project) {
+  const { type, className, images, animations, captions } = project;
+  
+  const animationDivs = animations.map(src => `
     <div style="background-color: white;">
-      <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-levain.lottie"></dotlottie-player>
+      <dotlottie-player class="player" src="${src}"></dotlottie-player>
     </div>
-    <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg" loading="lazy" alt="cooker with a slice of bread" />
-    <div style="background-color: white;">
-      <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-masterbrand.lottie"></dotlottie-player>
-    </div>
-    <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-hat.svg" loading="lazy" alt="cooker with a hat" />
-    <div style="background-color: white;">
-      <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-hydration.lottie"></dotlottie-player>
-    </div>
-    <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-dough-on-its-face.svg" loading="lazy" alt="cooker with dough on their face" />
-    <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-dough.svg" loading="lazy" alt="rolling dough" />
-    <div style="background: white;"></div>
-    <div style="background-color: white;">
-      <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-flour.lottie"></dotlottie-player>
-    </div>
-    <figcaption>
-      <p class="text-left">FRAMA & TNWC - Kitchen towel 🍷🍇 <br />
-        <a id="flourlyLink"><u>READ MORE</u></a>
-      </p>
-      <p class="text-right">DEC.22.2022</p>
-    </figcaption>
-  </figure>
-      <figure class="project-top commercial all">
-        <div style="background-color: white;">
-          <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-levain.lottie"></dotlottie-player>
-        </div>
-        <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg" loading="lazy" alt="cooker with a slice of bread" />
-        <div style="background-color: white;">
-          <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-masterbrand.lottie"></dotlottie-player>
-        </div>
-        <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-hat.svg" loading="lazy" alt="cooker with a hat" />
-        <div style="background-color: white;">
-          <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-hydration.lottie"></dotlottie-player>
-        </div>
-        <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-dough-on-its-face.svg" loading="lazy" alt="cooker with dough on their face" />
-        <img data-src="./images/jhon-boy-illustration-bakken-&-baeck-flourly-dough.svg" loading="lazy" alt="rolling dough" />
-        <div style="background: white;"></div>
-        <div style="background-color: white;">
-          <dotlottie-player class="player" src="./scripts/animations/jhon-boy-animation-flourly-flour.lottie"></dotlottie-player>
-        </div>
-        <figcaption>
-          <p class="text-left">Bakken & Baeck - Flourly brand illustrations 🥖👨🏻‍🍳 <br />
-            <a id="flourlyLink"><u>READ MORE</u></a>
-          </p>
-          <p class="text-right">DEC.22.2022</p>
-        </figcaption>
-      </figure>
-      <figure class="project-grid-top personal all">
-        <img data-src="./images/jhon-boy-illustration-person-in-a-cabin-interior.svg" loading="lazy" alt="Person in a cabin" />
-        <img data-src="./images/jhon-boy-illustration-bag-with-money.svg" loading="lazy" alt="Bag with money in a fireplace" />
-        <img data-src="./images/jhon-boy-illustration-strike-a-match.svg" loading="lazy" alt="Closeup of hands striking a match" />
-        <img data-src="./images/jhon-boy-illustration-a-cabin-refuge.svg" loading="lazy" alt="A cabin from the outside" />
-        <figcaption>
-          <p class="text-left">A cabin, the new refugee 🏡🔥💶</p>
-          <p class="text-right">NOV.11.2020</p>
-        </figcaption>
-      </figure>
-      <figure class="project-solo personal all">
-        <img data-src="./images/jhon-boy-illustration-persons-boxing.svg" loading="lazy" alt="two characters boxing" />
-        <figcaption>
-          <p class="text-left">The new boxing era 💥 🥊</p>
-          <p class="text-right">NOV.04.2020</p>
-        </figcaption>
-      </figure>
-      <figure class="project-grid commercial all">
-        <img data-src="./images/jhon-boy-illustration-ace-&-tate-characters-in-a-chair.svg" loading="lazy" alt="one person sit in a chair and a few others around interacting with him" />
-        <img data-src="./images/jhon-boy-illustration-ace-&-tate-persons-destroying-a-canvas.svg" loading="lazy" alt="persons destroying a canvas" />
-        <img data-src="./images/jhon-boy-illustration-ace-&-tate-persons-in-a-scarf.svg" loading="lazy" alt="a group of persons wearing a giant scarf" />
-        <img data-src="./images/jhon-boy-illustration-ace-&-tate-a-person-carrying-stuff-walking.svg" loading="lazy" alt="a person walking and carrying stuff with their hands" />
-        <img data-src="./images/jhon-boy-illustration-ace-&-tate-persons-helping-to-take-off-a-sweater.svg" loading="lazy" alt="two persons helping to another person to take off a sweater" />
-        <img data-src="./images/jhon-boy-illustration-ace-&-tate-persons-with-a-voucher.svg" loading="lazy" alt="a group of people holding and admiring a voucher" />
-        <img data-src="./images/jhon-boy-illustration-ace-&-tate-persons-enjoying-coffee.svg" loading="lazy" alt="a person enjoying a coffe with their friends on christmas" />
-        <img data-src="./images/jhon-boy-illustration-ace-&-tate-person-in-the-sofa-christmas.svg" loading="lazy" alt="a person in a sofa enjoying a christmas gift next to the tree" />
-        <figcaption class="commercial all">
-          <p class="text-left">Ace&Tate winter campaign 🤓👓</p>
-          <p class="text-right">DEC.16.2020</p>
-        </figcaption>
-      </figure>
-      <figure class="project-solo personal all">
-        <img data-src="./images/jhon-boy-illustration-trumpet.svg" loading="lazy" alt="a flat trompet" />
-        <figcaption>
-          <p class="text-left">A trumpet 🎺</p>
-          <p class="text-right">MAR.06.2022</p>
-        </figcaption>
-      </figure>
-      <figure class="project-grid personal all">
-        <img data-src="./images/jhon-boy-illustration-hand-and-nail.svg" loading="lazy" alt="closeup of a hand holding a nail in a wall" />
-        <img data-src="./images/jhon-boy-illustration-person-nailing-with-a-hammer.svg" loading="lazy" alt="closeup of a hand nailing with a hammer" />
-        <img data-src="./images/jhon-boy-illustration-person-hanging-a-photo.svg" loading="lazy" alt="closeup of a person hands hanging a photo in the wall" />
-        <img data-src="./images/jhon-boy-illustration-person-sitted-in-a-sofa.svg" loading="lazy" alt="a room with two sofas and a person sitted in one of them" />
-        <figcaption>
-          <p class="text-left">To all of those who are gone 🚶🏻‍♂️</p>
-          <p class="text-right">SEP.21.2020</p>
-        </figcaption>
-      </figure>
-      <figure class="project-solo personal all">
-        <img data-src="./images/jhon-boy-illustration-people-playing-baseball.svg" loading="lazy" alt="people playing baseball" />
-        <figcaption>
-          <p class="text-left">Baseball is pretty dangerous ⚾️🤕</p>
-          <p class="text-right">OCT.07.2020</p>
-        </figcaption>
-      </figure>
-      <figure class="project-grid personal all">
-        <img data-src="./images/jhon-boy-illustration-person-pointing-with-a-gun.svg" loading="lazy" alt="person pointing to another person with a gun" />
-        <img data-src="./images/jhon-boy-illustration-person-about-to-run.svg" loading="lazy" alt="two person one of them about to run" />
-        <img data-src="./images/jhon-boy-illustration-person-in-a-hole.svg" loading="lazy" alt="person jumping to a hole in the other person chest" />
-        <img data-src="./images/jhon-boy-illustration-person-being-shooted.svg" loading="lazy" alt="a person being shooted" />
-        <img data-src="./images/jhon-boy-illustration-person-shooted-lying-on-the-ground.svg" loading="lazy" alt="a person lying on the ground with the gun" />
-        <div style="background: white;"></div>
-        <figcaption>
-          <p class="text-left">You're deadlier than a gunshot 🔫😖</p>
-          <p class="text-right">JUL.22.2020</p>
-        </figcaption>
-      </figure>
-      <figure class="project-solo personal all">
-        <img data-src="./images/jhon-boy-illustration-car-accident-fruit.svg" loading="lazy" alt="a car crashing into a fruit store" />
-        <figcaption>
-          <p class="text-left">Fruitful accident 🍋🍎🍈</p>
-          <p class="text-right">AUG.09.2020</p>
-        </figcaption>
-      </figure>
-      <figure class="project-solo-slider commercial all">
+  `).join('');
+
+  const imageTags = images.map(({ src, alt }) => `
+    <img data-src="${src}" loading="lazy" alt="${alt}" />
+  `).join('');
+
+  if (className === 'project-solo-slider') {
+    const slides = images.map(({ src, alt }) => `
+      <div class="slide">
+        <img src="${src}" alt="${alt}" />
+      </div>
+    `).join('');
+
+    return `
+      <figure class="${className} ${type}">
         <div class="slide-track">
-          <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg" alt="two persons working in a mine" />
-          </div>
-          <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg" alt="persons working in a mine one of them is carrying a rock" />
-          </div>
-          <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine-2.svg" alt="persons working in a mine one of them is holding a pick" />
-          </div>
-          <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-helping.svg" alt="persons helping to go out the people inside the mine" />
-          </div>
-          <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg" alt="two persons working in a mine" />
-          </div>
-          <div class="slide">
-            <img data-src="./images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg" alt="persons working in a mine one of them is carrying a rock" />
-          </div>
+          ${slides}
         </div>
         <figcaption>
-          <p class="text-left">Illustration for WIX Playground Academy ✨</p>
-          <p class="text-right">DEC.12.2021</p>
+          <p class="text-left">${captions.left}</p>
+          <p class="text-right">${captions.right}</p>
         </figcaption>
       </figure>
-      <figure class="project-grid personal all">
-        <img data-src="./images/jhon-boy-illustration-desk-smoke-2.svg" loading="lazy" alt="closeup of a hand nailing with a hammer" />
-        <img data-src="./images/jhon-boy-illustration-desk-smoke-2.svg" loading="lazy" alt="closeup of a hand nailing with a hammer" />
-        <img data-src="./images/jhon-boy-illustration-desk-smoke-2.svg" loading="lazy" alt="closeup of a hand nailing with a hammer" />
-        <img data-src="./images/jhon-boy-illustration-desk-smoke-2.svg" loading="lazy" alt="closeup of a hand nailing with a hammer" />
-        <figcaption>
-          <p class="text-left">Een andere dag zat ik voor het notitieboekje 📖</p>
-          <p class="text-right">JUL.16.2022</p>
-        </figcaption>
-      </figure>
-      <figure class="project-solo commercial all">
-        <div class="image-container"></div>
-        <div class="image-container-2"></div>
-        <figcaption>
-          <p class="text-left">Red Cross Tenerife X AIDS ⛑️❤️ <br /> Credits: <a href="https://www.instagram.com/muroslibresproject/" target="_blank">Muros Libres</a>
-          </p>
-          <p class="text-right">DEC.01.2021</p>
-        </figcaption>
-      </figure>
-      <figure class="project-grid personal all">
-        <img data-src="./images/jhon-boy-illustration-hotel-entrance-stairs.svg" loading="lazy" alt="the stairs of a hotel hall" />
-        <img data-src="./images/jhon-boy-illustration-room-entrance-door.svg" loading="lazy" alt="frontview of a room door" />
-        <img data-src="./images/jhon-boy-illustration-person-opening-envelope.svg" loading="lazy" alt="closeup of some hands opening an envelope" />
-        <img data-src="./images/jhon-boy-illustration-telephone.svg" loading="lazy" alt="telephone with four numbers" />
-        <img data-src="./images/jhon-boy-illustration-hands-rustling-paper.svg" loading="lazy" alt="closeup of some hands rustling a piece of paper" />
-        <div style="background: white;"></div>
-        <figcaption class="project-text personal all">
-          <p class="text-left">The call 📞</p>
-          <p class="text-right">OCT.25.2021</p>
-        </figcaption>
-      </figure>
-      <figure class="project-solo personal all">
-        <img data-src="./images/jhon-boy-illustration-persons-in-the-metro.svg" loading="lazy" alt="a persons pointing to each other in the metro" />
-        <figcaption class="project-text personal all">
-          <p class="text-left">The pickpocket mafia causing chaos in the subway 🚂🥵</p>
-          <p class="text-right">MAY.11.2020</p>
-        </figcaption>
-      </figure>
-    </div>`;
+    `;
+  }
+
+  return `
+    <figure class="${className} ${type}">
+      ${animationDivs}
+      ${imageTags}
+      <figcaption>
+        <p class="text-left">${captions.left}</p>
+        <p class="text-right">${captions.right}</p>
+      </figcaption>
+    </figure>
+  `;
+}
+
+function generateProjects() {
+  const projects = [
+    {
+      type: 'commercial all',
+      className: 'project-top',
+      animations: [
+        './scripts/animations/jhon-boy-animation-flourly-levain.lottie',
+        './scripts/animations/jhon-boy-animation-flourly-masterbrand.lottie',
+        './scripts/animations/jhon-boy-animation-flourly-hydration.lottie',
+        './scripts/animations/jhon-boy-animation-flourly-flour.lottie'
+      ],
+      images: [
+        { src: './images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg', alt: 'cooker with a slice of bread' },
+        { src: './images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-hat.svg', alt: 'cooker with a hat' },
+        { src: './images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-dough-on-its-face.svg', alt: 'cooker with dough on their face' },
+        { src: './images/jhon-boy-illustration-bakken-&-baeck-flourly-dough.svg', alt: 'rolling dough' },
+        { src: './images/white.png' }
+      ],
+      captions: {
+        left: 'FRAMA & TNWC - Kitchen towel 🍷🍇 <br /><a id="flourlyLink"><u>READ MORE</u></a>',
+        right: 'DEC.22.2022'
+      }
+    },
+    {
+      type: 'commercial all',
+      className: 'project-top',
+      animations: [
+        './scripts/animations/jhon-boy-animation-flourly-levain.lottie',
+        './scripts/animations/jhon-boy-animation-flourly-masterbrand.lottie',
+        './scripts/animations/jhon-boy-animation-flourly-hydration.lottie',
+        './scripts/animations/jhon-boy-animation-flourly-flour.lottie'
+      ],
+      images: [
+        { src: './images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg', alt: 'cooker with a slice of bread' },
+        { src: './images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-hat.svg', alt: 'cooker with a hat' },
+        { src: './images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-dough-on-its-face.svg', alt: 'cooker with dough on their face' },
+        { src: './images/jhon-boy-illustration-bakken-&-baeck-flourly-dough.svg', alt: 'rolling dough' },
+        { src: './images/white.png' }
+      ],
+      captions: {
+        left: 'Bakken & Baeck - Flourly brand illustrations 🥖👨🏻‍🍳 <br /><a id="flourlyLink"><u>READ MORE</u></a>',
+        right: 'DEC.22.2022'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-grid-top',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-person-in-a-cabin-interior.svg', alt: 'Person in a cabin' },
+        { src: './images/jhon-boy-illustration-bag-with-money.svg', alt: 'Bag with money in a fireplace' },
+        { src: './images/jhon-boy-illustration-strike-a-match.svg', alt: 'Closeup of hands striking a match' },
+        { src: './images/jhon-boy-illustration-a-cabin-refuge.svg', alt: 'A cabin from the outside' }
+      ],
+      captions: {
+        left: 'A cabin, the new refugee 🏡🔥💶',
+        right: 'NOV.11.2020'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-solo',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-persons-boxing.svg', alt: 'two characters boxing' }
+      ],
+      captions: {
+        left: 'The new boxing era 💥 🥊',
+        right: 'NOV.04.2020'
+      }
+    },
+    {
+      type: 'commercial all',
+      className: 'project-grid',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-ace-&-tate-characters-in-a-chair.svg', alt: 'one person sit in a chair and a few others around interacting with him' },
+        { src: './images/jhon-boy-illustration-ace-&-tate-persons-destroying-a-canvas.svg', alt: 'persons destroying a canvas' },
+        { src: './images/jhon-boy-illustration-ace-&-tate-persons-in-a-scarf.svg', alt: 'a group of persons wearing a giant scarf' },
+        { src: './images/jhon-boy-illustration-ace-&-tate-a-person-carrying-stuff-walking.svg', alt: 'a person walking and carrying stuff with their hands' },
+        { src: './images/jhon-boy-illustration-ace-&-tate-persons-helping-to-take-off-a-sweater.svg', alt: 'two persons helping to another person to take off a sweater' },
+        { src: './images/jhon-boy-illustration-ace-&-tate-persons-with-a-voucher.svg', alt: 'a group of people holding and admiring a voucher' },
+        { src: './images/jhon-boy-illustration-ace-&-tate-persons-enjoying-coffee.svg', alt: 'a person enjoying a coffe with their friends on christmas' },
+        { src: './images/jhon-boy-illustration-ace-&-tate-person-in-the-sofa-christmas.svg', alt: 'a person in a sofa enjoying a christmas gift next to the tree' }
+      ],
+      captions: {
+        left: 'Ace&Tate winter campaign 🤓👓',
+        right: 'DEC.16.2020'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-solo',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-trumpet.svg', alt: 'a flat trompet' }
+      ],
+      captions: {
+        left: 'A trumpet 🎺',
+        right: 'MAR.06.2022'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-grid',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-hand-and-nail.svg', alt: 'closeup of a hand holding a nail in a wall' },
+        { src: './images/jhon-boy-illustration-person-nailing-with-a-hammer.svg', alt: 'closeup of a hand nailing with a hammer' },
+        { src: './images/jhon-boy-illustration-person-hanging-a-photo.svg', alt: 'closeup of a person hands hanging a photo in the wall' },
+        { src: './images/jhon-boy-illustration-person-sitted-in-a-sofa.svg', alt: 'a room with two sofas and a person sitted in one of them' }
+      ],
+      captions: {
+        left: 'To all of those who are gone 🚶🏻‍♂️',
+        right: 'SEP.21.2020'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-solo',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-people-playing-baseball.svg', alt: 'people playing baseball' }
+      ],
+      captions: {
+        left: 'Baseball is pretty dangerous ⚾️🤕',
+        right: 'OCT.07.2020'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-grid',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-person-pointing-with-a-gun.svg', alt: 'person pointing to another person with a gun' },
+        { src: './images/jhon-boy-illustration-person-about-to-run.svg', alt: 'two person one of them about to run' },
+        { src: './images/jhon-boy-illustration-person-in-a-hole.svg', alt: 'person jumping to a hole in the other person chest' },
+        { src: './images/jhon-boy-illustration-person-being-shooted.svg', alt: 'a person being shooted' },
+        { src: './images/jhon-boy-illustration-person-shooted-lying-on-the-ground.svg', alt: 'a person lying on the ground with the gun' },
+        { src: './images/white.png' }
+      ],
+      captions: {
+        left: 'You\'re deadlier than a gunshot 🔫😖',
+        right: 'JUL.22.2020'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-solo',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-car-accident-fruit.svg', alt: 'a car crashing into a fruit store' }
+      ],
+      captions: {
+        left: 'Fruitful accident 🍋🍎🍈',
+        right: 'AUG.09.2020'
+      }
+    },
+    {
+      type: 'commercial all',
+      className: 'project-solo-slider',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg', alt: 'two persons working in a mine' },
+        { src: './images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg', alt: 'persons working in a mine one of them is carrying a rock' },
+        { src: './images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine-2.svg', alt: 'persons working in a mine one of them is holding a pick' },
+        { src: './images/jhon-boy-illustration-wix-playground-academy-persons-helping.svg', alt: 'persons helping to go out the people inside the mine' },
+        { src: './images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg', alt: 'two persons working in a mine' },
+        { src: './images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg', alt: 'persons working in a mine one of them is carrying a rock' }
+      ],
+      captions: {
+        left: 'Illustration for WIX Playground Academy ✨',
+        right: 'DEC.12.2021'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-grid',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-desk-smoke-2.svg', alt: 'closeup of a hand nailing with a hammer' },
+        { src: './images/jhon-boy-illustration-desk-smoke-2.svg', alt: 'closeup of a hand nailing with a hammer' },
+        { src: './images/jhon-boy-illustration-desk-smoke-2.svg', alt: 'closeup of a hand nailing with a hammer' },
+        { src: './images/jhon-boy-illustration-desk-smoke-2.svg', alt: 'closeup of a hand nailing with a hammer' }
+      ],
+      captions: {
+        left: 'Een andere dag zat ik voor het notitieboekje 📖',
+        right: 'JUL.16.2022'
+      }
+    },
+    {
+      type: 'commercial all',
+      className: 'project-solo',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp', alt: '' },
+        { src: './images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp', alt: '' },
+      ],
+      captions: {
+        left: 'Red Cross Tenerife X AIDS ⛑️❤️ <br /> Credits: <a href="https://www.instagram.com/muroslibresproject/" target="_blank">Muros Libres</a>',
+        right: 'DEC.01.2021'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-grid',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-hotel-entrance-stairs.svg', alt: 'the stairs of a hotel hall' },
+        { src: './images/jhon-boy-illustration-room-entrance-door.svg', alt: 'frontview of a room door' },
+        { src: './images/jhon-boy-illustration-person-opening-envelope.svg', alt: 'closeup of some hands opening an envelope' },
+        { src: './images/jhon-boy-illustration-telephone.svg', alt: 'telephone with four numbers' },
+        { src: './images/jhon-boy-illustration-hands-rustling-paper.svg', alt: 'closeup of some hands rustling a piece of paper' },
+        { src: './images/white.png' }
+      ],
+      captions: {
+        left: 'The call 📞',
+        right: 'OCT.25.2021'
+      }
+    },
+    {
+      type: 'personal all',
+      className: 'project-solo',
+      animations: [],
+      images: [
+        { src: './images/jhon-boy-illustration-persons-in-the-metro.svg', alt: 'a persons pointing to each other in the metro' }
+      ],
+      captions: {
+        left: 'The pickpocket mafia causing chaos in the subway 🚂🥵',
+        right: 'MAY.11.2020'
+      }
+    }
+  ];
+
+  return projects.map(generateProject).join('');
 }

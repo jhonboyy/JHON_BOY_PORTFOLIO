@@ -15,16 +15,22 @@ let currentButton = null;
 
 export function menuButtonResponse() {
   return new Promise(resolve => {
-      const aboutButton = document.getElementById('aboutButton');
-      const worksButton = document.getElementById('worksButton');
+    const aboutButton = document.getElementById('aboutButton');
+    const worksButton = document.getElementById('worksButton');
 
-      [aboutButton, worksButton].forEach(button => {
-          button?.addEventListener('click', () => {
-              updateMenu(button);
-              toggleContent(button);
-              resolve;
-          });
+    [aboutButton, worksButton].forEach(button => {
+      button?.addEventListener('click', async () => {
+        updateMenu(button);
+        toggleContent(button);
+        // Actualizar la URL y manejar el cambio de ruta
+        if (button === aboutButton) {
+          history.pushState(null, '', '/about');
+        } else if (button === worksButton) {
+          history.pushState(null, '', '/works');
+        }
+        resolve();
       });
+    });
   });
 }
 

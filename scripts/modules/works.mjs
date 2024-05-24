@@ -1,4 +1,6 @@
 import { CreateFlourlyContainer } from "./flourly.mjs";
+import { CreateFramaContainer } from "./frama.mjs";
+
 
 export function createProjectsSection() {
   const projectsSection = document.createElement('section');
@@ -10,9 +12,15 @@ export function createProjectsSection() {
   appContainer.appendChild(projectsSection);
 
   const flourlyButton = document.getElementById("flourlyLink");
+  const framaButton = document.getElementById("framaLink");
+
 
   flourlyButton.addEventListener('click', function() {
     CreateFlourlyContainer();
+  });
+
+  framaButton.addEventListener('click', function() {
+    CreateFramaContainer();
   });
 
   // Implement lazy loading for images
@@ -193,7 +201,7 @@ function generateProjects() {
       className: 'project-solo',
       animations: [],
       images: [
-        { src: './images/jhon-boy-illustration-frama-tnwc.jpg', alt: '' },
+        { src: './images/jhon-boy-illustration-frama-tnwc-1.webp', alt: '' },
       ],
       captions: {
         left: 'Frama - For the wine lovers 🍷🍇 <br /><a id="framaLink"><u>READ MORE</u></a>',

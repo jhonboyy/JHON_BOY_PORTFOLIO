@@ -11,9 +11,6 @@ import {
 import { handleLocationChange, buttonsRouteInteraction } from './routes.js';
 import { menuButtonResponse } from './scripts/modules/menuUpdates.mjs';
 
-import { inject } from "./node_modules/@vercel/analytics/dist/index.mjs";
-
-inject();
 
 // Definir appContainer en un ámbito accesible
 let appContainer;

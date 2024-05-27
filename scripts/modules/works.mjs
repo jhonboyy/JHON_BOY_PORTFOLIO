@@ -2,8 +2,6 @@ import { CreateFlourlyContainer } from "../project_details/flourly.mjs";
 import { CreateFramaContainer } from "../project_details/frama.mjs";
 import { CreateLavaContainer } from "../project_details/lava.mjs";
 
-
-
 export function createProjectsSection() {
   const projectsSection = document.createElement('section');
   projectsSection.id = 'works-content';

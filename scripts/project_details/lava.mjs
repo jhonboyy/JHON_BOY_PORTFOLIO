@@ -37,19 +37,19 @@ function updatePointerEvents(screenWidth) {
 function RenderlavaContainer() {
 
   return `<div class="project-container-top">
-    <p class="text-left">BRANDING, ANIMATION, IDENTITY</p>
+    <p class="text-left">BRANDING, ANIMATION, VISUAL IDENTITY</p>
     <p class="text-right">◷ 4 MIN READ</p>
   </div>
   <div class="project-container-mid lava">
     <p>
-      <u>DO YOU LIKE WINE?</u>
+      <u>ABOUT LAVA CIRCULAR</u>
       <br> 
       This project represents the inaugural entry in the Personal Canvas series, a collaboration between lava and The Natural Wine Company based in Barcelona. As an artist, I crafted the playful illustration featured on a limited-edition kitchen towel, designed to complement natural wine aesthetics. Drawing inspiration from Bacco, my artwork reflects the earthy terracottas and vibrant greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.</p>
     <div style="grid-column-start: 1; grid-column-end: 2;">
-      <dotlottie-player src="./scripts/animations/lava-animation.lottie" speed="1" loop autoplay style="position: relative; width: 100%; height: auto;" ></dotlottie-player>
+      <dotlottie-player src="./scripts/animations/lava-loom.lottie" speed="1" loop autoplay style="position: relative; width: 100%; height: auto;" ></dotlottie-player>
     </div>
     <p>
-      <u>PROCESS</u><br>
+      <u>PROJECT GOALS</u><br>
       To add a dynamic touch to the static illustration, I incorporated subtle animation that introduces gentle movement, enhancing the visual impact without altering the narrative. 
       This animation serves as a complementary action, adding a layer of engagement and emphasizing the natural elements depicted in the artwork.<br><br>The Personal Canvas series seeks to uncover and celebrate the intricate craft behind natural winemaking, highlighting the sustainable practices integral to this artisanal industry. 
       By integrating traditional crafts such as weaving, glass-blowing, and winemaking, the project emphasizes the deep connection between human hands and heritage, bridging art with the innovative practices of natural wine production. 

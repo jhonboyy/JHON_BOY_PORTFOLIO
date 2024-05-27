@@ -8,8 +8,12 @@ import {
   introduceAnimationOnLoad,
 } from './scripts/modules/index.mjs';
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import { handleLocationChange, buttonsRouteInteraction } from './routes.js';
 import { menuButtonResponse } from './scripts/modules/menuUpdates.mjs';
+
+<SpeedInsights/>
 
 // Definir appContainer en un ámbito accesible
 let appContainer;

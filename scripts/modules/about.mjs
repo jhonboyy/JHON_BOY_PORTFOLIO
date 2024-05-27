@@ -126,10 +126,9 @@ function showAbout (){
       PRESS: <br>
       <a href="https://hypebeast.com/hk/2024/5/uniqlo-utgp2024the-louvre-musee-du-louvre-collection-design-competition-info" target="_blank">HYPEBEAST (2024)</a><br>
       <a href="https://www.itsnicethat.com/articles/santanasantana-jhon-boy-rafael-grullon-lava-circular-graphic-design-project-160424" target="_blank">IT'S NICE THAT (2024)</a><br>
-      <a href="https://www.itsnicethat.com/news/illo-strava-graphic-design-illustration-200123" target="_blank">IT'S NICE THAT (2023)</a><br>
       <a href="https://www.itsnicethat.com/articles/jhon-boy-illustration-061120" target="_blank">IT'S NICE THAT (2020)</a><br><br>
       TALKS:<br>
-      <a href="https://tenerifedesignweek.com/web/#charlas" target="_blank">TENERIFE DESIGN WEEK (2023)</a> <br>
+      <a href="https://tenerifedesignweek.com/web/#charlas" target="_blank">TENERIFE DESIGN WEEK (2023) "The image"</a> <br>
     </p>
   </div>`
 

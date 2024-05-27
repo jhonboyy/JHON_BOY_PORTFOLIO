@@ -1,5 +1,7 @@
-import { CreateFlourlyContainer } from "./flourly.mjs";
-import { CreateFramaContainer } from "./frama.mjs";
+import { CreateFlourlyContainer } from "../project_details/flourly.mjs";
+import { CreateFramaContainer } from "../project_details/frama.mjs";
+import { CreateLavaContainer } from "../project_details/lava.mjs";
+
 
 
 export function createProjectsSection() {
@@ -13,6 +15,8 @@ export function createProjectsSection() {
 
   const flourlyButton = document.getElementById("flourlyLink");
   const framaButton = document.getElementById("framaLink");
+  const lavaButton = document.getElementById("lavaLink");
+
 
 
   flourlyButton.addEventListener('click', function() {
@@ -21,6 +25,10 @@ export function createProjectsSection() {
 
   framaButton.addEventListener('click', function() {
     CreateFramaContainer();
+  });
+
+  lavaButton.addEventListener('click', function() {
+    CreateLavaContainer();
   });
 
   // Implement lazy loading for images
@@ -130,13 +138,13 @@ function generateProject(project) {
   `).join('');
 
   const imageTags = images.map(({ src, alt }) => `
-    <img data-src="${src}" loading="lazy" alt="${alt}" />
+    <img data-src="${src}" loading="lazy" width="auto" height="auto" alt="${alt}" />
   `).join('');
 
   if (className === 'project-solo-slider') {
     const slides = images.map(({ src, alt }) => `
       <div class="slide">
-        <img src="${src}" alt="${alt}" />
+        <img src="${src}" alt="${alt}" width="auto" height="auto" />
       </div>
     `).join('');
 

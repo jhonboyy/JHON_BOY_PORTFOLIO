@@ -8,10 +8,6 @@ import {
   introduceAnimationOnLoad,
 } from './scripts/modules/index.mjs';
 
-import { injectSpeedInsights } from '@vercel/speed-insights';
-
-injectSpeedInsights();
-
 import { handleLocationChange, buttonsRouteInteraction } from './routes.js';
 import { menuButtonResponse } from './scripts/modules/menuUpdates.mjs';
 

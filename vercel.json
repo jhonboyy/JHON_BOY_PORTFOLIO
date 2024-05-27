@@ -1,5 +1,15 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
-  ]
+  ],
+  "static": {
+    "headers": [
+      {
+        "source": "/fonts/(.*)",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      }
+    ]
+  }
 }

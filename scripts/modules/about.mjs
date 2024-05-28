@@ -128,11 +128,8 @@ function showAbout (){
       <a href="https://www.itsnicethat.com/articles/santanasantana-jhon-boy-rafael-grullon-lava-circular-graphic-design-project-160424" target="_blank">IT'S NICE THAT (2024)</a><br>
       <a href="https://www.itsnicethat.com/articles/jhon-boy-illustration-061120" target="_blank">IT'S NICE THAT (2020)</a><br><br>
       TALKS:<br>
-      <a href="https://tenerifedesignweek.com/web/#charlas" target="_blank">TENERIFE DESIGN WEEK (2023) "The image"</a> <br>
+      <a href="https://tenerifedesignweek.com/web/#charlas" target="_blank">TENERIFE DESIGN WEEK (2023) "THE IMAGE"</a> <br>
     </p>
   </div>`
 
 }
-
-
-

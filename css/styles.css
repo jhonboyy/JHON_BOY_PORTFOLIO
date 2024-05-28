@@ -597,6 +597,15 @@ figcaption p {
   grid-template-rows: repeat(7,1fr);
 }
 
+.lava {
+  display: grid;
+  height: 100%;
+  width: 50vw;
+  grid-template-columns: 80%;
+  grid-template-rows: repeat(7,1fr);
+}
+
+
 .slider {
   display: grid; 
   grid-template-columns: 1fr 1fr 1fr; 

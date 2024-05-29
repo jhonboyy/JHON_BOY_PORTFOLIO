@@ -11,7 +11,6 @@ import {
 import { handleLocationChange, buttonsRouteInteraction } from './routes.js';
 import { menuButtonResponse } from './scripts/modules/menuUpdates.mjs';
 
-
 // Definir appContainer en un ámbito accesible
 let appContainer;
 

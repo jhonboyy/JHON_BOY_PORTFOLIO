@@ -605,13 +605,33 @@ figcaption p {
   grid-template-rows: repeat(7,1fr);
 }
 
+.lava :nth-child(8) {
+  width: 70%;
+}
+
+
+.lava :nth-child(13) {
+
+  width: 70%;
+
+
+}
+
 .lava-sketches {
 
   display: grid; 
-  grid-template-columns: 10px 1fr 10px; 
+  grid-template-columns: auto 80% auto; 
   gap: 10px;
-  width: 110%;
-  padding-left: 35px;
+  width: 50vw;
+  padding-left: 0px;
+  align-items: center;
+  justify-items: center;
+
+}
+
+.w3-content{
+
+  width: 100%;
 }
 
 
@@ -874,6 +894,20 @@ section address {
     width: 100vw;
     grid-template-columns: 100%;
     grid-template-rows: repeat(7,1fr);
+  }
+
+  .lava :nth-child(8) {
+
+    width: 100%;
+
+
+  }
+
+  .lava :nth-child(13) {
+
+    width: 100%;
+
+
   }
 
   .lava-img{

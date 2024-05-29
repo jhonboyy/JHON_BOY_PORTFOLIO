@@ -5,6 +5,7 @@ import {
 
 import { updateContentStylesBasedOnWidth } from "./about.mjs";
 import { toggleContent } from './contentToggle.mjs';
+import { updatePointerEvents } from '../project_details/lava.mjs';
 
 const buttonStates = {
   worksButton: false,
@@ -49,7 +50,9 @@ export function updateMenu(button) {
       adjustMenuBasedOnWidth(nav, ul, menuContainer, button);
       updateImages(); // Forzar actualización de imágenes
       updateContentStylesBasedOnWidth();
+      updatePointerEvents();
       lastWidth = window.innerWidth;
+
     }
   }, 50));
 }

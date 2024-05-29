@@ -1,3 +1,5 @@
+import { updatePointerEvents } from "./lava.mjs";
+
 export function CreateFlourlyContainer() {
   const appContainer = document.getElementById('app-container');
 
@@ -11,11 +13,14 @@ export function CreateFlourlyContainer() {
     flourlyContainer.innerHTML = RenderflourlyContainer();
     appContainer.appendChild(flourlyContainer);
 
+    updatePointerEvents();
+
     // Añadir el botón de cerrar y otros elementos solo si se está creando por primera vez
     const flourlyCloseButton = flourlyContainer.querySelector("#flourlyCloseLink");
     if (flourlyCloseButton) {
         flourlyCloseButton.addEventListener("click", function() {
             flourlyContainer.style.display = "none";
+            document.getElementById("works-content").style.pointerEvents = "auto";
         });
     }
 
@@ -52,16 +57,6 @@ export function CreateFlourlyContainer() {
   
   window.addEventListener("resize", checkDisplayCounter);
   checkDisplayCounter();
-}
-
-
-function updatePointerEvents(screenWidth) {
-  const splitRight = document.getElementById("works-content");
-  if (screenWidth <= 920) {
-      splitRight.style.pointerEvents = "auto";
-  } else {
-      splitRight.style.pointerEvents = "none";
-  }
 }
 
 function RenderflourlyContainer() {

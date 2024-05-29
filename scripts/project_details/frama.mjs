@@ -1,3 +1,5 @@
+import { updatePointerEvents } from "./lava.mjs";
+
 export function CreateFramaContainer() {
   const appContainer = document.getElementById('app-container');
 
@@ -11,27 +13,21 @@ export function CreateFramaContainer() {
     framaContainer.innerHTML = RenderframaContainer();
     appContainer.appendChild(framaContainer);
 
+    updatePointerEvents();
+
     // Añadir el botón de cerrar y otros elementos solo si se está creando por primera vez
     const framaCloseButton = framaContainer.querySelector("#framaCloseLink");
     if (framaCloseButton) {
         framaCloseButton.addEventListener("click", function() {
             framaContainer.style.display = "none";
+            document.getElementById("works-content").style.pointerEvents = "auto";
+
         });
     }
   }
 
   framaContainer.style.display = "grid";
 
-}
-
-
-function updatePointerEvents(screenWidth) {
-  const splitRight = document.getElementById("works-content");
-  if (screenWidth <= 920) {
-      splitRight.style.pointerEvents = "auto";
-  } else {
-      splitRight.style.pointerEvents = "none";
-  }
 }
 
 function RenderframaContainer() {

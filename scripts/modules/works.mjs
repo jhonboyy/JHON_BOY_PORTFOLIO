@@ -136,13 +136,13 @@ function generateProject(project) {
   `).join('');
 
   const imageTags = images.map(({ src, alt }) => `
-    <img data-src="${src}" loading="lazy" width="auto" height="auto" alt="${alt}" />
+    <img data-src="${src}" loading="lazy" width="100%" height="auto" alt="${alt}" />
   `).join('');
 
   if (className === 'project-solo-slider') {
     const slides = images.map(({ src, alt }) => `
       <div class="slide">
-        <img src="${src}" alt="${alt}" width="auto" height="auto" />
+        <img src="${src}" alt="${alt}" width="100%" height="auto" />
       </div>
     `).join('');
 

@@ -40,7 +40,7 @@ function RenderframaContainer() {
     <p>
       <u>DO YOU LIKE WINE?</u>
       <br> 
-      This project represents the inaugural entry in the Personal Canvas series, a collaboration between <a href="http://frama.com" target="blank" ><u>FRAMA</u></a> and <a href="https://thenaturalwinecompany.com" target="blank" ><u>The Natural Wine Company</u></a>. As an artist, I crafted the playful illustration featured on a limited-edition kitchen towel, designed to complement natural wine aesthetics. Drawing inspiration from Bacco, my artwork reflects the earthy terracottas and vibrant greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.</p>
+      This project represents the inaugural entry in the Personal Canvas series, a collaboration between <a href="https://framacph.com target="blank" ><u>FRAMA</u></a> and <a href="https://thenaturalwinecompany.com" target="blank" ><u>The Natural Wine Company</u></a>. As an artist, I crafted the playful illustration featured on a limited-edition kitchen towel, designed to complement natural wine aesthetics. Drawing inspiration from Bacco, my artwork reflects the earthy terracottas and vibrant greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.</p>
     <div style="grid-column-start: 1; grid-column-end: 2;">
       <dotlottie-player src="./scripts/animations/frama-animation.lottie" speed="1" loop autoplay style="position: relative; width: 100%; height: auto;" ></dotlottie-player>
     </div>

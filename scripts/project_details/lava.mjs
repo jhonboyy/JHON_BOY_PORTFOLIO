@@ -67,7 +67,7 @@ function RenderlavaContainer() {
     <br> This project represents the inaugural entry in the Personal Canvas series, a collaboration between lava and The Natural Wine Company based in Barcelona. As an artist, I crafted the playful illustration featured on a limited-edition kitchen towel, designed to complement natural wine aesthetics. Drawing inspiration from Bacco, my artwork reflects the earthy terracottas and vibrant greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.
   </p>
   <div style="grid-column-start: 1; grid-column-end: 2;">
-    <dotlottie-player src="./scripts/animations/lava-loom.lottie" speed="1" loop autoplay style="position: relative; width: 100%; height: auto;"></dotlottie-player>
+    <dotlottie-player src="./scripts/animations/lava-loom.json" speed="1" loop autoplay style="position: relative; width: 100%; height: auto;"></dotlottie-player>
   </div>
   <p>
     <u>PROJECT GOALS</u>
@@ -75,7 +75,7 @@ function RenderlavaContainer() {
     <br>The Personal Canvas series seeks to uncover and celebrate the intricate craft behind natural winemaking, highlighting the sustainable practices integral to this artisanal industry. By integrating traditional crafts such as weaving, glass-blowing, and winemaking, the project emphasizes the deep connection between human hands and heritage, bridging art with the innovative practices of natural wine production. The illustration and its animated extension serve not only as decorative art but also as a testament to the fusion of heritage and contemporary craftsmanship in natural winemaking.
   </p>
   <br>
-  <div style="display:grid; grid-template-columns: 2fr 1.3fr 1.3fr; gap: 5px; width: 120%;">
+  <div class="lava-img">
     <img src="./images/jhon-boy-lava-circular-3.webp" alt="hand plying with dough" />
     <img src="./images/jhon-boy-lava-circular-1.webp" alt="hand plying with dough" />
     <img src="./images/jhon-boy-lava-circular-2.webp" alt="hand plying with dough" />
@@ -87,7 +87,7 @@ function RenderlavaContainer() {
   </p>
   <br>
   <div style="grid-column-start: 1; grid-column-end: 2;">
-    <dotlottie-player src="./scripts/animations/lava-milkmaid.lottie" speed="1" loop autoplay style="position: relative; width: 70%; height: auto;"></dotlottie-player>
+    <dotlottie-player src="./scripts/animations/lava-milkmaid.json" speed="1" loop autoplay style="position: relative; width: 70%; height: auto;"></dotlottie-player>
   </div>
   <p>
     <u>PROJECT GOALS</u>
@@ -95,7 +95,7 @@ function RenderlavaContainer() {
     <br>The Personal Canvas series seeks to uncover and celebrate the intricate craft behind natural winemaking, highlighting the sustainable practices integral to this artisanal industry. By integrating traditional crafts such as weaving, glass-blowing, and winemaking, the project emphasizes the deep connection between human hands and heritage, bridging art with the innovative practices of natural wine production. The illustration and its animated extension serve not only as decorative art but also as a testament to the fusion of heritage and contemporary craftsmanship in natural winemaking.
   </p>
   <br>
-  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 5px; height:max-content; width: 110%;">
+  <div class="lava-img-2">
     <img src="./images/jhon-boy-lava-circular-5.webp" alt="hand plying with dough" />
     <img src="./images/jhon-boy-lava-circular-4.webp" alt="hand plying with dough" />
     <img src="./images/jhon-boy-lava-circular-7.webp" alt="hand plying with dough" />
@@ -107,14 +107,14 @@ function RenderlavaContainer() {
     <br>The Personal Canvas series seeks to uncover and celebrate the intricate craft behind natural winemaking, highlighting the sustainable practices integral to this artisanal industry. By integrating traditional crafts such as weaving, glass-blowing, and winemaking, the project emphasizes the deep connection between human hands and heritage, bridging art with the innovative practices of natural wine production. The illustration and its animated extension serve not only as decorative art but also as a testament to the fusion of heritage and contemporary craftsmanship in natural winemaking.
   </p>
   <div style="grid-column-start: 1; grid-column-end: 2;">
-    <dotlottie-player src="./scripts/animations/lava-drum.lottie" speed="1" loop autoplay style="position: relative; width: 70%; height: auto;"></dotlottie-player>
+    <dotlottie-player src="./scripts/animations/lava-drum.json" speed="1" loop autoplay style="position: relative; width: 70%; height: auto;"></dotlottie-player>
   </div>
   <p>
     <u>PROJECT GOALS</u>
     <br> To add a dynamic touch to the static illustration, I incorporated subtle animation that introduces gentle movement, enhancing the visual impact without altering the narrative. This animation serves as a complementary action, adding a layer of engagement and emphasizing the natural elements depicted in the artwork. <br>
     <br>The Personal Canvas series seeks to uncover and celebrate the intricate craft behind natural winemaking, highlighting the sustainable practices integral to this artisanal industry. By integrating traditional crafts such as weaving, glass-blowing, and winemaking, the project emphasizes the deep connection between human hands and heritage, bridging art with the innovative practices of natural wine production. The illustration and its animated extension serve not only as decorative art but also as a testament to the fusion of heritage and contemporary craftsmanship in natural winemaking.
   </p>
-  <div style="display: grid; grid-template-columns: 10px 1fr 10px; gap: 10px;">
+  <div class="lava-sketches">
   <button style="font-size: 15px; outline: none; background-color: white; padding: 0; border: 0;" onclick="plusDivs(-1)">&lt;</button>
   <div class="w3-content w3-display-container">
     <img class="mySlides" src="./images/jhon-boy-lava-circular-sketches-1.png" style="width:100%">
@@ -135,28 +135,10 @@ function RenderlavaContainer() {
   </div>
 
   <p style="grid-column-start: 1; grid-column-end: 2;">
-    <u>PROJECT MANAGEMENT</u>
+    <u>ART DIRECTION</u>
     <br>
     <a href="https://www.instagram.com/valeriestt/" target="blank">
-      <u>Valerie Steenhaut</u>
-    </a>
-    <br>
-    <a href="https://www.instagram.com/al.fr.edo.lo.pez/" target="blank">
-      <u>Alfredo López</u>
-    </a>
-    <br>
-    <br>
-    <u>PRODUCT DESIGN</u>
-    <br>
-    <a href="http://lava.com" target="blank">
-      <u>??????</u>
-    </a>
-    <br>
-    <br>
-    <u>CREATIVITY</u>
-    <br>
-    <a href="https://www.maria-elba.com" target="blank">
-      <u>María-Elba García</u>
+      <u>Santanasantana Studio</u>
     </a>
     <br>
     <br>
@@ -165,6 +147,21 @@ function RenderlavaContainer() {
     <a href="https://www.instagram.com/rjgrullon/" target="blank">
       <u>Rafael Grullón</u>
     </a>
+    <br>
+    <br>
+    <u>PHOTOGRAPHY</u>
+    <br>
+    <a href="https://www.adririos.com" target="blank">
+      <u>Adrián Ríos</u>
+    </a>
+    <br>
+    <br>
+    <u>PROJECT</u>
+    <br>
+    <a href="http://lavacircular.com" target="blank">
+      <u>Lava Circular</u>
+    </a>
+    <br>
     <br>
     <br>
   </p>

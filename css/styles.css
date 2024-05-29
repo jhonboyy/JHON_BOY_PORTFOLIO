@@ -605,6 +605,34 @@ figcaption p {
   grid-template-rows: repeat(7,1fr);
 }
 
+.lava-sketches {
+
+  display: grid; 
+  grid-template-columns: 10px 1fr 10px; 
+  gap: 10px;
+  width: 110%;
+  padding-left: 35px;
+}
+
+
+.lava-img{
+
+  display:grid; 
+  grid-template-columns: 2fr 1.3fr 1.3fr; 
+  gap: 5px; 
+  width: 120%
+
+}
+
+.lava-img-2 {
+
+  display:grid; 
+  grid-template-columns: 1fr 1fr; 
+  gap: 5px; 
+  height:max-content; 
+  width: 110%;
+}
+
 
 .slider {
   display: grid; 
@@ -838,6 +866,41 @@ section address {
     width: 100vw;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .lava {
+    display: grid;
+    height: 100%;
+    width: 100vw;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(7,1fr);
+  }
+
+  .lava-img{
+
+    display:grid; 
+    grid-template-columns: 2fr 2fr 2fr; 
+    gap: 5px; 
+    width: 100%
+    
+  }
+
+  .lava-img-2 {
+
+    display:grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 5px; 
+    height:max-content; 
+    width: 100%;
+  }
+
+  .lava-sketches {
+
+    display: grid; 
+    grid-template-columns: 10px 1fr 10px; 
+    gap: 10px;
+    width: 90%;
+    padding-left: 4%;
   }
 
   .frama img{

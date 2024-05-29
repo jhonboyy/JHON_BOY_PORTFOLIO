@@ -44,7 +44,7 @@ function RenderframaContainer() {
     <p>
       <u>DO YOU LIKE WINE?</u>
       <br> 
-      This project represents the inaugural entry in the Personal Canvas series, a collaboration between FRAMA and The Natural Wine Company based in Barcelona. As an artist, I crafted the playful illustration featured on a limited-edition kitchen towel, designed to complement natural wine aesthetics. Drawing inspiration from Bacco, my artwork reflects the earthy terracottas and vibrant greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.</p>
+      This project represents the inaugural entry in the Personal Canvas series, a collaboration between <a href="http://frama.com" target="blank" ><u>FRAMA</u></a> and <a href="https://thenaturalwinecompany.com" target="blank" ><u>The Natural Wine Company</u></a>. As an artist, I crafted the playful illustration featured on a limited-edition kitchen towel, designed to complement natural wine aesthetics. Drawing inspiration from Bacco, my artwork reflects the earthy terracottas and vibrant greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.</p>
     <div style="grid-column-start: 1; grid-column-end: 2;">
       <dotlottie-player src="./scripts/animations/frama-animation.lottie" speed="1" loop autoplay style="position: relative; width: 100%; height: auto;" ></dotlottie-player>
     </div>
@@ -59,7 +59,7 @@ function RenderframaContainer() {
     <img style="grid-row-start: 5; grid-row-end: 6;" src="./images/jhon-boy-illustration-frama-tnwc-3.webp" alt="hand plying with dough" />
     <img style="grid-row-start: 6; grid-row-end: 7;" src="./images/jhon-boy-illustration-frama-tnwc-4.webp" alt="hand plying with dough" />
     <p style="grid-column-start: 1; grid-column-end: 2;">
-      <u>PROJECT MANAGEMENT</u>
+      <u>ART AND CREATIVE DIRECTION</u>
       <br>
       <a href="https://www.instagram.com/valeriestt/" target="blank" ><u>Valerie Steenhaut</u></a>
       <br>
@@ -68,7 +68,7 @@ function RenderframaContainer() {
       <br>
       <u>PRODUCT DESIGN</u>
       <br>
-      <a href="http://frama.com" target="blank" ><u>??????</u></a>
+      <a href="http://frama.com" target="blank" ><u>Frama</u></a>
       <br>
       <br>
       <u>CREATIVITY</u>
@@ -79,6 +79,11 @@ function RenderframaContainer() {
       <u>ANIMATION</u>
       <br>
       <a href="https://www.instagram.com/rjgrullon/" target="blank" ><u>Rafael Grullón</u></a>
+      <br>
+      <br>
+      <u>PHOTOGRAPHY</u>
+      <br>
+      <a href="http://www.migueltriano.com" target="blank" ><u>Miguel Triano</u></a>
       <br>
       <br>
     </p>

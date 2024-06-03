@@ -101,12 +101,12 @@ function showAbout (){
       BORN IN AUG.26.1994, LA LAGUNA <br>
       <br>
       STUDIOS/AGENCIES: <br>
+      (NO) OKER <br>
       (UK) REPRESENT <br>
-      (IT) ALGO.TV <br>
       (AU) HIHO<br>
       (IT) ILLO.TV <br>
       (ES) CLASEBCN <br>
-      (ES) FLECHER.CO<br>
+      (NO) BAKKEN & BAECK<br>
       <br>
       BRANDS: <br>
       (JP) UNIQLO <br>
@@ -124,8 +124,9 @@ function showAbout (){
       AWARDS:<br>
       <a href="https://www.dandad.org/en/d-ad-ones-to-watch-emerging-creative-talent-new-blood-advice/" target="_blank">D&AD PORTFOLIO AWARDS (2023)</a> <br>    <br>
       PRESS: <br>
-      <a href="https://hypebeast.com/hk/2024/5/uniqlo-utgp2024the-louvre-musee-du-louvre-collection-design-competition-info" target="_blank">HYPEBEAST (2024)</a><br>
       <a href="https://www.itsnicethat.com/articles/santanasantana-jhon-boy-rafael-grullon-lava-circular-graphic-design-project-160424" target="_blank">IT'S NICE THAT (2024)</a><br>
+      <a href="https://www.esquirehk.com/style/uniqlo-louvre-ut-2024" target="_blank">ESQUIER (2024)</a><br>
+      <a href="https://hypebeast.com/hk/2024/5/uniqlo-utgp2024the-louvre-musee-du-louvre-collection-design-competition-info" target="_blank">HYPEBEAST (2024)</a><br>
       <a href="https://www.itsnicethat.com/articles/jhon-boy-illustration-061120" target="_blank">IT'S NICE THAT (2020)</a><br><br>
       TALKS:<br>
       <a href="https://tenerifedesignweek.com/web/#charlas" target="_blank">TENERIFE DESIGN WEEK (2023) "THE IMAGE"</a> <br>

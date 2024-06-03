@@ -101,8 +101,8 @@ function showAbout (){
       BORN IN AUG.26.1994, LA LAGUNA <br>
       <br>
       STUDIOS/AGENCIES: <br>
-      (NO) OKER <br>
       (UK) REPRESENT <br>
+      (IT) ALGO.TV <br>
       (AU) HIHO<br>
       (IT) ILLO.TV <br>
       (ES) CLASEBCN <br>

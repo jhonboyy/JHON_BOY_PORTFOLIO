@@ -1,0 +1,56 @@
+---
+// src/pages/index.astro
+import Layout from '../layouts/Layout.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+---
+
+<Layout title="Home - John Boy">
+  <ProjectsSection />
+</Layout>
+
+<head>
+  <title>Home - John Boy</title>
+  <script type="module" src="/src/scripts/index-animations.js"></script>
+  <script type="module">
+    import { updateAnimation, introduceAnimationOnLoad, animateHeader, animateLines } from '/src/scripts/index-animations.js';
+
+    window.addEventListener('load', () => {
+      // Step 1: Animate lines
+      animateLines();
+
+      // Step 2: Show and animate header text after 1 second
+      setTimeout(() => {
+        animateHeader();
+      }, 1000);
+
+      // Step 3: Load and update animations after 2 seconds
+      setTimeout(() => {
+        introduceAnimationOnLoad();
+        updateAnimation();
+      }, 1500);
+    });
+
+    window.addEventListener('resize', () => {
+      updateAnimation();
+    });
+  </script>
+</head>
+
+<Layout title="Home - John Boy">
+  <header class="index" id="mainContainer">
+    <h1 id="headerText" style="visibility: hidden;">WELCOME TO JHON BOY</h1>
+    <div class="lottie-index">
+      <dotlottie-player id="mobileAnimation" src="/animations/jhon-boy-animation-index-mobile.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
+      <dotlottie-player id="desktopAnimation" src="/animations/jhon-boy-animation-index.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
+    </div>
+    <nav>
+      <ul>
+        <li id="worksButton"><a href="/works" style="visibility: hidden">WORKS</a></li>
+        <li id="aboutButton"><a href="/about" style="visibility: hidden">ABOUT</a></li>
+        <li><a href="mailto:hello@jhonboy.com" style="visibility: hidden">CONTACT</a></li>
+        <li><a href="https://www.instagram.com/jhon_boy" target="_blank" style="visibility: hidden">INSTA</a></li>
+        <li><a href="https://github.com/jhonboyy" target="_blank" style="visibility: hidden">GITHUB</a></li>
+      </ul>
+    </nav>
+  </header>
+</Layout>

@@ -1,45 +1,24 @@
-# Plantilla básica de .gitignore
+# build output
+dist/
 
-# Ignorar directorios de configuración de IDE/editores
-/.idea/
-/.vscode/
-*.sublime-workspace
+# generated types
+.astro/
 
-# Archivos temporales y de sistema
-*.log
-*.tmp
-*.bak
-*.swp
-*.lock
-**/.DS_Store
+# dependencies
+node_modules/
 
-# Directorios de dependencias
-/node_modules/
-/vendor/
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
-# Archivos de compilación y directorios de salida
-/build/
-/dist/
-/out/
-*.o
-*.class
-
-# Archivos específicos de configuración del proyecto
+# environment variables
 .env
-config.yml
-config.json
+.env.production
 
-# Archivos de paquetes y lockfiles
-*.jar
-*.war
-*.ear
-package-lock.json
-yarn.lock
+# macOS-specific files
+.DS_Store
 
-# Ignorar archivos de bases de datos locales
-*.db
-*.sql
-*.sqlite
-
-# Carpeta de cobertura de tests
-/coverage/
+# jetbrains setting folder
+.idea/

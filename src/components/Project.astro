@@ -1,0 +1,40 @@
+---
+
+// src/components/Project.astro
+
+const { project } = Astro.props;
+const { type, className, images, animations, captions } = project;
+---
+
+{className === 'project-solo-slider' ? (
+  <figure class={`${className} ${type}`}>
+    <div class="slide-track">
+      {images.map(({ src, alt }) => (
+        <div class="slide">
+          <img src={src} alt={alt} width="100%" height="auto" />
+        </div>
+      ))}
+    </div>
+    <figcaption>
+      <p class="text-left">{captions.left}</p>
+      <p class="text-right">{captions.right}</p>
+    </figcaption>
+  </figure>
+) : (
+  <figure class={`${className} ${type}`}>
+    {animations.length > 0 && animations.map((src) => (
+      <div style="background-color: white;">
+        <dotlottie-player class="player" src={src} background="white" style="display: block; margin: 0 auto;"></dotlottie-player>
+      </div>
+    ))}
+    {images.length > 0 && images.map(({ src, alt }) => (
+      <div style="background-color: white;">
+        <img src={src} loading="lazy" width="100%" height="auto" alt={alt} style="display: block; margin: 0 auto;" />
+      </div>
+    ))}
+    <figcaption>
+      <p class="text-left" set:html={captions.left}></p>
+      <p class="text-right">{captions.right}</p>
+    </figcaption>
+  </figure>
+)}

@@ -1,0 +1,31 @@
+---
+// src/components/Header.astro
+
+// No se requieren props en este caso, pero se pueden añadir si necesitas pasar datos dinámicos.
+---
+
+<header class="menu-opened works" id="mainContainer" style="left: 0px; width: 50%; --after-height: calc(100vh - 50px);">
+    <nav>
+        <ul>
+            <li id="worksButton" class="hideBefore" style="border-bottom: 1px solid black; pointer-events: none; z-index: 4; top: calc(250px - 100vh); position: relative;">
+                <a data-route="/works">WORKS</a>
+            </li>
+            <li id="aboutButton" class="hideBefore" style="border-bottom: 1px solid black; border-top: 1px solid black; pointer-events: auto; top: 1px; position: relative;">
+                <a data-route="/about">ABOUT</a>
+            </li>
+            <li>
+                <a href="mailto:hello@jhonboy.com">CONTACT</a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/jhon_boy" target="_blank">INSTA</a>
+            </li>
+            <li>
+                <a href="https://github.com/jhonboyy" target="_blank">GITHUB</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="MenuImageContainer" style="padding-top: 50px; padding-bottom: 250px;" data-animated="true">
+        <img src="./images/jhon-boy-illustration-works-page-person-resting.svg" data-button-id="worksButton" style="display: block; opacity: 1;">
+        <img src="./images/jhon-boy-illustration-works-page-person-upside-down.svg" data-button-id="aboutButton" style="display: none;">
+    </div>
+</header>

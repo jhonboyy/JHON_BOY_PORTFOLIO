@@ -4,13 +4,13 @@
 // No se requieren props en este caso, pero se pueden añadir si necesitas pasar datos dinámicos.
 ---
 
-<header class="menu-opened works" id="mainContainer" style="left: 0px; width: 50%; --after-height: calc(100vh - 50px);">
+<header class="menu-opened" id="mainContainer">
     <nav>
-        <ul>
-            <li id="worksButton" class="hideBefore" style="border-bottom: 1px solid black; pointer-events: none; z-index: 4; top: calc(250px - 100vh); position: relative;">
+        <ul id="menuButtons">
+            <li id="worksButton">
                 <a data-route="/works">WORKS</a>
             </li>
-            <li id="aboutButton" class="hideBefore" style="border-bottom: 1px solid black; border-top: 1px solid black; pointer-events: auto; top: 1px; position: relative;">
+            <li id="aboutButton" style="border-top: 1px solid black">
                 <a data-route="/about">ABOUT</a>
             </li>
             <li>
@@ -24,8 +24,16 @@
             </li>
         </ul>
     </nav>
-    <div class="MenuImageContainer" style="padding-top: 50px; padding-bottom: 250px;" data-animated="true">
-        <img src="./images/jhon-boy-illustration-works-page-person-resting.svg" data-button-id="worksButton" style="display: block; opacity: 1;">
-        <img src="./images/jhon-boy-illustration-works-page-person-upside-down.svg" data-button-id="aboutButton" style="display: none;">
+    <div class="MenuImageContainer" style="display: none; position: absolute; top: 50px; width: 100%;">
+        <img src="/images/jhon-boy-illustration-works-page-person-resting.svg" data-button-id="worksButton" style="display: none;">
+        <img src="/images/jhon-boy-illustration-works-page-person-upside-down.svg" data-button-id="aboutButton" style="display: none;">
     </div>
 </header>
+
+<script type="module">
+    import { animateWorksButton } from './src/scripts/menu-animations.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        animateWorksButton();
+    });
+    </script>

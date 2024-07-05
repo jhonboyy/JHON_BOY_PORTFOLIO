@@ -1,12 +1,5 @@
 ---
-// src/layouts/Layout.astro
-
-interface Props {
-  title: string;
-  children: any;
-}
-
-const { title, children }: Props = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -20,10 +13,10 @@ const { title, children }: Props = Astro.props;
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <script type="module" src="/src/scripts/load-dotlottie.js"></script>
+  
 </head>
 
 <body>
-  {children}
-  <script type="module" src="/src/scripts/index-animations.js"></script>
+  <slot></slot>
 </body>
 </html>

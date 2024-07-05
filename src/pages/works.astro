@@ -1,12 +1,18 @@
 ---
-// src/pages/works.astro
-
 import Layout from '../layouts/Layout.astro';
 import ProjectsSection from '../components/ProjectsSection.astro';
 import Menu from '../components/Menu.astro';
 ---
 
-<Layout title="Works">
-  <ProjectsSection />
-  <Menu />
-</Layout>
+<html>
+  <head>
+    <title>Works</title>
+    <script type="module" src="/src/scripts/works-animations.js"></script>
+  </head>
+  <body>
+    <Layout title="Works">
+        <ProjectsSection />
+      <Menu />
+    </Layout>
+  </body>
+</html>

@@ -1,43 +1,12 @@
-/* || GENERAL STYLE */
+/* ///////////////////////////////////////////////////// GENERAL STYLE ///////////////////////////////////////////////////// */
 .hidden {
   display: none;
 }
-
-.cookies__boton{
-
-  color: black !important;
-  text-decoration: none;
-}
-
-.cookies__boton:hover {
-  color: black !important;
-  text-decoration: underline;
-}
-
-.cookies {
-  position: fixed; 
-  top: 0;
-  margin-top: 50px; 
-  text-align: center; 
-  z-index: 10;
-
-}
-
-.split {
-  height: 100vh;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-}
-
 img {
   max-width: 100%;
   height: auto;
   width: auto;
 }
-
 body {
   font-family: favorit;
   font-size: 12px;
@@ -51,118 +20,65 @@ body {
   justify-content: center;
   margin: 0;
 }
-
 .active {
   text-decoration: underline !important;
   pointer-events: none;
 }
-
-li a,
-li a:hover {
-  text-decoration: none;
-  color: black !important;
-  padding: 0;
-  width: 100%;
-  height: 49px;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  display: grid;
-  border: none;
-}
-
 :root {
-
   --line-width: 0;
   --line-height: 0;
 }
-
-ul li::before {
-  content: '';
-  display: block;
-  height: 1px;
-  background-color: black;
-  width: var(--line-width);
-
-}
-
 a {
   color: blue !important;
   cursor: pointer;
-  background-color: white;
   height: auto;
   width: 100%;
 }
-
 a:hover {
   color: blue !important;
 }
-
 p {
   height: auto;
   width: 100%;
   margin-bottom: 0 !important;
 }
-
-ul {
-  list-style-type: none;
-  height: 250px;
-  padding: 0;
-  margin: 0;
-}
-
 header nav {
   z-index: 3;
 }
-
 .text-right {
   display: flex;
   width: 100%;
   height: 100%;
-  justify-content: right; /* Alinea el contenido horizontalmente al centro */
-  align-items: center; /* Alinea el contenido verticalmente a la derecha */
+  justify-content: right;
+  align-items: center;
 }
-
 .text-bottom {
   display: flex;
   text-align: start;
   align-items: end;
 }
-
 .text-left {
   width: max-content;
   height: 100%;
   text-align: left;
 }
-
 .project-container-top .text-left {
-
   display: flex;
   align-items: center;
   padding-left: 15px;
-  
-
 }
-
 .project-container-top .text-right {
-
   text-align: right;
   width: auto;
-  justify-content: right;  
+  justify-content: right;
   padding-right: 15px;
-
 }
-
 .project-container > .text-left {
-
   display: flex;
   height: 50px;
   align-items: center;
   padding: 0 0 0 1.5vh !important;
-  
-
 }
-
 .lottie-index {
   display: flex;
   height: 100%;
@@ -174,15 +90,11 @@ header nav {
   position: relative;
   background-color: white;
 }
-
 #desktopAnimation, #mobileAnimation {
-
   max-width: 100%;
   min-width: 100%;
   object-fit: contain;
-
 }
-
 h1 {
   width: 100%;
   height: 100%;
@@ -192,90 +104,99 @@ h1 {
   justify-content: center;
   align-items: center;
   margin: 0;
-  background-color: white;
   font-weight: 100;
-
 }
-
 @font-face {
   font-family: "Favorit";
   font-style: light;
   src: url("/fonts/ABCFavoritMono-Light.woff") format("woff");
   font-display: swap;
 }
+/* ///////////////////////////////////////////////////// INDEX STYLE ///////////////////////////////////////////////////// */
+.index nav{
+  height: 250px;
+}
 
-/* || LEFT SIDE */
-
+/* ///////////////////////////////////////////////////// LEFT SIDE ///////////////////////////////////////////////////// */
+li a, li a:hover {
+  text-decoration: none;
+  color: black !important;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+ul {
+  list-style-type: none;
+  height: 250px;
+  padding: 0;
+  margin: 0;
+}
+.menu-opened::before {
+  content: '';
+  display: block;
+  height: calc(100vh - 50px);
+  width: 1px;
+  background-color: black;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 .menu-opened{
-
   position: absolute;
   width: 50%;
   height: 100%;
   bottom: 0;
   left: 0;
 }
-
-.menu-opened.works ul {
-  
+.menu-opened #worksButton {
+  position: absolute;
+  width: 100%;
+  top: -50px;
+}
+.menu-opened ul {
   display: grid;
   position: absolute;
   width: 100%;
   bottom: 0;
-
+  height: 200px;
+  grid-template-rows: 50px 50px 50px 50px 50px;
 }
-
+.menu-opened li {
+  border-bottom: 1px solid black;
+  height: 50px;
+}
+.menu-opened li:nth-child(5) {
+  border-bottom: 0
+}
 .menu-opened.about ul {
-  
   display: grid;
   position: absolute;
   width: 100%;
   bottom: 0;
-
 }
-
 .menu-opened.about nav {
-  
   position: absolute;
   width: 100%;
   bottom: 0;
   height: 150px;
-
 }
-
-
-.menu-opened.works::after,.menu-opened.about::after {
-  content: '';
-  display: block;
-  position: absolute;
-  width: 1px;
-  height: var(--after-height);
-  right: 0; 
-  bottom: 0;
-  background-color: black;
-  z-index: 4;
-}
-
 .MenuImageContainer {
-  
   display: flex;
   justify-content: center;
   align-items: center;
   height: calc(100vh - 250px);
   width: 50vw;
-
 }
-
 .MenuImageContainer img {
-
   max-width: 100%;
   max-height: 100%;
   width: auto;
-  height: auto;  
+  height: auto;
   object-fit: contain;
   opacity: 0;
-
 }
-
 .project-container {
   position: absolute;
   display: grid;
@@ -289,9 +210,7 @@ h1 {
   border-top: 1px solid black;
   background-color: black;
 }
-
 .project-container::before{
-
   content: "";
   background-color: black;
   height: calc(100vh - 50px);
@@ -300,18 +219,15 @@ h1 {
   right: 0;
   bottom: 0;
 }
-
 .project-container-top {
   display: grid;
   height: 100%;
   grid-template-columns: 70% 30%;
   background-color: #ffffff;
 }
-
 .project-container-top p {
   margin: 0;
 }
-
 .project-container-mid {
   height: 100%;
   width: 100%;
@@ -319,18 +235,10 @@ h1 {
   overflow-y: scroll;
   overflow-x: none;
 }
-
 .project-container-mid p {
   padding: 15px 0 15px 15px;
 }
-
-.hideBefore::before {
-  display: none;
-}
-
-/* || RIGHT SIDE */
-
-/* works */
+/* ///////////////////////////////////////////////////// RIGHT SIDE WORKS ///////////////////////////////////////////////////// */
 .projects {
   position: absolute;
   right: 0;
@@ -341,7 +249,6 @@ h1 {
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr;
 }
-
 .projects-nav {
   width: 100%;
   height: 51px;
@@ -355,7 +262,6 @@ h1 {
   border-bottom: 1px solid black;
   z-index: 3;
 }
-
 figure {
   margin-block-start: 0;
   margin-block-end: 0;
@@ -363,7 +269,6 @@ figure {
   margin-inline-end: 0;
   margin: 0;
 }
-
 .projects-wrap {
   display: grid;
   width: 100%;
@@ -372,7 +277,6 @@ figure {
   grid-row-start: 2;
   grid-row-end: 3;
 }
-
 .project-top {
   display: grid;
   width: 100%;
@@ -384,7 +288,6 @@ figure {
   grid-template-rows: 1fr 1fr minmax(50px, max-content);
   gap: 1px;
 }
-
 .project-top-lava {
   display: grid;
   width: 100%;
@@ -396,7 +299,6 @@ figure {
   grid-template-rows: 1fr 1fr minmax(50px, max-content);
   gap: 1px;
 }
-
 .project-top-lava figcaption {
   display: grid;
   box-sizing: border-box;
@@ -408,8 +310,6 @@ figure {
   grid-column-start: 1;
   grid-column-end: 4;
 }
-
-
 .project-top figcaption {
   display: grid;
   box-sizing: border-box;
@@ -421,7 +321,6 @@ figure {
   grid-column-start: 1;
   grid-column-end: 4;
 }
-
 .project-grid {
   display: grid;
   width: 100%;
@@ -433,7 +332,6 @@ figure {
   box-sizing: border-box;
   gap: 1px;
 }
-
 .project-grid figcaption {
   display: grid;
   width: 100%;
@@ -445,12 +343,9 @@ figure {
   grid-column-start: 1;
   grid-column-end: 3;
 }
-
 figcaption p {
-
   margin:0;
 }
-
 .project-grid-top {
   display: grid;
   width: 100%;
@@ -462,7 +357,6 @@ figcaption p {
   box-sizing: border-box;
   gap: 1px;
 }
-
 .project-grid-top figcaption {
   display: grid;
   width: 100%;
@@ -474,7 +368,6 @@ figcaption p {
   grid-column-start: 1;
   grid-column-end: 3;
 }
-
 .project-solo {
   display: grid;
   width: 100%;
@@ -485,7 +378,6 @@ figcaption p {
   border-top: 1px solid black;
   gap: 1px;
 }
-
 .project-solo figcaption {
   display: grid;
   width: 100%;
@@ -498,7 +390,6 @@ figcaption p {
   grid-column-start: 1;
   grid-column-end: 2;
 }
-
 .project-solo-slider figcaption {
   display: grid;
   width: 100%;
@@ -511,8 +402,6 @@ figcaption p {
   grid-column-start: 1;
   grid-column-end: 2;
 }
-
-
 .project-solo-slider {
   display: grid;
   height: max-content;
@@ -526,8 +415,6 @@ figcaption p {
   gap: 1px;
   transform: translate3d(0, 0, 0);
 }
-
-
 .project-solo-slider figcaption {
   display: grid;
   width: auto;
@@ -535,16 +422,13 @@ figcaption p {
   height: minmax(50px, max-content);
   grid-template-columns: 1fr 1fr;
 }
-
 .slide-track .slide {
   min-height: 500px;
   min-width: 500px;
 }
-
 .slide-track .slide svg {
   width: 100%;
 }
-
 .slide-track {
   display: flex;
   margin: 0 auto;
@@ -553,19 +437,16 @@ figcaption p {
   -webkit-animation: moveSlideshow 60s linear infinite;
   animation: moveSlideshow 60s linear infinite;
 }
-
 @keyframes moveSlideshow {
   0% {
-    transform: translateX(0);
-    -webkit-transform: translateX(0);
-  }
-
+      transform: translateX(0);
+      -webkit-transform: translateX(0);
+ }
   100% {
-    transform: translateX(calc(-500px * 4));
-    -webkit-transform: translateX(calc(-500px * 4));
-  }
+      transform: translateX(calc(-500px * 4));
+      -webkit-transform: translateX(calc(-500px * 4));
+ }
 }
-
 .image-container {
   min-width: 100px;
   min-height: 350px;
@@ -574,7 +455,6 @@ figcaption p {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .image-container-2 {
   min-width: 100px;
   min-height: 350px;
@@ -583,7 +463,6 @@ figcaption p {
   background-repeat: no-repeat;
   background-position: center;
 }
-
 .flourly {
   display: grid;
   height: 100%;
@@ -591,7 +470,6 @@ figcaption p {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
-
 .frama {
   display: grid;
   height: 100%;
@@ -599,7 +477,6 @@ figcaption p {
   grid-template-columns: 80%;
   grid-template-rows: repeat(7,1fr);
 }
-
 .lava {
   display: grid;
   height: 100%;
@@ -607,80 +484,56 @@ figcaption p {
   grid-template-columns: 80%;
   grid-template-rows: repeat(7,1fr);
 }
-
 .lava :nth-child(8) {
   width: 70%;
 }
-
-
 .lava :nth-child(13) {
-
   width: 70%;
-
-
 }
-
 .lava-sketches {
-
-  display: grid; 
-  grid-template-columns: auto 80% auto; 
+  display: grid;
+  grid-template-columns: auto 80% auto;
   gap: 10px;
   width: 50vw;
   padding-left: 0px;
   align-items: center;
   justify-items: center;
-
 }
-
 .w3-content{
-
   width: 100%;
 }
-
-
 .lava-img{
-
-  display:grid; 
-  grid-template-columns: 2fr 1.3fr 1.3fr; 
-  gap: 5px; 
-  width: 120%
-
+  display:grid;
+  grid-template-columns: 2fr 1.3fr 1.3fr;
+  gap: 5px;
+  width: 120% 
 }
-
 .lava-img-2 {
-
-  display:grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 5px; 
-  height:max-content; 
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  height:max-content;
   width: 110%;
 }
-
-
 .slider {
-  display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-column-start: 1; 
-  grid-column-end: 3; 
-  gap:2%; 
+  grid-column-start: 1;
+  grid-column-end: 3;
+  gap:2%;
   padding: 2%;
-
 }
-
 .sketches {
-  display: grid; 
+  display: grid;
   height: 100%;
-  grid-template-columns: 1fr 1fr 1fr; 
-  grid-column-start: 1; 
-  grid-column-end: 3; 
-  padding-top: 1.5vh; 
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  padding-top: 1.5vh;
   padding-bottom: 1.5vh;
-
 }
-
-/* about */
-
+/* ///////////////////////////////////////////////////// RIGHT SIDE ABOUT ///////////////////////////////////////////////////// */
 .about {
   height: 100%;
   width: 50vw;
@@ -693,7 +546,6 @@ figcaption p {
   grid-row-start: 1;
   grid-row-end: 2;
 }
-
 .about-column-2 {
   position: relative;
   display: grid;
@@ -705,7 +557,6 @@ figcaption p {
   grid-template-rows: 1fr 1fr 1fr;
   padding: 2% 5% 10% 5%;
 }
-
 .about-column-1 {
   position: relative;
   display: grid;
@@ -716,36 +567,33 @@ figcaption p {
   width: 100%;
   height: auto;
   padding: 2% 5% 2% 5%;
-
 }
-
 section address {
   display: flex;
   align-items: center;
   margin: 0;
   font-style: normal;
 }
-
 .container-portrait {
   width: fit-content;
   display: flex;
   position: relative;
   width: 100%;
   height: max-content;
-  overflow: hidden; /* Asegura que el contenido que desborde del contenedor sea ocultado */
+  overflow: hidden;
+ /* Asegura que el contenido que desborde del contenedor sea ocultado */
   align-items: center;
   justify-content: center;
   padding: 5% 0 5% 0;
 }
-
 .portrait, .portrait2 {
-  max-width: 90%; /* Establece el ancho máximo de la imagen al 100% del contenedor */
-  height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
-  margin: 0 auto; /* Centra la imagen horizontalmente dentro del contenedor */
-
-
+  max-width: 90%;
+ /* Establece el ancho máximo de la imagen al 100% del contenedor */
+  height: auto;
+ /* Permite que la altura se ajuste automáticamente para mantener la proporción */
+  margin: 0 auto;
+ /* Centra la imagen horizontalmente dentro del contenedor */
 }
-
 /* index */
 .index{
   display: grid;
@@ -755,427 +603,326 @@ section address {
   grid-template-columns: 1fr;
   grid-template-rows: 50px calc(100% - 300px) 50px 50px 50px 50px 50px;
 }
-
 @media screen and (min-width: 2000px) {
   .image-container {
-    min-width: 100px;
-    min-height: 1000px;
-    background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
+      min-width: 100px;
+      min-height: 1000px;
+      background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+ }
   .image-container-2 {
-    min-width: 100px;
-    min-height: 1000px;
-    background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }}
-
-
+      min-width: 100px;
+      min-height: 1000px;
+      background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+ }
+}
 @media screen and (max-width: 900px) {
-  /* || MOBILE GENERAL STYLE */
-
-
-
-  .split.right {
-    width: 100%;
-    height: 100%;
-  }
-
+/* ///////////////////////////////////////////////////// MOBILE GENERAL STYLE ///////////////////////////////////////////////////// */
+.split.right {
+      width: 100%;
+      height: 100%;
+ }
   .projects {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 50px 50px;
-    height: 100dvh;
-  }
-
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 50px 50px;
+      height: 100dvh;
+ }
   .menu-opened-works{
-    height: 50px;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1;
-  }
-
+      height: 50px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1;
+ }
   .MenuImageContainer {
-
-    display: none;
-  }
-
+      display: none;
+ }
   .projects nav {
-    display: grid;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    height: 50px;
-  }
-
+      display: grid;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      height: 50px;
+ }
   .projects nav ul {
-    height: 51px;
-  }
-
+      height: 51px;
+ }
   body {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  }
-
+      height: 100%;
+      width: 100%;
+      position: absolute;
+ }
   .text-left {
-    width: auto;
-    height: 100%;
-    text-align: left;
-  }
-
-  /* || MOBILE WORKS */
-
-  .projects {
-
-    width: 100%;
-  }
-
+      width: auto;
+      height: 100%;
+      text-align: left;
+ }
+/* ///////////////////////////////////////////////////// MOBILE WORKS ///////////////////////////////////////////////////// */
+.projects {
+      width: 100%;
+ }
   .projects-wrap {
-
-    position: absolute;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    border-top: 0px;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    height: 100%;
-
-  }
-
+      position: absolute;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      border-top: 0px;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      height: 100%;
+ }
   .projects-nav {
-    position: fixed;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    border-top: none;
-    height: 50px !important;
-    z-index: 2;
-    margin: 0;
-    border-bottom: none;
-  }
-
+      position: fixed;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      border-top: none;
+      height: 50px !important;
+      z-index: 2;
+      margin: 0;
+      border-bottom: none;
+ }
   .right {
-    position: relative;
-    grid-template-columns: 1fr;
-    width: 100%;
-    height: calc(100vh - 50px);
-  }
-
+      position: relative;
+      grid-template-columns: 1fr;
+      width: 100%;
+      height: calc(100vh - 50px);
+ }
   .image-container {
-    min-width: 10px;
-    min-height: 250px;
-    background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
+      min-width: 10px;
+      min-height: 250px;
+      background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+ }
   .image-container-2 {
-    min-width: 10px;
-    min-height: 250px;
-    background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
-
+      min-width: 10px;
+      min-height: 250px;
+      background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+ }
   .flourly {
-    display: grid;
-    height: 100%;
-    width: 100vw;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  }
-
+      display: grid;
+      height: 100%;
+      width: 100vw;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+ }
   .lava {
-    display: grid;
-    height: 100%;
-    width: 100vw;
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(7,1fr);
-  }
-
+      display: grid;
+      height: 100%;
+      width: 100vw;
+      grid-template-columns: 100%;
+      grid-template-rows: repeat(7,1fr);
+ }
   .lava :nth-child(8) {
-
-    width: 100%;
-
-
-  }
-
+      width: 100%;
+ }
   .lava :nth-child(13) {
-
-    width: 100%;
-
-
-  }
-
+      width: 100%;
+ }
   .lava-img{
-
-    display:grid; 
-    grid-template-columns: 2fr 2fr 2fr; 
-    gap: 5px; 
-    width: 100%;
-    height: auto;
-  }
-
+      display:grid;
+      grid-template-columns: 2fr 2fr 2fr;
+      gap: 5px;
+      width: 100%;
+      height: auto;
+ }
   .lava-img-2 {
-
-    display:grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 5px; 
-    height: max-content; 
-    width: 100%;
-  }
-
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      height: max-content;
+      width: 100%;
+ }
   .lava-sketches {
-
-    display: grid; 
-    grid-template-columns: 10px 1fr 10px; 
-    gap: 10px;
-    width: 90%;
-    padding-left: 4%;
-  }
-
+      display: grid;
+      grid-template-columns: 10px 1fr 10px;
+      gap: 10px;
+      width: 90%;
+      padding-left: 4%;
+ }
   .frama img{
-
-    width: 100%;
-    height: auto;
-    grid-column-start: 1;
-    grid-column-end: 4;
-
-  }
-
+      width: 100%;
+      height: auto;
+      grid-column-start: 1;
+      grid-column-end: 4;
+ }
   .frama p {
-    grid-column-start: 1;
-    grid-column-end: 4;
-  }
-
+      grid-column-start: 1;
+      grid-column-end: 4;
+ }
   .flourly p {
-    
-    grid-column-start: 1;
-    grid-column-end: 4;
-  }
-
+      grid-column-start: 1;
+      grid-column-end: 4;
+ }
   .slider {
-    scroll-snap-type: x mandatory;	
-    display: flex;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: scroll;
-    overflow-x: none;
-    height: max-content;
-
-  }
-
+      scroll-snap-type: x mandatory;
+      display: flex;
+      -webkit-overflow-scrolling: touch;
+      overflow-y: scroll;
+      overflow-x: none;
+      height: max-content;
+ }
   .counter {
-
-    align-self: center;
-    text-align: center;
-    grid-row-start: 5;
-    grid-row-end: 6;
-    padding: 20px 0 20px 0;
-
-  }
-
+      align-self: center;
+      text-align: center;
+      grid-row-start: 5;
+      grid-row-end: 6;
+      padding: 20px 0 20px 0;
+ }
   .slider::-webkit-scrollbar {
-    display: none;
-  }
-  
+      display: none;
+ }
   .slider div {
-    min-width: 100vw;
-    height: calc(100vh - 200px);
-    scroll-snap-align: center;
-    align-content: center;
-    position: relative;
-  }
-
+      min-width: 100vw;
+      height: calc(100vh - 200px);
+      scroll-snap-align: center;
+      align-content: center;
+      position: relative;
+ }
   .sketches {
-    display: grid; 
-    grid-template-columns: 1fr 1fr 1fr; 
-    grid-template-rows: 1fr;
-    grid-column-start: 1; 
-    grid-column-end: 2; 
-    padding-top: 1.5vh; 
-    padding-bottom: 1.5vh;
-  
-  }
-
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      padding-top: 1.5vh;
+      padding-bottom: 1.5vh;
+ }
   .project-container {
-    position: absolute;
-    display: grid;
-    height: 100%;
-    width: 100%;
-    z-index: 5;
-    top: 0;
-    grid-template-columns: 1fr;
-    grid-template-rows: minmax(50px, max-content) 1fr 50px;
-    overflow: hidden;
-    background-color: black;
-    gap: 1px;
-    border-top: 0px solid black;
-    border-right: 0px;
-  }
-
+      position: absolute;
+      display: grid;
+      height: 100%;
+      width: 100%;
+      z-index: 5;
+      top: 0;
+      grid-template-columns: 1fr;
+      grid-template-rows: minmax(50px, max-content) 1fr 50px;
+      overflow: hidden;
+      background-color: black;
+      gap: 1px;
+      border-top: 0px solid black;
+      border-right: 0px;
+ }
   .project-container-top {
-    grid-template-columns: 70% 30% !Important;
-
-}
-
+      grid-template-columns: 70% 30% !Important;
+ }
   .project-container-mid {
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    overflow-y: scroll;
-    overflow-x: none;
-  }
-
+      height: 100%;
+      width: 100%;
+      background-color: white;
+      overflow-y: scroll;
+      overflow-x: none;
+ }
   .project-container-mid p {
-    margin: 0;
-    width: 95%;
-  }
-
+      margin: 0;
+      width: 95%;
+ }
   .project-container::before{
-
-    display: none;
-  }
-
+      display: none;
+ }
   .project-container-top {
-    display: grid;
-    height: 100%;
-    grid-template-columns: 50% 50%;
-    background-color: #ffffff;
-  }
-
-  /* || MOBILE ABOUT */
-
-  .about {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    position: relative;
-    overflow: scroll;
-    grid-template-columns: 1fr;
-    grid-template-rows: max-content max-content;
-  }
-
-
+      display: grid;
+      height: 100%;
+      grid-template-columns: 50% 50%;
+      background-color: #ffffff;
+ }
+/* ///////////////////////////////////////////////////// MOBILE ABOUT ///////////////////////////////////////////////////// */
+.about {
+      height: 100%;
+      width: 100%;
+      display: grid;
+      position: relative;
+      overflow: scroll;
+      grid-template-columns: 1fr;
+      grid-template-rows: max-content max-content;
+ }
   nav ul {
-    height: 50px;
-  }
-
+      height: 50px;
+ }
   .container-portrait {
-
-    border-bottom: 1px solid black;
-
-  }
-
+      border-bottom: 1px solid black;
+ }
   .portrait, .portrait2{
-    display: absolute;
-    text-align: center;
-    padding: 12%;
-    grid-row-start: 4;
-    grid-row-end: 5;
-    width: 60%;
-  }
-
+      display: absolute;
+      text-align: center;
+      padding: 12%;
+      grid-row-start: 4;
+      grid-row-end: 5;
+      width: 60%;
+ }
   .about-column-1 {
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 33vh 33vh 33vh;    
-    box-sizing: border-box;
-    border-right: 0px;
-    width: 100%;
-    padding: 30px 13px 0 13px;
-    height: calc(100vh - 50px);
-   }
-
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 33vh 33vh 33vh;
+      box-sizing: border-box;
+      border-right: 0px;
+      width: 100%;
+      padding: 30px 13px 0 13px;
+      height: calc(100vh - 50px);
+ }
   .about-column-2 {
-    position: relative;
-    display: grid;
-    box-sizing: border-box;
-    overflow-y: visible;
-    width: 100%;
-    height: max-content;
-    grid-template-columns: 1fr;
-    padding: 0;
-    grid-template-rows: max-content max-content max-content;
-    padding-bottom: 50px;
-  }
-
+      position: relative;
+      display: grid;
+      box-sizing: border-box;
+      overflow-y: visible;
+      width: 100%;
+      height: max-content;
+      grid-template-columns: 1fr;
+      padding: 0;
+      grid-template-rows: max-content max-content max-content;
+      padding-bottom: 50px;
+ }
   .text-bottom {
-
-    display: flex;
-    text-align: center;
-    align-items: center;
-
-  }
-
+      display: flex;
+      text-align: center;
+      align-items: center;
+ }
   .signature{
-
-    border-top: 1px solid black;
-    padding-top: 15%;
-    padding-bottom: 15%;
-
-  }
-
+      border-top: 1px solid black;
+      padding-top: 15%;
+      padding-bottom: 15%;
+ }
   .description{
-
-    padding-bottom: 15%;
-    padding-top: 15%;
-
-  }
-
-
+      padding-bottom: 15%;
+      padding-top: 15%;
+ }
   .about-column-2, .about-column-1 p{
-    text-align: center;
-  }
-
+      text-align: center;
+ }
   .about-column-2 {
-    top:70px;
-  }
-
+      top:70px;
+ }
   .menu-opened{
-
-  position: absolute;
-  width: 100vw;
-  height: 50px;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-}
-
-.menu-opened.works ul,.menu-opened.about ul {
-  
-  position: absolute;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
-  width: 100%;
-  bottom: 0;
-
-}
-
-.menu-opened.about nav,.menu-opened.works nav  {
-  
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  height: 50px;
-
-}
-
-.menu-opened.works::after,.menu-opened.about::after{
-
-  display: none;
-
-
-
-}
-
-
-
+      position: absolute;
+      width: 100vw;
+      height: 50px;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+ }
+  .menu-opened.works ul,.menu-opened.about ul {
+      position: absolute;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      width: 100%;
+      bottom: 0;
+ }
+  .menu-opened.about nav,.menu-opened.works nav {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      height: 50px;
+ }
+  .menu-opened.works::after,.menu-opened.about::after{
+      display: none;
+ }
 }

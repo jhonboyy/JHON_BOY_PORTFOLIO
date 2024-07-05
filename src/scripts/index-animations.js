@@ -53,36 +53,34 @@ export function introduceAnimationOnLoad() {
 export function animateHeader() {
   if (typeof window === 'undefined') return;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const header = document.querySelector('.index');
-    if (header) {
-      const h1 = new SplitType(header.querySelector('h1'), { type: 'words, chars' }).chars;
-      const navLinks = new SplitType(header.querySelectorAll('nav ul li a'), { type: 'words, chars' }).chars;
+  const header = document.querySelector('.index');
+  if (header) {
+    const h1 = new SplitType(header.querySelector('h1'), { type: 'words, chars' }).chars;
+    const navLinks = new SplitType(header.querySelectorAll('nav ul li a'), { type: 'words, chars' }).chars;
 
-      const headerText = document.getElementById('headerText');
-      if (headerText) {
-        headerText.style.visibility = 'visible';
-      }
-
-      document.querySelectorAll('nav li a').forEach((item) => {
-        item.style.visibility = 'visible';
-      });
-
-      gsap.from(h1, {
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        ease: 'power2.out',
-      });
-
-      gsap.from(navLinks, {
-        opacity: 0,
-        y: 20,
-        duration: 1,
-        ease: 'power2.out',
-      });
-    } else {
-      console.error('El elemento header no se encontró en el DOM.');
+    const headerText = document.getElementById('headerText');
+    if (headerText) {
+      headerText.style.visibility = 'visible';
     }
-  });
+
+    document.querySelectorAll('nav li a').forEach((item) => {
+      item.style.visibility = 'visible';
+    });
+
+    gsap.from(h1, {
+      opacity: 0,
+      y: 20,
+      duration: 1,
+      ease: 'power2.out',
+    });
+
+    gsap.from(navLinks, {
+      opacity: 0,
+      y: 20,
+      duration: 1,
+      ease: 'power2.out',
+    });
+  } else {
+    console.error('El elemento header no se encontró en el DOM.');
+  }
 }

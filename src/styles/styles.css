@@ -40,44 +40,15 @@ a:hover {
 p {
   height: auto;
   width: 100%;
-  margin-bottom: 0 !important;
+  margin: 0;
 }
 header nav {
   z-index: 3;
-}
-.text-right {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  justify-content: right;
-  align-items: center;
 }
 .text-bottom {
   display: flex;
   text-align: start;
   align-items: end;
-}
-.text-left {
-  width: max-content;
-  height: 100%;
-  text-align: left;
-}
-.project-container-top .text-left {
-  display: flex;
-  align-items: center;
-  padding-left: 15px;
-}
-.project-container-top .text-right {
-  text-align: right;
-  width: auto;
-  justify-content: right;
-  padding-right: 15px;
-}
-.project-container > .text-left {
-  display: flex;
-  height: 50px;
-  align-items: center;
-  padding: 0 0 0 1.5vh !important;
 }
 .lottie-index {
   display: flex;
@@ -116,16 +87,30 @@ h1 {
 .index nav{
   height: 250px;
 }
-
+.index nav ul li::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: black;
+  width: var(--line-width);
+}
+.index{
+  display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px calc(100% - 300px) 50px 50px 50px 50px 50px;
+}
 /* ///////////////////////////////////////////////////// LEFT SIDE ///////////////////////////////////////////////////// */
-li a, li a:hover {
+li, li a, li a:hover {
   text-decoration: none;
   color: black !important;
   width: 100%;
   height: 50px;
   align-items: center;
-  justify-content: center;
-  display: flex;
+  display: grid;
+  text-align: center;
 }
 ul {
   list-style-type: none;
@@ -154,14 +139,16 @@ ul {
   position: absolute;
   width: 100%;
   top: -50px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 .menu-opened ul {
   display: grid;
   position: absolute;
   width: 100%;
   bottom: 0;
-  height: 200px;
-  grid-template-rows: 50px 50px 50px 50px 50px;
+  height: auto;
+  grid-template-rows: repeat(auto-fill, minmax(50px, 1fr));
 }
 .menu-opened li {
   border-bottom: 1px solid black;
@@ -248,6 +235,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 50px 1fr;
+  opacity: 0;
 }
 .projects-nav {
   width: 100%;
@@ -299,27 +287,23 @@ figure {
   grid-template-rows: 1fr 1fr minmax(50px, max-content);
   gap: 1px;
 }
-.project-top-lava figcaption {
-  display: grid;
-  box-sizing: border-box;
-  padding: 1.5vh;
-  width: 100%;
-  height: minmax(50px, max-content);
+figcaption {
   background-color: white;
-  grid-template-columns: 70% 1fr;
-  grid-column-start: 1;
-  grid-column-end: 4;
+  width: 100%;
+  padding: 0;
+  grid-column: 1 / -1;
+  display: grid;
+  align-items: center;
+  min-height: 50px;
+  grid-template-columns: 80% 20%;
 }
-.project-top figcaption {
-  display: grid;
-  box-sizing: border-box;
-  padding: 1.5vh;
-  width: 100%;
-  height: minmax(50px, max-content);
-  background-color: white;
-  grid-template-columns: 70% 1fr;
-  grid-column-start: 1;
-  grid-column-end: 4;
+figcaption > :nth-child(2) {
+  text-align: right;
+  padding: 0 12px 0 0;
+
+}
+figcaption > :first-child {
+  padding: 0 0 0 12px;
 }
 .project-grid {
   display: grid;
@@ -332,20 +316,6 @@ figure {
   box-sizing: border-box;
   gap: 1px;
 }
-.project-grid figcaption {
-  display: grid;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 1.5vh;
-  height: minmax(50px, max-content);
-  background-color: white;
-  grid-template-columns: 70% 1fr;
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
-figcaption p {
-  margin:0;
-}
 .project-grid-top {
   display: grid;
   width: 100%;
@@ -357,17 +327,6 @@ figcaption p {
   box-sizing: border-box;
   gap: 1px;
 }
-.project-grid-top figcaption {
-  display: grid;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 1.5vh;
-  grid-template-columns: 70% 1fr;
-  height: minmax(50px, max-content);
-  background-color: white;
-  grid-column-start: 1;
-  grid-column-end: 3;
-}
 .project-solo {
   display: grid;
   width: 100%;
@@ -377,30 +336,6 @@ figcaption p {
   background-color: black;
   border-top: 1px solid black;
   gap: 1px;
-}
-.project-solo figcaption {
-  display: grid;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 1.5vh;
-  height: minmax(50px, max-content);
-  grid-template-columns: 70% 1fr;
-  position: relative;
-  background-color: white;
-  grid-column-start: 1;
-  grid-column-end: 2;
-}
-.project-solo-slider figcaption {
-  display: grid;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 1.5vh;
-  height: minmax(50px, max-content);
-  grid-template-columns: 70% 1fr;
-  position: relative;
-  background-color: white;
-  grid-column-start: 1;
-  grid-column-end: 2;
 }
 .project-solo-slider {
   display: grid;
@@ -414,13 +349,6 @@ figcaption p {
   border-top: 1px solid black;
   gap: 1px;
   transform: translate3d(0, 0, 0);
-}
-.project-solo-slider figcaption {
-  display: grid;
-  width: auto;
-  background-color: white;
-  height: minmax(50px, max-content);
-  grid-template-columns: 1fr 1fr;
 }
 .slide-track .slide {
   min-height: 500px;
@@ -468,7 +396,7 @@ figcaption p {
   height: 100%;
   width: 50vw;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: repeat(10,1fr);
 }
 .frama {
   display: grid;
@@ -539,12 +467,24 @@ figcaption p {
   width: 50vw;
   display: grid;
   position: absolute;
+  right: 0;
   grid-template-columns: 55% 45%;
+  grid-area: 1 / 1 / 2 / 3;
   grid-template-rows: 1fr;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 1;
-  grid-row-end: 2;
+}
+.aboutMenu #aboutButton {
+  position: absolute;
+  bottom: 150px;
+}
+.aboutMenu #worksButton {
+  bottom: 250px;
+  top: -101px;
+}
+.aboutMenu nav ul li:nth-child(3) {
+  border-top: 1px solid black;
+}
+.aboutMenu::before{
+  height: 100vh;
 }
 .about-column-2 {
   position: relative;
@@ -581,27 +521,14 @@ section address {
   width: 100%;
   height: max-content;
   overflow: hidden;
- /* Asegura que el contenido que desborde del contenedor sea ocultado */
   align-items: center;
   justify-content: center;
   padding: 5% 0 5% 0;
 }
 .portrait, .portrait2 {
   max-width: 90%;
- /* Establece el ancho máximo de la imagen al 100% del contenedor */
   height: auto;
- /* Permite que la altura se ajuste automáticamente para mantener la proporción */
   margin: 0 auto;
- /* Centra la imagen horizontalmente dentro del contenedor */
-}
-/* index */
-.index{
-  display: grid;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  grid-template-columns: 1fr;
-  grid-template-rows: 50px calc(100% - 300px) 50px 50px 50px 50px 50px;
 }
 @media screen and (min-width: 2000px) {
   .image-container {
@@ -655,11 +582,6 @@ section address {
       width: 100%;
       position: absolute;
  }
-  .text-left {
-      width: auto;
-      height: 100%;
-      text-align: left;
- }
 /* ///////////////////////////////////////////////////// MOBILE WORKS ///////////////////////////////////////////////////// */
 .projects {
       width: 100%;
@@ -711,7 +633,7 @@ section address {
       height: 100%;
       width: 100vw;
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: repeat(11,1fr);
  }
   .lava {
       display: grid;
@@ -728,14 +650,14 @@ section address {
  }
   .lava-img{
       display:grid;
-      grid-template-columns: 2fr 2fr 2fr;
+      grid-template-columns: repeat(3,2fr);
       gap: 5px;
       width: 100%;
       height: auto;
  }
   .lava-img-2 {
       display:grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2,1fr);
       gap: 5px;
       height: max-content;
       width: 100%;
@@ -911,7 +833,7 @@ section address {
   .menu-opened.works ul,.menu-opened.about ul {
       position: absolute;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(5, 1fr);
       grid-template-rows: 1fr;
       width: 100%;
       bottom: 0;

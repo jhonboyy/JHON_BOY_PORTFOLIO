@@ -1,11 +1,12 @@
 import { defineConfig } from 'astro/config';
+import vercel from '@astrojs/vercel/serverless';
 
 export default defineConfig({
   server: {
-    host: '0.0.0.0',  // Cambia esto por la IP o el hostname deseado
-    port: 3000        // Cambia esto por el puerto deseado
+    host: '0.0.0.0',
+    port: 3000        
   },
-
-  
+  output: 'server',
+  adapter: vercel(),
 
 });

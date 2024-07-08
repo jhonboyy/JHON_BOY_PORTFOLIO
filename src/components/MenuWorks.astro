@@ -1,0 +1,39 @@
+---
+// src/components/Header.astro
+
+// No se requieren props en este caso, pero se pueden añadir si necesitas pasar datos dinámicos.
+---
+
+<header class="menu-opened" id="mainContainer">
+    <nav>
+        <ul id="menuButtons">
+            <li id="worksButton">
+                <a data-route="/works">WORKS</a>
+            </li>
+            <li id="aboutButton" style="border-top: 1px solid black">
+                <a data-route="/about">ABOUT</a>
+            </li>
+            <li>
+                <a href="mailto:hello@jhonboy.com">CONTACT</a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/jhon_boy" target="_blank">INSTA</a>
+            </li>
+            <li>
+                <a href="https://github.com/jhonboyy" target="_blank">GITHUB</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="MenuImageContainer" style="display: block; position: absolute; top: 50px; width: 100%;">
+        <img src="/images/jhon-boy-illustration-works-page-person-resting.svg" id="worksImage" style="display: block;">
+    </div>
+</header>
+
+<script type="module">
+    import { animateWorksButton, showMenuImage } from './src/scripts/menu-animations.js';
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        animateWorksButton();
+        showMenuImage();
+    });
+    </script>

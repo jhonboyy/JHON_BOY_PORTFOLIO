@@ -16,8 +16,8 @@ const { type, className, images, animations, captions } = project;
       ))}
     </div>
     <figcaption>
-      <p class="text-left">{captions.left}</p>
-      <p class="text-right">{captions.right}</p>
+      <span>{captions.left}</span>
+      <span>{captions.right}</span>
     </figcaption>
   </figure>
 ) : (
@@ -33,8 +33,8 @@ const { type, className, images, animations, captions } = project;
       </div>
     ))}
     <figcaption>
-      <p class="text-left" set:html={captions.left}></p>
-      <p class="text-right">{captions.right}</p>
+      <span set:html={captions.left}></span>
+      <span>{captions.right}</span>
     </figcaption>
   </figure>
 )}

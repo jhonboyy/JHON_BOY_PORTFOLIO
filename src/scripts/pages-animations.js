@@ -13,8 +13,6 @@ export function animateWorksButton() {
   });
 };
 
-// src/scripts/works-animations.js
-
 export function showMenuImage (){  
   
   const projectsSection = document.getElementById('worksImage');
@@ -47,4 +45,31 @@ export function animateAboutButton() {
     duration: 1,
     ease: 'power3.out',
   });
+}
+
+export function showAboutMenuImage (){  
+  
+  const aboutImage = document.getElementById('aboutImage');
+  aboutImage.style.opacity = 0;
+
+  setTimeout(() => {
+    gsap.to(aboutImage, { opacity: 1, duration: 1 });
+  }, 1000);
+  
+}
+
+export function animateProjectsSection() {
+  const projectsSection = document.getElementById('works-content');
+
+  setTimeout(() => {
+    gsap.to(projectsSection, { opacity: 1, duration: 1 });
+  }, 1000);
+}
+
+export function animateAboutSection() {
+  const aboutSection = document.getElementById('about-content');
+
+  setTimeout(() => {
+    gsap.to(aboutSection, { opacity: 1, duration: 1 });
+  }, 1000);
 }

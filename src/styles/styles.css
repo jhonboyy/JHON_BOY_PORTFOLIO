@@ -87,6 +87,9 @@ h1 {
 .index nav{
   height: 250px;
 }
+.index nav a {
+  visibility: hidden;
+}
 .index nav ul li::before {
   content: '';
   display: block;
@@ -171,9 +174,10 @@ ul {
 }
 .MenuImageContainer {
   display: flex;
+  position: absolute;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 250px);
+  height: calc(100vh - 255px);
   width: 50vw;
 }
 .MenuImageContainer img {
@@ -468,6 +472,7 @@ figcaption > :first-child {
   display: grid;
   position: absolute;
   right: 0;
+  opacity: 0;
   grid-template-columns: 55% 45%;
   grid-area: 1 / 1 / 2 / 3;
   grid-template-rows: 1fr;
@@ -485,6 +490,7 @@ figcaption > :first-child {
 }
 .aboutMenu::before{
   height: 100vh;
+  z-index: 2;
 }
 .about-column-2 {
   position: relative;

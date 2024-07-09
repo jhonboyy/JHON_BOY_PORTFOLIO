@@ -1,3 +1,4 @@
+// src/scripts/index-animations.js
 import { gsap } from 'gsap';
 import SplitType from 'split-type';
 
@@ -83,4 +84,22 @@ export function animateHeader() {
   } else {
     console.error('El elemento header no se encontró en el DOM.');
   }
+}
+
+export function initiateAnimations() {
+  if (typeof window === 'undefined') return;
+
+  // Paso 1: Animar líneas
+  animateLines();
+
+  // Paso 2: Mostrar y animar el texto del encabezado después de 1 segundo
+  setTimeout(() => {
+    animateHeader();
+  }, 1000);
+
+  // Paso 3: Cargar y actualizar las animaciones después de 1.5 segundos
+  setTimeout(() => {
+    introduceAnimationOnLoad();
+    updateAnimation();
+  }, 1500);
 }

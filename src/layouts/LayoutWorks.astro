@@ -3,7 +3,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-page="works">
 <head>
   <meta charset="UTF-8" />
   <meta name="description" content="Astro description" />
@@ -13,10 +13,22 @@ const { title } = Astro.props;
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <script type="module" src="/src/scripts/load-dotlottie.js"></script>
-  
 </head>
-
 <body>
   <slot></slot>
+  <script type="module">
+    import { applyAnimation } from '/src/scripts/pages-animations.js';
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const previousPage = localStorage.getItem('previousPage') || 'direct';
+      const currentPage = document.documentElement.dataset.page;
+  
+      applyAnimation(previousPage, currentPage);
+  
+      console.log(previousPage, currentPage);
+  
+      localStorage.setItem('previousPage', currentPage);
+    });
+  </script>
 </body>
 </html>

@@ -1,43 +1,15 @@
 ---
-import Layout from '../layouts/Index.astro';
+import Layout from '../layouts/LayoutIndex.astro';
 import Menu from '../components/Menu.astro';
 ---
 
-<html lang="en" data-page="index">
-<head>
-  <title>Home - John Boy</title>
-</head>
-<body>
-  <Layout title="Home - John Boy">
-    <header class="index">
-      <h1 id="headerText" style="visibility: hidden;">WELCOME TO JHON BOY</h1>
-      <div class="lottie-index">
-        <dotlottie-player id="mobileAnimation" src="/animations/jhon-boy-animation-index-mobile.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
-        <dotlottie-player id="desktopAnimation" src="/animations/jhon-boy-animation-index.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
-      </div>
-      <Menu />
-    </header>
-  </Layout>
-  <script type="module">
-    import { updateAnimation, initiateAnimations } from '/src/scripts/index-animations.js';
-    import { applyAnimation } from '/src/scripts/pages-animations.js';
-
-    window.addEventListener('load', () => {
-      initiateAnimations();
-    });
-
-    window.addEventListener('resize', () => {
-      updateAnimation();
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const previousPage = localStorage.getItem('previousPage') || 'direct';
-      const currentPage = document.documentElement.dataset.page;
-
-      applyAnimation(previousPage, currentPage);
-
-      localStorage.setItem('previousPage', currentPage);
-    });
-  </script>
-</body>
-</html>
+<Layout title="Home - John Boy">
+  <header class="index">
+    <h1 id="headerText" style="visibility: hidden;">WELCOME TO JHON BOY</h1>
+    <div class="lottie-index">
+      <dotlottie-player id="mobileAnimation" src="/animations/jhon-boy-animation-index-mobile.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
+      <dotlottie-player id="desktopAnimation" src="/animations/jhon-boy-animation-index.lottie" background="white" speed="1" style="display: none;" loop autoplay></dotlottie-player>
+    </div>
+    <Menu />
+  </header>
+</Layout>

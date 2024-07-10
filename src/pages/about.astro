@@ -1,31 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/LayoutAbout.astro';
 import AboutSection from '../components/AboutSection.astro';
 import MenuAbout from '../components/MenuAbout.astro';
 ---
 
-<html lang="en" data-page="about">
-<head>
-  <title>About - John Boy</title>
-</head>
-<body>
-  <Layout title="About">
-    <MenuAbout />
-    <AboutSection />
-  </Layout>
-  <script type="module">
-    import { applyAnimation } from './src/scripts/pages-animations.js';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const previousPage = localStorage.getItem('previousPage') || 'direct';
-      const currentPage = document.documentElement.dataset.page;
-
-      applyAnimation(previousPage, currentPage);
-
-      console.log(previousPage, currentPage); // Para depuración
-
-      localStorage.setItem('previousPage', currentPage);
-    });
-  </script>
-</body>
-</html>
+<Layout title="About">
+  <MenuAbout />
+  <AboutSection />
+</Layout>

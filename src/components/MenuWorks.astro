@@ -1,9 +1,9 @@
 ---
 import Menu from '../components/Menu.astro'
-// No se requieren props en este caso, pero se pueden añadir si necesitas pasar datos dinámicos.
+
 ---
 
-<header class="menu-opened" id="mainContainer">
+<header class="menu-opened">
     <Menu />
     <div class="MenuImageContainer" style="top: 50px">
         <img src="/images/jhon-boy-illustration-works-page-person-resting.svg" id="worksImage" style="display: block;">
@@ -11,11 +11,9 @@ import Menu from '../components/Menu.astro'
 </header>
 
 <script type="module">
-    import { animateWorksButton, showMenuImage, animateProjectsSection } from './src/scripts/pages-animations.js';
+    import { applyAnimation } from './src/scripts/pages-animations.js';
     
     document.addEventListener('DOMContentLoaded', () => {
-        animateProjectsSection();
-        animateWorksButton();
-        showMenuImage();
+        applyAnimation();
     });
     </script>

@@ -479,15 +479,14 @@ figcaption > :first-child {
 }
 .aboutMenu #aboutButton {
   position: absolute;
-  bottom: 150px;
 }
 .aboutMenu #worksButton {
-  bottom: 250px;
-  top: -101px;
+  position: absolute;
 }
 .aboutMenu nav ul li:nth-child(3) {
   border-top: 1px solid black;
 }
+
 .aboutMenu::before{
   height: 100vh;
   z-index: 2;

@@ -4,14 +4,29 @@ import ProjectsSection from '../components/WorksSection.astro';
 import Menu from '../components/MenuWorks.astro';
 ---
 
-<html>
-  <head>
-    <title>Works</title>
-  </head>
-  <body>
-    <Layout title="Works">
-        <ProjectsSection />
-      <Menu />
-    </Layout>
-  </body>
+<html lang="en" data-page="works">
+<head>
+  <title>Works</title>
+  <!-- Otros elementos del head -->
+</head>
+<body>
+  <Layout title="Works">
+    <ProjectsSection />
+    <Menu />
+  </Layout>
+  <script type="module">
+    import { applyAnimation } from './src/scripts/pages-animations.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const previousPage = localStorage.getItem('previousPage') || 'direct';
+      const currentPage = document.documentElement.dataset.page;
+
+      applyAnimation(previousPage, currentPage);
+
+      console.log(previousPage, currentPage);
+
+      localStorage.setItem('previousPage', currentPage);
+    });
+  </script>
+</body>
 </html>

@@ -29,30 +29,36 @@ export const applyAnimation = (from, to) => {
     
   } else if (from === 'works' && to === 'index') {
     resetWorksPage();
+
   } else if (from === 'about' && to === 'index') {
     resetAboutPage();
+
   } else if (from === 'direct' && to === 'works') {
     animateWorksButton();
     showMenuImage();
     document.getElementById('worksButton').style.pointerEvents = "none"
     animateProjectsSection();
     document.getElementById('aboutButton').style.borderTop = "1px solid black"
+
   } else if (from === 'direct' && to === 'about') {
     animateAboutButton();
     showAboutMenuImage();
     animateAboutSection();
     document.getElementById('aboutButton').style.pointerEvents = "none"
+
   }else if (from === 'works' && to === 'works') {
     animateWorksButton();
     showMenuImage();
     document.getElementById('worksButton').style.pointerEvents = "none"
     document.getElementById('aboutButton').style.borderTop = "1px solid black"
     animateProjectsSection();
+
   } else if (from === 'about' && to === 'about') {
     animateAboutButton();
     showAboutMenuImage();
     animateAboutSection();
     document.getElementById('aboutButton').style.pointerEvents = "none"
+    
   }
 };
 
@@ -67,7 +73,7 @@ export function animateWorksButton() {
 }
 
 export function showMenuImage() {
-  const projectsSection = document.getElementById('worksImage');
+  const projectsSection = document.getElementById('menuImage');
   projectsSection.style.opacity = 0;
   setTimeout(() => {
     gsap.to(projectsSection, { opacity: 1, duration: 1 });
@@ -90,7 +96,7 @@ export function animateAboutButton() {
 }
 
 export function showAboutMenuImage() {
-  const aboutImage = document.getElementById('aboutImage');
+  const aboutImage = document.getElementById('menuImage');
   aboutImage.style.opacity = 0;
   setTimeout(() => {
     gsap.to(aboutImage, { opacity: 1, duration: 1 });
@@ -133,6 +139,8 @@ export function animateWorksButtonFromAbout() {
 export function animateAboutButtonFromWorks() {
   const aboutButton = document.getElementById('aboutButton');
   const worksButton = document.getElementById('worksButton');
+
+
   gsap.to(aboutButton, {
     css: { top: 'calc(201px - 100vh)' },
     duration: 1,
@@ -140,6 +148,7 @@ export function animateAboutButtonFromWorks() {
   });
 
   worksButton.style.top = 'calc(150px - 100vh)'
+
 
 }
 

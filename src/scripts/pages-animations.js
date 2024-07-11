@@ -58,8 +58,9 @@ export const applyAnimation = (from, to) => {
     showAboutMenuImage();
     animateAboutSection();
     document.getElementById('aboutButton').style.pointerEvents = "none"
-    
+  
   }
+
 };
 
 // Funciones de Animación

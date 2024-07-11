@@ -28,7 +28,7 @@ export const projects = [{
       },
   ],
   captions: {
-      left: 'Identity illustrations for Lava Circular 🌋 <br /><a id="lavaLink"><u>READ MORE</u></a>',
+      left: 'Identity illustrations for Lava Circular 🌋 <br /><a href="/works/lavacircular"><u>READ MORE</u></a>',
       right: 'NOV.11.2023'
   }
 },

@@ -2,9 +2,12 @@
 import Layout from '../layouts/LayoutAbout.astro';
 import AboutSection from '../components/AboutSection.astro';
 import MenuAbout from '../components/MenuAbout.astro';
+
+const title = "About";
+const metaDescription = "This is the about page description.";
 ---
 
-<Layout title="About">
+<Layout title={title} metaDescription={metaDescription}>
   <MenuAbout />
   <AboutSection />
 </Layout>

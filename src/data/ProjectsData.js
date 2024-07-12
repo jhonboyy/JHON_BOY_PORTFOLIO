@@ -28,7 +28,7 @@ export const projects = [{
       },
   ],
   captions: {
-      left: 'Identity illustrations for Lava Circular 🌋 <br /><a href="/works/lavacircular"><u>READ MORE</u></a>',
+      left: 'Lava Circular - Brand illustrations for the 7th edition 🌋 <br /><a href="/works/lavacircular"><u>READ MORE</u></a>',
       right: 'NOV.11.2023'
   }
 },
@@ -54,7 +54,7 @@ export const projects = [{
       alt: ''
   }, ],
   captions: {
-      left: 'Frama - For the wine lovers 🍷🍇 <br /><a id="framaLink"><u>READ MORE</u></a>',
+      left: 'Frama - Collaboration with The Natural Wine Company 🍷🍇 <br /><a id="framaLink"><u>READ MORE</u></a>',
       right: 'APR.15.2024'
   }
 },

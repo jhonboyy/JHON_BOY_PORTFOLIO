@@ -1,66 +1,72 @@
 import { gsap } from 'gsap';
 
 // Función Principal para Aplicar Animaciones
-export const applyAnimation = (from, to) => {
+// Apply Animation Function
+export const applyAnimation = (from, to, callback) => {
+  const executeCallback = () => {
+    if (typeof callback === 'function') {
+      callback();
+    }
+  };
+
   if (from === 'index' && to === 'about') {
     animateAboutButton();
     showAboutMenuImage();
     animateAboutSection();
-    document.getElementById('aboutButton').style.pointerEvents = "none"
-
+    document.getElementById('aboutButton').style.pointerEvents = "none";
+    executeCallback();
   } else if (from === 'index' && to === 'works') {
     animateWorksButton();
     showMenuImage();
-    document.getElementById('worksButton').style.pointerEvents = "none"
+    document.getElementById('worksButton').style.pointerEvents = "none";
     animateProjectsSection();
-    document.getElementById('aboutButton').style.borderTop = "1px solid black"
-
+    document.getElementById('aboutButton').style.borderTop = "1px solid black";
+    executeCallback();
   } else if (from === 'about' && to === 'works') {
     animateWorksButtonFromAbout();
     showMenuImage();
     animateProjectsSection();
-    document.getElementById('worksButton').style.pointerEvents = "none"
-
+    document.getElementById('worksButton').style.pointerEvents = "none";
+    executeCallback();
   } else if (from === 'works' && to === 'about') {
     animateAboutButtonFromWorks();
     showAboutMenuImage();
     animateAboutSection();
-    document.getElementById('aboutButton').style.pointerEvents = "none"
-    
+    document.getElementById('aboutButton').style.pointerEvents = "none";
+    executeCallback();
   } else if (from === 'works' && to === 'index') {
     resetWorksPage();
-
+    executeCallback();
   } else if (from === 'about' && to === 'index') {
     resetAboutPage();
-
+    executeCallback();
   } else if (from === 'direct' && to === 'works') {
     animateWorksButton();
     showMenuImage();
-    document.getElementById('worksButton').style.pointerEvents = "none"
+    document.getElementById('worksButton').style.pointerEvents = "none";
     animateProjectsSection();
-    document.getElementById('aboutButton').style.borderTop = "1px solid black"
-
+    document.getElementById('aboutButton').style.borderTop = "1px solid black";
+    executeCallback();
   } else if (from === 'direct' && to === 'about') {
     animateAboutButton();
     showAboutMenuImage();
     animateAboutSection();
-    document.getElementById('aboutButton').style.pointerEvents = "none"
-
-  }else if (from === 'works' && to === 'works') {
+    document.getElementById('aboutButton').style.pointerEvents = "none";
+    executeCallback();
+  } else if (from === 'works' && to === 'works') {
     animateWorksButton();
     showMenuImage();
-    document.getElementById('worksButton').style.pointerEvents = "none"
-    document.getElementById('aboutButton').style.borderTop = "1px solid black"
+    document.getElementById('worksButton').style.pointerEvents = "none";
+    document.getElementById('aboutButton').style.borderTop = "1px solid black";
     animateProjectsSection();
-
+    executeCallback();
   } else if (from === 'about' && to === 'about') {
     animateAboutButton();
     showAboutMenuImage();
     animateAboutSection();
-    document.getElementById('aboutButton').style.pointerEvents = "none"
-  
+    document.getElementById('aboutButton').style.pointerEvents = "none";
+    executeCallback();
   }
-
 };
 
 // Funciones de Animación
@@ -121,9 +127,10 @@ export function animateAboutSection() {
 export function animateWorksButtonFromAbout() {
   const worksButton = document.getElementById('worksButton');
   const aboutButton = document.getElementById('aboutButton');
+  
+  aboutButton.style.top = 'calc(200px - 100vh)';
   worksButton.style.top = 'calc(150px - 100vh)';
   aboutButton.style.position = 'absolute';
-  aboutButton.style.top = 'calc(150px - 100vh)';
   aboutButton.style.borderTop = '1px solid black';
   aboutButton.style.zIndex = '10';
 
@@ -140,16 +147,13 @@ export function animateWorksButtonFromAbout() {
 export function animateAboutButtonFromWorks() {
   const aboutButton = document.getElementById('aboutButton');
   const worksButton = document.getElementById('worksButton');
-
+  worksButton.style.top = 'calc(150px - 100vh)'
 
   gsap.to(aboutButton, {
     css: { top: 'calc(201px - 100vh)' },
     duration: 1,
     ease: 'power3.out',
   });
-
-  worksButton.style.top = 'calc(150px - 100vh)'
-
 
 }
 

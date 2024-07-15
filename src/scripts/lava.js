@@ -1,13 +1,4 @@
   
-  export function updatePointerEvents() {
-    const splitRight = document.getElementById("works-content");
-    if (window.innerWidth <= 920) {
-        splitRight.style.pointerEvents = "auto";
-    } else {
-        splitRight.style.pointerEvents = "none";
-    }
-  }
-  
   export function lavaSlider() {
     var slideIndex = 1;
     showDivs(slideIndex);
@@ -27,4 +18,3 @@
       showDivs(slideIndex += n);
     }
   }
-  

@@ -17,17 +17,25 @@ const { title } = Astro.props;
   <slot></slot>
   <script type="module">
     import { applyAnimation } from '/src/scripts/pages-animations.js';
+    import { adjustLayout } from '/src/scripts/about.js';
 
     document.addEventListener('DOMContentLoaded', () => {
-      const previousPage = localStorage.getItem('previousPage') || 'direct';
-      const currentPage = document.documentElement.dataset.page;
+        const previousPage = localStorage.getItem('previousPage') || 'direct';
+        const currentPage = document.documentElement.dataset.page;
+  
+        applyAnimation(previousPage, currentPage, () => {
 
-      applyAnimation(previousPage, currentPage);
+          adjustLayout();
 
-      console.log(previousPage, currentPage);
-
-      localStorage.setItem('previousPage', currentPage);
+          console.log(previousPage, currentPage);
+  
+          localStorage.setItem('previousPage', currentPage);
+          
+        });
     });
+
+    // Initial layout adjustment on page load
+    document.addEventListener('DOMContentLoaded', adjustLayout);
   </script>
 </body>
 </html>

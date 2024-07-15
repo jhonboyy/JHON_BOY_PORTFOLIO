@@ -28,7 +28,7 @@ export const projects = [{
       },
   ],
   captions: {
-      left: 'Lava Circular - Brand illustrations for the 7th edition 🌋 <br /><a href="/works/lavacircular"><u>READ MORE</u></a>',
+      left: 'Lava Circular brand illustrations for the 7th edition 🌋 <br /><a id="lavabutton" ><u>READ MORE</u></a>',
       right: 'NOV.11.2023'
   }
 },
@@ -54,7 +54,7 @@ export const projects = [{
       alt: ''
   }, ],
   captions: {
-      left: 'Frama - Collaboration with The Natural Wine Company 🍷🍇 <br /><a id="framaLink"><u>READ MORE</u></a>',
+      left: 'Frama collaboration with The Natural Wine Company 🍷🍇 <br /><a id="framaLink"><u>READ MORE</u></a>',
       right: 'APR.15.2024'
   }
 },
@@ -114,7 +114,7 @@ export const projects = [{
       }
   ],
   captions: {
-      left: 'Bakken & Baeck - Flourly brand illustrations 🥖👨🏻‍🍳 <br /><a id="flourlyLink"><u>READ MORE</u></a>',
+      left: 'Bakken & Baeck Flourly brand illustrations 🥖👨🏻‍🍳 <br /><a id="flourlyLink"><u>READ MORE</u></a>',
       right: 'DEC.22.2022'
   }
 },

@@ -2,6 +2,10 @@
 import Layout from '../layouts/LayoutWorks.astro';
 import ProjectsSection from '../components/WorksSection.astro';
 import Menu from '../components/MenuWorks.astro';
+import ProjectDetailLava from '../components/ProjectDetailLava.astro';
+import ProjectDetailFrama from '../components/ProjectDetailFrama.astro';
+import ProjectDetailFlourly from '../components/ProjectDetailFlourly.astro';
+
 
 const title = "Works";
 const metaDescription = "This is the works page description.";
@@ -10,4 +14,8 @@ const metaDescription = "This is the works page description.";
 <Layout title={title} metaDescription={metaDescription}>
   <ProjectsSection />
   <Menu />
+  <ProjectDetailLava />
+  <ProjectDetailFrama />
+  <ProjectDetailFlourly />
+
 </Layout>

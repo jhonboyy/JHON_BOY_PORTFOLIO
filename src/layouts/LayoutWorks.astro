@@ -17,17 +17,27 @@ const { title } = Astro.props;
 <body>
   <slot></slot>
   <script type="module">
+    import { lavaSlider } from '/src/scripts/lava.js';
+    import { FlourlyCounter } from '/src/scripts/Flourly.js';
+    import { showLavaContainer, showFramaContainer, showFlourlyContainer, rightWorksButtons } from '/src/scripts/buttons-functions.js';
     import { applyAnimation } from '/src/scripts/pages-animations.js';
   
     document.addEventListener('DOMContentLoaded', () => {
-      const previousPage = localStorage.getItem('previousPage') || 'direct';
-      const currentPage = document.documentElement.dataset.page;
+        const previousPage = localStorage.getItem('previousPage') || 'direct';
+        const currentPage = document.documentElement.dataset.page;
   
-      applyAnimation(previousPage, currentPage);
+        applyAnimation(previousPage, currentPage, () => {
+            rightWorksButtons();
+            showLavaContainer();
+            showFramaContainer();
+            showFlourlyContainer();
+            lavaSlider();
+            FlourlyCounter();
   
-      console.log(previousPage, currentPage);
+            console.log(previousPage, currentPage);
   
-      localStorage.setItem('previousPage', currentPage);
+            localStorage.setItem('previousPage', currentPage);
+        });
     });
   </script>
 </body>

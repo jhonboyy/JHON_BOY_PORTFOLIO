@@ -1,0 +1,34 @@
+/* Define the keyframes for animations */
+@keyframes slideUp {
+    from {
+      top: 0;
+    }
+    to {
+      top: calc(201px - 100vh);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Apply the animations */
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 2s ease forwards;
+  }
+  
+  /* Pointer Events */
+  .no-pointer-events {
+    pointer-events: none;
+
+  }
+  

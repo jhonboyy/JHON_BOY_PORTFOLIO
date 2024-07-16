@@ -1,5 +1,7 @@
 ---
 const { title } = Astro.props;
+import '../styles/styles.css'
+
 ---
 
 <!doctype html>
@@ -9,15 +11,14 @@ const { title } = Astro.props;
   <meta name="description" content="Astro description" />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="/src/styles/styles.css">
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
 </head>
 <body>
   <slot></slot>
-  <script type="module">
-    import { applyAnimation } from '/src/scripts/pages-animations.js';
-    import { adjustLayout } from '/src/scripts/about.js';
+  <script>
+    import { applyAnimation } from '../scripts/pages-animations.js';
+    import { adjustLayout } from '../scripts/about.js';
 
     document.addEventListener('DOMContentLoaded', () => {
         const previousPage = localStorage.getItem('previousPage') || 'direct';

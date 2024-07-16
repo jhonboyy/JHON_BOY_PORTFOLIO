@@ -1,0 +1,39 @@
+---
+const { title } = Astro.props;
+import '../styles/styles.css'
+---
+
+<!doctype html>
+<html lang="en" data-page="index">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <script src="../scripts/load-dotlottie.js"></script>
+</head>
+<body>
+  <slot></slot>
+  <script>
+    import { updateAnimation, initiateAnimations } from '../scripts/index-animations.js';
+    import { applyAnimation } from '../scripts/pages-animations.js';
+
+    window.addEventListener('load', () => {
+      initiateAnimations();
+    });
+
+    window.addEventListener('resize', () => {
+      updateAnimation();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const previousPage = localStorage.getItem('previousPage') || 'direct';
+      const currentPage = document.documentElement.dataset.page;
+
+      applyAnimation(previousPage, currentPage);
+
+      localStorage.setItem('previousPage', currentPage);
+    });
+  </script>
+</body>
+</html>

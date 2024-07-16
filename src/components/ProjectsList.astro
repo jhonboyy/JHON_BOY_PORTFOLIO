@@ -1,0 +1,12 @@
+---
+// src/components/ProjectsList.astro
+import Project from './Project.astro';
+import { projects } from '../data/ProjectsData.js';
+
+---
+
+<div class="projects-wrap">
+  {projects.map(project => (
+    <Project project={project} />
+  ))}
+</div>

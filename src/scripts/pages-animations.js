@@ -14,11 +14,13 @@ export const applyAnimation = (from, to, callback) => {
     showAboutMenuImage();
     animateAboutSection();
     document.getElementById('aboutButton').style.pointerEvents = "none";
+    aboutButton.setAttribute('aria-hidden', 'true');
     executeCallback();
   } else if (from === 'index' && to === 'works') {
     animateWorksButton();
     showMenuImage();
     document.getElementById('worksButton').style.pointerEvents = "none";
+    worksButton.setAttribute('aria-hidden', 'true');
     animateProjectsSection();
     document.getElementById('aboutButton').style.borderTop = "1px solid black";
     executeCallback();
@@ -27,12 +29,14 @@ export const applyAnimation = (from, to, callback) => {
     showMenuImage();
     animateProjectsSection();
     document.getElementById('worksButton').style.pointerEvents = "none";
+    worksButton.setAttribute('aria-hidden', 'true');
     executeCallback();
   } else if (from === 'works' && to === 'about') {
     animateAboutButtonFromWorks();
     showAboutMenuImage();
     animateAboutSection();
     document.getElementById('aboutButton').style.pointerEvents = "none";
+    aboutButton.setAttribute('aria-hidden', 'true');
     executeCallback();
   } else if (from === 'works' && to === 'index') {
     resetWorksPage();
@@ -44,6 +48,7 @@ export const applyAnimation = (from, to, callback) => {
     animateWorksButton();
     showMenuImage();
     document.getElementById('worksButton').style.pointerEvents = "none";
+    worksButton.setAttribute('aria-hidden', 'true');
     animateProjectsSection();
     document.getElementById('aboutButton').style.borderTop = "1px solid black";
     executeCallback();
@@ -52,11 +57,13 @@ export const applyAnimation = (from, to, callback) => {
     showAboutMenuImage();
     animateAboutSection();
     document.getElementById('aboutButton').style.pointerEvents = "none";
+    aboutButton.setAttribute('aria-hidden', 'true');
     executeCallback();
   } else if (from === 'works' && to === 'works') {
     animateWorksButton();
     showMenuImage();
     document.getElementById('worksButton').style.pointerEvents = "none";
+    worksButton.setAttribute('aria-hidden', 'true');
     document.getElementById('aboutButton').style.borderTop = "1px solid black";
     animateProjectsSection();
     executeCallback();
@@ -65,6 +72,7 @@ export const applyAnimation = (from, to, callback) => {
     showAboutMenuImage();
     animateAboutSection();
     document.getElementById('aboutButton').style.pointerEvents = "none";
+    aboutButton.setAttribute('aria-hidden', 'true');
     executeCallback();
   }
 };

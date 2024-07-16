@@ -1,17 +1,19 @@
 ---
+// src/components/MenuWorks.astro
+
 import Menu from '../components/Menu.astro'
 
 ---
 
-<header class="menu-opened">
+<header class="menu-opened" role="banner">
     <Menu />
     <div class="MenuImageContainer" style="top: 50px">
         <img src="/images/jhon-boy-illustration-works-page-person-resting.svg" id="menuImage" style="display: block;">
     </div>
 </header>
 
-<script type="module">
-    import { applyAnimation } from './src/scripts/pages-animations.js';
+<script>
+    import { applyAnimation } from '../scripts/pages-animations.js';
     
     document.addEventListener('DOMContentLoaded', () => {
         applyAnimation();

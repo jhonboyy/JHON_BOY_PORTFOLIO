@@ -518,7 +518,7 @@ display: none;
   height: auto;
   padding: 2% 5% 2% 5%;
 }
-section address {
+main address {
   display: flex;
   align-items: center;
   margin: 0;

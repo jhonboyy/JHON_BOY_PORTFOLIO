@@ -10,13 +10,13 @@ import '../styles/styles.css'
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <script type="module" src="/src/scripts/load-dotlottie.js"></script>
+  <script src="../scripts/load-dotlottie.js"></script>
 </head>
 <body>
   <slot></slot>
-  <script type="module">
-    import { updateAnimation, initiateAnimations } from '/src/scripts/index-animations.js';
-    import { applyAnimation } from '/src/scripts/pages-animations.js';
+  <script>
+    import { updateAnimation, initiateAnimations } from '../scripts/index-animations.js';
+    import { applyAnimation } from '../scripts/pages-animations.js';
 
     window.addEventListener('load', () => {
       initiateAnimations();

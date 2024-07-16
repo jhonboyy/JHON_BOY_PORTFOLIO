@@ -8,7 +8,11 @@ export default defineConfig({
     port: 3000,
   },
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel({    
+    webAnalytics: {
+    enabled: true,
+   },
+  }),
   outDir: './dist',
   publicDir: './public',
   srcDir: './src',

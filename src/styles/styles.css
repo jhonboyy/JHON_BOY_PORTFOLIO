@@ -1,28 +1,16 @@
 /* ///////////////////////////////////////////////////// GENERAL STYLE ///////////////////////////////////////////////////// */
-.hidden {
-  display: none;
-}
 img {
   max-width: 100%;
   height: auto;
-  width: auto;
 }
 body {
-  font-family: favorit;
+  font-family: "Favorit", sans-serif;
   font-size: 12px;
   height: 100vh;
   width: 100vw;
-  position: absolute;
   overflow: hidden;
-  align-items: center;
   background-color: #ffffff;
-  display: flex;
-  justify-content: center;
   margin: 0;
-}
-.active {
-  text-decoration: underline !important;
-  pointer-events: none;
 }
 :root {
   --line-width: 0;
@@ -31,24 +19,17 @@ body {
 a {
   color: blue !important;
   cursor: pointer;
-  height: auto;
-  width: 100%;
 }
 a:hover {
   color: blue !important;
 }
 p {
-  height: auto;
-  width: 100%;
   margin: 0;
-}
-header nav {
-  z-index: 3;
 }
 .text-bottom {
   display: flex;
   text-align: start;
-  align-items: end;
+  align-items: flex-end;
 }
 h1 {
   width: 100%;
@@ -64,9 +45,12 @@ h1 {
 @font-face {
   font-family: "Favorit";
   src: url("/fonts/ABCFavoritMono-Light.woff") format("woff");
-  font-style: light;
+  font-style: normal;
   font-weight: normal;
   font-display: swap;
+}
+.active {
+  text-decoration: underline;
 }
 /* ///////////////////////////////////////////////////// INDEX STYLE ///////////////////////////////////////////////////// */
 .index nav{
@@ -182,7 +166,6 @@ ul {
   grid-template-rows: 50px 1fr 49px;
   border-top: 1px solid black;
   background-color: black;
-  z-index: 10;
 }
 .project-container::before {
   content: "";
@@ -226,6 +209,7 @@ ul {
 .projects {
   position: absolute;
   right: 0;
+  opacity: 0;
   width: 50%;
   height: 100%;
   top: -1px;
@@ -473,10 +457,10 @@ display: none;
   grid-area: 1 / 1 / 2 / 3;
   grid-template-rows: 1fr;
 }
-#aboutButton {
+.menu-opened #aboutButton {
   position: absolute;
 }
-#worksButton {
+.menu-opened #worksButton {
   position: absolute;
 }
 .aboutMenu nav ul li:nth-child(3) {
@@ -559,9 +543,18 @@ main address {
   height: 100%;
  }
  .menu-opened ul{
+  position: relative;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr ;
+}
+.menu-opened #aboutButton {
+  position: relative;
+}
+.menu-opened #worksButton {
+  position: relative;
 }
 .menu-opened li {
+  position: relative;
   border-bottom: 0;
 }
 .MenuImageContainer {
@@ -586,7 +579,6 @@ main address {
 .projects {
       width: 100%;
  }
-
  figcaption {
   padding: 10px 0 10px 0;
  }

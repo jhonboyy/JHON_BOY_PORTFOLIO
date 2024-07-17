@@ -8,6 +8,15 @@
     }
   }
 
+  @keyframes slideUpWorksRepeat {
+    from {
+      top: -100px;
+    }
+    to {
+      top: calc(148px - 100vh);
+    }
+  }
+
   @keyframes slideUpAbout {
     from {
       top: -50px;
@@ -40,14 +49,20 @@
     animation: slideUpWorks 1s ease-out forwards;
   }
 
+  .animate-slide-up-works-repeat {
+    animation: slideUpWorksRepeat 1s ease-out forwards;
+  }
+
   .animate-slide-up-about {
     animation: slideUpAbout 1s ease-out forwards;
   }
+
   .animate-slide-down-about {
     animation: slideDownAbout 1s ease-out forwards;
   }
+
   .animate-fade-in {
-    animation: fadeIn 2s ease forwards;
+    animation: fadeIn 1s ease-out forwards;
   }
   
   /* Pointer Events */

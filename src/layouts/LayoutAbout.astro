@@ -26,18 +26,14 @@ import '../styles/animations.css'
         const currentPage = document.documentElement.dataset.page;
   
         applyAnimation(previousPage, currentPage, () => {
-
           adjustLayout();
-
           console.log(previousPage, currentPage);
-  
           localStorage.setItem('previousPage', currentPage);
-          
         });
-    });
 
-    // Initial layout adjustment on page load
-    document.addEventListener('DOMContentLoaded', adjustLayout);
+        // Initial layout adjustment on page load
+        adjustLayout();
+    });
   </script>
 </body>
 </html>

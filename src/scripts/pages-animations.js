@@ -12,6 +12,7 @@ export const applyAnimation = (from, to, callback) => {
     animateAboutSection();
     document.getElementById('aboutButton').classList.add('no-pointer-events');
     executeCallback();
+
   } else if (from === 'index' && to === 'works') {
     animateWorksButton();
     showMenuImage();
@@ -19,24 +20,32 @@ export const applyAnimation = (from, to, callback) => {
     animateProjectsSection();
     document.getElementById('aboutButton').style.borderTop = "1px solid black";
     executeCallback();
+
   } else if (from === 'about' && to === 'works') {
+    document.getElementById('worksButton').style.top = "calc(198px - 100vh)";
+    document.getElementById('aboutButton').style.top = "calc(250px - 100vh)";
     animateWorksButtonFromAbout();
     showMenuImage();
     animateProjectsSection();
     document.getElementById('worksButton').classList.add('no-pointer-events');
     executeCallback();
+
   } else if (from === 'works' && to === 'about') {
+    document.getElementById('worksButton').style.top = "calc(149px - 100vh)";
     animateAboutButtonFromWorks();
     showAboutMenuImage();
     animateAboutSection();
     document.getElementById('aboutButton').classList.add('no-pointer-events');
     executeCallback();
+
   } else if (from === 'works' && to === 'index') {
     resetWorksPage();
     executeCallback();
+
   } else if (from === 'about' && to === 'index') {
     resetAboutPage();
     executeCallback();
+
   } else if (from === 'direct' && to === 'works') {
     animateWorksButton();
     showMenuImage();
@@ -44,12 +53,14 @@ export const applyAnimation = (from, to, callback) => {
     animateProjectsSection();
     document.getElementById('aboutButton').style.borderTop = "1px solid black";
     executeCallback();
+
   } else if (from === 'direct' && to === 'about') {
     animateAboutButton();
     showAboutMenuImage();
     animateAboutSection();
     document.getElementById('aboutButton').classList.add('no-pointer-events');
     executeCallback();
+
   } else if (from === 'works' && to === 'works') {
     animateWorksButton();
     showMenuImage();
@@ -57,6 +68,7 @@ export const applyAnimation = (from, to, callback) => {
     document.getElementById('aboutButton').style.borderTop = "1px solid black";
     animateProjectsSection();
     executeCallback();
+    
   } else if (from === 'about' && to === 'about') {
     animateAboutButton();
     showAboutMenuImage();
@@ -69,7 +81,7 @@ export const applyAnimation = (from, to, callback) => {
 // Funciones de Animación
 function animateWorksButton() {
   const worksButton = document.getElementById('worksButton');
-  worksButton.classList.add('animate-slide-up');
+  worksButton.classList.add('animate-slide-up-works');
 }
 
 function showMenuImage() {
@@ -79,7 +91,7 @@ function showMenuImage() {
 
 function animateAboutButton() {
   const aboutButton = document.getElementById('aboutButton');
-  aboutButton.classList.add('animate-slide-up');
+  aboutButton.classList.add('animate-slide-up-about');
 }
 
 function showAboutMenuImage() {
@@ -98,23 +110,22 @@ function animateAboutSection() {
 }
 
 function animateWorksButtonFromAbout() {
-  const worksButton = document.getElementById('worksButton');
   const aboutButton = document.getElementById('aboutButton');
-  worksButton.classList.add('animate-slide-up');
-  aboutButton.classList.add('animate-slide-up');
+  aboutButton.classList.remove('animate-slide-up');
+  aboutButton.classList.add('animate-slide-down-about');
 }
 
 function animateAboutButtonFromWorks() {
   const aboutButton = document.getElementById('aboutButton');
-  aboutButton.classList.add('animate-slide-up');
+  aboutButton.classList.add('animate-slide-up-about');
 }
 
 function resetWorksPage() {
   const worksButton = document.getElementById('worksButton');
-  worksButton.classList.remove('animate-slide-up');
+  worksButton.classList.remove('animate-slide-up-works');
 }
 
 function resetAboutPage() {
   const aboutButton = document.getElementById('aboutButton');
-  aboutButton.classList.remove('animate-slide-up');
+  aboutButton.classList.remove('animate-slide-up-about');
 }

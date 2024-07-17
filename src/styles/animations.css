@@ -1,10 +1,28 @@
 /* Define the keyframes for animations */
-@keyframes slideUp {
+@keyframes slideUpWorks {
     from {
       top: 0;
     }
     to {
-      top: calc(201px - 100vh);
+      top: calc(198px - 100vh);
+    }
+  }
+
+  @keyframes slideUpAbout {
+    from {
+      top: -50px;
+    }
+    to {
+      top: calc(198px - 100vh);
+    }
+  }
+
+  @keyframes slideDownAbout {
+    from {
+      top: calc(250px - 100vh);
+    }
+    to {
+      top: -50px;
     }
   }
   
@@ -18,10 +36,16 @@
   }
   
   /* Apply the animations */
-  .animate-slide-up {
-    animation: slideUp 0.5s ease-out forwards;
+  .animate-slide-up-works {
+    animation: slideUpWorks 1s ease-out forwards;
   }
-  
+
+  .animate-slide-up-about {
+    animation: slideUpAbout 1s ease-out forwards;
+  }
+  .animate-slide-down-about {
+    animation: slideDownAbout 1s ease-out forwards;
+  }
   .animate-fade-in {
     animation: fadeIn 2s ease forwards;
   }

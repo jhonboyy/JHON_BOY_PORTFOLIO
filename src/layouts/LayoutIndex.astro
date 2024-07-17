@@ -1,4 +1,6 @@
 ---
+import SpeedInsights from '@vercel/speed-insights/astro';
+
 const { title } = Astro.props;
 import '../styles/styles.css'
 ---
@@ -35,5 +37,6 @@ import '../styles/styles.css'
       localStorage.setItem('previousPage', currentPage);
     });
   </script>
+  <SpeedInsights />
 </body>
 </html>

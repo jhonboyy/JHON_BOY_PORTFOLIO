@@ -1,7 +1,3 @@
-import { gsap } from 'gsap';
-
-// Función Principal para Aplicar Animaciones
-// Apply Animation Function
 export const applyAnimation = (from, to, callback) => {
   const executeCallback = () => {
     if (typeof callback === 'function') {
@@ -9,181 +5,184 @@ export const applyAnimation = (from, to, callback) => {
     }
   };
 
-  if (from === 'index' && to === 'about') {
-    animateAboutButton();
-    showAboutMenuImage();
-    animateAboutSection();
-    document.getElementById('aboutButton').style.pointerEvents = "none";
-    aboutButton.setAttribute('aria-hidden', 'true');
-    executeCallback();
-  } else if (from === 'index' && to === 'works') {
-    animateWorksButton();
-    showMenuImage();
-    document.getElementById('worksButton').style.pointerEvents = "none";
-    worksButton.setAttribute('aria-hidden', 'true');
-    animateProjectsSection();
-    document.getElementById('aboutButton').style.borderTop = "1px solid black";
-    executeCallback();
-  } else if (from === 'about' && to === 'works') {
-    animateWorksButtonFromAbout();
-    showMenuImage();
-    animateProjectsSection();
-    document.getElementById('worksButton').style.pointerEvents = "none";
-    worksButton.setAttribute('aria-hidden', 'true');
-    executeCallback();
-  } else if (from === 'works' && to === 'about') {
-    animateAboutButtonFromWorks();
-    showAboutMenuImage();
-    animateAboutSection();
-    document.getElementById('aboutButton').style.pointerEvents = "none";
-    aboutButton.setAttribute('aria-hidden', 'true');
-    executeCallback();
-  } else if (from === 'works' && to === 'index') {
-    resetWorksPage();
-    executeCallback();
-  } else if (from === 'about' && to === 'index') {
-    resetAboutPage();
-    executeCallback();
-  } else if (from === 'direct' && to === 'works') {
-    animateWorksButton();
-    showMenuImage();
-    document.getElementById('worksButton').style.pointerEvents = "none";
-    worksButton.setAttribute('aria-hidden', 'true');
-    animateProjectsSection();
-    document.getElementById('aboutButton').style.borderTop = "1px solid black";
-    executeCallback();
-  } else if (from === 'direct' && to === 'about') {
-    animateAboutButton();
-    showAboutMenuImage();
-    animateAboutSection();
-    document.getElementById('aboutButton').style.pointerEvents = "none";
-    aboutButton.setAttribute('aria-hidden', 'true');
-    executeCallback();
-  } else if (from === 'works' && to === 'works') {
-    animateWorksButton();
-    showMenuImage();
-    document.getElementById('worksButton').style.pointerEvents = "none";
-    worksButton.setAttribute('aria-hidden', 'true');
-    document.getElementById('aboutButton').style.borderTop = "1px solid black";
-    animateProjectsSection();
-    executeCallback();
-  } else if (from === 'about' && to === 'about') {
-    animateAboutButton();
-    showAboutMenuImage();
-    animateAboutSection();
-    document.getElementById('aboutButton').style.pointerEvents = "none";
-    aboutButton.setAttribute('aria-hidden', 'true');
-    executeCallback();
+  function updateCSSVariables() {
+    const root = document.documentElement;
+    const viewportHeight = window.innerHeight;
+    
+    root.style.setProperty('--slide-up-works-to', `${198 - viewportHeight}px`);
+    root.style.setProperty('--slide-up-works-repeat-to', `${148 - viewportHeight}px`);
+    root.style.setProperty('--slide-up-about-to', `${198 - viewportHeight}px`);
+    root.style.setProperty('--slide-down-about-from', `${250 - viewportHeight}px`);
+  }
+  
+  // Actualizar las variables CSS al redimensionar y cargar la página
+  window.addEventListener('resize', updateCSSVariables);
+  window.addEventListener('load', updateCSSVariables);
+  
+  // Ejecutar la función de actualización inmediatamente para establecer las variables iniciales
+  updateCSSVariables();
+  
+
+  // Definir las acciones
+  const actions = {
+    'index->about': () => {
+      disablePointerEvents('aboutButton');
+      animateAboutButton(() => {
+        showAboutMenuImage();
+        animateAboutSection();
+        executeCallback();
+      });
+    },
+    'index->works': () => {
+      moveElement('aboutButton', '-50px');
+      setBorderTop('aboutButton', '1px solid black');
+      disablePointerEvents('worksButton');
+      animateWorksButton(() => {
+        showMenuImage();
+        animateProjectsSection();
+        executeCallback();
+      });
+    },
+    'about->works': () => {
+      moveElement('worksButton', 'var(--slide-up-works-repeat-to)');
+      moveElement('aboutButton', 'var(--slide-down-about-from)');
+      setBorderTop('aboutButton', '1px solid black');
+      disablePointerEvents('worksButton');
+      animateWorksButtonFromAbout(() => {
+        showMenuImage();
+        animateProjectsSection();
+        executeCallback();
+      });
+    },
+    'works->about': () => {
+      disablePointerEvents('aboutButton');
+      moveElement('worksButton', 'var(--slide-up-works-repeat-to)');
+      animateAboutButtonFromWorks(() => {
+        showAboutMenuImage();
+        animateAboutSection();
+        executeCallback();
+      });
+    },
+    'works->index': () => {
+      resetWorksPage();
+      executeCallback();
+    },
+    'about->index': () => {
+      resetAboutPage();
+      executeCallback();
+    },
+    'direct->works': () => {
+      setBorderTop('aboutButton', '1px solid black');
+      disablePointerEvents('worksButton');
+      animateWorksButton(() => {
+        showMenuImage();
+        animateProjectsSection();
+        executeCallback();
+      });
+    },
+    'direct->about': () => {
+      disablePointerEvents('aboutButton');
+      animateAboutButton(() => {
+        showAboutMenuImage();
+        animateAboutSection();
+        executeCallback();
+      });
+    },
+    'works->works': () => {
+      moveElement('aboutButton', '-50px');
+      disablePointerEvents('worksButton');
+      setBorderTop('aboutButton', '1px solid black');
+      animateWorksButton(() => {
+        showMenuImage();
+        animateProjectsSection();
+        executeCallback();
+      });
+    },
+    'about->about': () => {
+      disablePointerEvents('aboutButton');
+      animateAboutButton(() => {
+        showAboutMenuImage();
+        animateAboutSection();
+        executeCallback();
+      });
+    }
+  };
+
+  // Ejecutar la acción correspondiente
+  const action = actions[`${from}->${to}`];
+  if (action) {
+    action();
   }
 };
 
-// Funciones de Animación
-export function animateWorksButton() {
+// Funciones auxiliares
+const disablePointerEvents = (elementId) => {
+  document.getElementById(elementId).classList.add('no-pointer-events');
+};
+
+const moveElement = (elementId, topValue) => {
+  document.getElementById(elementId).style.top = topValue;
+};
+
+const setBorderTop = (elementId, value) => {
+  document.getElementById(elementId).style.borderTop = value;
+};
+
+// Funciones de Animación con callbacks
+function animateWorksButton(callback) {
   const worksButton = document.getElementById('worksButton');
-  gsap.to(worksButton, {
-    css: { top: 'calc(202px - 100vh)' },
-    duration: 1,
-    ease: 'power3.out',
-  });
+  worksButton.classList.remove('animate-slide-up-works');
+  worksButton.classList.add('animate-slide-up-works-repeat');
+  setTimeout(callback, 1000);
 }
 
-export function showMenuImage() {
+function showMenuImage() {
   const projectsSection = document.getElementById('menuImage');
-  projectsSection.style.opacity = 0;
-  setTimeout(() => {
-    gsap.to(projectsSection, { opacity: 1, duration: 1 });
-  }, 1000);
+  projectsSection.classList.add('animate-fade-in');
 }
 
-export function animateAboutButton() {
-  const worksButton = document.getElementById('worksButton');
+function animateAboutButton(callback) {
   const aboutButton = document.getElementById('aboutButton');
-  gsap.to(worksButton, {
-    css: { top: 'calc(150px - 100vh)' },
-    duration: 1,
-    ease: 'power3.out',
-  });
-  gsap.to(aboutButton, {
-    css: { top: 'calc(201px - 100vh)' },
-    duration: 1,
-    ease: 'power3.out',
-  });
+  const worksButton = document.getElementById('worksButton');
+  aboutButton.classList.add('animate-slide-up-about');
+  worksButton.classList.add('animate-slide-up-works-repeat');
+  setTimeout(callback, 1000);
 }
 
-export function showAboutMenuImage() {
+function showAboutMenuImage() {
   const aboutImage = document.getElementById('menuImage');
-  aboutImage.style.opacity = 0;
-  setTimeout(() => {
-    gsap.to(aboutImage, { opacity: 1, duration: 1 });
-  }, 1000);
+  aboutImage.classList.add('animate-fade-in');
 }
 
-export function animateProjectsSection() {
+function animateProjectsSection() {
   const projectsSection = document.getElementById('works-content');
-  setTimeout(() => {
-    gsap.to(projectsSection, { opacity: 1, duration: 1 });
-  }, 1000);
+  projectsSection.classList.add('animate-fade-in');
 }
 
-export function animateAboutSection() {
+function animateAboutSection() {
   const aboutSection = document.getElementById('about-content');
-  setTimeout(() => {
-    gsap.to(aboutSection, { opacity: 1, duration: 1 });
-  }, 1000);
+  aboutSection.classList.add('animate-fade-in');
 }
 
-export function animateWorksButtonFromAbout() {
-  const worksButton = document.getElementById('worksButton');
+function animateWorksButtonFromAbout(callback) {
   const aboutButton = document.getElementById('aboutButton');
-  
-  aboutButton.style.top = 'calc(200px - 100vh)';
-  worksButton.style.top = 'calc(150px - 100vh)';
-  aboutButton.style.position = 'absolute';
-  aboutButton.style.borderTop = '1px solid black';
-  aboutButton.style.zIndex = '10';
-
-  gsap.to(aboutButton, {
-    css: { 
-      top: '-50px',
-  },
-    duration: 1,
-    ease: 'power3.out',
-  });
-
+  aboutButton.classList.remove('animate-slide-up');
+  aboutButton.classList.add('animate-slide-down-about');
+  setTimeout(callback, 1000);
 }
 
-export function animateAboutButtonFromWorks() {
+function animateAboutButtonFromWorks(callback) {
   const aboutButton = document.getElementById('aboutButton');
-  const worksButton = document.getElementById('worksButton');
-  worksButton.style.top = 'calc(150px - 100vh)'
-
-  gsap.to(aboutButton, {
-    css: { top: 'calc(201px - 100vh)' },
-    duration: 1,
-    ease: 'power3.out',
-  });
-
+  aboutButton.classList.add('animate-slide-up-about');
+  setTimeout(callback, 1000);
 }
 
-export function resetWorksPage() {
+function resetWorksPage() {
   const worksButton = document.getElementById('worksButton');
-  gsap.to(worksButton, {
-    css: { top: 'initial' },
-    duration: 0.5,
-    ease: 'power3.in',
-  });
+  worksButton.classList.remove('animate-slide-up-works');
 }
 
-export function resetAboutPage() {
+function resetAboutPage() {
   const aboutButton = document.getElementById('aboutButton');
-  gsap.to(aboutButton, {
-    css: { top: 'initial' },
-    duration: 0.5,
-    ease: 'power3.in',
-  });
-}
-
-export function animateWorksDirect() {
-  const worksButton = document.getElementById('worksButton');
-  gsap.fromTo(worksButton, { opacity: 0 }, { opacity: 1, duration: 1 });
+  aboutButton.classList.remove('animate-slide-up-about');
 }

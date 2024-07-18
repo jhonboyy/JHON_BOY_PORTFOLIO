@@ -1,6 +1,11 @@
 ---
-// src/components/ProjectDetailFrama.astro
+import { Image } from 'astro:assets';
+
+import illustrationFrama2 from '../images/jhon-boy-illustration-frama-tnwc-2.webp';
+import illustrationFrama3 from '../images/jhon-boy-illustration-frama-tnwc-3.webp';
+import illustrationFrama4 from '../images/jhon-boy-illustration-frama-tnwc-4.webp';
 ---
+
 <section class="project-container" id="frama-container" style="display:none">
   <div class="project-container-top">
     <p class="text-left">BRANDING, ANIMATION, PRODUCT DESIGN</p>
@@ -12,15 +17,15 @@
       This project represents the inaugural entry in the Personal Canvas series, a collaboration between <a href="https://framacph.com" target="_blank"><u>FRAMA</u></a> and <a href="https://thenaturalwinecompany.com" target="_blank"><u>The Natural Wine Company</u></a>. As an artist, I crafted the playful illustration featured on a limited-edition kitchen towel, designed to complement natural wine aesthetics. Drawing inspiration from Bacco, my artwork reflects the earthy terracottas and vibrant greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.
     </p>
     <div style="grid-column-start: 1; grid-column-end: 2;">
-      <dotlottie-player src="./animations/frama-animation.lottie" speed="1" loop autoplay style="position: relative; width: 100%; height: auto;"></dotlottie-player>
+      <dotlottie-player src="/animations/frama-animation.lottie" speed="1" loop autoplay style="position: relative; width: 100%; height: auto;"></dotlottie-player>
     </div>
     <p>
       <u>PROCESS</u><br>
       To add a dynamic touch to the static illustration, I incorporated subtle animation that introduces gentle movement, enhancing the visual impact without altering the narrative. This animation serves as a complementary action, adding a layer of engagement and emphasizing the natural elements depicted in the artwork.<br><br>The Personal Canvas series seeks to uncover and celebrate the intricate craft behind natural winemaking, highlighting the sustainable practices integral to this artisanal industry. By integrating traditional crafts such as weaving, glass-blowing, and winemaking, the project emphasizes the deep connection between human hands and heritage, bridging art with the innovative practices of natural wine production. The illustration and its animated extension serve not only as decorative art but also as a testament to the fusion of heritage and contemporary craftsmanship in natural winemaking.<br><br><a href="https://framacph.com/collections/towels/products/frama-the-natural-wine-company-kitchen-towel" target="_blank"><u>Buy the towel</u></a>
     </p>
-    <img style="grid-row-start: 4; grid-row-end: 5;" src="./images/jhon-boy-illustration-frama-tnwc-2.webp" alt="hand plying with dough" />
-    <img style="grid-row-start: 5; grid-row-end: 6;" src="./images/jhon-boy-illustration-frama-tnwc-3.webp" alt="hand plying with dough" />
-    <img style="grid-row-start: 6; grid-row-end: 7;" src="./images/jhon-boy-illustration-frama-tnwc-4.webp" alt="hand plying with dough" />
+    <Image style="grid-row-start: 4; grid-row-end: 5;" src={illustrationFrama2} alt="wine ceramic barrel with the Jhon Boy Frama towel" />
+    <Image style="grid-row-start: 5; grid-row-end: 6;" src={illustrationFrama3} alt="person holding the Jhon Boy Frama towel" />
+    <Image style="grid-row-start: 6; grid-row-end: 7;" src={illustrationFrama4} alt="table in the kitchen with the Jhon Boy Frama towel hanging in the back" />
     <p style="grid-column-start: 1; grid-column-end: 2;">
       <u>ART AND CREATIVE DIRECTION</u><br>
       <a href="https://www.instagram.com/valeriestt/" target="_blank"><u>Valerie Steenhaut</u></a><br>

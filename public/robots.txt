@@ -1,0 +1,11 @@
+# robots.txt for Jhon Boy's website
+
+# Allow all bots to access the site
+User-agent: *
+Disallow: /private/
+Disallow: /temp/
+Disallow: /hidden/
+Allow: /
+
+# Sitemap location
+Sitemap: https://jhonboy.com/sitemap.xml

@@ -1,0 +1,68 @@
+@keyframes slideUpWorks {
+  from {
+    top: 0;
+  }
+  to {
+    top: var(--slide-up-works-to);
+  }
+}
+
+@keyframes slideUpWorksRepeat {
+  from {
+    top: -100px;
+  }
+  to {
+    top: var(--slide-up-works-repeat-to);
+  }
+}
+
+@keyframes slideUpAbout {
+  from {
+    top: -50px;
+  }
+  to {
+    top: var(--slide-up-about-to);
+  }
+}
+
+@keyframes slideDownAbout {
+  from {
+    top: var(--slide-down-about-from);
+  }
+  to {
+    top: -50px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-slide-up-works {
+  animation: slideUpWorks 1s ease-out forwards;
+}
+
+.animate-slide-up-works-repeat {
+  animation: slideUpWorksRepeat 1s ease-out forwards;
+}
+
+.animate-slide-up-about {
+  animation: slideUpAbout 1s ease-out forwards;
+}
+
+.animate-slide-down-about {
+  animation: slideDownAbout 1s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.no-pointer-events {
+  pointer-events: none;
+}

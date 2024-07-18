@@ -1,14 +1,13 @@
 ---
-// src/components/MenuWorks.astro
-
 import Menu from '../components/Menu.astro'
-
+import { Image } from 'astro:assets'
+import MenuWorksImage from '../images/jhon-boy-illustration-works-page-person-resting.svg'
 ---
 
 <header class="menu-opened" role="banner">
     <Menu />
-    <div class="MenuImageContainer" style="top: 50px">
-        <img src="/images/jhon-boy-illustration-works-page-person-resting.svg" id="menuImage" style="display: block;">
+    <div class="MenuImageContainer animate-fade-in" style="top: 50px">
+        <Image src={MenuWorksImage} id="menuImage" alt="Illustration of a person resting" style="display: block;" />
     </div>
 </header>
 
@@ -18,4 +17,4 @@ import Menu from '../components/Menu.astro'
     document.addEventListener('DOMContentLoaded', () => {
         applyAnimation();
     });
-    </script>
+</script>

@@ -8,6 +8,20 @@ function getElements() {
     signature: document.querySelector(".signature")
   };
 }
+export function imageChange() {
+  const image = document.querySelector('.portrait');
+  const hoverimage = document.querySelector('.portrait2');
+
+  image.addEventListener('mouseover', function() {
+    image.style.display = 'none';
+    hoverimage.style.display = 'block';
+  });
+
+  hoverimage.addEventListener('mouseout', function() {
+    image.style.display = 'block';
+    hoverimage.style.display = 'none';
+  });
+}
 
 // Function to adjust layout based on the width
 export function adjustLayout() {

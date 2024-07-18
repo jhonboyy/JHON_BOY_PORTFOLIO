@@ -1,5 +1,11 @@
 ---
-// src/components/ProjectDetailFlourly.astro
+import { Image } from 'astro:assets';
+
+import illustrationFlourly from '../images/jhon-boy-illustration-flourly-portfolio.svg';
+import sketchFlourly1 from '../images/jhon-boy-sketches-flourly-1.webp';
+import sketchFlourly2 from '../images/jhon-boy-sketches-flourly-2.webp';
+import sketchFlourly3 from '../images/jhon-boy-sketches-flourly-3.webp';
+
 ---
 <section class="project-container" id="flourly-container" style="display:none">
   <div class="project-container-top">
@@ -30,16 +36,16 @@
       The primary objective was to seek an aesthetic that exuded playfulness and joy while maintaining a clean outcome. Flourly is an application designed to effortlessly determine the right amount of flour required, guaranteeing a tidy experience. Our creative exploration delved into the realm of flour and the intricate process of breadmaking.<br><br> We put the focus on the ingredients, shapes, and central elements related to the baking process and made them interact with a principal character. Making bread is about transformation and  uncertainty— we start with just three ingredients and, depending on how we work, this process it can culminate in a distinct result.<br><br> We believe that it was crucial for the illustrations to capture this spirit of experimentation, transformation, and unpredictability.
     </p>
     <div  style="grid-column-start: 1; grid-column-end: 3;" >
-      <img src="./images/jhon-boy-illustration-flourly-portfolio.svg" alt="hand plying with dough" />
+      <Image src={illustrationFlourly} alt="hand plying with dough" />
     </div>
     <p>
       <u>CREATIVITY NOTES</u><br>
       From this point, we didn't want to be too attached to the concept, so we investigated shapes and abstract forms and built connections between the concepts via experimentation.
     </p>
     <div class="sketches" >
-      <img src="./images/jhon-boy-sketches-flourly-2.webp" alt="hand plying with dough" />
-      <img src="./images/jhon-boy-sketches-flourly-1.webp" alt="hand plying with dough" />
-      <img src="./images/jhon-boy-sketches-flourly-3.webp" alt="hand plying with dough" />
+      <Image src={sketchFlourly1} alt="notebook with sketches for flourly project" />
+      <Image src={sketchFlourly2} alt="notebook with sketches for flourly project" />
+      <Image src={sketchFlourly3} alt="notebook with sketches for flourly project" />
     </div>
     <p style="grid-column-start: 1; grid-column-end: 2;">
       <u>CREATIVE DIRECTION</u>

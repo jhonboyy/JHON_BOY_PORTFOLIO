@@ -739,7 +739,7 @@ main address {
       width: 100%;
       background-color: white;
       overflow-y: scroll;
-      overflow-x: none;
+      overflow-x: hidden;
  }
   .project-container-mid p {
       margin: 0;

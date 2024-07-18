@@ -5,6 +5,25 @@ export const applyAnimation = (from, to, callback) => {
     }
   };
 
+  function updateCSSVariables() {
+    const root = document.documentElement;
+    const viewportHeight = window.innerHeight;
+    
+    root.style.setProperty('--slide-up-works-to', `${198 - viewportHeight}px`);
+    root.style.setProperty('--slide-up-works-repeat-to', `${148 - viewportHeight}px`);
+    root.style.setProperty('--slide-up-about-to', `${198 - viewportHeight}px`);
+    root.style.setProperty('--slide-down-about-from', `${250 - viewportHeight}px`);
+  }
+  
+  // Actualizar las variables CSS al redimensionar y cargar la página
+  window.addEventListener('resize', updateCSSVariables);
+  window.addEventListener('load', updateCSSVariables);
+  
+  // Ejecutar la función de actualización inmediatamente para establecer las variables iniciales
+  updateCSSVariables();
+  
+
+  // Definir las acciones
   const actions = {
     'index->about': () => {
       disablePointerEvents('aboutButton');
@@ -25,8 +44,8 @@ export const applyAnimation = (from, to, callback) => {
       });
     },
     'about->works': () => {
-      moveElement('worksButton', 'calc(148px - 100vh)');
-      moveElement('aboutButton', 'calc(250px - 100vh)');
+      moveElement('worksButton', 'var(--slide-up-works-repeat-to)');
+      moveElement('aboutButton', 'var(--slide-down-about-from)');
       setBorderTop('aboutButton', '1px solid black');
       disablePointerEvents('worksButton');
       animateWorksButtonFromAbout(() => {
@@ -37,7 +56,7 @@ export const applyAnimation = (from, to, callback) => {
     },
     'works->about': () => {
       disablePointerEvents('aboutButton');
-      moveElement('worksButton', 'calc(148px - 100vh)');
+      moveElement('worksButton', 'var(--slide-up-works-repeat-to)');
       animateAboutButtonFromWorks(() => {
         showAboutMenuImage();
         animateAboutSection();
@@ -89,12 +108,14 @@ export const applyAnimation = (from, to, callback) => {
     }
   };
 
+  // Ejecutar la acción correspondiente
   const action = actions[`${from}->${to}`];
   if (action) {
     action();
   }
 };
 
+// Funciones auxiliares
 const disablePointerEvents = (elementId) => {
   document.getElementById(elementId).classList.add('no-pointer-events');
 };

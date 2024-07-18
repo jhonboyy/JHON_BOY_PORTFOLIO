@@ -1,73 +1,68 @@
-/* Define the keyframes for animations */
 @keyframes slideUpWorks {
-    from {
-      top: 0;
-    }
-    to {
-      top: calc(198px - 100vh);
-    }
+  from {
+    top: 0;
   }
+  to {
+    top: var(--slide-up-works-to);
+  }
+}
 
-  @keyframes slideUpWorksRepeat {
-    from {
-      top: -100px;
-    }
-    to {
-      top: calc(148px - 100vh);
-    }
+@keyframes slideUpWorksRepeat {
+  from {
+    top: -100px;
   }
+  to {
+    top: var(--slide-up-works-repeat-to);
+  }
+}
 
-  @keyframes slideUpAbout {
-    from {
-      top: -50px;
-    }
-    to {
-      top: calc(198px - 100vh);
-    }
+@keyframes slideUpAbout {
+  from {
+    top: -50px;
   }
+  to {
+    top: var(--slide-up-about-to);
+  }
+}
 
-  @keyframes slideDownAbout {
-    from {
-      top: calc(250px - 100vh);
-    }
-    to {
-      top: -50px;
-    }
+@keyframes slideDownAbout {
+  from {
+    top: var(--slide-down-about-from);
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  to {
+    top: -50px;
   }
-  
-  /* Apply the animations */
-  .animate-slide-up-works {
-    animation: slideUpWorks 1s ease-out forwards;
-  }
+}
 
-  .animate-slide-up-works-repeat {
-    animation: slideUpWorksRepeat 1s ease-out forwards;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
+}
 
-  .animate-slide-up-about {
-    animation: slideUpAbout 1s ease-out forwards;
-  }
+.animate-slide-up-works {
+  animation: slideUpWorks 1s ease-out forwards;
+}
 
-  .animate-slide-down-about {
-    animation: slideDownAbout 1s ease-out forwards;
-  }
+.animate-slide-up-works-repeat {
+  animation: slideUpWorksRepeat 1s ease-out forwards;
+}
 
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-  
-  /* Pointer Events */
-  .no-pointer-events {
-    pointer-events: none;
+.animate-slide-up-about {
+  animation: slideUpAbout 1s ease-out forwards;
+}
 
-  }
-  
+.animate-slide-down-about {
+  animation: slideDownAbout 1s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.no-pointer-events {
+  pointer-events: none;
+}

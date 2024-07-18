@@ -30,6 +30,7 @@ p {
   display: flex;
   text-align: start;
   align-items: flex-end;
+  justify-content: center;
 }
 h1 {
   width: 100%;
@@ -238,6 +239,9 @@ figure {
   margin-inline-end: 0;
   margin: 0;
 }
+figure div {
+display: flex;
+}
 .projects-wrap {
   display: grid;
   width: 100%;
@@ -396,12 +400,6 @@ display: none;
   grid-template-columns: 80%;
   grid-template-rows: repeat(7,1fr);
 }
-.lava :nth-child(8) {
-  width: 70%;
-}
-.lava :nth-child(13) {
-  width: 70%;
-}
 .lava-sketches {
   display: grid;
   grid-template-columns: auto 80% auto;
@@ -546,12 +544,22 @@ main address {
   position: relative;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr ;
+  bottom: 0;
 }
 .menu-opened #aboutButton {
   position: relative;
+  top: 0 !important;
+  border-top: 0 !important;
+
 }
+
 .menu-opened #worksButton {
   position: relative;
+  top: 0 !important;
+  border-top: 0;
+}
+.aboutMenu nav ul li:nth-child(3){
+  border-top: none;
 }
 .menu-opened li {
   position: relative;
@@ -757,7 +765,14 @@ main address {
       grid-template-columns: 1fr;
       grid-template-rows: max-content max-content;
  }
-
+ .menu-opened.aboutMenu ul {
+  display: grid;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 50px;
+  grid-template-rows: 1fr;
+}
   .container-portrait {
       border-bottom: 1px solid black;
  }
@@ -797,6 +812,13 @@ main address {
       text-align: center;
       align-items: center;
  }
+ main address {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-style: normal;
+  justify-content: center;
+}
   .signature{
       border-top: 1px solid black;
       padding-top: 15%;

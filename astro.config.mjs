@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel/serverless';
 import sitemap from "@astrojs/sitemap";
 import compress from 'astro-compress';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,6 +19,7 @@ export default defineConfig({
   outDir: './dist',
   publicDir: './public',
   srcDir: './src',
+  site: 'https://jhonboy.com',
   integrations: [
     sitemap(),
     compress({

@@ -14,17 +14,52 @@ export const applyAnimation = (from, to, callback) => {
     root.style.setProperty('--slide-up-about-to', `${198 - viewportHeight}px`);
     root.style.setProperty('--slide-down-about-from', `${250 - viewportHeight}px`);
   }
-  
-  // Actualizar las variables CSS al redimensionar y cargar la página
-  window.addEventListener('resize', updateCSSVariables);
-  window.addEventListener('load', updateCSSVariables);
-  
-  // Ejecutar la función de actualización inmediatamente para establecer las variables iniciales
-  updateCSSVariables();
-  
 
-  // Definir las acciones
-  const actions = {
+  // Debounce function to limit the rate of updates
+  function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
+
+  // Update CSS variables with debounce
+  const debouncedUpdateCSSVariables = debounce(updateCSSVariables, 200);
+
+  // Function to check if the device is mobile
+  const isMobile = () => window.innerWidth <= 768;
+
+  // Store initial device state
+  let currentDeviceState = isMobile() ? 'mobile' : 'desktop';
+
+  // Function to handle resizing
+  const handleResize = () => {
+    const newDeviceState = isMobile() ? 'mobile' : 'desktop';
+    if (newDeviceState !== currentDeviceState) {
+      currentDeviceState = newDeviceState;
+      // Reapply the appropriate animations
+      const action = actions[`${from}->${to}`];
+      if (action) {
+        action();
+      }
+    }
+    // Update CSS variables
+    debouncedUpdateCSSVariables();
+  };
+
+  // Add event listeners with debounce
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('load', () => {
+    updateCSSVariables();
+    handleResize();
+  });
+  
+  // Execute the function to set initial CSS variables
+  updateCSSVariables();
+
+  // Define the actions for desktop
+  const desktopActions = {
     'index->about': () => {
       disablePointerEvents('aboutButton');
       animateAboutButton(() => {
@@ -108,14 +143,71 @@ export const applyAnimation = (from, to, callback) => {
     }
   };
 
-  // Ejecutar la acción correspondiente
+  // Define the actions for mobile
+  const mobileActions = {
+    'index->about': () => {
+      animateAboutSection();
+      executeCallback();
+    },
+    'index->works': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'about->works': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'works->about': () => {
+      animateAboutSection();
+      executeCallback();
+    },
+    'works->index': () => {
+      executeCallback();
+    },
+    'about->index': () => {
+      executeCallback();
+    },
+    'direct->works': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'direct->about': () => {
+      animateAboutSection();
+      executeCallback();
+    },
+    'works->works': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'about->about': () => {
+      animateAboutSection();
+      executeCallback();
+    }
+  };
+
+  // Function to reapply the correct actions based on the current device state
+  const reapplyActions = () => {
+    const actions = currentDeviceState === 'mobile' ? mobileActions : desktopActions;
+    const action = actions[`${from}->${to}`];
+    if (action) {
+      action();
+    }
+  };
+
+  // Add event listener to reapply actions on resize
+  window.addEventListener('resize', debounce(reapplyActions, 200));
+
+  // Choose actions based on device type
+  const actions = currentDeviceState === 'mobile' ? mobileActions : desktopActions;
+
+  // Execute the corresponding action
   const action = actions[`${from}->${to}`];
   if (action) {
     action();
   }
 };
 
-// Funciones auxiliares
+// Auxiliary functions
 const disablePointerEvents = (elementId) => {
   document.getElementById(elementId).classList.add('no-pointer-events');
 };
@@ -128,7 +220,7 @@ const setBorderTop = (elementId, value) => {
   document.getElementById(elementId).style.borderTop = value;
 };
 
-// Funciones de Animación con callbacks
+// Animation functions with callbacks
 function animateWorksButton(callback) {
   const worksButton = document.getElementById('worksButton');
   worksButton.classList.remove('animate-slide-up-works');

@@ -17,6 +17,7 @@
     "@lottiefiles/lottie-player": "^2.0.4",
     "@vercel/speed-insights": "^1.0.12",
     "astro": "^4.11.5",
+    "astro-compress": "^2.2.28",
     "astro-integration-lottie": "^0.3.0",
     "gsap": "^3.12.5",
     "lottie-web": "^5.12.2",

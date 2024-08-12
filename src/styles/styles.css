@@ -30,7 +30,6 @@ p {
   display: flex;
   text-align: start;
   align-items: flex-end;
-  justify-content: center;
 }
 h1 {
   width: 100%;
@@ -85,7 +84,6 @@ h1 {
 }
 /* ///////////////////////////////////////////////////// LEFT SIDE ///////////////////////////////////////////////////// */
 li, li a, li a:hover {
-  text-decoration: none;
   color: black !important;
   width: 100%;
   height: 50px;
@@ -93,6 +91,7 @@ li, li a, li a:hover {
   place-items: center;
   text-align: center;
 }
+a{text-decoration: none;}
 ul {
   list-style: none;
   padding: 0;
@@ -402,15 +401,12 @@ display: none;
 }
 .lava-sketches {
   display: grid;
-  grid-template-columns: auto 80% auto;
-  gap: 10px;
   width: 50vw;
-  padding-left: 0px;
   align-items: center;
   justify-items: center;
 }
-.w3-content{
-  width: 100%;
+.lava-sketches img {
+  width: 85%;
 }
 .lava-img{
   display:grid;

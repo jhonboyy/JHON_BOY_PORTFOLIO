@@ -28,7 +28,6 @@ import '../styles/animations.css'
 <body>
   <slot></slot>
   <script>
-    import { lavaSlider } from '../scripts/lava.js';
     import { FlourlyCounter } from '../scripts/flourly.js';
     import { showLavaContainer, showFramaContainer, showFlourlyContainer, rightWorksButtons } from '../scripts/buttons-functions.js';
     import { applyAnimation } from '../scripts/pages-animations.js';
@@ -42,7 +41,6 @@ import '../styles/animations.css'
             showLavaContainer();
             showFramaContainer();
             showFlourlyContainer();
-            lavaSlider();
             FlourlyCounter();
   
             console.log(previousPage, currentPage);

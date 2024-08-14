@@ -30,6 +30,7 @@ p {
   display: flex;
   text-align: start;
   align-items: flex-end;
+  justify-content: center;
 }
 h1 {
   width: 100%;
@@ -805,6 +806,7 @@ main address {
       display: flex;
       text-align: center;
       align-items: center;
+      justify-content: center;
  }
  main address {
   display: flex;

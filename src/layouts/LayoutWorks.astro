@@ -31,6 +31,8 @@ import '../styles/animations.css'
     import { FlourlyCounter } from '../scripts/flourly.js';
     import { showLavaContainer, showFramaContainer, showFlourlyContainer, rightWorksButtons } from '../scripts/buttons-functions.js';
     import { applyAnimation } from '../scripts/pages-animations.js';
+    import { lavaSlider } from '../scripts/lava';
+    import { DotLottiePlayer } from '@dotlottie/player-component';
   
     document.addEventListener('DOMContentLoaded', () => {
         const previousPage = localStorage.getItem('previousPage') || 'direct';
@@ -42,6 +44,7 @@ import '../styles/animations.css'
             showFramaContainer();
             showFlourlyContainer();
             FlourlyCounter();
+            lavaSlider();
   
             console.log(previousPage, currentPage);
   

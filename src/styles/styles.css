@@ -30,6 +30,7 @@ p {
   display: flex;
   text-align: start;
   align-items: flex-end;
+  justify-content: left;
 }
 h1 {
   width: 100%;
@@ -401,12 +402,15 @@ display: none;
 }
 .lava-sketches {
   display: grid;
+  grid-template-columns: auto 80% auto;
+  gap: 10px;
   width: 50vw;
+  padding-left: 0px;
   align-items: center;
   justify-items: center;
 }
-.lava-sketches img {
-  width: 85%;
+.w3-content{
+  width: 100%;
 }
 .lava-img{
   display:grid;
@@ -805,6 +809,7 @@ main address {
       display: flex;
       text-align: center;
       align-items: center;
+      justify-content: center;
  }
  main address {
   display: flex;

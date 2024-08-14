@@ -30,7 +30,7 @@ p {
   display: flex;
   text-align: start;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: left;
 }
 h1 {
   width: 100%;
@@ -402,12 +402,15 @@ display: none;
 }
 .lava-sketches {
   display: grid;
+  grid-template-columns: auto 80% auto;
+  gap: 10px;
   width: 50vw;
+  padding-left: 0px;
   align-items: center;
   justify-items: center;
 }
-.lava-sketches img {
-  width: 85%;
+.w3-content{
+  width: 100%;
 }
 .lava-img{
   display:grid;

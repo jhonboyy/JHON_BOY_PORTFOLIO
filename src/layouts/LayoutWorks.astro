@@ -50,9 +50,6 @@ import '../styles/animations.css';
             const { lavaSlider } = await import('../scripts/lava.js');
             lavaSlider();
 
-            // Cargar DotLottiePlayer solo si es necesario
-            await import('@dotlottie/player-component');
-
             localStorage.setItem('previousPage', currentPage);
         });
     });

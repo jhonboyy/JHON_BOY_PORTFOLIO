@@ -7,13 +7,12 @@ import MenuAboutImage from '../images/jhon-boy-illustration-works-page-person-up
 <header class="menu-opened aboutMenu" role="banner">
     <Menu />
     <div class="MenuImageContainer" style="top: 100px">
-        <Image src={MenuAboutImage} id="menuImage" alt="Illustration of a person upside down" style="display: block;" />
+        <Image src={MenuAboutImage} id="menuImage" alt="Illustration of a person upside down" style="display: block;" loading='eager'/>
     </div>
 </header>
 
 <script>
     import { applyAnimation } from '../scripts/pages-animations.js';
-
 
     document.addEventListener('DOMContentLoaded', () => {
         applyAnimation();

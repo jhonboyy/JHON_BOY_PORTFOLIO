@@ -122,13 +122,18 @@ const imageMap = {
 const { project } = Astro.props;
 const { type, className, images, animations, captions } = project;
 ---
-
 {className === 'project-solo-slider' ? (
   <figure class={`${className} ${type}`}>
     <div class="slide-track">
-      {images.map(({ src, alt, width, height }) => (
+      {images.map(({ src, alt, width, height }, index) => (
         <div class="slide">
-          <Image src={imageMap[src]} alt={alt} width={width} height={height} style={{ width: '100%' }} loading="eager" />
+          <Image 
+            src={imageMap[src]} 
+            alt={alt} 
+            width={width} 
+            height={height} 
+            loading={"eager"} 
+          />
         </div>
       ))}
     </div>
@@ -141,12 +146,18 @@ const { type, className, images, animations, captions } = project;
   <figure class={`${className} ${type}`}>
     {animations.length > 0 && animations.map((src) => (
       <div style="background-color: white;">
-        <dotlottie-player class="player" src={src} background="white" style="display: block; margin: 0 auto;"></dotlottie-player>
+        <dotlottie-player class="player" src={src} background="white"></dotlottie-player>
       </div>
     ))}
-    {images.length > 0 && images.map(({ src, alt, width, height }) => (
+    {images.length > 0 && images.map(({ src, alt, width, height }, index) => (
       <div style="background-color: white;">
-        <Image src={imageMap[src]} alt={alt} width={width} height={height} style={{ margin: '0 auto' }} loading="lazy" />
+        <Image 
+          src={imageMap[src]} 
+          alt={alt} 
+          width={width} 
+          height={height} 
+          loading={index === 0 ? "eager" : "lazy"} 
+        />
       </div>
     ))}
     <figcaption>

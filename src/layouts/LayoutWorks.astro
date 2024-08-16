@@ -30,77 +30,29 @@ import '../styles/animations.css';
 <body>
   <slot></slot>
   <script>
-    // Polyfill para requestIdleCallback compatible con TypeScript
-    if (!window.requestIdleCallback) {
-      window.requestIdleCallback = function (callback: IdleRequestCallback, options?: IdleRequestOptions): number {
-        const start = Date.now();
-
-        return window.setTimeout(() => {
-          callback({
-            didTimeout: false,
-            timeRemaining: () => Math.max(0, 50 - (Date.now() - start))
-          });
-        }, 1);
-      };
-    }
-
-    if (!window.cancelIdleCallback) {
-      window.cancelIdleCallback = function (id: number): void {
-        clearTimeout(id);
-      };
-    }
-
-    // Alternativa si no existe requestIdleCallback
-    const deferTask = window.requestIdleCallback || function (callback: IdleRequestCallback): number {
-      return window.setTimeout(() => {
-        callback({
-          didTimeout: false,
-          timeRemaining: () => Infinity
-        });
-      }, 1);
-    };
-
     document.addEventListener('DOMContentLoaded', async () => {
         const previousPage = localStorage.getItem('previousPage') || 'direct';
         const currentPage = document.documentElement.dataset.page;
 
-        // Cargar módulos solo cuando sean necesarios
+        // Cargar solo el script principal de animación
         const { applyAnimation } = await import('../scripts/pages-animations.js');
-        applyAnimation(previousPage, currentPage, () => {
-            
-            // Diferir tareas no críticas
-            deferTask(async () => {
-                const { rightWorksButtons, showLavaContainer, showFramaContainer, showFlourlyContainer } = await import('../scripts/buttons-functions.js');
-                
-                // Función para cargar DotLottiePlayer y luego ejecutar la función original
-                const loadAndExecute = async (originalFunction) => {
-                    await import('@dotlottie/player-component');
-                    console.log('DotLottiePlayer cargado');
-                    originalFunction();
-                };
+        applyAnimation(previousPage, currentPage, async () => {
+            // Cargar otros scripts cuando sean realmente necesarios
+            const { rightWorksButtons, showLavaContainer, showFramaContainer, showFlourlyContainer } = await import('../scripts/buttons-functions.js');
+            rightWorksButtons();
+            showLavaContainer();
+            showFramaContainer();
+            showFlourlyContainer();
 
-                // Llamar a las funciones originales envolviéndolas en la carga de DotLottiePlayer
-                const handleShowLavaContainer = () => loadAndExecute(showLavaContainer);
-                const handleShowFramaContainer = () => loadAndExecute(showFramaContainer);
-                const handleShowFlourlyContainer = () => loadAndExecute(showFlourlyContainer);
+            const { FlourlyCounter } = await import('../scripts/flourly.js');
+            FlourlyCounter();
 
-                rightWorksButtons();
-                handleShowLavaContainer();
-                handleShowFramaContainer();
-                handleShowFlourlyContainer();
-            });
+            const { lavaSlider } = await import('../scripts/lava.js');
+            lavaSlider();
 
-            deferTask(async () => {
-                const { FlourlyCounter } = await import('../scripts/flourly.js');
-                FlourlyCounter();
-            });
+            // Cargar DotLottiePlayer solo si es necesario
+            await import('@dotlottie/player-component');
 
-            deferTask(async () => {
-                const { lavaSlider } = await import('../scripts/lava.js');
-                lavaSlider();
-            });
-
-            console.log(previousPage, currentPage);
             localStorage.setItem('previousPage', currentPage);
         });
     });

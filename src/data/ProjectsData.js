@@ -59,16 +59,16 @@ export const projects = [
     type: 'commercial all',
     className: 'project-top',
     animations: [
-      '/animations/jhon-boy-animation-flourly-levain.lottie',
-      '/animations/jhon-boy-animation-flourly-masterbrand.lottie',
-      '/animations/jhon-boy-animation-flourly-hydration.lottie',
-      '/animations/jhon-boy-animation-flourly-flour.lottie',
     ],
     images: [
       { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg', alt: 'Cooker with a slice of bread', width: 1080, height: 1080 },
+      { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-flour.svg', alt: 'Flour', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-hat.svg', alt: 'Cooker with a hat', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-dough-on-its-face.svg', alt: 'Cooker with dough on their face', width: 1080, height: 1080 },
+      { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-hands.svg', alt: 'Rolling dough', width: 1080, height: 1080 },
+      { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-hydration.svg', alt: 'Hydration', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-dough.svg', alt: 'Rolling dough', width: 1080, height: 1080 },
+      { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-levain.svg', alt: 'Levain', width: 1080, height: 1080 },
       { src: '../images/white.png', alt: 'Placeholder image', width: 1080, height: 1080 },
     ],
     captions: {

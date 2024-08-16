@@ -24,12 +24,12 @@ import '../styles/animations.css';
   <meta name="twitter:title" content="Works by Jhon Boy - Portfolio of Illustrations & Art">
   <meta name="twitter:description" content="Explore the portfolio of Jhon Boy, artist, illustrator and programmer from Tenerife, Canary Islands, showcasing a diverse range of illustrations and artwork. Discover his creative projects, unique style, and artistic techniques.">
   <meta name="twitter:image" content="https://jhonboy.com/twitter-image-works.jpg">
-  <link rel="preload" href="/styles/animations.css" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/styles/animations.css"></noscript>
 </head>
 <body>
   <slot></slot>
   <script>
+    import '@dotlottie/player-component';
+
     document.addEventListener('DOMContentLoaded', async () => {
         const previousPage = localStorage.getItem('previousPage') || 'direct';
         const currentPage = document.documentElement.dataset.page;

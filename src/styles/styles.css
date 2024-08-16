@@ -116,11 +116,6 @@ ul {
   bottom: 0;
   left: 0;
 }
-.menu-opened #worksButton {
-  width: 100%;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-}
 .menu-opened ul {
   display: grid;
   position: absolute;
@@ -457,9 +452,14 @@ display: none;
 }
 .menu-opened #aboutButton {
   position: absolute;
+  bottom: 250px;
 }
 .menu-opened #worksButton {
   position: absolute;
+  width: 100%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  bottom: 300px;
 }
 .aboutMenu nav ul li:nth-child(3) {
   border-top: 1px solid black;

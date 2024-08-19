@@ -20,6 +20,7 @@ export default defineConfig({
   publicDir: './public',
   srcDir: './src',
   site: 'https://jhonboy.com',
+  output: 'server',
   integrations: [
     sitemap(),
     compress({

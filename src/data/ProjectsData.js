@@ -12,7 +12,7 @@ export const projects = [
       { src: '../images/jhon-boy-illustration-lava-circular-loom-artisan.svg', alt: 'Loom artisan illustration', width: 1080, height: 1080 },
     ],
     captions: {
-      left: 'Lava Circular brand illustrations for the 7th edition 🌋 <br /><a id="lavabutton"><u>READ MORE</u></a>',
+      left: 'Lava Circular brand illustrations for the 7th edition 🌋 <br /><a id="lavaLink" href="/works/lava"><u>READ MORE</u></a>',
       right: 'NOV.11.2023',
     },
   },

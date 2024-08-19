@@ -28,8 +28,6 @@ import '../styles/animations.css';
 <body>
   <slot></slot>
   <script>
-    import '@dotlottie/player-component';
-
     document.addEventListener('DOMContentLoaded', async () => {
         const previousPage = localStorage.getItem('previousPage') || 'direct';
         const currentPage = document.documentElement.dataset.page;
@@ -38,22 +36,14 @@ import '../styles/animations.css';
         const { applyAnimation } = await import('../scripts/pages-animations.js');
         applyAnimation(previousPage, currentPage, async () => {
             // Cargar otros scripts cuando sean realmente necesarios
-            const { rightWorksButtons, showLavaContainer, showFramaContainer, showFlourlyContainer } = await import('../scripts/buttons-functions.js');
+            const { rightWorksButtons } = await import('../scripts/buttons-functions.js');
             rightWorksButtons();
-            showLavaContainer();
-            showFramaContainer();
-            showFlourlyContainer();
-
-            const { FlourlyCounter } = await import('../scripts/flourly.js');
-            FlourlyCounter();
-
-            const { lavaSlider } = await import('../scripts/lava.js');
-            lavaSlider();
 
             localStorage.setItem('previousPage', currentPage);
         });
+
     });
   </script>
-  <SpeedInsights />
+<SpeedInsights />
 </body>
 </html>

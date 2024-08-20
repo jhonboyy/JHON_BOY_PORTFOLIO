@@ -28,20 +28,37 @@ import '../styles/animations.css';
 <body>
   <slot></slot>
   <script>
-    document.addEventListener('DOMContentLoaded', async () => {
+    document.addEventListener('DOMContentLoaded', () => {
         const previousPage = localStorage.getItem('previousPage') || 'direct';
         const currentPage = document.documentElement.dataset.page;
 
-        // Cargar solo el script principal de animación
-        const { applyAnimation } = await import('../scripts/pages-animations.js');
-        applyAnimation(previousPage, currentPage, async () => {
-            // Cargar otros scripts cuando sean realmente necesarios
-            const { rightWorksButtons } = await import('../scripts/buttons-functions.js');
-            rightWorksButtons();
-
-            localStorage.setItem('previousPage', currentPage);
+        // Cargar y ejecutar el script de animaciones
+        import('../scripts/pages-animations.js').then(animationModule => {
+            animationModule.applyAnimation(previousPage, currentPage);
         });
 
+        // Cargar y ejecutar funciones adicionales de botones
+        import('../scripts/buttons-functions.js').then(buttonsModule => {
+            buttonsModule.rightWorksButtons();
+        });
+
+        // Guardar la página actual en el almacenamiento local
+        localStorage.setItem('previousPage', currentPage);
+
+        // Guardar la posición de desplazamiento del elemento works-content antes de abandonar la página
+        window.addEventListener('beforeunload', () => {
+            const worksContent = document.querySelector('.projects-wrap');
+            if (worksContent) {
+                localStorage.setItem('worksContentScrollPosition', worksContent.scrollTop.toString());
+            }
+        });
+
+        // Restaurar la posición de desplazamiento del elemento works-content al cargar la nueva página
+        const worksContent = document.querySelector('.projects-wrap');
+        const scrollPosition = localStorage.getItem('worksContentScrollPosition');
+        if (worksContent && scrollPosition) {
+            worksContent.scrollTop = Number(scrollPosition);
+        }
     });
   </script>
 <SpeedInsights />

@@ -28,37 +28,47 @@ import '../styles/animations2.css';
 </head>
 <body>
     <slot></slot>
-
-    
     <script>
-    import '@dotlottie/player-component';
-
-    document.addEventListener('DOMContentLoaded', () => {
-    const previousPage = localStorage.getItem('previousPage') || 'direct';
-    const currentPage = document.documentElement.dataset.page;
-
-    // Cargar y ejecutar el script de animaciones de manera sincrónica
-    import('../scripts/pages-animations2.js').then(animationModule => {
-        animationModule.applyAnimation(previousPage, currentPage);
-
-        // Cargar y ejecutar funciones adicionales de botones
-        import('../scripts/buttons-functions.js').then(buttonsModule => {
-            buttonsModule.rightWorksButtons();
-
+        import '@dotlottie/player-component';
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const previousPage = localStorage.getItem('previousPage') || 'direct';
+            const currentPage = document.documentElement.dataset.page;
+    
+            // Cargar y ejecutar el script de animaciones
+            import('../scripts/pages-animations2.js').then(animationModule => {
+                animationModule.applyAnimation(previousPage, currentPage);
+            });
+    
+            // Cargar y ejecutar funciones adicionales de botones
+            import('../scripts/buttons-functions.js').then(buttonsModule => {
+                buttonsModule.rightWorksButtons();
+            });
+    
             // Cargar y ejecutar lavaSlider
             import('../scripts/lava.js').then(lavaModule => {
-                // Asumiendo que lavaSlider es una exportación nombrada
                 lavaModule.lavaSlider();
-
-                // Guardar la página actual en el almacenamiento local
-                localStorage.setItem('previousPage', currentPage);
             });
+    
+            // Guardar la página actual en el almacenamiento local
+            localStorage.setItem('previousPage', currentPage);
+    
+            // Guardar la posición de desplazamiento del elemento works-content antes de abandonar la página
+            window.addEventListener('beforeunload', () => {
+                const worksContent = document.querySelector('.projects-wrap');
+                if (worksContent) {
+                    localStorage.setItem('worksContentScrollPosition', worksContent.scrollTop.toString());
+                }
+            });
+    
+            // Restaurar la posición de desplazamiento del elemento works-content al cargar la nueva página
+            const worksContent = document.querySelector('.projects-wrap');
+            const scrollPosition = localStorage.getItem('worksContentScrollPosition');
+            if (worksContent && scrollPosition) {
+                worksContent.scrollTop = Number(scrollPosition);
+            }
         });
-      });
-    });
-
-
-    </script>
+      </script>
   <SpeedInsights />
   </body>
 </html>

@@ -36,7 +36,7 @@ export const projects = [
       { src: '../images/jhon-boy-illustration-frama-tnwc-1.webp', alt: 'Illustration of Frama collaboration', width: 1080, height: 1080 },
     ],
     captions: {
-      left: 'Frama collaboration with The Natural Wine Company 🍷🍇 <br /><a id="framaLink"><u>READ MORE</u></a>',
+      left: 'Frama collaboration with The Natural Wine Company 🍷🍇 <br /><a id="framaLink" href="/works/frama"><u>READ MORE</u></a>',
       right: 'APR.15.2024',
     },
   },
@@ -72,7 +72,7 @@ export const projects = [
       { src: '../images/white.png', alt: 'Placeholder image', width: 1080, height: 1080 },
     ],
     captions: {
-      left: 'Bakken & Baeck Flourly brand illustrations 🥖👨🏻‍🍳 <br /><a id="flourlyLink"><u>READ MORE</u></a>',
+      left: 'Bakken & Baeck Flourly brand illustrations 🥖👨🏻‍🍳 <br /><a id="flourlyLink" href="/works/flourly"><u>READ MORE</u></a>',
       right: 'DEC.22.2022',
     },
   },

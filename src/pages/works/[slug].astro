@@ -3,19 +3,37 @@ import ProjectDetailLava from '../../components/ProjectDetailLava.astro';
 import ProjectDetailFlourly from '../../components/ProjectDetailFlourly.astro';
 import ProjectDetailFrama from '../../components/ProjectDetailFrama.astro';
 import LayoutWorksDetail from '../../layouts/LayoutWorksDetail.astro';
-import ProjectsSection from '../../components/WorksSection.astro';
 import Menu from '../../components/MenuWorks.astro';
+import ProjectsSection from '../../components/WorksSection.astro';
 
-// Datos simulados, en un caso real, los obtendrías de una función o API
+// Datos simulados de meta tags
+const metaTags = {
+  lava: {
+    title: "Lava Project - Jhon Boy's Illustrations",
+    description: "Explore the Lava project by Jhon Boy, showcasing stunning illustrations and artistic techniques.",
+    imageUrl: "https://jhonboy.com/og-image-lava.jpg",
+  },
+  flourly: {
+    title: "Flourly Project - Jhon Boy's Illustrations",
+    description: "Discover the Flourly project by Jhon Boy, a vibrant exploration of colors and forms.",
+    imageUrl: "https://jhonboy.com/og-image-flourly.jpg",
+  },
+  frama: {
+    title: "Frama Project - Jhon Boy's Illustrations",
+    description: "Dive into the Frama project by Jhon Boy, featuring minimalist design and elegant lines.",
+    imageUrl: "https://jhonboy.com/og-image-frama.jpg",
+  },
+};
+
+const pathname = Astro.url.pathname;
+const slug = pathname.split('/').pop();
+const meta = metaTags[slug] || {};
+
 const projects = [
   { slug: 'lava', component: ProjectDetailLava },
   { slug: 'flourly', component: ProjectDetailFlourly },
   { slug: 'frama', component: ProjectDetailFrama },
 ];
-
-// Obtener la ruta y extraer el `slug`
-const pathname = Astro.url.pathname; // Ejemplo: '/works/lava'
-const slug = pathname.split('/').pop(); // Obtiene la última parte de la ruta, en este caso 'lava'
 
 const project = projects.find(p => p.slug === slug);
 
@@ -26,7 +44,11 @@ if (!project) {
 const ProjectComponent = project.component;
 ---
 
-<LayoutWorksDetail>
+<LayoutWorksDetail
+  title={meta.title}
+  description={meta.description}
+  imageUrl={meta.imageUrl}
+>
   <Menu />
   <ProjectsSection />
   <ProjectComponent />

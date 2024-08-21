@@ -1,12 +1,10 @@
 ---
 import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/styles.css';
-import '../styles/animations2.css';
-
 ---
 
 <!doctype html>
-<html lang="en" data-page="works">
+<html lang="en" data-page="lava">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +34,7 @@ import '../styles/animations2.css';
             const currentPage = document.documentElement.dataset.page;
     
             // Cargar y ejecutar el script de animaciones
-            import('../scripts/pages-animations2.js').then(animationModule => {
+            import('../scripts/pages-animations.js').then(animationModule => {
                 animationModule.applyAnimation(previousPage, currentPage);
             });
     

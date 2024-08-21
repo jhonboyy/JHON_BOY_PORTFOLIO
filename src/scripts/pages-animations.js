@@ -140,6 +140,18 @@ export const applyAnimation = (from, to, callback) => {
         animateAboutSection();
         executeCallback();
       });
+    },
+    'lava->works': () => {
+      worksButton.style.top = "calc(148px - 100vh)";
+      aboutButton.style.borderTop = "1px solid black";
+      document.getElementById('works-content').style.opacity = "1";
+      document.getElementById('menuImage').style.opacity = "1";
+      document.querySelector(".MenuImageContainer").classList.remove("animate-fade-in");
+    },
+    'works->lava': () => {
+      worksButton.style.top = "calc(148px - 100vh)";
+      document.getElementById('works-content').style.opacity = "1";
+      document.getElementById('works-content').style.pointerEvents = "none";
     }
   };
 
@@ -176,6 +188,10 @@ export const applyAnimation = (from, to, callback) => {
       executeCallback();
     },
     'works->works': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'lava->works': () => {
       animateProjectsSection();
       executeCallback();
     },

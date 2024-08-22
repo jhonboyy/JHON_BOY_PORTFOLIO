@@ -152,7 +152,47 @@ export const applyAnimation = (from, to, callback) => {
       worksButton.style.top = "calc(148px - 100vh)";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
-    }
+    },
+    'frama->works': () => {
+      worksButton.style.top = "calc(148px - 100vh)";
+      aboutButton.style.borderTop = "1px solid black";
+      document.getElementById('works-content').style.opacity = "1";
+      document.getElementById('menuImage').style.opacity = "1";
+      document.querySelector(".MenuImageContainer").classList.remove("animate-fade-in");
+    },
+    'works->frama': () => {
+      worksButton.style.top = "calc(148px - 100vh)";
+      document.getElementById('works-content').style.opacity = "1";
+      document.getElementById('works-content').style.pointerEvents = "none";
+    },
+    'flourly->works': () => {
+      worksButton.style.top = "calc(148px - 100vh)";
+      aboutButton.style.borderTop = "1px solid black";
+      document.getElementById('works-content').style.opacity = "1";
+      document.getElementById('menuImage').style.opacity = "1";
+      document.querySelector(".MenuImageContainer").classList.remove("animate-fade-in");
+    },
+    'works->flourly': () => {
+      worksButton.style.top = "calc(148px - 100vh)";
+      document.getElementById('works-content').style.opacity = "1";
+      document.getElementById('works-content').style.pointerEvents = "none";
+    },
+    'flourly->flourly': () => {
+      worksButton.style.top = "calc(148px - 100vh)";
+      document.getElementById('works-content').style.opacity = "1";
+      document.getElementById('works-content').style.pointerEvents = "none";
+    },
+    'lava->lava': () => {
+      worksButton.style.top = "calc(148px - 100vh)";
+      document.getElementById('works-content').style.opacity = "1";
+      document.getElementById('works-content').style.pointerEvents = "none";
+    },
+    'frama->frama': () => {
+      worksButton.style.top = "calc(148px - 100vh)";
+      document.getElementById('works-content').style.opacity = "1";
+      document.getElementById('works-content').style.pointerEvents = "none";
+    },
+    
   };
 
   // Define the actions for mobile
@@ -192,6 +232,38 @@ export const applyAnimation = (from, to, callback) => {
       executeCallback();
     },
     'lava->works': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'frama->works': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'flourly->works': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'works->frama': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'works->lava': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'works->flourly': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'lava->lava': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'frama->frama': () => {
+      animateProjectsSection();
+      executeCallback();
+    },
+    'flourly->flourly': () => {
       animateProjectsSection();
       executeCallback();
     },

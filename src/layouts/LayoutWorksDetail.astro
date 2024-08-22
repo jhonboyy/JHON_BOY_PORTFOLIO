@@ -36,42 +36,43 @@ const { title, description, imageUrl } = Astro.props || {
           import '@dotlottie/player-component';
       
           document.addEventListener('DOMContentLoaded', () => {
-              const previousPage = localStorage.getItem('previousPage') || 'direct';
-              const currentPage = document.documentElement.dataset.page;
-      
-              // Cargar y ejecutar el script de animaciones
-              import('../scripts/pages-animations.js').then(animationModule => {
-                  animationModule.applyAnimation(previousPage, currentPage);
-              });
-      
-              // Cargar y ejecutar funciones adicionales de botones
-              import('../scripts/buttons-functions.js').then(buttonsModule => {
-                  buttonsModule.rightWorksButtons();
-              });
-      
-              // Cargar y ejecutar lavaSlider
-              import('../scripts/lava.js').then(lavaModule => {
-                  lavaModule.lavaSlider();
-              });
-      
-              // Guardar la página actual en el almacenamiento local
-              localStorage.setItem('previousPage', currentPage);
-      
-              // Guardar la posición de desplazamiento del elemento works-content antes de abandonar la página
-              window.addEventListener('beforeunload', () => {
-                  const worksContent = document.querySelector('.projects-wrap');
-                  if (worksContent) {
-                      localStorage.setItem('worksContentScrollPosition', worksContent.scrollTop.toString());
-                  }
-              });
-      
-              // Restaurar la posición de desplazamiento del elemento works-content al cargar la nueva página
-              const worksContent = document.querySelector('.projects-wrap');
-              const scrollPosition = localStorage.getItem('worksContentScrollPosition');
-              if (worksContent && scrollPosition) {
-                  worksContent.scrollTop = Number(scrollPosition);
-              }
-          });
+    const previousPage = localStorage.getItem('previousPage') || 'direct';
+    const currentPage = document.documentElement.dataset.page;
+
+    // Cargar y ejecutar el script de animaciones
+    import('../scripts/pages-animations.js').then(animationModule => {
+        animationModule.applyAnimation(previousPage, currentPage);
+    });
+
+    // Cargar y ejecutar funciones adicionales de botones
+    import('../scripts/buttons-functions.js').then(buttonsModule => {
+        buttonsModule.rightWorksButtons();
+    });
+
+    // Cargar y ejecutar lavaSlider
+    import('../scripts/lava.js').then(lavaModule => {
+        lavaModule.lavaSlider();
+    });
+
+    // Guardar la página actual en el almacenamiento de la sesión
+    localStorage.setItem('previousPage', currentPage);
+
+    // Guardar la posición de desplazamiento del elemento works-content antes de abandonar la página
+    window.addEventListener('beforeunload', () => {
+        const worksContent = document.querySelector('.projects-wrap');
+        if (worksContent) {
+            sessionStorage.setItem('worksContentScrollPosition', worksContent.scrollTop.toString());
+        }
+    });
+
+    // Restaurar la posición de desplazamiento del elemento works-content al cargar la nueva página
+    const worksContent = document.querySelector('.projects-wrap');
+    const scrollPosition = sessionStorage.getItem('worksContentScrollPosition');
+    if (worksContent && scrollPosition) {
+        worksContent.scrollTop = Number(scrollPosition);
+    }
+});
+
         </script>
     <SpeedInsights />
   </body>

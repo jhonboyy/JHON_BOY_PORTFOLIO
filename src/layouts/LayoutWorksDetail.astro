@@ -2,19 +2,10 @@
 import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/styles.css';
 
-const { title, description, imageUrl } = Astro.props || {
-  title: "Works by Jhon Boy - Portfolio of Illustrations & Art",
-  description: "Explore the portfolio of Jhon Boy, artist, illustrator and programmer from Tenerife, Canary Islands.",
-  imageUrl: "https://jhonboy.com/og-image-default.jpg"
-};
-
+const { title, description, imageUrl, keywords } = Astro.props
 const pathname = Astro.url.pathname;
 const slug = pathname.split('/').pop();
-
-// Generar href para la etiqueta canonical
 const canonicalUrl = `https://jhonboy.com/works/${slug}`;
-
-// Definir el data-page dinámicamente
 const dataPage = slug || 'works';
 ---
 
@@ -25,7 +16,7 @@ const dataPage = slug || 'works';
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content="Jhon Boy, portfolio, illustrations, artwork, illustration, design, art, colours, flat, projects, Tenerife, It's Nice That, Uniqlo, Lava Circular, Wix Playground, D&AD, Canary Islands, Programming, Ace&Tate">
+  <meta name="keywords" content={keywords}>
   <meta name="author" content="Jhon Boy">
   <link rel="canonical" href={canonicalUrl}>
   <link rel="icon" type="image/svg+xml" href="/jhon-boy-favicon.svg">
@@ -60,7 +51,7 @@ const dataPage = slug || 'works';
           });
 
           // Condicionar la carga de lavaSlider si la página actual es "lava"
-          if (currentPage === 'lava') {
+          if (currentPage === 'lava-circular') {
               import('../scripts/lava.js').then(lavaModule => {
                   lavaModule.lavaSlider();
               });

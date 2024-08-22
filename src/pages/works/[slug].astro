@@ -8,20 +8,23 @@ import ProjectsSection from '../../components/WorksSection.astro';
 
 // Datos simulados de meta tags
 const metaTags = {
-  lava: {
-    title: "Lava Project - Jhon Boy's Illustrations",
-    description: "Explore the Lava project by Jhon Boy, showcasing stunning illustrations and artistic techniques.",
+  "lava-circular": {
+    title: "Lava Circular 2023 Brand Identity Illustrations",
+    description: "Lava Circular 2023 is a cultural festival in the island of El Hierro, we developed the brand identity integrating illustration and motion design. The Canary Islands have a rich history spanning thousands of years, with indigenous civilisations predating European arrival in the 15th century. While the territory and its people have evolved over time through cultural exchanges, the essence remains rooted in this mix. Despite limited evidence of this past in the modern era, preserving our heritage is crucial. Santana Santana, from Gran Canaria, approached me to explore our ancestral history, recognising the importance of understanding our roots for shaping the future. We aimed to depict the three primary traditional trades in El Hierro: drum artisans, weaver artisans, and cheese artisans. These occupations were central to the island's economy in the mid-20th century and symbolise its cultural heritage.",
     imageUrl: "https://jhonboy.com/og-image-lava.jpg",
+    keywords: "Lava Circular, Illustration, Branding, Motion, Motion Design, El Hierro, Festival, SantanaSantana, Rafael Grullon, Octavio Barrera, Jhon Boy, Animation"
   },
   flourly: {
-    title: "Flourly Project - Jhon Boy's Illustrations",
-    description: "Discover the Flourly project by Jhon Boy, a vibrant exploration of colors and forms.",
+    title: "Bakken & Bæck Flourly Brand Identity",
+    description: "Flourly is an app project that Bakken & Bæck started during the pandemic, when many of us hopped on the sourdough craze. Designed as a mobile app, Flourly aims to make learning and experimenting with sourdough a fun and easy experience.",
     imageUrl: "https://jhonboy.com/og-image-flourly.jpg",
+    keywords: "App, Design, UX/UI, Interface, Motion, Motion Design, Norway, Bakkken & Bæck, Jhon Boy, Flour, Flourly, Animation"
   },
   frama: {
-    title: "Frama Project - Jhon Boy's Illustrations",
-    description: "Dive into the Frama project by Jhon Boy, featuring minimalist design and elegant lines.",
+    title: "Frama & The Natural Wine Company collaboration",
+    description: "This project represents the inaugural entry in the Personal Canvas series, a collaboration between FRAMA and The Natural Wine Company. As an artist, I crafted the playful illustration featured on a limited-edition kitchen towel, designed to complement natural wine aesthetics. Drawing inspiration from Bacco, my artwork reflects the earthy terracottas and vibrant greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.",
     imageUrl: "https://jhonboy.com/og-image-frama.jpg",
+    keywords: "Wine, Frama, TNWC, Jhon Boy, Motion, Motion Design, Collaboration, Illustration, Design, Towel, Product Design, Animation"
   },
 };
 
@@ -30,7 +33,7 @@ const slug = pathname.split('/').pop();
 const meta = metaTags[slug] || {};
 
 const projects = [
-  { slug: 'lava', component: ProjectDetailLava },
+  { slug: 'lava-circular', component: ProjectDetailLava },
   { slug: 'flourly', component: ProjectDetailFlourly },
   { slug: 'frama', component: ProjectDetailFrama },
 ];
@@ -48,6 +51,7 @@ const ProjectComponent = project.component;
   title={meta.title}
   description={meta.description}
   imageUrl={meta.imageUrl}
+  keywords={meta.keywords}
 >
   <Menu />
   <ProjectsSection />

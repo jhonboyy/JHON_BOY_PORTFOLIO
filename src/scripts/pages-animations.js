@@ -141,14 +141,14 @@ export const applyAnimation = (from, to, callback) => {
         executeCallback();
       });
     },
-    'lava->works': () => {
+    'lava-circular->works': () => {
       worksButton.style.top = "calc(148px - 100vh)";
       aboutButton.style.borderTop = "1px solid black";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('menuImage').style.opacity = "1";
       document.querySelector(".MenuImageContainer").classList.remove("animate-fade-in");
     },
-    'works->lava': () => {
+    'works->lava-circular': () => {
       worksButton.style.top = "calc(148px - 100vh)";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
@@ -182,7 +182,7 @@ export const applyAnimation = (from, to, callback) => {
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
     },
-    'lava->lava': () => {
+    'lava-circular->lava-circular': () => {
       worksButton.style.top = "calc(148px - 100vh)";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
@@ -231,7 +231,7 @@ export const applyAnimation = (from, to, callback) => {
       animateProjectsSection();
       executeCallback();
     },
-    'lava->works': () => {
+    'lava-circular->works': () => {
       animateProjectsSection();
       executeCallback();
     },
@@ -247,7 +247,7 @@ export const applyAnimation = (from, to, callback) => {
       animateProjectsSection();
       executeCallback();
     },
-    'works->lava': () => {
+    'works->lava-circular': () => {
       animateProjectsSection();
       executeCallback();
     },
@@ -255,7 +255,7 @@ export const applyAnimation = (from, to, callback) => {
       animateProjectsSection();
       executeCallback();
     },
-    'lava->lava': () => {
+    'lava-circular->lava-circular': () => {
       animateProjectsSection();
       executeCallback();
     },

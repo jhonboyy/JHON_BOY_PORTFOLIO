@@ -131,18 +131,16 @@ const imageMap = {
 };
 
 const { project } = Astro.props;
-const { type, className, images, animations, captions } = project;
+const { type, className, images, captions } = project;
 ---
 {className === 'project-solo-slider' ? (
   <figure class={`${className} ${type}`}>
     <div class="slide-track">
-      {images.map(({ src, alt, width, height }, index) => (
+      {images.map(({ src, alt }) => (
         <div class="slide">
           <Image 
             src={imageMap[src]} 
             alt={alt} 
-            width={width} 
-            height={height} 
             loading={"eager"} 
           />
         </div>
@@ -155,19 +153,11 @@ const { type, className, images, animations, captions } = project;
   </figure>
 ) : (
   <figure class={`${className} ${type}`}>
-    {animations.length > 0 && animations.map((src) => (
-      <div style="background-color: white;">
-        <dotlottie-player class="player" src={src} background="white"></dotlottie-player>
-      </div>
-    ))}
-    {images.length > 0 && images.map(({ src, alt, width, height }, index) => (
+    {images.length > 0 && images.map(({ src, alt }) => (
       <div style="background-color: white;">
         <Image 
           src={imageMap[src]} 
           alt={alt} 
-          width={width} 
-          height={height} 
-          loading={index === 0 ? "eager" : "lazy"} 
         />
       </div>
     ))}

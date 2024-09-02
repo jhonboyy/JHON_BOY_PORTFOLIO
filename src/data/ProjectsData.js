@@ -2,7 +2,7 @@ export const projects = [
   {
     type: 'commercial all',
     className: 'project-grid',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-lava-circular-drum.svg', alt: 'Illustration of a drum', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-lava-circular-drum-artisan.svg', alt: 'Artisan with a drum', width: 1080, height: 1080 },
@@ -19,7 +19,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-solo',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-persons-boxing.svg', alt: 'Two characters boxing', width: 1080, height: 1080 },
     ],
@@ -31,7 +31,7 @@ export const projects = [
   {
     type: 'commercial all',
     className: 'project-solo',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-frama-tnwc-1.webp', alt: 'Illustration of Frama collaboration', width: 1080, height: 1080 },
     ],
@@ -43,7 +43,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-grid',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-hand-and-nail.svg', alt: 'Closeup of a hand holding a nail in a wall', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-person-nailing-with-a-hammer.svg', alt: 'Closeup of a hand nailing with a hammer', width: 1080, height: 1080 },
@@ -58,8 +58,7 @@ export const projects = [
   {
     type: 'commercial all',
     className: 'project-top',
-    animations: [
-    ],
+
     images: [
       { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg', alt: 'Cooker with a slice of bread', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-flour.svg', alt: 'Flour', width: 1080, height: 1080 },
@@ -79,7 +78,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-solo',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-people-playing-baseball.svg', alt: 'People playing baseball', width: 1080, height: 1080 },
     ],
@@ -91,7 +90,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-grid-top',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-person-in-a-cabin-interior.svg', alt: 'Person in a cabin', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-bag-with-money.svg', alt: 'Bag with money in a fireplace', width: 1080, height: 1080 },
@@ -106,7 +105,7 @@ export const projects = [
   {
     type: 'commercial all',
     className: 'project-solo-slider',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg', alt: 'Two persons working in a mine', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg', alt: 'Person carrying a rock in a mine', width: 1080, height: 1080 },
@@ -123,7 +122,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-grid',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-desk-smoke-1.svg', alt: 'Closeup of a hand nailing with a hammer', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-desk-smoke-2.svg', alt: 'Closeup of a hand nailing with a hammer', width: 1080, height: 1080 },
@@ -138,7 +137,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-grid',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-person-pointing-with-a-gun.svg', alt: 'Person pointing to another person with a gun', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-person-about-to-run.svg', alt: 'Two persons, one about to run', width: 1080, height: 1080 },
@@ -155,7 +154,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-solo',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-car-accident-fruit.svg', alt: 'A car crashing into a fruit store', width: 1080, height: 1080 },
     ],
@@ -167,7 +166,7 @@ export const projects = [
   {
     type: 'commercial all',
     className: 'project-solo',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp', alt: 'Red Cross Tenerife mural', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp', alt: 'Red Cross Tenerife mural', width: 1080, height: 1080 },
@@ -180,7 +179,7 @@ export const projects = [
   {
     type: 'commercial all',
     className: 'project-grid',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-ace-&-tate-characters-in-a-chair.svg', alt: 'Person sitting in a chair with others around', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-ace-&-tate-persons-destroying-a-canvas.svg', alt: 'Persons destroying a canvas', width: 1080, height: 1080 },
@@ -199,7 +198,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-solo',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-persons-in-the-metro.svg', alt: 'Persons pointing to each other in the metro', width: 1080, height: 1080 },
     ],
@@ -211,7 +210,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-solo',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-trumpet.svg', alt: 'Flat trumpet illustration', width: 1080, height: 1080 },
     ],
@@ -223,7 +222,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-grid',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-hotel-entrance-stairs.svg', alt: 'Stairs of a hotel hall', width: 1080, height: 1080 },
       { src: '../images/jhon-boy-illustration-room-entrance-door.svg', alt: 'Front view of a room door', width: 1080, height: 1080 },
@@ -240,7 +239,7 @@ export const projects = [
   {
     type: 'personal all',
     className: 'project-solo',
-    animations: [],
+
     images: [
       { src: '../images/jhon-boy-illustration-ramen.svg', alt: 'Ramen illustration', width: 1080, height: 1080 },
     ],

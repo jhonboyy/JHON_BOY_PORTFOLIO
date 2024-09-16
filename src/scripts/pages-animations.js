@@ -10,9 +10,9 @@ export const applyAnimation = (from, to, callback) => {
     const viewportHeight = window.innerHeight;
     
     root.style.setProperty('--slide-up-works-to', `${198 - viewportHeight}px`);
-    root.style.setProperty('--slide-up-works-repeat-to', `${148 - viewportHeight}px`);
-    root.style.setProperty('--slide-up-about-to', `${198 - viewportHeight}px`);
-    root.style.setProperty('--slide-down-about-from', `${250 - viewportHeight}px`);
+    root.style.setProperty('--slide-up-works-repeat-to', `${99 - viewportHeight}px`);
+    root.style.setProperty('--slide-up-about-to', `${150 - viewportHeight}px`);
+    root.style.setProperty('--slide-down-about-from', `${200 - viewportHeight}px`);
   }
 
   // Debounce function to limit the rate of updates
@@ -142,53 +142,53 @@ export const applyAnimation = (from, to, callback) => {
       });
     },
     'lava-circular->works': () => {
-      worksButton.style.top = "calc(148px - 100vh)";
+      worksButton.style.top = "calc(99px - 100vh)";
       aboutButton.style.borderTop = "1px solid black";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('menuImage').style.opacity = "1";
       document.querySelector(".MenuImageContainer").classList.remove("animate-fade-in");
     },
     'works->lava-circular': () => {
-      worksButton.style.top = "calc(148px - 100vh)";
+      worksButton.style.top = "calc(99px - 100vh)";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
     },
     'frama->works': () => {
-      worksButton.style.top = "calc(148px - 100vh)";
+      worksButton.style.top = "calc(99px - 100vh)";
       aboutButton.style.borderTop = "1px solid black";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('menuImage').style.opacity = "1";
       document.querySelector(".MenuImageContainer").classList.remove("animate-fade-in");
     },
     'works->frama': () => {
-      worksButton.style.top = "calc(148px - 100vh)";
+      worksButton.style.top = "calc(99px - 100vh)";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
     },
     'flourly->works': () => {
-      worksButton.style.top = "calc(148px - 100vh)";
+      worksButton.style.top = "calc(99px - 100vh)";
       aboutButton.style.borderTop = "1px solid black";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('menuImage').style.opacity = "1";
       document.querySelector(".MenuImageContainer").classList.remove("animate-fade-in");
     },
     'works->flourly': () => {
-      worksButton.style.top = "calc(148px - 100vh)";
+      worksButton.style.top = "calc(99px - 100vh)";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
     },
     'flourly->flourly': () => {
-      worksButton.style.top = "calc(148px - 100vh)";
+      worksButton.style.top = "calc(99x - 100vh)";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
     },
     'lava-circular->lava-circular': () => {
-      worksButton.style.top = "calc(148px - 100vh)";
+      worksButton.style.top = "calc(99px - 100vh)";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
     },
     'frama->frama': () => {
-      worksButton.style.top = "calc(148px - 100vh)";
+      worksButton.style.top = "calc(99px - 100vh)";
       document.getElementById('works-content').style.opacity = "1";
       document.getElementById('works-content').style.pointerEvents = "none";
     },

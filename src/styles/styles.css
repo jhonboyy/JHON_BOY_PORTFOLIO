@@ -160,6 +160,12 @@ ul {
 	height: 50px;
 }
 
+.menu-opened li:nth-child(3) {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+
 .menu-opened li:nth-child(4) {
 	border-bottom: 0;
 }

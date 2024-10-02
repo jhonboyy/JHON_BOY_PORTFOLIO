@@ -1,10 +1,10 @@
 ---
-const { worksButtonClass, aboutButtonClass, contactButtonClass, instagramButtonClass, WordClass} = Astro.props;
+const { worksButtonClass, aboutButtonClass, contactButtonClass, instagramButtonClass, WordClass, worksLink, aboutLink} = Astro.props;
 ---
     <nav role="navigation">
       <ul>
-        <li id="worksButton" class={worksButtonClass}><a class={WordClass} href="/works">WORKS</a></li>
-        <li id="aboutButton" class={aboutButtonClass}><a class={WordClass} href="/about">ABOUT</a></li>
+        <li id="worksButton" class={worksButtonClass}><a class={WordClass} href={worksLink}>WORKS</a></li>
+        <li id="aboutButton" class={aboutButtonClass}><a class={WordClass} href={aboutLink}>ABOUT</a></li>
         <li id="contactButton" class={contactButtonClass}><a class={WordClass} href="mailto:hello@jhonboy.com">CONTACT</a></li>
         <li id="instagramButton" class={instagramButtonClass}><a class={WordClass} href="https://www.instagram.com/jhon_boy" target="_blank">INSTAGRAM<span class="arrow">&#8599;</span></a></li>
       </ul>

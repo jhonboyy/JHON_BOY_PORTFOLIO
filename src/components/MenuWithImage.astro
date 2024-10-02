@@ -2,12 +2,17 @@
 import Menu from './Menu.astro';
 import { Image } from 'astro:assets';
 
-const { imageSrc, imageAlt, containerClass, imageStyles, headerClass, imageClass, worksButtonClass, aboutButtonClass } = Astro.props;
+const { imageSrc, imageAlt, containerClass, imageStyles, headerClass, worksButtonClass, aboutButtonClass, worksLink, aboutLink } = Astro.props;
 ---
 
 <header class={`menu-opened ${headerClass}`} role="banner">
-  <Menu worksButtonClass={worksButtonClass} aboutButtonClass={aboutButtonClass} />
+  <Menu 
+  worksButtonClass={worksButtonClass} 
+  aboutButtonClass={aboutButtonClass} 
+  worksLink={worksLink}
+  aboutLink={aboutLink}
+  />
   <div class={`MenuImageContainer ${containerClass}`} style={imageStyles}>
-    <Image src={imageSrc} id="menuImage" class={imageClass} alt={imageAlt} loading="eager" />
+    <Image src={imageSrc} class="animate-fade-in" alt={imageAlt} loading="eager" />
   </div>
 </header>

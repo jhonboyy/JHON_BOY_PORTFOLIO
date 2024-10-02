@@ -12,6 +12,21 @@ const metaInfo = {
   ogImage: "https://jhonboy.com/og-image-about.jpg",
   twitterImage: "https://jhonboy.com/twitter-image-about.jpg"
 };
+
+const fromPage = new URL(Astro.url, 'http://localhost').searchParams.get('from');
+
+let worksMenuWithImageClasses = '';
+let aboutMenuWithImageClasses = '';
+
+if (fromPage === 'works') {
+  worksMenuWithImageClasses += 'from-about';
+  aboutMenuWithImageClasses += 'animate-slide-up-about';
+}
+
+if (fromPage === 'index') {
+  worksMenuWithImageClasses += 'animate-slide-up-works';
+  aboutMenuWithImageClasses += 'animate-slide-up-about';
+}
 ---
 
 <BaseLayout {...metaInfo} dataPage="about">
@@ -21,9 +36,9 @@ const metaInfo = {
     containerClass="aboutMenu"
     imageStyles="top: 100px;"
     headerClass="aboutMenu"
-    imageClass="animate-fade-in"
-    worksButtonClass="animate-slide-up-works"
-    aboutButtonClass="animate-slide-up-about"
+    worksButtonClass={worksMenuWithImageClasses}
+    aboutButtonClass={aboutMenuWithImageClasses}
+    worksLink="/works?from=about"
   />
   <AboutSection aboutSectionClass="about animate-fade-in" />
 </BaseLayout>

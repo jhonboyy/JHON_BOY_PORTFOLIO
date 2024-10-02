@@ -24,10 +24,10 @@
 
 @keyframes slideDownAbout {
   from {
-    top: var(--slide-down-about-from);
+    bottom: calc(100vh - 101px);
   }
   to {
-    top: -50px;
+    bottom: 100px;
   }
 }
 

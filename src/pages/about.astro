@@ -1,8 +1,8 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 import AboutSection from '../components/AboutSection.astro';
 import MenuImage from '../components/MenuWithImage.astro';
 import MenuAboutImage from '../images/jhon-boy-illustration-works-page-person-upside-down.svg';
-import BaseLayout from '../layouts/BaseLayout.astro';
 
 const metaInfo = {
   title: "About Jhon Boy - Illustrator & Artist",
@@ -40,5 +40,83 @@ if (fromPage === 'index') {
     aboutButtonClass={aboutMenuWithImageClasses}
     worksLink="/works?from=about"
   />
+  
   <AboutSection aboutSectionClass="about animate-fade-in" />
+
+  <!-- Añadir el script que manejará la lógica -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Consolidar la selección de elementos para reutilizarlos en diferentes funciones
+      function getElements() {
+        return {
+          column1: document.querySelector(".about-column-1") as HTMLElement,
+          column2: document.querySelector(".about-column-2") as HTMLElement,
+          address: document.querySelector(".address") as HTMLElement,
+          text: document.querySelector(".text") as HTMLElement,
+          signature: document.querySelector(".signature") as HTMLElement,
+          image: document.querySelector('.portrait') as HTMLElement,
+          hoverimage: document.querySelector('.portrait2') as HTMLElement
+        };
+      }
+
+      // Cambiar las imágenes en hover
+      function imageChange() {
+        const { image, hoverimage } = getElements();
+        
+        if (image && hoverimage) {
+          image.addEventListener('mouseover', function() {
+            image.style.display = 'none';
+            hoverimage.style.display = 'block';
+          });
+
+          hoverimage.addEventListener('mouseout', function() {
+            image.style.display = 'block';
+            hoverimage.style.display = 'none';
+          });
+        }
+      }
+
+      // Ajustar el diseño basado en el ancho de la ventana
+      function adjustLayout() {
+        const elements = getElements();
+        const width = window.innerWidth;
+        const { address, column1, column2, text, signature } = elements;
+
+        // Verificar que todos los elementos existen
+        if (address && column1 && column2 && text && signature) {
+          if (width <= 920) {
+            address.style.gridRowStart = "3";
+            address.style.gridRowEnd = "4";
+            column1.insertAdjacentElement("afterbegin", text);
+            text.style.gridRowStart = "2";
+            text.style.gridRowEnd = "3";
+            column2.insertAdjacentElement("beforeend", signature);
+            signature.style.gridRowStart = "3";
+            signature.style.gridRowEnd = "4";
+          } else {
+            address.style.gridRowStart = "2";
+            address.style.gridRowEnd = "3";
+            column2.insertAdjacentElement("afterbegin", text);
+            text.style.gridRowStart = "1";
+            text.style.gridRowEnd = "2";
+            column1.insertAdjacentElement("beforeend", signature);
+            signature.style.gridRowStart = "3";
+            signature.style.gridRowEnd = "4";
+          }
+        } else {
+          console.warn("Algunos elementos no existen en 'elements'");
+        }
+      }
+
+      // Manejar el evento de redimensionar ventana
+      function handleResize() {
+        adjustLayout();
+      }
+
+      // Inicializar las funciones cuando se cargue la página
+      imageChange();
+      adjustLayout();
+      window.addEventListener('resize', handleResize);
+    });
+  </script>
 </BaseLayout>

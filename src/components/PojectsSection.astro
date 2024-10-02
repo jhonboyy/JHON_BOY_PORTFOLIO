@@ -4,9 +4,11 @@
 import NavMenu from './ProjectsNav.astro';
 import ProjectsList from './ProjectsList.astro';
 
+const { projectsSectionClass} = Astro.props;
+
 ---
 
-<main id="works-content" class="projects" role="main">
+<main id="works-content" class={projectsSectionClass} role="main">
   <NavMenu />
   <ProjectsList />
 </main>

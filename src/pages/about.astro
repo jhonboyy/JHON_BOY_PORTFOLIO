@@ -1,11 +1,21 @@
 ---
 import Layout from '../layouts/LayoutAbout.astro';
 import AboutSection from '../components/AboutSection.astro';
-import MenuAbout from '../components/MenuAbout.astro';
-
+import MenuImage from '../components/MenuWithImage.astro';
+import MenuAboutImage from '../images/jhon-boy-illustration-works-page-person-upside-down.svg';
 ---
 
 <Layout>
-  <MenuAbout />
-  <AboutSection />
+  <MenuImage 
+  imageSrc={MenuAboutImage} 
+  imageAlt="Illustration of a person upside down" 
+  containerClass="aboutMenu"
+  imageStyles="top: 100px;"
+  headerClass="aboutMenu"
+  imageClass="animate-fade-in"
+  worksButtonClass="animate-slide-up-works"
+  aboutButtonClass="animate-slide-up-about"
+/>
+  <AboutSection
+  aboutSectionClass="about animate-fade-in">
 </Layout>

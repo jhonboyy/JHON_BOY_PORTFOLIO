@@ -1,13 +1,22 @@
 ---
 import Layout from '../layouts/LayoutWorks.astro';
-import ProjectsSection from '../components/WorksSection.astro';
-import Menu from '../components/MenuWorks.astro';
-
+import ProjectsSection from '../components/PojectsSection.astro';
+import MenuWithImage from '../components/MenuWithImage.astro';
+import MenuWorksImage from '../images/jhon-boy-illustration-works-page-person-resting.svg';
 ---
 
 <Layout>
 
-  <Menu />
-  <ProjectsSection />
+  <MenuWithImage 
+  imageSrc={MenuWorksImage} 
+  imageAlt="Illustration of a person resting"
+  imageStyles="top: 50px;"
+  headerClass=""
+  imageClass="animate-fade-in"
+  worksButtonClass="animate-slide-up-works"
+  />
+
+  <ProjectsSection 
+  projectsSectionClass="projects animate-fade-in"/>
   
 </Layout>

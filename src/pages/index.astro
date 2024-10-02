@@ -1,9 +1,22 @@
 ---
-import Layout from '../layouts/LayoutIndex.astro';
 import Menu from '../components/Menu.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const metaInfo = {
+  title: "Welcome to Jhon Boy - Illustrator & Artist",
+  description: "Explore the stunning illustrations and artwork of Jhon Boy, a talented illustrator and artist. Discover his portfolio, latest projects, and unique artistic style.",
+  keywords: "Jhon Boy, illustrator, artist, artwork, illustrations, portfolio, digital art, creative, unique style",
+  canonicalUrl: "https://jhonboy.com/",
+  ogImage: "https://jhonboy.com/og-image.jpg",
+  twitterImage: "https://jhonboy.com/twitter-image.jpg"
+};
+
 ---
 
-<Layout>
+<script>
+  import '@dotlottie/player-component';
+</script>
+<BaseLayout {...metaInfo} dataPage="index">
   <header class="index" role="banner">
     <h1 id="headerText" class="word">WELCOME TO JHON BOY</h1>
     <div class="lottie-index animate-fade-in-index">
@@ -14,4 +27,4 @@ import Menu from '../components/Menu.astro';
     WordClass="word"
     />
   </header>
-</Layout>
+</BaseLayout>

@@ -1,21 +1,29 @@
 ---
-import Layout from '../layouts/LayoutAbout.astro';
 import AboutSection from '../components/AboutSection.astro';
 import MenuImage from '../components/MenuWithImage.astro';
 import MenuAboutImage from '../images/jhon-boy-illustration-works-page-person-upside-down.svg';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const metaInfo = {
+  title: "About Jhon Boy - Illustrator & Artist",
+  description: "Learn more about Jhon Boy, a talented illustrator and artist. Discover his background, artistic journey, and the unique style that defines his stunning illustrations.",
+  keywords: "Jhon Boy, about Jhon Boy, illustrator, artist, programmer, uniqlo, ace&tate, wix, It's Nice That, D&AD, Oppo, Frama",
+  canonicalUrl: "https://jhonboy.com/about",
+  ogImage: "https://jhonboy.com/og-image-about.jpg",
+  twitterImage: "https://jhonboy.com/twitter-image-about.jpg"
+};
 ---
 
-<Layout>
+<BaseLayout {...metaInfo} dataPage="about">
   <MenuImage 
-  imageSrc={MenuAboutImage} 
-  imageAlt="Illustration of a person upside down" 
-  containerClass="aboutMenu"
-  imageStyles="top: 100px;"
-  headerClass="aboutMenu"
-  imageClass="animate-fade-in"
-  worksButtonClass="animate-slide-up-works"
-  aboutButtonClass="animate-slide-up-about"
-/>
-  <AboutSection
-  aboutSectionClass="about animate-fade-in">
-</Layout>
+    imageSrc={MenuAboutImage} 
+    imageAlt="Illustration of a person upside down" 
+    containerClass="aboutMenu"
+    imageStyles="top: 100px;"
+    headerClass="aboutMenu"
+    imageClass="animate-fade-in"
+    worksButtonClass="animate-slide-up-works"
+    aboutButtonClass="animate-slide-up-about"
+  />
+  <AboutSection aboutSectionClass="about animate-fade-in" />
+</BaseLayout>

@@ -29,23 +29,6 @@ import '../styles/animations.css'
 <body>
   <slot></slot>
   <script>
-    import { applyAnimation } from '../scripts/pages-animations.js';
-    import { adjustLayout } from '../scripts/about.js';
-    import { imageChange } from '../scripts/about.js';
-
-    document.addEventListener('DOMContentLoaded', () => {
-        const previousPage = localStorage.getItem('previousPage') || 'direct';
-        const currentPage = document.documentElement.dataset.page;
-  
-        applyAnimation(previousPage, currentPage, () => {
-          adjustLayout();
-          console.log(previousPage, currentPage);
-          localStorage.setItem('previousPage', currentPage);
-        });
-
-        adjustLayout();
-        imageChange();
-    });
   </script>
   <SpeedInsights />
 </body>

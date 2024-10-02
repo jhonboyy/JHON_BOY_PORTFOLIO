@@ -190,7 +190,6 @@ ul {
 	left: 0;
 	gap: 1px;
 	grid-template-rows: 50px 1fr 49px;
-	border-top: 1px solid black;
 	background-color: black;
 }
 
@@ -279,6 +278,18 @@ ul {
 	grid-template-columns: 1fr;
 	grid-template-rows: 50px 1fr;
 	opacity: 0;
+}
+
+.projects-2 {
+	position: absolute;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	top: -1px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 50px 1fr;
+	opacity: 1;
 }
 
 .projects-nav {

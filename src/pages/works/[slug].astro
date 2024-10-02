@@ -1,10 +1,11 @@
 ---
-import ProjectDetailLava from '../../components/ProjectDetailLava.astro';
-import ProjectDetailFlourly from '../../components/ProjectDetailFlourly.astro';
-import ProjectDetailFrama from '../../components/ProjectDetailFrama.astro';
-import LayoutWorksDetail from '../../layouts/LayoutWorksDetail.astro';
+import ProjectDetailLava from '../../components/Details/ProjectDetailLava.astro';
+import ProjectDetailFlourly from '../../components/Details/ProjectDetailFlourly.astro';
+import ProjectDetailFrama from '../../components/Details/ProjectDetailFrama.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import Menu from '../../components/MenuWithImage.astro';
 import ProjectsSection from '../../components/PojectsSection.astro';
+import MenuWorksImage from '../../images/white.png';
 
 // Datos simulados de meta tags
 const metaTags = {
@@ -40,20 +41,27 @@ const projects = [
 
 const project = projects.find(p => p.slug === slug);
 
-if (!project) {
-  throw new Error(`No project found for slug: ${slug}`);
-}
-
 const ProjectComponent = project.component;
 ---
 
-<LayoutWorksDetail
+<BaseLayout
   title={meta.title}
   description={meta.description}
   imageUrl={meta.imageUrl}
   keywords={meta.keywords}
+
+
 >
-  <Menu />
-  <ProjectsSection />
-  <ProjectComponent />
-</LayoutWorksDetail>
+  <Menu 
+  worksButtonClass="from-about"
+  imageSrc={MenuWorksImage} 
+  imageAlt="Illustration of a person resting"
+
+  />
+  <ProjectsSection 
+  projectsSectionClass="projects-2"
+  />
+  <ProjectComponent 
+  projectDetailCloseLink=""
+  />
+</BaseLayout>

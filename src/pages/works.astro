@@ -26,6 +26,11 @@ if (fromPage === 'about') {
 if (fromPage === 'index') {
   worksMenuWithImageClasses += 'animate-slide-up-works ';
 }
+
+if (fromPage === 'details') {
+  worksMenuWithImageClasses += 'from-about';
+
+}
 ---
 
 <BaseLayout {...metaInfo} dataPage="works">
@@ -36,11 +41,13 @@ if (fromPage === 'index') {
       imageStyles="top: 50px;"
       worksButtonClass={worksMenuWithImageClasses}
       aboutButtonClass={aboutMenuWithImageClasses}
-      aboutLink="/about?from=works"
     />
 
-  <ProjectsSection projectsSectionClass="projects animate-fade-in"/>
+  <ProjectsSection 
+  projectsSectionClass="projects animate-fade-in"/>
 </BaseLayout>
+
+
 <script>
   function rightWorksButtons() {
     const buttons = [
@@ -82,6 +89,5 @@ if (fromPage === 'index') {
     }
   }
 
-  // Llamar a la función cuando se cargue la página
   rightWorksButtons();
 </script>

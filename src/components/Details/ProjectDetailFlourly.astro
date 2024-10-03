@@ -1,12 +1,42 @@
 ---
 import { Image } from 'astro:assets';
 
-import illustrationFlourly from '../images/jhon-boy-illustration-flourly-portfolio.svg';
-import sketchFlourly1 from '../images/jhon-boy-flourly-sketches-1.webp';
-import sketchFlourly2 from '../images/jhon-boy-flourly-sketches-2.webp';
-import sketchFlourly3 from '../images/jhon-boy-flourly-sketches-3.webp';
+import illustrationFlourly from '../../images/jhon-boy-illustration-flourly-portfolio.svg';
+import sketchFlourly1 from '../../images/jhon-boy-flourly-sketches-1.webp';
+import sketchFlourly2 from '../../images/jhon-boy-flourly-sketches-2.webp';
+import sketchFlourly3 from '../../images/jhon-boy-flourly-sketches-3.webp';
 
 ---
+
+<script>
+ import '@dotlottie/player-component';
+
+function FlourlyCounter (){
+
+    const flourlyContainer = document.getElementById("flourly-container");
+    const flourlySlider = flourlyContainer.querySelector(".slider");
+    const flourlyMidContainer = document.querySelector(".project-container-mid.flourly");
+
+    const p = document.createElement("p");
+    p.classList.add("counter");
+    p.textContent = "1 / 3";
+    flourlyMidContainer.appendChild(p);
+
+    let currentIndex = 1;
+
+    function updateCounter() {
+        p.textContent = `${currentIndex + 1} / 3`;
+    }
+
+    flourlySlider.addEventListener("scroll", () => {
+      currentIndex = Math.round(flourlySlider.scrollLeft / flourlySlider.clientWidth);
+      updateCounter();
+    });
+}
+
+FlourlyCounter();
+
+</script>
 
 <section class="project-container" id="flourly-container">
   <div class="project-container-top">
@@ -78,6 +108,6 @@ import sketchFlourly3 from '../images/jhon-boy-flourly-sketches-3.webp';
     </p>
   </div>
   <div class="project-container-bot">
-    <a id="flourlyCloseLink" href="/works"><u>CLOSE</u></a>
+    <a id="flourlyCloseLink" href="/works?from=details"><u>CLOSE</u></a>
   </div>
 </section>

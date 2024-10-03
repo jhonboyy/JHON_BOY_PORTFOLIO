@@ -2,9 +2,12 @@
 import { Image } from 'astro:assets'
 import Portrait from '../images/jhon-boy-illustration-portrait.webp'
 import Portrait2 from '../images/jhon-boy-illustration-portrait-2.webp'
+
+const { aboutSectionClass} = Astro.props;
+
 ---
 
-<main id="about-content" class="about" role="main">
+<main id="about-content" class={aboutSectionClass} role="main">
   <div class="about-column-1">
     <p>JHON BOY IS AN ARTIST EXPLORING ILLUSTRATION FROM TENERIFE, CANARY ISLANDS.</p>
     <address class="address">

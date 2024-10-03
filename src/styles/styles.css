@@ -15,11 +15,6 @@ body {
 	margin: 0;
 }
 
-:root {
-	--line-width: 0;
-	--line-height: 0;
-}
-
 a {
 	color: blue !important;
 	cursor: pointer;
@@ -69,18 +64,16 @@ h1 {
 	height: 200px;
 }
 
-.index nav a {
-	visibility: hidden;
-}
-
 .index nav ul li::before {
 	content: '';
 	display: block;
 	height: 1px;
 	background-color: black;
-	width: var(--line-width);
+	width: 0;
 	position: absolute;
 	margin-top: -50px;
+	left: 0;
+	animation: animateLines 1s ease-out forwards;
 }
 
 .index {
@@ -90,10 +83,23 @@ h1 {
 	grid-template-rows: 50px minmax(100px, 1fr) 200px;
 }
 
+.index ul li {
+	border-top: none !important; 
+}
+
 .lottie-index {
 	display: flex;
 	align-items: center;
 	justify-items: center;
+	opacity: 0;
+}
+
+#mobileAnimation {
+	display: none;
+}
+
+#desktopAnimation {
+	display: block;
 }
 
 #desktopAnimation,
@@ -144,11 +150,9 @@ ul {
 }
 
 .menu-opened ul {
-	display: grid;
 	position: absolute;
 	width: 100%;
-	bottom: -100px;
-  grid-template-rows: 50px 50px 50px 50px;
+	height: 100vh;
 }
 
 .menu-opened li {
@@ -156,7 +160,13 @@ ul {
 	height: 50px;
 }
 
-.menu-opened li:nth-child(5) {
+.menu-opened li:nth-child(3) {
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+
+.menu-opened li:nth-child(4) {
 	border-bottom: 0;
 }
 
@@ -186,7 +196,6 @@ ul {
 	left: 0;
 	gap: 1px;
 	grid-template-rows: 50px 1fr 49px;
-	border-top: 1px solid black;
 	background-color: black;
 }
 
@@ -235,11 +244,43 @@ ul {
 	padding-left: 15px;
 }
 
+#worksButton {
+	position: absolute;
+	width: 100%;
+	bottom: 151px;
+}
+
+#aboutButton {
+	position: absolute;
+	width: 100%;
+	bottom: 100px;
+	border-top: 1px solid black;
+}
+
+#contactButton {
+	position: absolute;
+	width: 100%;
+	bottom: 49px;
+}
+
+#instagramButton {
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+}
+
+.from-about {
+	top: -1px;
+}
+
+.opacity {
+   opacity: 1 !important;
+}
+
 /* ///////////////////////////////////////////////////// RIGHT SIDE WORKS ///////////////////////////////////////////////////// */
 .projects {
 	position: absolute;
 	right: 0;
-	opacity: 0;
 	width: 50%;
 	height: 100%;
 	top: -1px;
@@ -247,6 +288,18 @@ ul {
 	grid-template-columns: 1fr;
 	grid-template-rows: 50px 1fr;
 	opacity: 0;
+}
+
+.projects-2 {
+	position: absolute;
+	right: 0;
+	width: 50%;
+	height: 100%;
+	top: -1px;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 50px 1fr;
+	opacity: 1;
 }
 
 .projects-nav {
@@ -516,20 +569,6 @@ figcaption> :first-child {
 	grid-template-rows: 1fr;
 }
 
-.menu-opened #aboutButton {
-	position: absolute;
-	bottom: 200px;
-	width: 100%;
-}
-
-.menu-opened #worksButton {
-	position: absolute;
-	width: 100%;
-	border-top: 0;
-	border-bottom: 1px solid black;
-	bottom: 300px;
-}
-
 .aboutMenu nav ul li:nth-child(3) {
 	border-top: 1px solid black;
 }
@@ -595,26 +634,6 @@ main address {
 	padding-left: 10px;
   }
 
-@media screen and (min-width: 2000px) {
-	.image-container {
-		min-width: 100px;
-		min-height: 1000px;
-		background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-
-	.image-container-2 {
-		min-width: 100px;
-		min-height: 1000px;
-		background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-}
-
 @media screen and (max-width: 900px) {
 
 	/* ///////////////////////////////////////////////////// MOBILE GENERAL STYLE ///////////////////////////////////////////////////// */
@@ -679,6 +698,40 @@ main address {
 	.index {
 		height: 100dvh;
 	}
+
+	#mobileAnimation {
+		display: block;
+	}
+	
+	#desktopAnimation {
+		display: none;
+	}
+
+	#worksButton {
+		position: relative;
+		width: 100%;
+		bottom: 0;
+	}
+	
+	#aboutButton {
+		position: relative;
+		width: 100%;
+		bottom: 100px;
+		border-top: none;
+	}
+	
+	#contactButton {
+		position: relative;
+		width: 100%;
+		bottom: 0;
+	}
+	
+	#instagramButton {
+		position: relative;
+		width: 100%;
+		bottom: 0px;
+	}
+	
 
 	/* ///////////////////////////////////////////////////// MOBILE WORKS ///////////////////////////////////////////////////// */
 	.projects {
@@ -983,4 +1036,16 @@ main address {
 		background-color: white;
 		border-top: 1px solid black;
 	}
+	.menu-opened ul{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.menu-opened ul li{
+		border-bottom: 0 !important;
+		border-top: 0 !important;
+	}
+
+	.animate-fade-in {
+		opacity: 1 !important;
+	  }
 }

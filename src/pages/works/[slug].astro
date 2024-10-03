@@ -1,10 +1,11 @@
 ---
-import ProjectDetailLava from '../../components/ProjectDetailLava.astro';
-import ProjectDetailFlourly from '../../components/ProjectDetailFlourly.astro';
-import ProjectDetailFrama from '../../components/ProjectDetailFrama.astro';
-import LayoutWorksDetail from '../../layouts/LayoutWorksDetail.astro';
-import Menu from '../../components/MenuWorks.astro';
-import ProjectsSection from '../../components/WorksSection.astro';
+import ProjectDetailLava from '../../components/Details/ProjectDetailLava.astro';
+import ProjectDetailFlourly from '../../components/Details/ProjectDetailFlourly.astro';
+import ProjectDetailFrama from '../../components/Details/ProjectDetailFrama.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Menu from '../../components/MenuWithImage.astro';
+import ProjectsSection from '../../components/PojectsSection.astro';
+import MenuWorksImage from '../../images/white.png';
 
 // Datos simulados de meta tags
 const metaTags = {
@@ -40,20 +41,58 @@ const projects = [
 
 const project = projects.find(p => p.slug === slug);
 
-if (!project) {
-  throw new Error(`No project found for slug: ${slug}`);
-}
-
 const ProjectComponent = project.component;
 ---
+<script>
+const currentPage = window.location.pathname;
 
-<LayoutWorksDetail
+// Guardar la página actual en el almacenamiento de la sesión
+localStorage.setItem('previousPage', currentPage);
+
+// Guardar la posición de desplazamiento del elemento works-content antes de abandonar la página
+window.addEventListener('beforeunload', () => {
+    const worksContent = document.querySelector('.projects-wrap');
+    if (worksContent) {
+        sessionStorage.setItem('worksContentScrollPosition', worksContent.scrollTop.toString());
+    }
+});
+
+// Restaurar la posición de desplazamiento del elemento works-content al cargar la nueva página
+document.addEventListener('DOMContentLoaded', () => {
+    const worksContent = document.querySelector('.projects-wrap');
+    const scrollPosition = sessionStorage.getItem('worksContentScrollPosition');
+    
+    if (worksContent && scrollPosition) {
+        // Usar requestAnimationFrame para una restauración suave
+        requestAnimationFrame(() => {
+            worksContent.scrollTo({
+                top: Number(scrollPosition),
+                behavior: 'instant' // Intentar usar un scroll inmediato sin salto visible
+            });
+        });
+    }
+});
+</script>
+
+<BaseLayout
   title={meta.title}
   description={meta.description}
   imageUrl={meta.imageUrl}
   keywords={meta.keywords}
+
+
 >
-  <Menu />
-  <ProjectsSection />
-  <ProjectComponent />
-</LayoutWorksDetail>
+  <Menu 
+  worksButtonClass="from-about"
+  imageSrc={MenuWorksImage} 
+  imageAlt="Illustration of a person resting"
+  />
+  <ProjectsSection 
+  projectsSectionClass="projects-2"
+  />
+  <ProjectComponent 
+  />
+</BaseLayout>
+
+
+

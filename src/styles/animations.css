@@ -1,46 +1,55 @@
 @keyframes slideUpWorks {
-  from {
-    top: 0;
-  }
   to {
-    top: var(--slide-up-works-to);
+    bottom: calc(100vh - 50px);
+  }
+}
+
+@keyframes animateLines {
+  to {
+    width: 100%;
   }
 }
 
 @keyframes slideUpWorksRepeat {
-  from {
-    top: -100px;
-  }
   to {
     top: var(--slide-up-works-repeat-to);
   }
 }
 
 @keyframes slideUpAbout {
-  from {
-    top: -50px;
-  }
   to {
-    top: var(--slide-up-about-to);
+    bottom: calc(100vh - 101px);
   }
 }
 
 @keyframes slideDownAbout {
   from {
-    top: var(--slide-down-about-from);
+    bottom: calc(100vh - 101px);
   }
   to {
-    top: -50px;
+    bottom: 100px;
   }
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+  
   to {
     opacity: 1;
   }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.word {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards ease-out;
+  animation-delay: 1s;
 }
 
 .animate-slide-up-works {
@@ -61,6 +70,12 @@
 
 .animate-fade-in {
   animation: fadeIn 1s ease-out forwards;
+  animation-delay: 1s; 
+}
+
+.animate-fade-in-index {
+  animation: fadeIn 1s ease-out forwards;
+  animation-delay: 2s; 
 }
 
 .no-pointer-events {

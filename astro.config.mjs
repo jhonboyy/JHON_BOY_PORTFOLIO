@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   server: {
     host: '0.0.0.0',
-    port: 3000
+    port: 4321
   },
   output: 'server',
   adapter: vercel({    
@@ -17,7 +17,7 @@ export default defineConfig({
     },
   }),
   outDir: './dist',
-  publicDir: './public',
+  publicDir: './public',  
   srcDir: './src',
   site: 'https://jhonboy.com',
   output: 'server',

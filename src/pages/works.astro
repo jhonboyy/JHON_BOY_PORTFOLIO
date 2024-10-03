@@ -38,24 +38,6 @@ if (fromPage === 'details') {
 
 }
 ---
-
-<BaseLayout {...metaInfo} dataPage="works">
-
-    <MenuWithImage 
-      imageSrc={MenuWorksImage} 
-      imageAlt="Illustration of a person resting"
-      imageStyles="top: 50px;"
-      worksButtonClass={worksMenuWithImageClasses}
-      aboutButtonClass={aboutMenuWithImageClasses}
-      aboutLink="/about?from=works"
-      menuImageClass={menuImageClasses}
-    />
-
-  <ProjectsSection 
-  projectsSectionClass={projectSectionClasses}/>
-</BaseLayout>
-
-
 <script>
   function rightWorksButtons() {
     const buttons = [
@@ -99,3 +81,52 @@ if (fromPage === 'details') {
 
   rightWorksButtons();
 </script>
+<script>
+const currentPage = window.location.pathname;
+
+// Guardar la página actual en el almacenamiento de la sesión
+localStorage.setItem('previousPage', currentPage);
+
+// Guardar la posición de desplazamiento del elemento works-content antes de abandonar la página
+window.addEventListener('beforeunload', () => {
+    const worksContent = document.querySelector('.projects-wrap');
+    if (worksContent) {
+        sessionStorage.setItem('worksContentScrollPosition', worksContent.scrollTop.toString());
+    }
+});
+
+// Restaurar la posición de desplazamiento del elemento works-content al cargar la nueva página
+document.addEventListener('DOMContentLoaded', () => {
+    const worksContent = document.querySelector('.projects-wrap');
+    const scrollPosition = sessionStorage.getItem('worksContentScrollPosition');
+    
+    if (worksContent && scrollPosition) {
+        // Usar requestAnimationFrame para una restauración suave
+        requestAnimationFrame(() => {
+            worksContent.scrollTo({
+                top: Number(scrollPosition),
+                behavior: 'instant' // Intentar usar un scroll inmediato sin salto visible
+            });
+        });
+    }
+});
+</script>
+
+
+<BaseLayout {...metaInfo} dataPage="works">
+
+    <MenuWithImage 
+      imageSrc={MenuWorksImage} 
+      imageAlt="Illustration of a person resting"
+      imageStyles="top: 50px;"
+      worksButtonClass={worksMenuWithImageClasses}
+      aboutButtonClass={aboutMenuWithImageClasses}
+      aboutLink="/about?from=works"
+      menuImageClass={menuImageClasses}
+    />
+
+  <ProjectsSection 
+  projectsSectionClass={projectSectionClasses}/>
+</BaseLayout>
+
+

@@ -20,6 +20,11 @@ let aboutMenuWithImageClasses = '';
 let menuImageClasses = '';
 let projectSectionClasses = 'projects animate-fade-in';
 
+if (!fromPage) {
+  worksMenuWithImageClasses += 'animate-slide-up-works';
+  menuImageClasses += 'animate-fade-in';
+}
+
 if (fromPage === 'about') {
   worksMenuWithImageClasses += 'from-about';
   aboutMenuWithImageClasses += 'animate-slide-down-about';
@@ -27,7 +32,7 @@ if (fromPage === 'about') {
 }
 
 if (fromPage === 'index') {
-  worksMenuWithImageClasses += 'animate-slide-up-works ';
+  worksMenuWithImageClasses += 'animate-slide-up-works';
   menuImageClasses += 'animate-fade-in';
 }
 

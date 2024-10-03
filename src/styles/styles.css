@@ -706,6 +706,31 @@ main address {
 	#desktopAnimation {
 		display: none;
 	}
+
+	#worksButton {
+		position: relative;
+		width: 100%;
+		bottom: 0;
+	}
+	
+	#aboutButton {
+		position: relative;
+		width: 100%;
+		bottom: 100px;
+		border-top: none;
+	}
+	
+	#contactButton {
+		position: relative;
+		width: 100%;
+		bottom: 0;
+	}
+	
+	#instagramButton {
+		position: relative;
+		width: 100%;
+		bottom: 0px;
+	}
 	
 
 	/* ///////////////////////////////////////////////////// MOBILE WORKS ///////////////////////////////////////////////////// */
@@ -1011,4 +1036,16 @@ main address {
 		background-color: white;
 		border-top: 1px solid black;
 	}
+	.menu-opened ul{
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+	}
+	.menu-opened ul li{
+		border-bottom: 0 !important;
+		border-top: 0 !important;
+	}
+
+	.animate-fade-in {
+		opacity: 1 !important;
+	  }
 }

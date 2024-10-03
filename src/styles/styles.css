@@ -277,6 +277,14 @@ ul {
    opacity: 1 !important;
 }
 
+#framaLink, #flourlyLink, #lavaLink {
+	text-decoration: underline;
+}
+
+.disabledButton {
+	pointer-events: none;
+  }
+
 /* ///////////////////////////////////////////////////// RIGHT SIDE WORKS ///////////////////////////////////////////////////// */
 .projects {
 	position: absolute;

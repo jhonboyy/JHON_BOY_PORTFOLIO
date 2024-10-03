@@ -43,6 +43,26 @@ if (fromPage === 'details') {
 
 }
 ---
+
+<BaseLayout {...metaInfo} dataPage="works">
+
+    <MenuWithImage 
+      imageSrc={MenuWorksImage} 
+      imageAlt="Illustration of a person resting"
+      imageStyles="top: 50px;"
+      worksButtonClass={worksMenuWithImageClasses}
+      aboutButtonClass={aboutMenuWithImageClasses}
+      aboutLink="/about?from=works"
+      worksLink="/works"
+      disableButtonClass1="disabledButton"
+      menuImageClass={menuImageClasses}
+    />
+
+  <ProjectsSection 
+  projectsSectionClass={projectSectionClasses}/>
+</BaseLayout>
+
+
 <script>
   function rightWorksButtons() {
     const buttons = [
@@ -116,22 +136,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 </script>
-
-
-<BaseLayout {...metaInfo} dataPage="works">
-
-    <MenuWithImage 
-      imageSrc={MenuWorksImage} 
-      imageAlt="Illustration of a person resting"
-      imageStyles="top: 50px;"
-      worksButtonClass={worksMenuWithImageClasses}
-      aboutButtonClass={aboutMenuWithImageClasses}
-      aboutLink="/about?from=works"
-      menuImageClass={menuImageClasses}
-    />
-
-  <ProjectsSection 
-  projectsSectionClass={projectSectionClasses}/>
-</BaseLayout>
-
 

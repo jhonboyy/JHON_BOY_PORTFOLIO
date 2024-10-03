@@ -12,7 +12,7 @@ export const projects = [
       { src: '../images/jhon-boy-illustration-lava-circular-loom-artisan.svg', alt: 'Loom artisan illustration', width: 1080, height: 1080 },
     ],
     captions: {
-      left: 'Lava Circular brand illustrations for the 7th edition 🌋 <br /><a id="lavaLink" href="/works/lava-circular"><u>READ MORE</u></a>',
+      left: 'Lava Circular brand illustrations for the 7th edition 🌋 <br /><a id="lavaLink" href="/works/lava-circular" title="Read more about the brand illustrations created for Lava Circular 7th edition">READ CASE STUDY</a>',
       right: 'NOV.11.2023',
     },
   },
@@ -36,7 +36,7 @@ export const projects = [
       { src: '../images/jhon-boy-illustration-frama-tnwc-1.webp', alt: 'Illustration of Frama collaboration', width: 1080, height: 1080 },
     ],
     captions: {
-      left: 'Frama collaboration with The Natural Wine Company 🍷🍇 <br /><a id="framaLink" href="/works/frama"><u>READ MORE</u></a>',
+      left: 'Frama collaboration with The Natural Wine Company 🍷🍇 <br /><a id="framaLink" title="Read the detailed case study of the collaboration between Frama and The Natural Wine Company" href="/works/frama">READ CASE STUDY</a>',
       right: 'APR.15.2024',
     },
   },
@@ -71,7 +71,7 @@ export const projects = [
       { src: '../images/white.png', alt: 'Placeholder image', width: 1080, height: 1080 },
     ],
     captions: {
-      left: 'Bakken & Baeck Flourly brand illustrations 🥖👨🏻‍🍳 <br /><a id="flourlyLink" href="/works/flourly"><u>READ MORE</u></a>',
+      left: 'Bakken & Baeck Flourly brand illustrations 🥖👨🏻‍🍳 <br /><a id="flourlyLink" href="/works/flourly" title="Read more about the Flourly brand illustrations created for Bakken & Baeck">READ CASE STUDY</a>',
       right: 'DEC.22.2022',
     },
   },

@@ -716,7 +716,7 @@ main address {
 	#aboutButton {
 		position: relative;
 		width: 100%;
-		bottom: 100px;
+		bottom: 0;
 		border-top: none;
 	}
 	

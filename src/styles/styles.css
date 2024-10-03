@@ -91,7 +91,7 @@ h1 {
 	display: flex;
 	align-items: center;
 	justify-items: center;
-	opacity: 0;
+	opacity: 0.01;
 }
 
 #mobileAnimation {
@@ -183,7 +183,7 @@ ul {
 	max-width: 100%;
 	max-height: 100%;
 	object-fit: contain;
-	opacity: 0;
+	opacity: 0.01;
 	z-index: -1;
 }
 
@@ -287,7 +287,7 @@ ul {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 50px 1fr;
-	opacity: 0;
+	opacity: 0.01;
 }
 
 .projects-2 {
@@ -563,7 +563,7 @@ figcaption> :first-child {
 	display: grid;
 	position: absolute;
 	right: 0;
-	opacity: 0;
+	opacity: 0.01;
 	grid-template-columns: 55% 45%;
 	grid-area: 1 / 1 / 2 / 3;
 	grid-template-rows: 1fr;

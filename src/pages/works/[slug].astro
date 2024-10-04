@@ -44,6 +44,9 @@ const project = projects.find(p => p.slug === slug);
 const ProjectComponent = project.component;
 ---
 <script>
+  import '@dotlottie/player-component';
+</script>
+<script>
 const currentPage = window.location.pathname;
 
 // Guardar la página actual en el almacenamiento de la sesión
@@ -79,8 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
   description={meta.description}
   imageUrl={meta.imageUrl}
   keywords={meta.keywords}
-
-
 >
   <Menu 
   worksButtonClass="from-about"
@@ -89,9 +90,9 @@ document.addEventListener('DOMContentLoaded', () => {
   />
   <ProjectsSection 
   projectsSectionClass="projects-2"
+  projectsImagesClass=""
   />
-  <ProjectComponent 
-  />
+  <ProjectComponent  />
 </BaseLayout>
 
 

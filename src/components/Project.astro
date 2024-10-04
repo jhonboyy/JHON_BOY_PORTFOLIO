@@ -130,9 +130,28 @@ const imageMap = {
   '../images/jhon-boy-illustration-ramen.svg': imgRamen,
 };
 
-const { project } = Astro.props;
+const { project, projectsImagesClass} = Astro.props;
 const { type, className, images, captions } = project;
 ---
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const lazyImages = document.querySelectorAll('.lazy-image');
+  
+    lazyImages.forEach((image) => {
+      // Asegurarse de que el elemento sea tratado como HTMLImageElement
+      const imgElement = image as HTMLImageElement;
+  
+      imgElement.addEventListener('load', () => {
+        imgElement.classList.add('loaded');
+      });
+  
+      // Verificar si la imagen ya está cargada
+      if (imgElement.complete) {
+        imgElement.classList.add('loaded');
+      }
+    });
+  });
+   </script>
 {className === 'project-solo-slider' ? (
   <figure class={`${className} ${type}`}>
     <div class="slide-track">
@@ -141,7 +160,8 @@ const { type, className, images, captions } = project;
           <Image 
             src={imageMap[src]} 
             alt={alt} 
-            loading={"eager"} 
+            loading={"lazy"} 
+            class={projectsImagesClass}
           />
         </div>
       ))}
@@ -158,6 +178,7 @@ const { type, className, images, captions } = project;
         <Image 
           src={imageMap[src]} 
           alt={alt} 
+          class={projectsImagesClass}
         />
       </div>
     ))}

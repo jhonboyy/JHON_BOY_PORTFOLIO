@@ -3,10 +3,15 @@
 import Project from './Project.astro';
 import { projects } from '../data/ProjectsData.js';
 
+const { projectsImagesClass } = Astro.props;
+
 ---
 
 <div class="projects-wrap">
   {projects.map(project => (
-    <Project project={project} />
+    <Project 
+    project={project} 
+    projectsImagesClass={projectsImagesClass}
+    />
   ))}
 </div>

@@ -36,25 +36,23 @@ if (fromPage === 'index') {
 
 <BaseLayout {...metaInfo} dataPage="about">
   <MenuImage 
+    menuImageClass="animate-fade-in"
     imageSrc={MenuAboutImage} 
     imageAlt="Illustration of a person upside down" 
     containerClass="aboutMenu"
     imageStyles="top: 100px;"
     headerClass="aboutMenu"
     worksButtonClass={worksMenuWithImageClasses}
-    aboutButtonClass={aboutMenuWithImageClasses}
+    aboutButtonClass=`disabledButton ${aboutMenuWithImageClasses}`
     worksLink="/works?from=about"
     aboutLink="/about"
-    disableButtonClass2="disabledButton"
-    menuImageClass="animate-fade-in"
   />
   
   <AboutSection aboutSectionClass="about animate-fade-in" />
 
-  <!-- Añadir el script que manejará la lógica -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Consolidar la selección de elementos para reutilizarlos en diferentes funciones
+
       function getElements() {
         return {
           column1: document.querySelector(".about-column-1") as HTMLElement,
@@ -67,7 +65,7 @@ if (fromPage === 'index') {
         };
       }
 
-      // Cambiar las imágenes en hover
+
       function imageChange() {
         const { image, hoverimage } = getElements();
         
@@ -84,13 +82,12 @@ if (fromPage === 'index') {
         }
       }
 
-      // Ajustar el diseño basado en el ancho de la ventana
       function adjustLayout() {
         const elements = getElements();
         const width = window.innerWidth;
         const { address, column1, column2, text, signature } = elements;
 
-        // Verificar que todos los elementos existen
+
         if (address && column1 && column2 && text && signature) {
           if (width <= 920) {
             address.style.gridRowStart = "3";
@@ -116,12 +113,11 @@ if (fromPage === 'index') {
         }
       }
 
-      // Manejar el evento de redimensionar ventana
+
       function handleResize() {
         adjustLayout();
       }
 
-      // Inicializar las funciones cuando se cargue la página
       imageChange();
       adjustLayout();
       window.addEventListener('resize', handleResize);

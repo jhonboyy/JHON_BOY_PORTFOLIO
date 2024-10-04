@@ -308,6 +308,7 @@ ul {
 	grid-template-columns: 1fr;
 	grid-template-rows: 50px 1fr;
 	opacity: 1;
+	pointer-events: none;
 }
 
 .projects-nav {
@@ -432,7 +433,7 @@ figcaption> :first-child {
 	overflow: hidden;
 	grid-template-rows: 500px minmax(50px, max-content);
 	grid-template-columns: 100%;
-	background-color: black;
+	background-color: white;
 	box-sizing: border-box;
 	border-top: 1px solid black;
 	gap: 1px;
@@ -739,7 +740,6 @@ main address {
 		width: 100%;
 		bottom: 0px;
 	}
-	
 
 	/* ///////////////////////////////////////////////////// MOBILE WORKS ///////////////////////////////////////////////////// */
 	.projects {

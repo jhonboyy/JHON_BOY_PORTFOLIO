@@ -81,3 +81,21 @@
 .no-pointer-events {
   pointer-events: none;
 }
+
+.lazy-image {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.lazy-image.loaded {
+  opacity: 1;
+}
+
+.lazy-lottie {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.lazy-lottie.loaded {
+  opacity: 1;
+}

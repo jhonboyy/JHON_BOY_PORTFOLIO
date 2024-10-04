@@ -24,7 +24,6 @@ import img20 from '../../images/jhon-boy-lava-circular-sketches-12.webp';
 
 ---
 <script>
-  import '@dotlottie/player-component';
 
   function lavaSlider() {
   var slideIndex = 1;
@@ -50,6 +49,58 @@ lavaSlider();
 
  </script>
 
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const lazyImages = document.querySelectorAll('.lazy-image');
+
+  lazyImages.forEach((image) => {
+    // Asegurarse de que el elemento sea tratado como HTMLImageElement
+    const imgElement = image as HTMLImageElement;
+
+    imgElement.addEventListener('load', () => {
+      imgElement.classList.add('loaded');
+    });
+
+    // Verificar si la imagen ya está cargada
+    if (imgElement.complete) {
+      imgElement.classList.add('loaded');
+    }
+  });
+});
+ </script>
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const lazyLotties = document.querySelectorAll('.lazy-lottie');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const lottieContainer = entry.target;
+        const lottiePlayer = lottieContainer.querySelector('dotlottie-player');
+
+        // Asegúrate de que es un elemento específico del tipo correcto
+        if (lottiePlayer && lottiePlayer instanceof HTMLElement) {
+          const lottieSrc = lottiePlayer.getAttribute('data-src');
+          if (lottieSrc) {
+            lottiePlayer.setAttribute('src', lottieSrc); // Asigna el src dinámicamente
+          }
+        }
+
+        // Añadir la clase 'loaded' para el fade-in
+        lottieContainer.classList.add('loaded');
+
+        // Dejar de observar este elemento, ya que ya fue cargado
+        observer.unobserve(lottieContainer);
+      }
+    });
+  });
+
+  lazyLotties.forEach(lottie => {
+    observer.observe(lottie);
+  });
+});
+ </script>
+
 <section class="project-container" id="lava-container">
   <div class="project-container-top">
     <p>BRANDING, ANIMATION, VISUAL IDENTITY</p>
@@ -63,8 +114,8 @@ lavaSlider();
       through evolving itineraries where the program unfolds; musical projects, workshop-talks, and artistic actions that revolve around the traditional and contemporary culture of the Canary archipelago, varying its main themes in each edition.<br><br>
       Various creatives present projects and initiatives that energize unique locations on the island itself. A close encounter and participatory event that generates exchanges of knowledge among participant-artists, attendees, and local residents.
     </p>
-    <div style="grid-column-start: 1; grid-column-end: 2;">
-      <dotlottie-player src="/animations/lava-loom.json" speed="1" loop autoplay style="position: relative; width: 100%; height: auto;"></dotlottie-player>
+    <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 16 / 12">
+      <dotlottie-player src="/animations/lava-loom.json" speed="1" loop autoplay style=""></dotlottie-player>
     </div>
     <p>
       <u>PROJECT GOALS(I)</u><br>
@@ -80,9 +131,9 @@ lavaSlider();
     </p>
     <br>
     <div class="lava-img">
-      <Image src={img3} alt="Hand of a person holding a Lava Circular Jhon Boy plastic glass" width={1080} height={1623} />
-      <Image src={img1} alt="Lava Circular poster set up in the middle of a forest" width={1000} height={1503} />
-      <Image src={img2} alt="People talking in front of a Lava Circular Jhon Boy poster" width={1000} height={1503} />
+      <Image class="lazy-image" src={img3} alt="Hand of a person holding a Lava Circular Jhon Boy plastic glass" width={1080} height={1623} />
+      <Image class="lazy-image" src={img1} alt="Lava Circular poster set up in the middle of a forest" width={1000} height={1503} />
+      <Image class="lazy-image" src={img2} alt="People talking in front of a Lava Circular Jhon Boy poster" width={1000} height={1503} />
     </div>
     <p>
       <u>PROJECT GOALS(II)</u><br>
@@ -92,8 +143,8 @@ lavaSlider();
       convey a sense of coherence.
     </p>
     <br>
-    <div style="grid-column-start: 1; grid-column-end: 2;">
-      <dotlottie-player src="/animations/lava-milkmaid.json" speed="1" loop autoplay style="position: relative; height: auto;"></dotlottie-player>
+    <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 9 / 12">
+      <dotlottie-player src="/animations/lava-milkmaid.json" speed="1" loop autoplay></dotlottie-player>
     </div>
     <p>
       <u>GRAPHIC ELEMENTS</u>
@@ -109,10 +160,10 @@ lavaSlider();
     </p>
     <br>
     <div class="lava-img-2">
-      <Image src={img5} alt="A ticket stand in front of the ocean" width={750} height={1334} />
-      <Image src={img4} alt="Lava Circular Jhon Boy poster in the interior of a cabin bar" width={750} height={1334} />
-      <Image src={img7} alt="Hands opening a small flyer book with a Jhon Boy drawing on it" width={1080} height={1623} />
-      <Image src={img6} alt="Person carrying a Jhon Boy Lava Circular totebag" width={1000} height={1503} />
+      <Image class="lazy-image" src={img5} alt="A ticket stand in front of the ocean" width={750} height={1334} />
+      <Image class="lazy-image" src={img4} alt="Lava Circular Jhon Boy poster in the interior of a cabin bar" width={750} height={1334} />
+      <Image class="lazy-image" src={img7} alt="Hands opening a small flyer book with a Jhon Boy drawing on it" width={1080} height={1623} />
+      <Image class="lazy-image" src={img6} alt="Person carrying a Jhon Boy Lava Circular totebag" width={1000} height={1503} />
 
     </div>
     <p>
@@ -127,8 +178,8 @@ lavaSlider();
       whimsically odd yet visually coherent. Notably, the characters' faces are not visible,
       emphasising their profession or activity, adding an intriguing layer to the illustrations.
     </p>
-    <div style="grid-column-start: 1; grid-column-end: 2;">
-      <dotlottie-player src="/animations/lava-drum.json" speed="1" loop autoplay style="position: relative; height: auto;"></dotlottie-player>
+    <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 9 / 12">
+      <dotlottie-player src="/animations/lava-drum.json" speed="1" loop autoplay></dotlottie-player>
     </div>
     <p>
       <u>SKETCHES</u>
@@ -150,19 +201,19 @@ lavaSlider();
     <div class="lava-sketches">
       <button style="font-size: 15px; outline: none; background-color: white; padding: 0; border: 0;" onclick="plusDivs(-1)">&lt;</button>
       <div class="w3-content w3-display-container">
-        <Image src={img12} alt="Sketch of a drum artisan making a drum" width={1389} height={1000} class="mySlides" loading='eager'/>
-        <Image src={img17} alt="Sketches of drums and canarian instruments" width={1389} height={1000} class="mySlides"  />
-        <Image src={img10} alt="Sketches of canarian cheese" width={1389} height={1000} class="mySlides" />
-        <Image src={img11} alt="Sketches of a milkmaid making cheese" width={1389} height={1000} class="mySlides"  />
-        <Image src={img8} alt="Sketches of the process of making canarian cheese with a milkmaid" width={1389} height={1000} class="mySlides" />
-        <Image src={img13} alt="Sketches of diverse canarian traditional elements" width={1389} height={1000} class="mySlides" />
-        <Image src={img14} alt="Sketches of a man crafting cheese and a table with food" width={1389} height={1000} class="mySlides" />
-        <Image src={img15} alt="Sketches of a traditional canarian basketmaker and baskets" width={1389} height={1000} class="mySlides" />
-        <Image src={img16} alt="Sketches of a loom artisan working" width={1389} height={1000} class="mySlides" />
-        <Image src={img9} alt="Sketches of a basket artisan working" width={1389} height={1000} class="mySlides" />
-        <Image src={img18} alt="Sketches of a traditional bag of El Hierro" width={1389} height={1000} class="mySlides" />
-        <Image src={img19} alt="Sketches of a traditional bag of El Hierro with flowers" width={1389} height={1000} class="mySlides" />
-        <Image src={img20} alt="Sketches of a milkmaid making traditional canarian cheese" width={1389} height={1000} class="mySlides" />
+        <Image src={img12} alt="Sketch of a drum artisan making a drum" width={1389} height={1000} class="mySlides lazy-image"/>
+        <Image src={img17} alt="Sketches of drums and canarian instruments" width={1389} height={1000} class="mySlides lazy-image"  />
+        <Image src={img10} alt="Sketches of canarian cheese" width={1389} height={1000} class="mySlides lazy-image" />
+        <Image src={img11} alt="Sketches of a milkmaid making cheese" width={1389} height={1000} class="mySlides lazy-image"  />
+        <Image src={img8}  alt="Sketches of the process of making canarian cheese with a milkmaid" width={1389} height={1000} class="mySlides lazy-image" />
+        <Image src={img13} alt="Sketches of diverse canarian traditional elements" width={1389} height={1000} class="mySlides lazy-image" />
+        <Image src={img14} alt="Sketches of a man crafting cheese and a table with food" width={1389} height={1000} class="mySlides lazy-image" />
+        <Image src={img15} alt="Sketches of a traditional canarian basketmaker and baskets" width={1389} height={1000} class="mySlides lazy-image" />
+        <Image src={img16} alt="Sketches of a loom artisan working" width={1389} height={1000} class="mySlides lazy-image" />
+        <Image src={img9}  alt="Sketches of a basket artisan working" width={1389} height={1000} class="mySlides lazy-image" />
+        <Image src={img18} alt="Sketches of a traditional bag of El Hierro" width={1389} height={1000} class="mySlides lazy-image" />
+        <Image src={img19} alt="Sketches of a traditional bag of El Hierro with flowers" width={1389} height={1000} class="mySlides lazy-image" />
+        <Image src={img20} alt="Sketches of a milkmaid making traditional canarian cheese" width={1389} height={1000} class="mySlides lazy-image" />
       </div>
       <button style="font-size: 15px; outline: none; background-color: white; padding: 0; border: 0;" onclick="plusDivs(+1)">&gt;</button>   
     </div>

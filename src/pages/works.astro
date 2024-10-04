@@ -19,6 +19,7 @@ let worksMenuWithImageClasses = '';
 let aboutMenuWithImageClasses = '';
 let menuImageClasses = '';
 let projectSectionClasses = 'projects animate-fade-in';
+let projectsImagesClass = ''
 
 if (!fromPage) {
   worksMenuWithImageClasses += 'animate-slide-up-works';
@@ -29,37 +30,40 @@ if (fromPage === 'about') {
   worksMenuWithImageClasses += 'from-about';
   aboutMenuWithImageClasses += 'animate-slide-down-about';
   menuImageClasses += 'animate-fade-in';
+  projectsImagesClass += 'lazy-image'
 }
 
 if (fromPage === 'index') {
   worksMenuWithImageClasses += 'animate-slide-up-works';
   menuImageClasses += 'animate-fade-in';
+  projectsImagesClass += 'lazy-image'
 }
 
 if (fromPage === 'details') {
   worksMenuWithImageClasses += 'from-about';
   menuImageClasses += 'opacity';
   projectSectionClasses += 'projects opacity'
-
+  projectsImagesClass += 'lazy-image'
 }
 ---
 
 <BaseLayout {...metaInfo} dataPage="works">
 
     <MenuWithImage 
+      menuImageClass={menuImageClasses}
       imageSrc={MenuWorksImage} 
       imageAlt="Illustration of a person resting"
       imageStyles="top: 50px;"
-      worksButtonClass={worksMenuWithImageClasses}
+      worksButtonClass=`disabledButton ${worksMenuWithImageClasses}`
       aboutButtonClass={aboutMenuWithImageClasses}
       aboutLink="/about?from=works"
       worksLink="/works"
-      disableButtonClass1="disabledButton"
-      menuImageClass={menuImageClasses}
     />
 
   <ProjectsSection 
-  projectsSectionClass={projectSectionClasses}/>
+  projectsSectionClass={projectSectionClasses}/
+  projectsImagesClass={projectsImagesClass}
+  >
 </BaseLayout>
 
 

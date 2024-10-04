@@ -1,14 +1,17 @@
 ---
-// src/components/ProjectsSection.astro
-
-import NavMenu from './ProjectsNav.astro';
 import ProjectsList from './ProjectsList.astro';
 
-const { projectsSectionClass} = Astro.props;
-
+const { projectsSectionClass, projectsImagesClass} = Astro.props;
 ---
 
 <main id="works-content" class={projectsSectionClass} role="main">
-  <NavMenu />
-  <ProjectsList />
+  <nav role="navigation">
+    <ul class="projects-nav">
+      <li><a class="button active" id="buttonall">SEE ALL</a></li>
+      <li><a class="button" id="buttonpersonal">PERSONAL</a></li>
+      <li><a class="button" id="buttoncommercial">COMMERCIAL</a></li>
+    </ul>
+  </nav>
+  <ProjectsList 
+  projectsImagesClass={projectsImagesClass}/>
 </main>

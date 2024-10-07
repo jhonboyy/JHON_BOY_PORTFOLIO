@@ -1,185 +1,80 @@
 ---
 import { Image } from 'astro:assets';
 
-// Importar todas las imágenes
-import imgDrum from '../images/jhon-boy-illustration-lava-circular-drum.svg';
-import imgDrumArtisan from '../images/jhon-boy-illustration-lava-circular-drum-artisan.svg';
-import imgMilkmaid from '../images/jhon-boy-illustration-lava-circular-milkmaid.svg';
-import imgPressTable from '../images/jhon-boy-illustration-lava-circular-press-table.svg';
-import imgBag from '../images/jhon-boy-illustration-lava-circular-bag.svg';
-import imgLoomArtisan from '../images/jhon-boy-illustration-lava-circular-loom-artisan.svg';
-import imgPersonsBoxing from '../images/jhon-boy-illustration-persons-boxing.svg';
-import imgFrama from '../images/jhon-boy-illustration-frama-tnwc-1.webp';
-import imgHandNail from '../images/jhon-boy-illustration-hand-and-nail.svg';
-import imgNailingHammer from '../images/jhon-boy-illustration-person-nailing-with-a-hammer.svg';
-import imgHangingPhoto from '../images/jhon-boy-illustration-person-hanging-a-photo.svg';
-import imgSittedSofa from '../images/jhon-boy-illustration-person-sitted-in-a-sofa.svg';
-import imgCookerWithBread from '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg';
-import imgCookerWithHat from '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-hat.svg';
-import imgCookerWithDough from '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-dough-on-its-face.svg';
-import imgDough from '../images/jhon-boy-illustration-bakken-&-baeck-flourly-dough.svg';
-import imgFlour from '../images/jhon-boy-illustration-bakken-&-baeck-flourly-flour.svg';
-import imgHydration from '../images/jhon-boy-illustration-bakken-&-baeck-flourly-hydration.svg';
-import imgLevain from '../images/jhon-boy-illustration-bakken-&-baeck-flourly-levain.svg';
-import imgHands from '../images/jhon-boy-illustration-bakken-&-baeck-flourly-hands.svg';
+interface Props {
+  imagePath: string;
+  description: string;
+  project: {
+    type: string;
+    className: string;
+    images: { src: string; alt: string }[];
+    captions: {
+      left: string;
+      right: string;
+    };
+  };
+  projectsImagesClass: string;
+}
 
-
-import imgPlaceholder from '../images/white.png';
-
-import imgBaseball from '../images/jhon-boy-illustration-people-playing-baseball.svg';
-import imgCabinInterior from '../images/jhon-boy-illustration-person-in-a-cabin-interior.svg';
-import imgBagMoney from '../images/jhon-boy-illustration-bag-with-money.svg';
-import imgStrikeMatch from '../images/jhon-boy-illustration-strike-a-match.svg';
-import imgCabinRefuge from '../images/jhon-boy-illustration-a-cabin-refuge.svg';
-import imgMinePersons from '../images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg';
-import imgCarryingRock from '../images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg';
-import imgMinePersons2 from '../images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine-2.svg';
-import imgHelping from '../images/jhon-boy-illustration-wix-playground-academy-persons-helping.svg';
-import imgDeskSmoke1 from '../images/jhon-boy-illustration-desk-smoke-1.svg';
-import imgDeskSmoke2 from '../images/jhon-boy-illustration-desk-smoke-2.svg';
-import imgDeskSmoke3 from '../images/jhon-boy-illustration-desk-smoke-3.svg';
-import imgDeskSmoke4 from '../images/jhon-boy-illustration-desk-smoke-4.svg';
-import imgPointingGun from '../images/jhon-boy-illustration-person-pointing-with-a-gun.svg';
-import imgAboutToRun from '../images/jhon-boy-illustration-person-about-to-run.svg';
-import imgInHole from '../images/jhon-boy-illustration-person-in-a-hole.svg';
-import imgBeingShooted from '../images/jhon-boy-illustration-person-being-shooted.svg';
-import imgShootedLying from '../images/jhon-boy-illustration-person-shooted-lying-on-the-ground.svg';
-import imgCarAccidentFruit from '../images/jhon-boy-illustration-car-accident-fruit.svg';
-import imgRedCross1 from '../images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp';
-import imgRedCross2 from '../images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp';
-import imgAceTateChair from '../images/jhon-boy-illustration-ace-&-tate-characters-in-a-chair.svg';
-import imgDestroyingCanvas from '../images/jhon-boy-illustration-ace-&-tate-persons-destroying-a-canvas.svg';
-import imgScarfPersons from '../images/jhon-boy-illustration-ace-&-tate-persons-in-a-scarf.svg';
-import imgCarryingStuff from '../images/jhon-boy-illustration-ace-&-tate-a-person-carrying-stuff-walking.svg';
-import imgTakeOffSweater from '../images/jhon-boy-illustration-ace-&-tate-persons-helping-to-take-off-a-sweater.svg';
-import imgVoucher from '../images/jhon-boy-illustration-ace-&-tate-persons-with-a-voucher.svg';
-import imgEnjoyingCoffee from '../images/jhon-boy-illustration-ace-&-tate-persons-enjoying-coffee.svg';
-import imgSofaChristmas from '../images/jhon-boy-illustration-ace-&-tate-person-in-the-sofa-christmas.svg';
-import imgPersonsMetro from '../images/jhon-boy-illustration-persons-in-the-metro.svg';
-import imgTrumpet from '../images/jhon-boy-illustration-trumpet.svg';
-import imgHotelStairs from '../images/jhon-boy-illustration-hotel-entrance-stairs.svg';
-import imgRoomDoor from '../images/jhon-boy-illustration-room-entrance-door.svg';
-import imgOpeningEnvelope from '../images/jhon-boy-illustration-person-opening-envelope.svg';
-import imgTelephone from '../images/jhon-boy-illustration-telephone.svg';
-import imgRustlingPaper from '../images/jhon-boy-illustration-hands-rustling-paper.svg';
-import imgRamen from '../images/jhon-boy-illustration-ramen.svg';
-
-
-const imageMap = {
-  '../images/jhon-boy-illustration-lava-circular-drum.svg': imgDrum,
-  '../images/jhon-boy-illustration-lava-circular-drum-artisan.svg': imgDrumArtisan,
-  '../images/jhon-boy-illustration-lava-circular-milkmaid.svg': imgMilkmaid,
-  '../images/jhon-boy-illustration-lava-circular-press-table.svg': imgPressTable,
-  '../images/jhon-boy-illustration-lava-circular-bag.svg': imgBag,
-  '../images/jhon-boy-illustration-lava-circular-loom-artisan.svg': imgLoomArtisan,
-  '../images/jhon-boy-illustration-persons-boxing.svg': imgPersonsBoxing,
-  '../images/jhon-boy-illustration-frama-tnwc-1.webp': imgFrama,
-  '../images/jhon-boy-illustration-hand-and-nail.svg': imgHandNail,
-  '../images/jhon-boy-illustration-person-nailing-with-a-hammer.svg': imgNailingHammer,
-  '../images/jhon-boy-illustration-person-hanging-a-photo.svg': imgHangingPhoto,
-  '../images/jhon-boy-illustration-person-sitted-in-a-sofa.svg': imgSittedSofa,
-  '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg': imgCookerWithBread,
-  '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-hat.svg': imgCookerWithHat,
-  '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-dough-on-its-face.svg': imgCookerWithDough,
-  '../images/jhon-boy-illustration-bakken-&-baeck-flourly-dough.svg': imgDough,
-  '../images/jhon-boy-illustration-bakken-&-baeck-flourly-flour.svg': imgFlour,
-  '../images/jhon-boy-illustration-bakken-&-baeck-flourly-hydration.svg': imgHydration,
-  '../images/jhon-boy-illustration-bakken-&-baeck-flourly-levain.svg': imgLevain,
-  '../images/jhon-boy-illustration-bakken-&-baeck-flourly-hands.svg': imgHands,
-
-
-
-  '../images/white.png': imgPlaceholder,
-  
-  '../images/jhon-boy-illustration-people-playing-baseball.svg': imgBaseball,
-  '../images/jhon-boy-illustration-person-in-a-cabin-interior.svg': imgCabinInterior,
-  '../images/jhon-boy-illustration-bag-with-money.svg': imgBagMoney,
-  '../images/jhon-boy-illustration-strike-a-match.svg': imgStrikeMatch,
-  '../images/jhon-boy-illustration-a-cabin-refuge.svg': imgCabinRefuge,
-  '../images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg': imgMinePersons,
-  '../images/jhon-boy-illustration-wix-playground-academy-person-carrying-a-rock.svg': imgCarryingRock,
-  '../images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine-2.svg': imgMinePersons2,
-  '../images/jhon-boy-illustration-wix-playground-academy-persons-helping.svg': imgHelping,
-  '../images/jhon-boy-illustration-desk-smoke-1.svg': imgDeskSmoke1,
-  '../images/jhon-boy-illustration-desk-smoke-2.svg': imgDeskSmoke2,
-  '../images/jhon-boy-illustration-desk-smoke-3.svg': imgDeskSmoke3,
-  '../images/jhon-boy-illustration-desk-smoke-4.svg': imgDeskSmoke4,
-  '../images/jhon-boy-illustration-person-pointing-with-a-gun.svg': imgPointingGun,
-  '../images/jhon-boy-illustration-person-about-to-run.svg': imgAboutToRun,
-  '../images/jhon-boy-illustration-person-in-a-hole.svg': imgInHole,
-  '../images/jhon-boy-illustration-person-being-shooted.svg': imgBeingShooted,
-  '../images/jhon-boy-illustration-person-shooted-lying-on-the-ground.svg': imgShootedLying,
-  '../images/jhon-boy-illustration-car-accident-fruit.svg': imgCarAccidentFruit,
-  '../images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp': imgRedCross1,
-  '../images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp': imgRedCross2,
-  '../images/jhon-boy-illustration-ace-&-tate-characters-in-a-chair.svg': imgAceTateChair,
-  '../images/jhon-boy-illustration-ace-&-tate-persons-destroying-a-canvas.svg': imgDestroyingCanvas,
-  '../images/jhon-boy-illustration-ace-&-tate-persons-in-a-scarf.svg': imgScarfPersons,
-  '../images/jhon-boy-illustration-ace-&-tate-a-person-carrying-stuff-walking.svg': imgCarryingStuff,
-  '../images/jhon-boy-illustration-ace-&-tate-persons-helping-to-take-off-a-sweater.svg': imgTakeOffSweater,
-  '../images/jhon-boy-illustration-ace-&-tate-persons-with-a-voucher.svg': imgVoucher,
-  '../images/jhon-boy-illustration-ace-&-tate-persons-enjoying-coffee.svg': imgEnjoyingCoffee,
-  '../images/jhon-boy-illustration-ace-&-tate-person-in-the-sofa-christmas.svg': imgSofaChristmas,
-  '../images/jhon-boy-illustration-persons-in-the-metro.svg': imgPersonsMetro,
-  '../images/jhon-boy-illustration-trumpet.svg': imgTrumpet,
-  '../images/jhon-boy-illustration-hotel-entrance-stairs.svg': imgHotelStairs,
-  '../images/jhon-boy-illustration-room-entrance-door.svg': imgRoomDoor,
-  '../images/jhon-boy-illustration-person-opening-envelope.svg': imgOpeningEnvelope,
-  '../images/jhon-boy-illustration-telephone.svg': imgTelephone,
-  '../images/jhon-boy-illustration-hands-rustling-paper.svg': imgRustlingPaper,
-  '../images/jhon-boy-illustration-ramen.svg': imgRamen,
-};
-
-const { project, projectsImagesClass} = Astro.props;
+const { project, projectsImagesClass } = Astro.props as Props;
 const { type, className, images, captions } = project;
+
+const imageMap = import.meta.glob<{ default: ImageMetadata }>('../images/*.{svg,webp,png}', { eager: true });
+
+images.forEach(({ src }) => {
+  if (!imageMap[src]) {
+    throw new Error(`"${src}" does not exist in glob: "../images/*.{svg,webp,png}". See the component for debugging.`);
+  }
+});
+
 ---
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const lazyImages = document.querySelectorAll('.lazy-image');
   
     lazyImages.forEach((image) => {
-      // Asegurarse de que el elemento sea tratado como HTMLImageElement
       const imgElement = image as HTMLImageElement;
   
       imgElement.addEventListener('load', () => {
         imgElement.classList.add('loaded');
       });
   
-      // Verificar si la imagen ya está cargada
       if (imgElement.complete) {
         imgElement.classList.add('loaded');
       }
     });
   });
-   </script>
-{className === 'project-solo-slider' ? (
+</script>
+
+{className.includes('slider') ? (
   <figure class={`${className} ${type}`}>
     <div class="slide-track">
       {images.map(({ src, alt }) => (
         <div class="slide">
           <Image 
-            src={imageMap[src]} 
+            src={imageMap[src].default} 
             alt={alt} 
-            loading={"lazy"} 
-            class={projectsImagesClass}
+            loading="lazy" 
+            class={`${projectsImagesClass} lazy-image`}
             style="border-bottom: 1px solid black"
           />
         </div>
       ))}
     </div>
     <figcaption>
-      <span>{captions.left}</span>
+      <span set:html={captions.left}></span>
       <span>{captions.right}</span>
     </figcaption>
   </figure>
 ) : (
-  <figure class={`${className} ${type}`}>
+  <figure class={`project ${className} ${type}`}>
     {images.length > 0 && images.map(({ src, alt }) => (
       <div style="background-color: white;">
         <Image 
-          src={imageMap[src]} 
+          src={imageMap[src].default} 
           alt={alt} 
-          class={projectsImagesClass}
+          class={`${projectsImagesClass} lazy-image`}
         />
       </div>
     ))}

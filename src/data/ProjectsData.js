@@ -1,7 +1,7 @@
 export const projects = [
   {
     type: 'commercial all',
-    className: 'project-grid',
+    className: 'grid-2x2',
 
     images: [
       { src: '../images/jhon-boy-illustration-lava-circular-drum.svg', alt: 'Illustration of a drum', width: 1080, height: 1080 },
@@ -18,7 +18,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-solo',
+    className: 'grid-solo',
 
     images: [
       { src: '../images/jhon-boy-illustration-persons-boxing.svg', alt: 'Two characters boxing', width: 1080, height: 1080 },
@@ -30,7 +30,7 @@ export const projects = [
   },
   {
     type: 'commercial all',
-    className: 'project-solo',
+    className: 'grid-solo',
 
     images: [
       { src: '../images/jhon-boy-illustration-frama-tnwc-1.webp', alt: 'Illustration of Frama collaboration', width: 1080, height: 1080 },
@@ -42,7 +42,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-grid',
+    className: 'grid-2x2',
 
     images: [
       { src: '../images/jhon-boy-illustration-hand-and-nail.svg', alt: 'Closeup of a hand holding a nail in a wall', width: 1080, height: 1080 },
@@ -57,7 +57,7 @@ export const projects = [
   },
   {
     type: 'commercial all',
-    className: 'project-top',
+    className: 'grid-3x3',
 
     images: [
       { src: '../images/jhon-boy-illustration-bakken-&-baeck-flourly-cooker-with-a-bread-slice.svg', alt: 'Cooker with a slice of bread', width: 1080, height: 1080 },
@@ -77,7 +77,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-solo',
+    className: 'grid-solo',
 
     images: [
       { src: '../images/jhon-boy-illustration-people-playing-baseball.svg', alt: 'People playing baseball', width: 1080, height: 1080 },
@@ -89,7 +89,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-grid-top',
+    className: 'grid-2x2',
 
     images: [
       { src: '../images/jhon-boy-illustration-person-in-a-cabin-interior.svg', alt: 'Person in a cabin', width: 1080, height: 1080 },
@@ -104,7 +104,7 @@ export const projects = [
   },
   {
     type: 'commercial all',
-    className: 'project-solo-slider',
+    className: 'project slider',
 
     images: [
       { src: '../images/jhon-boy-illustration-wix-playground-academy-persons-in-a-mine.svg', alt: 'Two persons working in a mine', width: 1080, height: 1080 },
@@ -121,7 +121,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-grid',
+    className: 'grid-2x2',
 
     images: [
       { src: '../images/jhon-boy-illustration-desk-smoke-1.svg', alt: 'Closeup of a hand nailing with a hammer', width: 1080, height: 1080 },
@@ -136,7 +136,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-grid',
+    className: 'grid-2x2',
 
     images: [
       { src: '../images/jhon-boy-illustration-person-pointing-with-a-gun.svg', alt: 'Person pointing to another person with a gun', width: 1080, height: 1080 },
@@ -153,7 +153,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-solo',
+    className: 'grid-solo',
 
     images: [
       { src: '../images/jhon-boy-illustration-car-accident-fruit.svg', alt: 'A car crashing into a fruit store', width: 1080, height: 1080 },
@@ -165,7 +165,7 @@ export const projects = [
   },
   {
     type: 'commercial all',
-    className: 'project-solo',
+    className: 'grid-solo',
 
     images: [
       { src: '../images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp', alt: 'Red Cross Tenerife mural', width: 1080, height: 1080 },
@@ -178,7 +178,7 @@ export const projects = [
   },
   {
     type: 'commercial all',
-    className: 'project-grid',
+    className: 'grid-2x2',
 
     images: [
       { src: '../images/jhon-boy-illustration-ace-&-tate-characters-in-a-chair.svg', alt: 'Person sitting in a chair with others around', width: 1080, height: 1080 },
@@ -197,7 +197,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-solo',
+    className: 'grid-solo',
 
     images: [
       { src: '../images/jhon-boy-illustration-persons-in-the-metro.svg', alt: 'Persons pointing to each other in the metro', width: 1080, height: 1080 },
@@ -209,7 +209,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-solo',
+    className: 'grid-solo',
 
     images: [
       { src: '../images/jhon-boy-illustration-trumpet.svg', alt: 'Flat trumpet illustration', width: 1080, height: 1080 },
@@ -221,7 +221,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-grid',
+    className: 'grid-2x2',
 
     images: [
       { src: '../images/jhon-boy-illustration-hotel-entrance-stairs.svg', alt: 'Stairs of a hotel hall', width: 1080, height: 1080 },
@@ -238,7 +238,7 @@ export const projects = [
   },
   {
     type: 'personal all',
-    className: 'project-solo',
+    className: 'grid-solo',
 
     images: [
       { src: '../images/jhon-boy-illustration-ramen.svg', alt: 'Ramen illustration', width: 1080, height: 1080 },

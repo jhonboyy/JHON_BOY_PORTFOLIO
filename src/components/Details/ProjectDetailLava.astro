@@ -23,82 +23,45 @@ import img19 from '../../images/jhon-boy-lava-circular-sketches-11.webp';
 import img20 from '../../images/jhon-boy-lava-circular-sketches-12.webp';
 
 ---
-<script>
 
-  function lavaSlider() {
-  var slideIndex = 1;
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  lavaSlider();
+});
+
+function lavaSlider() {
+  let slideIndex = 1;
   showDivs(slideIndex);
-  
+
   function showDivs(n: number) {
-    var i: number;
-    var x = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
-    if (n > x.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = x.length }
-    for (i = 0; i < x.length; i++) {
+    const x = document.getElementsByClassName("mySlides") as HTMLCollectionOf<HTMLElement>;
+    
+    if (x.length === 0) {
+      console.error("No elements with the class 'mySlides' found.");
+      return;
+    }
+
+    // Ajustar el índice del slide si está fuera del rango
+    if (n > x.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = x.length;
+    }
+
+    // Ocultar todos los slides
+    for (let i = 0; i < x.length; i++) {
       x[i].style.display = "none";
     }
+
+    // Mostrar el slide actual
     x[slideIndex - 1].style.display = "block";
   }
 
   (window as any).plusDivs = function (n: number) {
     showDivs(slideIndex += n);
-  }
+  };
 }
-
-lavaSlider();
-
- </script>
-
- <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const lazyImages = document.querySelectorAll('.lazy-image');
-
-  lazyImages.forEach((image) => {
-    // Asegurarse de que el elemento sea tratado como HTMLImageElement
-    const imgElement = image as HTMLImageElement;
-
-    imgElement.addEventListener('load', () => {
-      imgElement.classList.add('loaded');
-    });
-
-    // Verificar si la imagen ya está cargada
-    if (imgElement.complete) {
-      imgElement.classList.add('loaded');
-    }
-  });
-});
- </script>
- <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const lazyLotties = document.querySelectorAll('.lazy-lottie');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const lottieContainer = entry.target;
-        const lottiePlayer = lottieContainer.querySelector('dotlottie-player');
-
-        // Asegúrate de que es un elemento específico del tipo correcto
-        if (lottiePlayer && lottiePlayer instanceof HTMLElement) {
-          const lottieSrc = lottiePlayer.getAttribute('data-src');
-          if (lottieSrc) {
-            lottiePlayer.setAttribute('src', lottieSrc); // Asigna el src dinámicamente
-          }
-        }
-
-        // Añadir la clase 'loaded' para el fade-in
-        lottieContainer.classList.add('loaded');
-
-        // Dejar de observar este elemento, ya que ya fue cargado
-        observer.unobserve(lottieContainer);
-      }
-    });
-  });
-
-  lazyLotties.forEach(lottie => {
-    observer.observe(lottie);
-  });
-});
  </script>
 
 <section class="project-container" id="lava-container">

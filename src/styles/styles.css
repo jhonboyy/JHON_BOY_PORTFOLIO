@@ -496,6 +496,13 @@ figcaption> :first-child {
 	grid-template-rows: repeat(10, 1fr);
 }
 
+.lottie-logo-container {
+	grid-column-start: 1; 
+	grid-column-end: 2; 
+	height: 100%; 
+	aspect-ratio: 12 / 9
+}
+
 .counter {
 	display: none;
 }
@@ -746,6 +753,10 @@ main address {
 		width: 100%;
 	}
 
+	.projects-2 {
+		display: none;
+	}
+
 	figcaption {
 		padding: 10px 0 10px 0;
 	}
@@ -794,10 +805,18 @@ main address {
 
 	.flourly {
 		display: grid;
-		height: 100%;
-		width: 100vw;
+		height: 100px;
+		width: 100%;
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(11, 1fr);
+	}
+
+	.lottie-logo-container {
+		grid-column-start: 1; 
+		grid-column-end: 2; 
+		height: min-content; 
+		width: 100%;
+		aspect-ratio: 3 / 2
 	}
 
 	.lava {
@@ -879,12 +898,13 @@ main address {
 		display: none;
 	}
 
-	.slider div {
+	.slide {
 		min-width: 100vw;
 		height: calc(100vh - 200px);
 		scroll-snap-align: center;
 		align-content: center;
 		position: relative;
+		aspect-ratio: 9 / 20
 	}
 
 	.sketches {

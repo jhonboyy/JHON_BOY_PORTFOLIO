@@ -5,58 +5,6 @@ import illustrationFrama2 from '../../images/jhon-boy-illustration-frama-tnwc-2.
 import illustrationFrama3 from '../../images/jhon-boy-illustration-frama-tnwc-3.webp';
 import illustrationFrama4 from '../../images/jhon-boy-illustration-frama-tnwc-4.webp';
 ---
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const lazyImages = document.querySelectorAll('.lazy-image');
-  
-    lazyImages.forEach((image) => {
-      // Asegurarse de que el elemento sea tratado como HTMLImageElement
-      const imgElement = image as HTMLImageElement;
-  
-      imgElement.addEventListener('load', () => {
-        imgElement.classList.add('loaded');
-      });
-  
-      // Verificar si la imagen ya está cargada
-      if (imgElement.complete) {
-        imgElement.classList.add('loaded');
-      }
-    });
-  });
-   </script>
-   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const lazyLotties = document.querySelectorAll('.lazy-lottie');
-  
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const lottieContainer = entry.target;
-          const lottiePlayer = lottieContainer.querySelector('dotlottie-player');
-  
-          // Asegúrate de que es un elemento específico del tipo correcto
-          if (lottiePlayer && lottiePlayer instanceof HTMLElement) {
-            const lottieSrc = lottiePlayer.getAttribute('data-src');
-            if (lottieSrc) {
-              lottiePlayer.setAttribute('src', lottieSrc); // Asigna el src dinámicamente
-            }
-          }
-  
-          // Añadir la clase 'loaded' para el fade-in
-          lottieContainer.classList.add('loaded');
-  
-          // Dejar de observar este elemento, ya que ya fue cargado
-          observer.unobserve(lottieContainer);
-        }
-      });
-    });
-  
-    lazyLotties.forEach(lottie => {
-      observer.observe(lottie);
-    });
-  });
-   </script>
  
 <section class="project-container" id="frama-container">
   <div class="project-container-top">

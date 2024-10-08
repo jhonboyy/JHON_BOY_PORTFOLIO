@@ -235,6 +235,7 @@ ul {
 
 .project-container-mid p {
 	padding: 15px;
+	grid-column: 1 / 2;
 }
 
 .project-container-bot {
@@ -296,18 +297,6 @@ ul {
 	grid-template-columns: 1fr;
 	grid-template-rows: 50px 1fr;
 	opacity: 0.01;
-}
-
-.projects-2 {
-	position: absolute;
-	right: 0;
-	width: 50%;
-	height: 100%;
-	top: -1px;
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: 50px 1fr;
-	opacity: 1;
 }
 
 .projects-nav {
@@ -426,26 +415,42 @@ figcaption > :first-child {
 		-webkit-transform: translateX(calc(-500px * 4));
 	}
 }
-
+  
 /* ///////////////////////////////////////////////////// PROJECT DETAILS ///////////////////////////////////////////////////// */
 
 
 .flourly {
 	display: grid;
 	height: 100%;
-	width: 50vw;
-	grid-template-columns: 1fr 1fr;
+	width: 100%;
+	grid-template-columns: 80% 1fr;
 	grid-template-rows: repeat(10, 1fr);
 }
 
 .lottie-logo-container {
 	grid-column-start: 1; 
 	grid-column-end: 2; 
-	height: 100%; 
-	aspect-ratio: 12 / 9
+	aspect-ratio: 12 / 9;
 }
 
-.counter {
+.slider-flourly {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	grid-column: 1 / 3;
+	grid-row: 4 / 5;
+	padding: 20px;
+}
+  
+.slide-flourly {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.slider-info {
+    text-align: center;
+	width: 100%;
 	display: none;
 }
 
@@ -685,10 +690,6 @@ main address {
 		width: 100%;
 	}
 
-	.projects-2 {
-		display: none;
-	}
-
 	figcaption {
 		padding: 10px 0 10px 0;
 	}
@@ -751,6 +752,36 @@ main address {
 		aspect-ratio: 3 / 2
 	}
 
+	.slider-flourly {
+		display: grid;
+		grid-auto-flow: column;
+		grid-auto-columns: 100%; 
+		overflow-x: scroll; 
+		overflow-y: hidden;
+		scroll-snap-type: x mandatory; 
+		-webkit-overflow-scrolling: touch; 
+		scrollbar-width: none; 
+		height: 80vh;
+	}
+
+	.slide-flourly {
+		min-width: 100vw;
+		height: max-content;
+		scroll-snap-align: center;
+		align-content: center;
+		position: relative;
+		height: 80vh;
+	}
+	
+	.slider-flourly::-webkit-scrollbar {
+		display: none;
+	}
+
+	.slider-info {
+		grid-column: 1 / 2;
+		display: grid;
+	}
+	
 	.lava {
 		display: grid;
 		height: 100%;
@@ -835,15 +866,6 @@ main address {
 		scroll-snap-align: center;
 		align-content: center;
 		position: relative;
-	}
-
-	.slide-flourly {
-		min-width: 100vw;
-		height: calc(100vh - 200px);
-		scroll-snap-align: center;
-		align-content: center;
-		position: relative;
-		aspect-ratio: 9 / 20
 	}
 
 	.sketches {

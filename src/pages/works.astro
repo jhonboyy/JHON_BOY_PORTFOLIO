@@ -18,7 +18,7 @@ const fromPage = new URL(Astro.url, 'http://localhost').searchParams.get('from')
 let worksMenuWithImageClasses = '';
 let aboutMenuWithImageClasses = '';
 let menuImageClasses = '';
-let projectSectionClasses = 'projects animate-fade-in';
+let projectSectionClasses = '';
 let projectsImagesClass = ''
 
 if (!fromPage) {
@@ -30,7 +30,9 @@ if (fromPage === 'about') {
   worksMenuWithImageClasses += 'from-about';
   aboutMenuWithImageClasses += 'animate-slide-down-about';
   menuImageClasses += 'animate-fade-in';
-  projectsImagesClass += 'lazy-image'
+  projectsImagesClass += 'lazy-image';
+  projectSectionClasses += 'projects animate-fade-in'
+
 }
 
 if (fromPage === 'index') {
@@ -42,8 +44,8 @@ if (fromPage === 'index') {
 if (fromPage === 'details') {
   worksMenuWithImageClasses += 'from-about';
   menuImageClasses += 'opacity';
-  projectSectionClasses += 'projects opacity'
-  projectsImagesClass += 'lazy-image'
+  projectSectionClasses += 'projects-2'
+  projectsImagesClass += 'opacity'
 }
 ---
 
@@ -61,7 +63,7 @@ if (fromPage === 'details') {
     />
 
   <ProjectsSection 
-  projectsSectionClass={projectSectionClasses}/
+  projectsSectionClass={projectSectionClasses}
   projectsImagesClass={projectsImagesClass}
   >
 </BaseLayout>

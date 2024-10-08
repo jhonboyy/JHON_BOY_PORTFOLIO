@@ -4,15 +4,6 @@ import ProjectsSection from '../components/PojectsSection.astro';
 import MenuWithImage from '../components/MenuWithImage.astro';
 import MenuWorksImage from '../images/jhon-boy-illustration-works-page-person-resting.svg';
 
-const metaInfo = {
-  title: "Works by Jhon Boy - Portfolio of Illustrations & Art",
-  description: "Explore the portfolio of Jhon Boy, artist, illustrator and programmer from Tenerife, Canary Islands, showcasing a diverse range of illustrations and artwork. Discover his creative projects, unique style, and artistic techniques.",
-  keywords: "Jhon Boy, portfolio, illustrations, artwork, illustration, design, art, colours, flat, projects, Tenerife, It's Nice That, Uniqlo, Lava Circular, Wix Playground, D&AD, Canary Islands, Programming, Ace&Tate",
-  canonicalUrl: "https://jhonboy.com/works",
-  ogImage: "https://jhonboy.com/og-image-works.jpg",
-  twitterImage: "https://jhonboy.com/twitter-image-works.jpg"
-};
-
 const fromPage = new URL(Astro.url, 'http://localhost').searchParams.get('from');
 
 let worksMenuWithImageClasses = '';
@@ -24,6 +15,7 @@ let projectsImagesClass = ''
 if (!fromPage) {
   worksMenuWithImageClasses += 'animate-slide-up-works';
   menuImageClasses += 'animate-fade-in';
+  projectSectionClasses += 'projects animate-fade-in'
 }
 
 if (fromPage === 'about') {
@@ -39,6 +31,8 @@ if (fromPage === 'index') {
   worksMenuWithImageClasses += 'animate-slide-up-works';
   menuImageClasses += 'animate-fade-in';
   projectsImagesClass += 'lazy-image'
+  projectSectionClasses += 'projects animate-fade-in'
+
 }
 
 if (fromPage === 'details') {
@@ -49,8 +43,7 @@ if (fromPage === 'details') {
 }
 ---
 
-<BaseLayout {...metaInfo} dataPage="works">
-
+<BaseLayout dataPage="works">
     <MenuWithImage 
       menuImageClass={menuImageClasses}
       imageSrc={MenuWorksImage} 
@@ -68,78 +61,5 @@ if (fromPage === 'details') {
   >
 </BaseLayout>
 
-
-<script>
-  function rightWorksButtons() {
-    const buttons = [
-      document.getElementById('buttonall'),
-      document.getElementById('buttonpersonal'),
-      document.getElementById('buttoncommercial')
-    ];
-
-    const allElements = document.querySelectorAll(".all");
-    const commercialElements = document.querySelectorAll(".commercial");
-    const personalElements = document.querySelectorAll(".personal");
-
-    buttons.forEach(button => {
-      button.addEventListener('click', function () {
-
-        buttons.forEach(btn => btn.classList.remove("active"));
-
-        if (button.id === 'buttonall') {
-          button.classList.add("active");
-          showElements(allElements);
-        } else if (button.id === 'buttonpersonal') {
-          button.classList.add("active");
-          hideElements(commercialElements);
-          showElements(personalElements);
-        } else if (button.id === 'buttoncommercial') {
-          button.classList.add("active");
-          hideElements(personalElements);
-          showElements(commercialElements);
-        }
-      });
-    });
-
-    function showElements(elements) {
-      elements.forEach(element => element.style.display = "grid");
-    }
-
-    function hideElements(elements) {
-      elements.forEach(element => element.style.display = "none");
-    }
-  }
-
-  rightWorksButtons();
-</script>
-<script>
-const currentPage = window.location.pathname;
-
-// Guardar la página actual en el almacenamiento de la sesión
-localStorage.setItem('previousPage', currentPage);
-
-// Guardar la posición de desplazamiento del elemento works-content antes de abandonar la página
-window.addEventListener('beforeunload', () => {
-    const worksContent = document.querySelector('.projects-wrap');
-    if (worksContent) {
-        sessionStorage.setItem('worksContentScrollPosition', worksContent.scrollTop.toString());
-    }
-});
-
-// Restaurar la posición de desplazamiento del elemento works-content al cargar la nueva página
-document.addEventListener('DOMContentLoaded', () => {
-    const worksContent = document.querySelector('.projects-wrap');
-    const scrollPosition = sessionStorage.getItem('worksContentScrollPosition');
-    
-    if (worksContent && scrollPosition) {
-        // Usar requestAnimationFrame para una restauración suave
-        requestAnimationFrame(() => {
-            worksContent.scrollTo({
-                top: Number(scrollPosition),
-                behavior: 'instant' // Intentar usar un scroll inmediato sin salto visible
-            });
-        });
-    }
-});
-</script>
-
+<script src="../scripts/scroll-restore.js"></script>
+<script src="../scripts/works-filter-buttons.js"></script>

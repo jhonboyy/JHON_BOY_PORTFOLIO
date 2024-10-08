@@ -1,10 +1,12 @@
 ---
-// BaseLayout.astro
-
-const { title, description, keywords, canonicalUrl, ogImage, twitterImage, dataPage } = Astro.props;
 import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/styles.css';
 import '../styles/animations.css';
+
+// Importamos el componente de meta tags dinámicas
+import MetaTags from '../components/MetaTags.astro';
+
+const { dataPage } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,25 +14,12 @@ import '../styles/animations.css';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <meta name="description" content={description}>
-  <meta name="keywords" content={keywords}>
-  <meta name="author" content="Jhon Boy">
-  <link rel="canonical" href={canonicalUrl}>
+  <MetaTags />
   <link rel="icon" type="image/svg+xml" href="/jhon-boy-favicon.svg">
-  <meta property="og:title" content={title}>
-  <meta property="og:description" content={description}>
-  <meta property="og:url" content={canonicalUrl}>
-  <meta property="og:image" content={ogImage}>
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content={title}>
-  <meta name="twitter:description" content={description}>
-  <meta name="twitter:image" content={twitterImage}>
   <link rel="preload" href="/fonts/ABCFavoritMono-Light.woff" as="font" type="font/woff2" crossorigin="anonymous">
 </head>
 <body>
-  <slot>
+  <slot />
   <SpeedInsights />
 </body>
 </html>

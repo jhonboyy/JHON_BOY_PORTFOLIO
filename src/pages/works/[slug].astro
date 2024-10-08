@@ -7,31 +7,9 @@ import Menu from '../../components/MenuWithImage.astro';
 import ProjectsSection from '../../components/PojectsSection.astro';
 import MenuWorksImage from '../../images/white.png';
 
-// Datos simulados de meta tags
-const metaTags = {
-  "lava-circular": {
-    title: "Lava Circular 2023 Brand Identity Illustrations",
-    description: "Lava Circular 2023 is a cultural festival in the island of El Hierro, we developed the brand identity integrating illustration and motion design. The Canary Islands have a rich history spanning thousands of years, with indigenous civilisations predating European arrival in the 15th century. While the territory and its people have evolved over time through cultural exchanges, the essence remains rooted in this mix. Despite limited evidence of this past in the modern era, preserving our heritage is crucial. Santana Santana, from Gran Canaria, approached me to explore our ancestral history, recognising the importance of understanding our roots for shaping the future. We aimed to depict the three primary traditional trades in El Hierro: drum artisans, weaver artisans, and cheese artisans. These occupations were central to the island's economy in the mid-20th century and symbolise its cultural heritage.",
-    imageUrl: "https://jhonboy.com/og-image-lava.jpg",
-    keywords: "Lava Circular, Illustration, Branding, Motion, Motion Design, El Hierro, Festival, SantanaSantana, Rafael Grullon, Octavio Barrera, Jhon Boy, Animation"
-  },
-  flourly: {
-    title: "Bakken & Bæck Flourly Brand Identity",
-    description: "Flourly is an app project that Bakken & Bæck started during the pandemic, when many of us hopped on the sourdough craze. Designed as a mobile app, Flourly aims to make learning and experimenting with sourdough a fun and easy experience.",
-    imageUrl: "https://jhonboy.com/og-image-flourly.jpg",
-    keywords: "App, Design, UX/UI, Interface, Motion, Motion Design, Norway, Bakkken & Bæck, Jhon Boy, Flour, Flourly, Animation"
-  },
-  frama: {
-    title: "Frama & The Natural Wine Company collaboration",
-    description: "This project represents the inaugural entry in the Personal Canvas series, a collaboration between FRAMA and The Natural Wine Company. As an artist, I crafted the playful illustration featured on a limited-edition kitchen towel, designed to complement natural wine aesthetics. Drawing inspiration from Bacco, my artwork reflects the earthy terracottas and vibrant greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.",
-    imageUrl: "https://jhonboy.com/og-image-frama.jpg",
-    keywords: "Wine, Frama, TNWC, Jhon Boy, Motion, Motion Design, Collaboration, Illustration, Design, Towel, Product Design, Animation"
-  },
-};
 
 const pathname = Astro.url.pathname;
 const slug = pathname.split('/').pop();
-const meta = metaTags[slug] || {};
 
 const projects = [
   { slug: 'lava-circular', component: ProjectDetailLava },
@@ -41,106 +19,24 @@ const projects = [
 
 const project = projects.find(p => p.slug === slug);
 
-const ProjectComponent = project.component;
+const ProjectComponent = project?.component;
 ---
 <script>
   import '@dotlottie/player-component';
 </script>
-<script>
-const currentPage = window.location.pathname;
+<script src="../../scripts/lazy-loading-images.js"></script>
+<script src="../../scripts/lazy-loading-lottie.js"></script>
+<script src="../../scripts/scroll-restore.js"></script>
 
-// Guardar la página actual en el almacenamiento de la sesión
-localStorage.setItem('previousPage', currentPage);
-
-// Guardar la posición de desplazamiento del elemento works-content antes de abandonar la página
-window.addEventListener('beforeunload', () => {
-    const worksContent = document.querySelector('.projects-wrap');
-    if (worksContent) {
-        sessionStorage.setItem('worksContentScrollPosition', worksContent.scrollTop.toString());
-    }
-});
-
-// Restaurar la posición de desplazamiento del elemento works-content al cargar la nueva página
-document.addEventListener('DOMContentLoaded', () => {
-    const worksContent = document.querySelector('.projects-wrap');
-    const scrollPosition = sessionStorage.getItem('worksContentScrollPosition');
-    
-    if (worksContent && scrollPosition) {
-        // Usar requestAnimationFrame para una restauración suave
-        requestAnimationFrame(() => {
-            worksContent.scrollTo({
-                top: Number(scrollPosition),
-                behavior: 'instant' // Intentar usar un scroll inmediato sin salto visible
-            });
-        });
-    }
-});
-</script>
- <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const lazyImages = document.querySelectorAll('.lazy-image');
-
-  lazyImages.forEach((image) => {
-    // Asegurarse de que el elemento sea tratado como HTMLImageElement
-    const imgElement = image as HTMLImageElement;
-
-    imgElement.addEventListener('load', () => {
-      imgElement.classList.add('loaded');
-    });
-
-    // Verificar si la imagen ya está cargada
-    if (imgElement.complete) {
-      imgElement.classList.add('loaded');
-    }
-  });
-});
- </script>
- <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const lazyLotties = document.querySelectorAll('.lazy-lottie');
-
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const lottieContainer = entry.target;
-        const lottiePlayer = lottieContainer.querySelector('dotlottie-player');
-
-        // Asegúrate de que es un elemento específico del tipo correcto
-        if (lottiePlayer && lottiePlayer instanceof HTMLElement) {
-          const lottieSrc = lottiePlayer.getAttribute('data-src');
-          if (lottieSrc) {
-            lottiePlayer.setAttribute('src', lottieSrc); // Asigna el src dinámicamente
-          }
-        }
-        
-        // Añadir la clase 'loaded' para el fade-in
-        lottieContainer.classList.add('loaded');
-
-        // Dejar de observar este elemento, ya que ya fue cargado
-        observer.unobserve(lottieContainer);
-      }
-    });
-  });
-
-  lazyLotties.forEach(lottie => {
-    observer.observe(lottie);
-  });
-});
- </script>
-<BaseLayout
-  title={meta.title}
-  description={meta.description}
-  imageUrl={meta.imageUrl}
-  keywords={meta.keywords}
->
+<BaseLayout>
   <Menu 
-  worksButtonClass="from-about"
-  imageSrc={MenuWorksImage} 
-  imageAlt="Illustration of a person resting"
+    worksButtonClass="from-about"
+    imageSrc={MenuWorksImage} 
+    imageAlt="Illustration of a person resting"
   />
   <ProjectsSection 
-  projectsSectionClass="projects-2"
-  projectsImagesClass="opacity"
+    projectsSectionClass="projects-2"
+    projectsImagesClass="opacity"
   />
-  <ProjectComponent  />
+  {ProjectComponent && <ProjectComponent />}
 </BaseLayout>

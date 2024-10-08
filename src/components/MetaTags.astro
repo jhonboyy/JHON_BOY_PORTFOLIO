@@ -1,0 +1,81 @@
+---
+const metaTags = {
+  default: {
+    title: "Welcome to Jhon Boy - Illustrator & Artist",
+    description: "Explore the stunning illustrations and artwork of Jhon Boy, a talented illustrator and artist.",
+    keywords: "Jhon Boy, illustrator, artist, artwork, portfolio, digital art, creative",
+    canonicalUrl: "https://jhonboy.com/",
+    ogImage: "https://jhonboy.com/og-image.jpg",
+    twitterImage: "https://jhonboy.com/twitter-image.jpg"
+  },
+  "about": {
+    title: "About Jhon Boy - Illustrator & Artist",
+    description: "Learn more about Jhon Boy, a talented illustrator and artist.",
+    keywords: "Jhon Boy, about Jhon Boy, illustrator, artist, programmer",
+    canonicalUrl: "https://jhonboy.com/about",
+    ogImage: "https://jhonboy.com/og-image-about.jpg",
+    twitterImage: "https://jhonboy.com/twitter-image-about.jpg"
+  },
+  "works": {
+    title: "Works by Jhon Boy - Portfolio of Illustrations & Art",
+    description: "Explore the portfolio of Jhon Boy, artist and illustrator.",
+    keywords: "Jhon Boy, portfolio, illustrations, artwork, design, art, projects",
+    canonicalUrl: "https://jhonboy.com/works",
+    ogImage: "https://jhonboy.com/og-image-works.jpg",
+    twitterImage: "https://jhonboy.com/twitter-image-works.jpg"
+  },
+  "index": {
+    title: "Welcome to Jhon Boy - Illustrator & Artist",
+    description: "Explore the stunning illustrations and artwork of Jhon Boy, a talented illustrator and artist.",
+    keywords: "Jhon Boy, illustrator, artist, artwork, illustrations, portfolio",
+    canonicalUrl: "https://jhonboy.com/",
+    ogImage: "https://jhonboy.com/og-image.jpg",
+    twitterImage: "https://jhonboy.com/twitter-image.jpg"
+  },
+  "flourly": {
+    title: "Bakken & Bæck Flourly Brand Identity",
+    description: "Flourly is an app project started during the pandemic to help users explore sourdough baking with ease.",
+    keywords: "Flourly, Bakken & Bæck, UX/UI Design, App Design, Branding, Jhon Boy",
+    canonicalUrl: "https://jhonboy.com/flourly",
+    ogImage: "https://jhonboy.com/og-image-flourly.jpg",
+    twitterImage: "https://jhonboy.com/twitter-image-flourly.jpg"
+  },
+  "frama": {
+    title: "Frama & The Natural Wine Company Collaboration",
+    description: "Collaboration between Frama and The Natural Wine Company featuring playful illustrations by Jhon Boy.",
+    keywords: "Frama, The Natural Wine Company, Collaboration, Illustration, Branding, Jhon Boy",
+    canonicalUrl: "https://jhonboy.com/frama",
+    ogImage: "https://jhonboy.com/og-image-frama.jpg",
+    twitterImage: "https://jhonboy.com/twitter-image-frama.jpg"
+  },
+  "lava-circular": {
+    title: "Lava Circular 2023 Brand Identity Illustrations",
+    description: "Lava Circular is a cultural festival on the island of El Hierro, blending heritage with modern design.",
+    keywords: "Lava Circular, Cultural Festival, Illustration, Branding, Jhon Boy, El Hierro",
+    canonicalUrl: "https://jhonboy.com/lava-circular",
+    ogImage: "https://jhonboy.com/og-image-lava.jpg",
+    twitterImage: "https://jhonboy.com/twitter-image-lava.jpg"
+  }
+};
+
+const pathname = Astro.url.pathname;
+const slug = pathname === "/" ? "index" : pathname.split('/').pop();
+
+const meta = metaTags[slug] || metaTags["default"];
+---
+
+<Fragment>
+  <title>{meta.title}</title>
+  <meta name="description" content={meta.description}>
+  <meta name="keywords" content={meta.keywords}>
+  <meta name="author" content="Jhon Boy">
+  <link rel="canonical" href={meta.canonicalUrl}>
+  <meta property="og:title" content={meta.title}>
+  <meta property="og:description" content={meta.description}>
+  <meta property="og:url" content={meta.canonicalUrl}>
+  <meta property="og:image" content={meta.ogImage}>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={meta.title}>
+  <meta name="twitter:description" content={meta.description}>
+  <meta name="twitter:image" content={meta.twitterImage}>
+</Fragment>

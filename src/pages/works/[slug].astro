@@ -27,6 +27,10 @@ const ProjectComponent = project?.component;
 <script src="../../scripts/lazy-loading-images.js"></script>
 <script src="../../scripts/lazy-loading-lottie.js"></script>
 <script src="../../scripts/scroll-restore.js"></script>
+<script src="../../scripts/lava-slider.js"></script>
+<script src="../../scripts/flourly-slider.js"></script>
+
+
 
 <BaseLayout>
   <Menu 
@@ -35,7 +39,7 @@ const ProjectComponent = project?.component;
     imageAlt="Illustration of a person resting"
   />
   <ProjectsSection 
-    projectsSectionClass="projects-2"
+    projectsSectionClass="projects opacity disabledButton"
     projectsImagesClass="opacity"
   />
   {ProjectComponent && <ProjectComponent />}

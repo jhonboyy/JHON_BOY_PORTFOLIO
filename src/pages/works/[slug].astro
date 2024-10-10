@@ -1,36 +1,31 @@
 ---
-import ProjectDetailLava from '../../components/Details/ProjectDetailLava.astro';
-import ProjectDetailFlourly from '../../components/Details/ProjectDetailFlourly.astro';
-import ProjectDetailFrama from '../../components/Details/ProjectDetailFrama.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Menu from '../../components/MenuWithImage.astro';
-import ProjectsSection from '../../components/PojectsSection.astro';
+import ProjectsSection from '../../components/ProjectsSection.astro';
 import MenuWorksImage from '../../images/white.png';
-
 
 const pathname = Astro.url.pathname;
 const slug = pathname.split('/').pop();
 
 const projects = [
-  { slug: 'lava-circular', component: ProjectDetailLava },
-  { slug: 'flourly', component: ProjectDetailFlourly },
-  { slug: 'frama', component: ProjectDetailFrama },
+  { slug: 'lava-circular', componentPath: '../../components/Details/ProjectDetailLava.astro' },
+  { slug: 'flourly', componentPath: '../../components/Details/ProjectDetailFlourly.astro' },
+  { slug: 'frama', componentPath: '../../components/Details/ProjectDetailFrama.astro' },
 ];
 
 const project = projects.find(p => p.slug === slug);
 
-const ProjectComponent = project?.component;
+let ProjectComponent = null;
+
+if (project) {
+  ProjectComponent = (await import(project.componentPath)).default;
+}
 ---
 <script>
   import '@dotlottie/player-component';
 </script>
 <script src="../../scripts/lazy-loading-images.js"></script>
 <script src="../../scripts/lazy-loading-lottie.js"></script>
-<script src="../../scripts/scroll-restore.js"></script>
-<script src="../../scripts/lava-slider.js"></script>
-<script src="../../scripts/flourly-slider.js"></script>
-
-
 
 <BaseLayout>
   <Menu 

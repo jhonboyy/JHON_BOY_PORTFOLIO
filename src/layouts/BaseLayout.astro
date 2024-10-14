@@ -3,7 +3,6 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 import '../styles/styles.css';
 import '../styles/animations.css';
 
-// Importamos el componente de meta tags dinámicas
 import MetaTags from '../components/MetaTags.astro';
 
 const { dataPage } = Astro.props;
@@ -20,6 +19,6 @@ const { dataPage } = Astro.props;
 </head>
 <body>
   <slot />
-  <SpeedInsights />
 </body>
+<SpeedInsights />
 </html>

@@ -1,26 +1,39 @@
 ---
+// src/pages/projects/[slug].astro
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Menu from '../../components/MenuWithImage.astro';
 import ProjectsSection from '../../components/ProjectsSection.astro';
 import MenuWorksImage from '../../images/white.png';
 
-const pathname = Astro.url.pathname;
-const slug = pathname.split('/').pop();
+import ProjectDetailLava from '../../components/Details/ProjectDetailLava.astro';
+import ProjectDetailFlourly from '../../components/Details/ProjectDetailFlourly.astro';
+import ProjectDetailFrama from '../../components/Details/ProjectDetailFrama.astro';
 
-const projects = [
-  { slug: 'lava-circular', componentPath: '../../components/Details/ProjectDetailLava.astro' },
-  { slug: 'flourly', componentPath: '../../components/Details/ProjectDetailFlourly.astro' },
-  { slug: 'frama', componentPath: '../../components/Details/ProjectDetailFrama.astro' },
-];
+const { slug } = Astro.params;
 
-const project = projects.find(p => p.slug === slug);
+const projects = {
+  'lava-circular': ProjectDetailLava,
+  'flourly': ProjectDetailFlourly,
+  'frama': ProjectDetailFrama,
+};
 
-let ProjectComponent = null;
+const ProjectComponent = projects[slug];
 
-if (project) {
-  ProjectComponent = (await import(project.componentPath)).default;
+if (!ProjectComponent) {
+  throw new Error(`No se encontró el proyecto para el slug: ${slug}`);
+}
+
+// Genera las rutas estáticas para cada proyecto
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'lava-circular' } },
+    { params: { slug: 'flourly' } },
+    { params: { slug: 'frama' } },
+  ];
 }
 ---
+
 <script>
   import '@dotlottie/player-component';
 </script>
@@ -31,11 +44,11 @@ if (project) {
   <Menu 
     worksButtonClass="from-about"
     imageSrc={MenuWorksImage} 
-    imageAlt="Illustration of a person resting"
+    imageAlt="Ilustración de una persona descansando"
   />
   <ProjectsSection 
     projectsSectionClass="projects opacity disabledButton"
     projectsImagesClass="opacity"
   />
-  {ProjectComponent && <ProjectComponent />}
+  <ProjectComponent />
 </BaseLayout>

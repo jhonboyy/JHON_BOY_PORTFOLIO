@@ -1,6 +1,8 @@
 ---
 
 import { Image } from 'astro:assets';
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+
 
 import img1 from '../../images/jhon-boy-lava-circular-1.webp';
 import img2 from '../../images/jhon-boy-lava-circular-2.webp';
@@ -44,7 +46,7 @@ import img20 from '../../images/jhon-boy-lava-circular-sketches-12.webp';
 
       <!-- Lottie Animation -->
       <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 16 / 12" aria-label="Lava Circular animation">
-        <dotlottie-player src="/animations/lava-loom.json" speed="1" loop autoplay></dotlottie-player>
+        <LottieAnimation src="/animations/lava-loom.json">
       </div>
 
       <!-- Project Goals Section -->
@@ -72,7 +74,7 @@ import img20 from '../../images/jhon-boy-lava-circular-sketches-12.webp';
         </p>
         <!-- Lottie Animation -->
         <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 9 / 12" aria-label="Lava milkmaid animation">
-          <dotlottie-player src="/animations/lava-milkmaid.json" speed="1" loop autoplay></dotlottie-player>
+          <LottieAnimation src="/animations/lava-milkmaid.json">
         </div>
       </section>
 
@@ -98,7 +100,7 @@ import img20 from '../../images/jhon-boy-lava-circular-sketches-12.webp';
           To inject a playful vibe, I experimented with perspectives, resulting in drawings that feel whimsically odd yet visually coherent. Notably, the characters' faces are not visible, emphasising their profession or activity, adding an intriguing layer to the illustrations.
         </p>
         <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 9 / 12" aria-label="Lava drum animation">
-          <dotlottie-player src="/animations/lava-drum.json" speed="1" loop autoplay></dotlottie-player>
+          <LottieAnimation src="/animations/lava-drum.json">
         </div>
       </section>
 

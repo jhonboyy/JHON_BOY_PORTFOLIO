@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const lottieContainer = entry.target;
-          const lottiePlayer = lottieContainer.querySelector('dotlottie-player');
+          const lottiePlayer = lottieContainer.querySelector('LottieAnimation');
   
           // Asegúrate de que es un elemento específico del tipo correcto
           if (lottiePlayer && lottiePlayer instanceof HTMLElement) {

@@ -5,6 +5,8 @@ import compress from 'astro-compress';
 import sitemap from '@astrojs/sitemap';
 import lottie from "astro-integration-lottie";
 
+const dynamicSlugs = ['lava-circular', 'frama', 'flourly'];
+
 // https://astro.build/config
 export default defineConfig({
   devToolbar: {
@@ -26,7 +28,9 @@ export default defineConfig({
   site: 'https://jhonboy.com',
   output: 'server',
   integrations: [
-    sitemap(),
+    sitemap({
+      customPages: dynamicSlugs.map((slug) => `https://jhonboy.com/works/${slug}`),
+    }),
     lottie(),
     compress({
       css: true,

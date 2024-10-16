@@ -845,24 +845,6 @@ main address {
 		border-top: 1px solid black;
 	}
 
-	.image-container {
-		min-width: 10px;
-		min-height: 250px;
-		background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-2-1000-by-750.webp");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-
-	.image-container-2 {
-		min-width: 10px;
-		min-height: 250px;
-		background-image: url("/images/jhon-boy-illustration-red-cross-tenerife-mural-aids-1000-by-750.webp");
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center;
-	}
-
 	.flourly {
 		display: grid;
 		height: 100px;
@@ -875,31 +857,29 @@ main address {
 		grid-column-start: 1; 
 		grid-column-end: 2; 
 		height: min-content; 
-		width: 100%;
+		width: 100vw;
 		aspect-ratio: 3 / 2
 	}
 
 	.slider-flourly {
-		display: grid;
-		grid-auto-flow: column;
-		grid-auto-columns: 100%;
+		display: flex;
 		overflow-x: scroll;
 		overflow-y: hidden;
 		scroll-snap-type: x mandatory;
 		-webkit-overflow-scrolling: touch;
 		scrollbar-width: none;
+		width: 100vw;
 		height: 80vh;
+		padding: 0 0 20px 0;
+		justify-content: flex-start;
 	}
 	
 	.slide-flourly {
-		min-width: 100vw;
-		height: max-content;
-		scroll-snap-align: center;
-		align-content: center;
-		position: relative;
-		height: 80vh;
+		flex: 0 0 33%;
+		height: 100%;
+		scroll-snap-align: start;
 	}
-	  
+	
 	.slider-flourly::-webkit-scrollbar {
 		display: none;
 	}
@@ -907,9 +887,6 @@ main address {
 	.slide-flourly > div {
 		height: 100%;
 		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
 	}
 	
 	.slide-flourly > div > svg {
@@ -920,6 +897,7 @@ main address {
 	.slider-info {
 		grid-column: 1 / 2;
 		display: grid;
+		width: 100vw;
 	}
 	
 	.lava {
@@ -981,7 +959,6 @@ main address {
 
 	.slider {
 		scroll-snap-type: x mandatory;
-		display: flex;
 		-webkit-overflow-scrolling: touch;
 		overflow-y: scroll;
 		overflow-x: none;
@@ -1048,7 +1025,7 @@ main address {
 
 	.project-container-mid p {
 		margin: 0;
-		width: 95%;
+		width: 97vw;
 	}
 
 	.project-container::before {

@@ -137,6 +137,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   const totalSlides = slides.length;
 
+  // Resetea la posición del scroll al cargar la página
+  slider.scrollLeft = 0;
+
   slider.addEventListener('scroll', () => {
     const scrollLeft = slider.scrollLeft;
     const slideWidth = slider.clientWidth;

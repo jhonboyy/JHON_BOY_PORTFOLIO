@@ -1,10 +1,12 @@
 ---
 import { Image } from 'astro:assets';
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 
 import illustrationFlourly from '../../images/jhon-boy-illustration-flourly-portfolio.svg';
 import sketchFlourly1 from '../../images/jhon-boy-flourly-sketches-1.webp';
 import sketchFlourly2 from '../../images/jhon-boy-flourly-sketches-2.webp';
 import sketchFlourly3 from '../../images/jhon-boy-flourly-sketches-3.webp';
+
 
 ---
 <section class="project-container" id="flourly-container">
@@ -21,9 +23,10 @@ import sketchFlourly3 from '../../images/jhon-boy-flourly-sketches-3.webp';
     </p>
 
     <!-- Animation with descriptive alt text for SEO -->
-    <div class="lottie-logo-container">
-      <dotlottie-player class="animate-fade-in" style="opacity:0" src="/animations/flourly-logo.lottie" speed="1" loop autoplay 
-      aria-label="Flourly app logo animation"></dotlottie-player>
+    <div class="lottie-logo-container lazy-lottie lottie-container">
+      <LottieAnimation
+      src="/animations/flourly-logo.json"
+    />
     </div>
 
     <h2>HOW DOES IT WORK</h2>
@@ -33,18 +36,24 @@ import sketchFlourly3 from '../../images/jhon-boy-flourly-sketches-3.webp';
     </p>
 
     <!-- Flourly Slider with animations -->
-    <div class="slider-flourly">
+    <div class="slider-flourly lazy-lottie lottie-container">
       <div class="slide-flourly">
-        <dotlottie-player class="animate-fade-in" style="opacity:0" src="/animations/flourly-phone-flour.lottie" speed="1" loop autoplay 
-        aria-label="Flourly phone animation with flour"></dotlottie-player>
+        <LottieAnimation
+        src="/animations/flourly-phone-flour.json"
+        class="animate-fade-in" 
+      />
       </div>
       <div class="slide-flourly">
-        <dotlottie-player class="animate-fade-in" style="opacity:0" src="/animations/flourly-phone-water.lottie" speed="1" loop autoplay 
-        aria-label="Flourly phone animation with water"></dotlottie-player>
+        <LottieAnimation
+        src="/animations/flourly-phone-water.json"
+        class="animate-fade-in" 
+      />
       </div>
       <div class="slide-flourly">
-        <dotlottie-player class="animate-fade-in" style="opacity:0" src="/animations/flourly-phone-levain.lottie" speed="1" loop autoplay 
-        aria-label="Flourly phone animation with levain"></dotlottie-player>
+        <LottieAnimation
+        src="/animations/flourly-phone-levain.json"
+        class="animate-fade-in" 
+      />
       </div>
     </div>
     <div class="slider-info" id="slider-info">
@@ -123,7 +132,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
   if (!slider || !infoText || slides.length === 0) {
     console.error("Error: Elementos necesarios no encontrados para el slider flourly.");
-    return; // No ejecuta el resto del script si los elementos no existen
+    return;
   }
 
   const totalSlides = slides.length;
@@ -133,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const slideWidth = slider.clientWidth;
     const currentSlideIndex = Math.round(scrollLeft / slideWidth);
 
-    // Actualizar el texto con el número del slide visible
     infoText.textContent = `${currentSlideIndex + 1} / ${totalSlides}`;
   });
 });

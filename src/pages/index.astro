@@ -1,19 +1,24 @@
 ---
 import Menu from '../components/Menu.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
----
 
-<script>
-  import '@dotlottie/player-component';
-</script>
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+
+---
 
 <BaseLayout dataPage="index">
   <header class="index" role="banner">
     <h1 id="headerText" class="word">WELCOME TO JHON BOY</h1>
-    <div class="lottie-index animate-fade-in-index">
-      <dotlottie-player id="mobileAnimation" src="/animations/jhon-boy-animation-index-mobile.lottie" background="white" speed="1" loop autoplay></dotlottie-player>
-      <dotlottie-player id="desktopAnimation" src="/animations/jhon-boy-animation-index.lottie" background="white" speed="1" loop autoplay></dotlottie-player>
-    </div>
+    <div class="lottie-index animate-fade-in-index"> 
+        <LottieAnimation
+        src="/animations/jhon-boy-animation-index-mobile.json"
+        class="mobileAnimation"
+        />
+        <LottieAnimation
+        src="/animations/jhon-boy-animation-index.json"
+        class="desktopAnimation"
+        />
+  </div>
     <Menu 
       worksLinkTextClass="word"
       aboutLinkTextClass="word"

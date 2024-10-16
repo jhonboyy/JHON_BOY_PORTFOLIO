@@ -1,5 +1,7 @@
 ---
 import { Image } from 'astro:assets';
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+
 
 import illustrationFrama2 from '../../images/jhon-boy-illustration-frama-tnwc-2.webp';
 import illustrationFrama3 from '../../images/jhon-boy-illustration-frama-tnwc-3.webp';
@@ -25,8 +27,10 @@ import illustrationFrama4 from '../../images/jhon-boy-illustration-frama-tnwc-4.
 
     <!-- Animation with descriptive alt text for SEO -->
     <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 12 / 9">
-      <dotlottie-player src="/animations/frama-animation.lottie" speed="1" loop autoplay 
-      aria-label="Animated illustration of the Jhon Boy Frama project highlighting natural winemaking"></dotlottie-player>
+      <LottieAnimation
+      src="/animations/frama-animation.json"
+      autoplay="visible"
+    />
     </div>
 
     <h2>PROCESS</h2>

@@ -3,6 +3,7 @@ import vercel from '@astrojs/vercel/serverless';
 import sitemap from "@astrojs/sitemap";
 import compress from 'astro-compress';
 import sitemap from '@astrojs/sitemap';
+import lottie from "astro-integration-lottie";
 
 // https://astro.build/config
 export default defineConfig({
@@ -26,13 +27,13 @@ export default defineConfig({
   output: 'server',
   integrations: [
     sitemap(),
+    lottie(),
     compress({
-      // Configuraciones opcionales
-      css: true, // Comprime archivos CSS
-      html: true, // Comprime archivos HTML
-      js: true, // Comprime archivos JavaScript
-      img: true, // Comprime imágenes
-      svg: true, // Comprime archivos SVG
+      css: true,
+      html: true,
+      js: true,
+      img: true,
+      svg: true,
     })
   ]
 });

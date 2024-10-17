@@ -19,11 +19,11 @@ interface Props {
 const { project, projectsImagesClass } = Astro.props as Props;
 const { type, className, images, captions } = project;
 
-const imageMap = import.meta.glob<{ default: ImageMetadata }>('../images/*.{svg,webp,png}', { eager: true });
+const imageMap = import.meta.glob<{ default: ImageMetadata }>('../images/*.{svg,webp,png,jpg,jpeg}', { eager: true });
 
 images.forEach(({ src }) => {
   if (!imageMap[src]) {
-    throw new Error(`"${src}" does not exist in glob: "../images/*.{svg,webp,png}". See the component for debugging.`);
+    throw new Error(`"${src}" does not exist in glob: "../images/*.{svg,webp,png,jpg,jpeg}". See the component for debugging.`);
   }
 });
 
@@ -37,11 +37,19 @@ images.forEach(({ src }) => {
       {images.map(({ src, alt }) => (
         <div class="slide">
           <Image 
-            src={imageMap[src].default} 
+            src={imageMap[src].default}
             alt={alt} 
             loading="lazy" 
             class={`${projectsImagesClass} lazy-image`}
             style="border-bottom: 1px solid black"
+            format="webp"
+            srcset={`
+              ${imageMap[src].default}?w=1024 1024w,
+              ${imageMap[src].default}?w=1920 1920w,
+              ${imageMap[src].default}?w=2560 2560w,
+              ${imageMap[src].default}?w=3840 3840w
+            `}
+            sizes="(max-width: 1024px) 100vw, (max-width: 1920px) 100vw, (min-width: 2560px) 2560px"
           />
         </div>
       ))}
@@ -59,6 +67,14 @@ images.forEach(({ src }) => {
           src={imageMap[src].default} 
           alt={alt} 
           class={`${projectsImagesClass} lazy-image`}
+          format="webp"
+          srcset={`
+            ${imageMap[src].default}?w=1024 1024w,
+            ${imageMap[src].default}?w=1920 1920w,
+            ${imageMap[src].default}?w=2560 2560w,
+            ${imageMap[src].default}?w=3840 3840w
+          `}
+          sizes="(max-width: 1024px) 100vw, (max-width: 1920px) 100vw, (min-width: 2560px) 2560px"
         />
       </div>
     ))}

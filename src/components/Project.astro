@@ -17,17 +17,6 @@ interface Props {
 const { project, projectsImagesClass } = Astro.props as Props;
 const { type, className, images, captions } = project;
 
-<<<<<<< Updated upstream
-const imageMap = import.meta.glob<{ default: ImageMetadata }>('../images/*.{svg,webp,png}', { eager: true });
-
-images.forEach(({ src }) => {
-  if (!imageMap[src]) {
-    throw new Error(`"${src}" does not exist in glob: "../images/*.{svg,webp,png}". See the component for debugging.`);
-  }
-});
-
-=======
->>>>>>> Stashed changes
 ---
 
 <script src="../scripts/lazy-loading-images.js"></script>
@@ -37,13 +26,6 @@ images.forEach(({ src }) => {
     <div class="slide-track">
       {images.map(({ src, alt }) => (
         <div class="slide">
-<<<<<<< Updated upstream
-          <Image 
-            src={imageMap[src].default} 
-            alt={alt} 
-            loading="lazy" 
-            class={`${projectsImagesClass} lazy-image`}
-=======
           <img
             src={`/images/${src}`}
             alt={alt}
@@ -56,7 +38,6 @@ images.forEach(({ src }) => {
               /images/${src}?w=3840 3840w
             `}
             sizes="(max-width: 1024px) 100vw, (max-width: 1920px) 100vw, (min-width: 2560px) 2560px"
->>>>>>> Stashed changes
             style="border-bottom: 1px solid black"
           />
         </div>
@@ -76,8 +57,6 @@ images.forEach(({ src }) => {
           alt={alt}
           loading="lazy"
           class={`${projectsImagesClass} lazy-image`}
-<<<<<<< Updated upstream
-=======
           srcset={`
             /images/${src}?w=1024 1024w,
             /images/${src}?w=1920 1920w,
@@ -85,7 +64,6 @@ images.forEach(({ src }) => {
             /images/${src}?w=3840 3840w
           `}
           sizes="(max-width: 1024px) 100vw, (max-width: 1920px) 100vw, (min-width: 2560px) 2560px"
->>>>>>> Stashed changes
         />
       </div>
     ))}

@@ -27,15 +27,15 @@ const { type, className, images, captions } = project;
       {images.map(({ src, alt }) => (
         <div class="slide">
           <img
-            src={`/images/${src}`}
+            src={`${src}`}
             alt={alt}
             loading="lazy"
             class={`${projectsImagesClass} lazy-image`}
             srcset={`
-              /images/${src}?w=1024 1024w,
-              /images/${src}?w=1920 1920w,
-              /images/${src}?w=2560 2560w,
-              /images/${src}?w=3840 3840w
+              ${src}?w=1024 1024w,
+              ${src}?w=1920 1920w,
+              ${src}?w=2560 2560w,
+              ${src}?w=3840 3840w
             `}
             sizes="(max-width: 1024px) 100vw, (max-width: 1920px) 100vw, (min-width: 2560px) 2560px"
             style="border-bottom: 1px solid black"
@@ -53,15 +53,15 @@ const { type, className, images, captions } = project;
     {images.length > 0 && images.map(({ src, alt }) => (
       <div style="background-color: white;">
         <img
-          src={`/images/${src}`}
+          src={`${src}`}
           alt={alt}
           loading="lazy"
           class={`${projectsImagesClass} lazy-image`}
           srcset={`
-            /images/${src}?w=1024 1024w,
-            /images/${src}?w=1920 1920w,
-            /images/${src}?w=2560 2560w,
-            /images/${src}?w=3840 3840w
+            ${src}?w=1024 1024w,
+            ${src}?w=1920 1920w,
+            ${src}?w=2560 2560w,
+            ${src}?w=3840 3840w
           `}
           sizes="(max-width: 1024px) 100vw, (max-width: 1920px) 100vw, (min-width: 2560px) 2560px"
         />

@@ -1,6 +1,5 @@
 ---
 import Menu from './Menu.astro';
-import { Image } from 'astro:assets';
 
 const { imageSrc, imageAlt, containerClass, imageStyles, headerClass, worksButtonClass, aboutButtonClass, worksLink, aboutLink, menuImageClass, disableButtonClass1, disableButtonClass2 } = Astro.props;
 ---
@@ -16,6 +15,6 @@ const { imageSrc, imageAlt, containerClass, imageStyles, headerClass, worksButto
 
   />
   <div class={`MenuImageContainer ${containerClass}`} style={imageStyles}>
-    <Image src={imageSrc} class={menuImageClass} alt={imageAlt} loading="eager" />
+    <img src={imageSrc} class={menuImageClass} alt={imageAlt} loading="eager" />
   </div>
 </header>

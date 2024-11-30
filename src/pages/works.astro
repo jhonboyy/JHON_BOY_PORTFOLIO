@@ -1,8 +1,10 @@
 ---
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectsSection from '../components/ProjectsSection.astro';
 import MenuWithImage from '../components/MenuWithImage.astro';
-import MenuWorksImage from '../../public/images/SVG/jhon-boy-illustration-works-page-person-resting.svg';
+
+const MenuWorksImage = '/images/SVG/jhon-boy-illustration-works-page-person-resting.svg';
 
 const fromPage = new URL(Astro.url, 'http://localhost').searchParams.get('from');
 
@@ -49,7 +51,7 @@ if (fromPage === 'details') {
       imageSrc={MenuWorksImage} 
       imageAlt="Illustration of a person resting"
       imageStyles="top: 50px;"
-      worksButtonClass=`disabledButton ${worksMenuWithImageClasses}`
+      worksButtonClass={`disabledButton ${worksMenuWithImageClasses}`}
       aboutButtonClass={aboutMenuWithImageClasses}
       aboutLink="/about?from=works"
       worksLink="/works"

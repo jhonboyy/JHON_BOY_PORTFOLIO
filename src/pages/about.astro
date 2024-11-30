@@ -2,7 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import AboutSection from '../components/AboutSection.astro';
 import MenuImage from '../components/MenuWithImage.astro';
-import MenuAboutImage from '../../public/images/SVG/jhon-boy-illustration-works-page-person-upside-down.svg';
+
+const MenuAboutImage = '/images/SVG/jhon-boy-illustration-works-page-person-upside-down.svg';
 
 const fromPage = new URL(Astro.url, 'http://localhost').searchParams.get('from');
 

@@ -1,11 +1,13 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   imagePath: string;
   description: string;
   project: {
     type: string;
     className: string;
-    images: { src: string; alt: string }[];
+    images: { src: string; alt: string; width: number; height: number }[];
     captions: {
       left: string;
       right: string;
@@ -24,20 +26,15 @@ const { type, className, images, captions } = project;
 {className.includes('slider') ? (
   <figure class={`${className} ${type}`}>
     <div class="slide-track">
-      {images.map(({ src, alt }) => (
+      {images.map(({ src, alt, width, height }) => (
         <div class="slide">
-          <img
-            src={`${src}`}
+          <Image 
+            src={`${src}`} 
             alt={alt}
+            width={width}
+            height={height} 
             loading="lazy"
             class={`${projectsImagesClass} lazy-image`}
-            srcset={`
-              ${src}?w=1024 1024w,
-              ${src}?w=1920 1920w,
-              ${src}?w=2560 2560w,
-              ${src}?w=3840 3840w
-            `}
-            sizes="(max-width: 1024px) 100vw, (max-width: 1920px) 100vw, (min-width: 2560px) 2560px"
             style="border-bottom: 1px solid black"
           />
         </div>
@@ -50,20 +47,15 @@ const { type, className, images, captions } = project;
   </figure>
 ) : (
   <figure class={`project ${className} ${type}`}>
-    {images.length > 0 && images.map(({ src, alt }) => (
+    {images.length > 0 && images.map(({ src, alt, width, height }) => (
       <div style="background-color: white;">
-        <img
+        <Image 
           src={`${src}`}
           alt={alt}
+          width={width}
+          height={height}
           loading="lazy"
           class={`${projectsImagesClass} lazy-image`}
-          srcset={`
-            ${src}?w=1024 1024w,
-            ${src}?w=1920 1920w,
-            ${src}?w=2560 2560w,
-            ${src}?w=3840 3840w
-          `}
-          sizes="(max-width: 1024px) 100vw, (max-width: 1920px) 100vw, (min-width: 2560px) 2560px"
         />
       </div>
     ))}

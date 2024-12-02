@@ -1,10 +1,7 @@
 ---
 import { Image } from 'astro:assets'
-import Portrait from '../../public/images/jhon-boy-illustration-portrait.webp'
-import Portrait2 from '../../public/images/jhon-boy-illustration-portrait-2.webp'
 
 const { aboutSectionClass} = Astro.props;
-
 ---
 
 <main id="about-content" class={aboutSectionClass} role="main">
@@ -25,8 +22,8 @@ const { aboutSectionClass} = Astro.props;
   <div class="about-column-2">
     <p class="text">I LIKE TO BUILD VISUAL REPRESENTATIONS OF CONTEMPORARY SCENES, USING SIMPLE CHARACTERING TO REVEAL THE NATURAL COMPLEXITY OF OUR ERA. THROUGH A MINIMALIST APPROACH, I AIM TO INVITE THE VIEWER INTO A DIALOGUE WITH THE ARTWORK, CREATING A SPACE FOR REFLECTION. MY INTENTION IS TO EVOKE A SENSE OF DISCOVERY AND EXPLORATION THAT TRANSCENDS THE BOUNDARIES OF THE VISUAL MEDIUM.</p>
     <figure class="container-portrait">
-      <Image class="portrait" src={Portrait} width={1296} height={2048} alt="Portrait photo of Jhon Boy" loading='eager'/>
-      <Image class="portrait2" style="display: none" src={Portrait2} width={1296} height={2048} alt="Alternate portrait photo of Jhon Boy" loading='eager' />
+      <Image class="portrait" src="/images/jhon-boy-illustration-portrait.webp" width={1296} height={2048} alt="Portrait photo of Jhon Boy" loading='eager'/>
+      <Image class="portrait2" style="display: none" src="/images/jhon-boy-illustration-portrait-2.webp" width={1296} height={2048} alt="Alternate portrait photo of Jhon Boy" loading='eager' />
     </figure>
     <p class="description">
       JORGE GALLARDO FEBLES <br>

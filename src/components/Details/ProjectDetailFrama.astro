@@ -1,20 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
-
-
-import illustrationFrama2 from '../../../public/images/jhon-boy-illustration-frama-tnwc-2.webp';
-import illustrationFrama3 from '../../../public/images/jhon-boy-illustration-frama-tnwc-3.webp';
-import illustrationFrama4 from '../../../public/images/jhon-boy-illustration-frama-tnwc-4.webp';
 ---
- 
+
 <section class="project-container" id="frama-container">
   <div class="project-container-top">
     <p class="text-left">BRANDING, ANIMATION, PRODUCT DESIGN</p>
     <p class="text-right">◷ 1 MIN READ</p>
   </div>
   <div class="project-container-mid frama">
-    <!-- SEO Optimized Heading Structure -->
     <h1>DO YOU LIKE WINE?</h1>
     <p>
       This project represents the inaugural entry in the Personal Canvas series, a collaboration between 
@@ -25,7 +19,6 @@ import illustrationFrama4 from '../../../public/images/jhon-boy-illustration-fra
       greens of the natural landscape, infusing each piece with the spirit of traditional winemaking.
     </p>
 
-    <!-- Animation with descriptive alt text for SEO -->
     <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 12 / 9">
       <LottieAnimation
       src="/animations/frama-animation.json"
@@ -47,20 +40,34 @@ import illustrationFrama4 from '../../../public/images/jhon-boy-illustration-fra
       as decorative art but also as a testament to the fusion of heritage and contemporary craftsmanship in natural winemaking.
     </p>
     <a href="https://framacph.com/collections/towels/products/frama-the-natural-wine-company-kitchen-towel" 
-      style="padding: 0 1em 1em 1em;" target="_blank" rel="noopener">Buy the towel</a
+      style="padding: 0 1em 1em 1em;" target="_blank" rel="noopener">Buy the towel</a>
 
-    <!-- SEO Optimized Images with appropriate alt descriptions -->
-    <Image class="lazy-image" src={illustrationFrama2} width={1200} height={960} 
-    alt="Wine ceramic barrel with the Jhon Boy Frama towel" />
+    <!-- Images -->
+    <Image 
+      class="lazy-image" 
+      src="/images/jhon-boy-illustration-frama-tnwc-2.webp" 
+      width={1200} 
+      height={960} 
+      alt="A tea towel designed by Jhon Boy in collaboration with Frama and The Natural Wine Company (TNWC), draped over a large clay wine vessel. The illustration features a character reclining under grapevines, holding a bunch of grapes, with the text ‘The Natural Wine Company’ above. Photograph by Miguel Triano" 
+    />
 
-    <Image class="lazy-image" src={illustrationFrama3} width={1400} height={1750} 
-    alt="Person holding the Jhon Boy Frama towel" />
+    <Image 
+      class="lazy-image" 
+      src="/images/jhon-boy-illustration-frama-tnwc-3.webp" 
+      width={1400} 
+      height={1750} 
+      alt="A person holding up a tea towel designed by Jhon Boy in collaboration with Frama and The Natural Wine Company (TNWC). The towel showcases an illustration of a whimsical character harvesting grapes amidst lush grapevines, with the text ‘The Natural Wine Company’ at the top. Photograph by Miguel Triano." 
+    />
     
-    <Image class="lazy-image" src={illustrationFrama4} width={1200} height={960} 
-    alt="Table in the kitchen with the Jhon Boy Frama towel hanging in the back" />
+    <Image 
+      class="lazy-image" 
+      src="/images/jhon-boy-illustration-frama-tnwc-4.webp" 
+      width={1200} 
+      height={960} 
+      alt="A cozy kitchen setup featuring wooden furniture and shelves adorned with kitchen essentials. A tea towel hangs on the wall with an illustration by Jhon Boy, created in collaboration with Frama and The Natural Wine Company (TNWC). The tea towel features a playful character surrounded by grapevines. Photograph by Miguel Triano." 
+    />
 
-     <!-- Project Links -->
-     <section class="project-credits" aria-labelledby="project-links">
+    <section class="project-credits" aria-labelledby="project-links">
       <h2 id="project-links">CREDITS</h2>
       <ul>
         <li>
@@ -86,7 +93,7 @@ import illustrationFrama4 from '../../../public/images/jhon-boy-illustration-fra
         </li>
       </ul>
     </section> 
-</div>
+  </div>
   <div class="project-container-bot">
     <a id="framaCloseLink" href="/works?from=details">CLOSE PROJECT</a>
   </div>

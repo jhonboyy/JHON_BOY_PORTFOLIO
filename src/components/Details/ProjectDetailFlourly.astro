@@ -1,32 +1,22 @@
 ---
 import { Image } from 'astro:assets';
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
-
-import illustrationFlourly from '../../../public/images/jhon-boy-illustration-flourly-portfolio.webp';
-import sketchFlourly1 from '../../../public/images/jhon-boy-flourly-sketches-1.webp';
-import sketchFlourly2 from '../../../public/images/jhon-boy-flourly-sketches-2.webp';
-import sketchFlourly3 from '../../../public/images/jhon-boy-flourly-sketches-3.webp';
-
-
 ---
+
 <section class="project-container" id="flourly-container">
   <div class="project-container-top">
     <p class="text-left">BRANDING, ANIMATION, UX/UI</p>
     <p class="text-right">◷ 2 MIN READ</p>
   </div>
   <div class="project-container-mid flourly">
-    <!-- SEO Optimized Heading Structure -->
     <h1>WHAT IS FLOURLY</h1>
     <p>
       Flourly is a pet project that Bakken & Baeck started during the pandemic, when many of us hopped on the sourdough craze. 
       Designed as a mobile app, Flourly aims to make learning and experimenting with sourdough a fun and easy experience.
     </p>
 
-    <!-- Animation with descriptive alt text for SEO -->
     <div class="lottie-logo-container lazy-lottie lottie-container">
-      <LottieAnimation
-      src="/animations/flourly-logo.json"
-    />
+      <LottieAnimation src="/animations/flourly-logo.json" />
     </div>
 
     <h2>HOW DOES IT WORK</h2>
@@ -35,25 +25,15 @@ import sketchFlourly3 from '../../../public/images/jhon-boy-flourly-sketches-3.w
       so that you don't have to worry about getting your measurements wrong and can instead focus on experimenting with different types of doughs.
     </p>
 
-    <!-- Flourly Slider with animations -->
     <div class="slider-flourly lazy-lottie lottie-container">
       <div class="slide-flourly">
-        <LottieAnimation
-        src="/animations/flourly-phone-flour.json"
-        class="animate-fade-in" 
-      />
+        <LottieAnimation src="/animations/flourly-phone-flour.json" class="animate-fade-in" />
       </div>
       <div class="slide-flourly">
-        <LottieAnimation
-        src="/animations/flourly-phone-water.json"
-        class="animate-fade-in" 
-      />
+        <LottieAnimation src="/animations/flourly-phone-water.json" class="animate-fade-in" />
       </div>
       <div class="slide-flourly">
-        <LottieAnimation
-        src="/animations/flourly-phone-levain.json"
-        class="animate-fade-in" 
-      />
+        <LottieAnimation src="/animations/flourly-phone-levain.json" class="animate-fade-in" />
       </div>
     </div>
     <div class="slider-info" id="slider-info">
@@ -66,86 +46,69 @@ import sketchFlourly3 from '../../../public/images/jhon-boy-flourly-sketches-3.w
       designed to effortlessly determine the right amount of flour required, guaranteeing a tidy experience. Our creative exploration delved 
       into the realm of flour and the intricate process of breadmaking.
     </p>
-    <p>
-      We put the focus on the ingredients, shapes, and central elements related to the baking process and made them interact with a principal character. 
-      Making bread is about transformation and uncertainty— we start with just three ingredients and, depending on how we work, this process can culminate 
-      in a distinct result. We believe that it was crucial for the illustrations to capture this spirit of experimentation, transformation, and unpredictability.
-    </p>
-
-    <!-- Image with alt text -->
     <div style="grid-column-start: 1; grid-column-end: 3;">
-      <Image src={illustrationFlourly} class="lazy-image" alt="Hand playing with dough for the Flourly project" />
+      <Image 
+        src="/images/jhon-boy-illustration-flourly-portfolio.webp" 
+        class="lazy-image" 
+        alt="Hand playing with dough for the Flourly project" 
+        width={600} 
+        height={400} 
+      />
     </div>
 
     <h2>SKETCHES</h2>
-    <p>
-      From this point, we didn't want to be too attached to the concept, so we investigated shapes and abstract forms and built connections 
-      between the concepts via experimentation.
-    </p>
-
-    <!-- Sketches with optimized alt text -->
     <div class="sketches">
-      <Image src={sketchFlourly1} class="lazy-image" width={2442} height={3480} 
-      alt="Notebook with sketches for the Flourly project" />
-      <Image src={sketchFlourly2} class="lazy-image" width={2442} height={3480} 
-      alt="Notebook with additional sketches for the Flourly project" />
-      <Image src={sketchFlourly3} class="lazy-image" width={2442} height={3480} 
-      alt="More sketches for the Flourly project in a notebook" />
+      <Image 
+        src="/images/jhon-boy-flourly-sketches-1.webp" 
+        class="lazy-image" 
+        alt="Black and white sketch showing elements of the baking process, including hands kneading dough, a steaming mug, and abstract representations of food ingredients. The artwork emphasizes fluid lines and organic shapes, created as part of the creative process for the Flourly app by Jhon Boy in collaboration with Bakken & Bæck." 
+        width={2442} 
+        height={3480} 
+      />
+      <Image 
+        src="/images/jhon-boy-flourly-sketches-2.webp" 
+        class="lazy-image" 
+        alt="A sketch featuring a mix of abstract and realistic forms, including kitchen equipment, plants, and flowing lines that evoke movement. This illustration reflects the conceptual stages of the Flourly app’s design, created by Jhon Boy for Bakken & Bæck." 
+        width={2442} 
+        height={3480} 
+      />
+      <Image 
+        src="/images/jhon-boy-flourly-sketches-3.webp" 
+        class="lazy-image" 
+        alt="Detailed sketch with dynamic and organic shapes, depicting elements such as flowing water, a container of grapes, and plant life, merged into an imaginative composition. This drawing is a part of Jhon Boy’s creative process for the Flourly app, in collaboration with Bakken & Bæck." 
+        width={2442} 
+        height={3480} 
+      />
     </div>
-          <!-- Project Links -->
-          <section class="project-credits" aria-labelledby="project-links">
-            <h2 id="project-links">CREDITS</h2>
-            <ul>
-              <li>
-                <h3>CREATIVE DIRECTION</h3>
-                <a href="https://www.instagram.com/olllllliie/" target="blank" rel="noopener">Oliver O'Callaghan</a>
-                <a href="https://www.instagram.com/t___y___a/" target="blank" rel="noopener">Tya Amelia</a>
-              </li>
-              <li>
-                <h3>PRODUCT DESIGN</h3>
-                <a href="http://ndevalliere.com" target="blank" rel="noopener">Nathalie de Vallière</a>
-              </li>
-              <li>
-                <h3>CREATIVITY</h3>
-                <a href="https://www.maria-elba.com" target="blank" rel="noopener">María-Elba García</a>
-              </li>
-              <li>
-                <h3>CHARACTER ANIMATION</h3>
-                <a href="https://www.instagram.com/rjgrullon/" target="_blank">Rafael Grullón</a>
-              </li>
-              <li>
-                <h3>LOGO/UI ANIMATION</h3>
-                <a href="http://www.nicolasvittori.com" target="blank" rel="noopener">Nicolas Vittori</a>
-              </li>
-            </ul>
-          </section>   
-</div>
+
+    <section class="project-credits" aria-labelledby="project-links">
+      <h2 id="project-links">CREDITS</h2>
+      <ul>
+        <li>
+          <h3>CREATIVE DIRECTION</h3>
+          <a href="https://www.instagram.com/olllllliie/" target="_blank" rel="noopener">Oliver O'Callaghan</a>
+          <a href="https://www.instagram.com/t___y___a/" target="_blank" rel="noopener">Tya Amelia</a>
+        </li>
+        <li>
+          <h3>PRODUCT DESIGN</h3>
+          <a href="http://ndevalliere.com" target="_blank" rel="noopener">Nathalie de Vallière</a>
+        </li>
+        <li>
+          <h3>CREATIVITY</h3>
+          <a href="https://www.maria-elba.com" target="_blank" rel="noopener">María-Elba García</a>
+        </li>
+        <li>
+          <h3>CHARACTER ANIMATION</h3>
+          <a href="https://www.instagram.com/rjgrullon/" target="_blank" rel="noopener">Rafael Grullón</a>
+        </li>
+        <li>
+          <h3>LOGO/UI ANIMATION</h3>
+          <a href="http://www.nicolasvittori.com" target="_blank" rel="noopener">Nicolas Vittori</a>
+        </li>
+      </ul>
+    </section>
+  </div>
   <div class="project-container-bot">
     <a id="flourlyCloseLink" href="/works?from=details">CLOSE PROJECT</a>
   </div>
 </section>
-<script is:inline>
-document.addEventListener('DOMContentLoaded', function () {
-  const slider = document.querySelector('.slider-flourly');
-  const infoText = document.getElementById('slider-info');
-  const slides = document.querySelectorAll('.slide-flourly');
-  
-  if (!slider || !infoText || slides.length === 0) {
-    console.error("Error: Elementos necesarios no encontrados para el slider flourly.");
-    return;
-  }
-
-  const totalSlides = slides.length;
-
-  // Resetea la posición del scroll al cargar la página
-  slider.scrollLeft = 0;
-
-  slider.addEventListener('scroll', () => {
-    const scrollLeft = slider.scrollLeft;
-    const slideWidth = slider.clientWidth;
-    const currentSlideIndex = Math.round(scrollLeft / slideWidth);
-
-    infoText.textContent = `${currentSlideIndex + 1} / ${totalSlides}`;
-  });
-});
-</script>

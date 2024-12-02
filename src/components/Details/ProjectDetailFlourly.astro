@@ -1,8 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
----
 
+// Recibe los datos del proyecto como props
+const { projectData } = Astro.props;
+---
 <section class="project-container" id="flourly-container">
   <div class="project-container-top">
     <p class="text-left">BRANDING, ANIMATION, UX/UI</p>
@@ -26,85 +28,54 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
     </p>
 
     <div class="slider-flourly lazy-lottie lottie-container">
-      <div class="slide-flourly">
-        <LottieAnimation src="/animations/flourly-phone-flour.json" class="animate-fade-in" />
+      {projectData.lottieAnimations.map(animation => (
+      <div class="slide-flourly" style={`aspect-ratio: ${animation.aspectRatio};`}>
+          <LottieAnimation src={animation.src} class="animate-fade-in" />
       </div>
-      <div class="slide-flourly">
-        <LottieAnimation src="/animations/flourly-phone-water.json" class="animate-fade-in" />
-      </div>
-      <div class="slide-flourly">
-        <LottieAnimation src="/animations/flourly-phone-levain.json" class="animate-fade-in" />
-      </div>
+      ))}
     </div>
     <div class="slider-info" id="slider-info">
-      1 / 3
+      1 / {projectData.lottieAnimations.length}
     </div>
 
     <h2>PROCESS</h2>
-    <p>
-      The primary objective was to seek an aesthetic that exuded playfulness and joy while maintaining a clean outcome. Flourly is an application 
-      designed to effortlessly determine the right amount of flour required, guaranteeing a tidy experience. Our creative exploration delved 
-      into the realm of flour and the intricate process of breadmaking.
-    </p>
+    <p>The primary objective was to seek an aesthetic that exuded playfulness and joy while maintaining a clean outcome. Flourly is an application designed to effortlessly determine the right amount of flour required, guaranteeing a tidy experience. Our creative exploration delved into the realm of flour and the intricate process of breadmaking.</p>
+    <p>We put the focus on the ingredients, shapes, and central elements related to the baking process and made them interact with a principal character. Making bread is about transformation and uncertainty— we start with just three ingredients and, depending on how we work, this process can culminate in a distinct result. We believe that it was crucial for the illustrations to capture this spirit of experimentation, transformation, and unpredictability.</p>
     <div style="grid-column-start: 1; grid-column-end: 3;">
       <Image 
-        src="/images/jhon-boy-illustration-flourly-portfolio.webp" 
+        src={projectData.mainImage.src} 
         class="lazy-image" 
-        alt="Hand playing with dough for the Flourly project" 
-        width={600} 
-        height={400} 
+        alt={projectData.mainImage.alt} 
+        width={projectData.mainImage.width} 
+        height={projectData.mainImage.height} 
       />
     </div>
 
     <h2>SKETCHES</h2>
+    <p>From this point, we didn't want to be too attached to the concept, so we investigated shapes and abstract forms and built connections between the concepts via experimentation.</p>
     <div class="sketches">
-      <Image 
-        src="/images/jhon-boy-flourly-sketches-1.webp" 
-        class="lazy-image" 
-        alt="Black and white sketch showing elements of the baking process, including hands kneading dough, a steaming mug, and abstract representations of food ingredients. The artwork emphasizes fluid lines and organic shapes, created as part of the creative process for the Flourly app by Jhon Boy in collaboration with Bakken & Bæck." 
-        width={2442} 
-        height={3480} 
-      />
-      <Image 
-        src="/images/jhon-boy-flourly-sketches-2.webp" 
-        class="lazy-image" 
-        alt="A sketch featuring a mix of abstract and realistic forms, including kitchen equipment, plants, and flowing lines that evoke movement. This illustration reflects the conceptual stages of the Flourly app’s design, created by Jhon Boy for Bakken & Bæck." 
-        width={2442} 
-        height={3480} 
-      />
-      <Image 
-        src="/images/jhon-boy-flourly-sketches-3.webp" 
-        class="lazy-image" 
-        alt="Detailed sketch with dynamic and organic shapes, depicting elements such as flowing water, a container of grapes, and plant life, merged into an imaginative composition. This drawing is a part of Jhon Boy’s creative process for the Flourly app, in collaboration with Bakken & Bæck." 
-        width={2442} 
-        height={3480} 
-      />
+      {projectData.sketches.map(sketch => (
+        <Image 
+          src={sketch.src} 
+          class="lazy-image" 
+          alt={sketch.alt} 
+          width={sketch.width} 
+          height={sketch.height} 
+        />
+      ))}
     </div>
 
     <section class="project-credits" aria-labelledby="project-links">
       <h2 id="project-links">CREDITS</h2>
       <ul>
-        <li>
-          <h3>CREATIVE DIRECTION</h3>
-          <a href="https://www.instagram.com/olllllliie/" target="_blank" rel="noopener">Oliver O'Callaghan</a>
-          <a href="https://www.instagram.com/t___y___a/" target="_blank" rel="noopener">Tya Amelia</a>
-        </li>
-        <li>
-          <h3>PRODUCT DESIGN</h3>
-          <a href="http://ndevalliere.com" target="_blank" rel="noopener">Nathalie de Vallière</a>
-        </li>
-        <li>
-          <h3>CREATIVITY</h3>
-          <a href="https://www.maria-elba.com" target="_blank" rel="noopener">María-Elba García</a>
-        </li>
-        <li>
-          <h3>CHARACTER ANIMATION</h3>
-          <a href="https://www.instagram.com/rjgrullon/" target="_blank" rel="noopener">Rafael Grullón</a>
-        </li>
-        <li>
-          <h3>LOGO/UI ANIMATION</h3>
-          <a href="http://www.nicolasvittori.com" target="_blank" rel="noopener">Nicolas Vittori</a>
-        </li>
+        {projectData.credits.map(credit => (
+          <li>
+            <h3>{credit.title}</h3>
+            {credit.links.map(link => (
+              <a href={link.href} target="_blank" rel="noopener">{link.name}</a>
+            ))}
+          </li>
+        ))}
       </ul>
     </section>
   </div>

@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+
+const { projectData } = Astro.props;
 ---
 
 <section class="project-container" id="frama-container">
@@ -42,30 +44,17 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
     <a href="https://framacph.com/collections/towels/products/frama-the-natural-wine-company-kitchen-towel" 
       style="padding: 0 1em 1em 1em;" target="_blank" rel="noopener">Buy the towel</a>
 
-    <!-- Images -->
-    <Image 
-      class="lazy-image" 
-      src="/images/jhon-boy-illustration-frama-tnwc-2.webp" 
-      width={1200} 
-      height={960} 
-      alt="A tea towel designed by Jhon Boy in collaboration with Frama and The Natural Wine Company (TNWC), draped over a large clay wine vessel. The illustration features a character reclining under grapevines, holding a bunch of grapes, with the text ‘The Natural Wine Company’ above. Photograph by Miguel Triano" 
-    />
 
-    <Image 
-      class="lazy-image" 
-      src="/images/jhon-boy-illustration-frama-tnwc-3.webp" 
-      width={1400} 
-      height={1750} 
-      alt="A person holding up a tea towel designed by Jhon Boy in collaboration with Frama and The Natural Wine Company (TNWC). The towel showcases an illustration of a whimsical character harvesting grapes amidst lush grapevines, with the text ‘The Natural Wine Company’ at the top. Photograph by Miguel Triano." 
-    />
-    
-    <Image 
-      class="lazy-image" 
-      src="/images/jhon-boy-illustration-frama-tnwc-4.webp" 
-      width={1200} 
-      height={960} 
-      alt="A cozy kitchen setup featuring wooden furniture and shelves adorned with kitchen essentials. A tea towel hangs on the wall with an illustration by Jhon Boy, created in collaboration with Frama and The Natural Wine Company (TNWC). The tea towel features a playful character surrounded by grapevines. Photograph by Miguel Triano." 
-    />
+    <!-- Images dinámicos -->
+    {projectData.map(image => (
+      <Image 
+        class="lazy-image" 
+        src={image.src} 
+        width={image.width} 
+        height={image.height} 
+        alt={image.alt} 
+      />
+    ))}
 
     <section class="project-credits" aria-labelledby="project-links">
       <h2 id="project-links">CREDITS</h2>

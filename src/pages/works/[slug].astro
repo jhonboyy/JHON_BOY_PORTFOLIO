@@ -1,8 +1,5 @@
 ---
-
-// src/pages/projects/[slug].astro
-
-export const prerender = true
+export const prerender = true;
 
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Menu from '../../components/MenuWithImage.astro';
@@ -14,6 +11,9 @@ import ProjectDetailLava from '../../components/Details/ProjectDetailLava.astro'
 import ProjectDetailFlourly from '../../components/Details/ProjectDetailFlourly.astro';
 import ProjectDetailFrama from '../../components/Details/ProjectDetailFrama.astro';
 
+// Importamos los datos del proyecto
+import { projectDetails } from '../../data/ProjectsDetailData.js';
+
 const { slug } = Astro.params;
 
 const projects = {
@@ -24,9 +24,13 @@ const projects = {
 
 const ProjectComponent = projects[slug];
 
+// Si el slug no coincide con un proyecto, lanzamos un error
 if (!ProjectComponent) {
   throw new Error(`No se encontró el proyecto para el slug: ${slug}`);
 }
+
+// Obtenemos los datos específicos del proyecto basado en el slug
+const projectData = projectDetails[slug];
 
 // Genera las rutas estáticas para cada proyecto
 export async function getStaticPaths() {
@@ -49,6 +53,8 @@ export async function getStaticPaths() {
   <ProjectsSection 
     projectsSectionClass="projects opacity disabledButton"
     projectsImagesClass="opacity"
+    Tag="section"
   />
-  <ProjectComponent />
+
+  <ProjectComponent projectData={projectData} />
 </BaseLayout>

@@ -1,31 +1,40 @@
 ---
 import { Image } from 'astro:assets';
 import LottieAnimation from "astro-integration-lottie/Lottie.astro";
+
+const { projectData } = Astro.props;
 ---
 <main>
   <article class="project-container" id="lava-container">
 
-    <!-- Project Header Section -->
+    <!-- Encabezado del Proyecto -->
     <header class="project-header">
       <p>BRANDING, ANIMATION, VISUAL IDENTITY</p>
       <p>◷ 4 MIN READ</p>
     </header>
 
-    <!-- Main Project Content -->
+    <!-- Contenido Principal del Proyecto -->
     <section class="project-container-mid lava">
       <h1>LAVA CIRCULAR</h1>
       <p>
         Interdisciplinary Cultural Circuit on the Island of El Hierro (Canary Islands). Active since 2017, it offers a journey to discover the territory by visiting its three municipalities (Valverde, El Pinar, and La Frontera) through evolving itineraries where the program unfolds; musical projects, workshop-talks, and artistic actions that revolve around the traditional and contemporary culture of the Canary archipelago, varying its main themes in each edition.
       </p>
       <p>
-        Various creatives present projects and initiatives that energize unique locations on the island itself. A close encounter and participatory event that generates exchanges of knowledge among participant-artists, attendees, and local residents.      </p>
+        Various creatives present projects and initiatives that energize unique locations on the island itself. A close encounter and participatory event that generates exchanges of knowledge among participant-artists, attendees, and local residents.
+      </p>
 
-      <!-- Lottie Animation -->
-      <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 16 / 12" aria-label="Lava Circular animation">
-        <LottieAnimation src="/animations/lava-loom.json">
-      </div>
+      <!-- Animaciones Lottie -->
+      {projectData.lottieAnimations.slice(0, 1).map(animation => (
+        <div
+          class="lottie-container lazy-lottie"
+          style={`grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: ${animation.aspectRatio}`}
+          aria-label={animation.ariaLabel}
+        >
+          <LottieAnimation src={animation.src}/>
+        </div>
+      ))}
 
-      <!-- Project Goals Section -->
+      <!-- Sección de Imágenes -->
       <section aria-labelledby="project-goals-i">
         <h2>PROJECT GOALS (I)</h2>
         <p>
@@ -35,38 +44,58 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
           We aimed to depict the three primary traditional trades in El Hierro: drum artisans, weaver artisans, and cheese artisans. These occupations were central to the island's economy in the mid-20th century and symbolise its cultural heritage.
         </p>
 
-        <!-- Image Section -->
         <div class="lava-img">
-          <Image class="lazy-image" src="/images/jhon-boy-lava-circular-3.webp" alt="A close-up photograph of a person holding a white cup featuring a Jhon Boy illustration from the Lava Circular brand identity. The person wears jeans and a black wristband, and the scene captures the essence of a cultural outdoor event. Photograph by Adrian Rios" width={1080} height={1623} />
-          <Image class="lazy-image" src="/images/jhon-boy-lava-circular-1.webp" alt="A vibrant outdoor scene during a cultural event, showcasing attendees interacting near a poster stand featuring the Lava Circular brand identity by Jhon Boy. The poster displays details about the 7th edition of the Lava Circular event held in El Hierro, Spain. Photograph by Adrian Rios" width={1000} height={1503} />
-          <Image class="lazy-image" src="/images/jhon-boy-lava-circular-2.webp" alt="A minimalist photograph of a poster for Lava Circular, placed in a dry, earthy landscape surrounded by pine trees. The poster highlights the 7th edition of the cultural event held in El Hierro, emphasizing the simplicity and connection to nature. Photograph by Adrian Rios" width={1000} height={1503} />
+          {projectData.images.slice(0, 3).map(image => (
+            <Image
+              class="lazy-image"
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+            />
+          ))}
         </div>
       </section>
 
+      <!-- Otra Sección -->
       <section aria-labelledby="project-goals-ii" style="height: max-content;">
         <h2>PROJECT GOALS (II)</h2>
         <p>
           We watched numerous videos of artisans at work and endeavoured to distill their movements into minimal expressions. Rafa had a keen eye for this and was able to replicate it while also considering the composition of the drawings, playing with all elements within each scene to convey a sense of coherence.
         </p>
-        <!-- Lottie Animation -->
-        <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 9 / 12" aria-label="Lava milkmaid animation">
-          <LottieAnimation src="/animations/lava-milkmaid.json">
-        </div>
+
+        <!-- Otra Animación Lottie -->
+        {projectData.lottieAnimations.slice(1, 2).map(animation => (
+          <div
+            class="lottie-container lazy-lottie"
+            style={`grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: ${animation.aspectRatio}`}
+            aria-label={animation.ariaLabel}
+          >
+            <LottieAnimation src={animation.src} />
+          </div>
+        ))}
       </section>
 
-      <!-- Graphic Elements Section -->
+      <!-- Sección de Elementos Gráficos -->
       <section aria-labelledby="graphic-elements" style="height: max-content;">
         <h2 id="graphic-elements">GRAPHIC ELEMENTS</h2>
         <p>
-          In addition to the captivating animations and illustrations, typography assumes a pivotal role in shaping the overall visual narrative. Employing the Droulers font —crafted by the esteemed Bureau Brut foundry—, adds a distinct layer of character to the composition. This monospaced typeface exudes a remarkable personality, distinguished by its intricate ornamental flourishes. These embellishments not only lend a touch of sophistication but also forge a compelling visual interplay, seamlessly juxtaposing the illustrations' language with an undeniable coherence.        </p>
+          In addition to the captivating animations and illustrations, typography assumes a pivotal role in shaping the overall visual narrative. Employing the Droulers font —crafted by the esteemed Bureau Brut foundry—, adds a distinct layer of character to the composition. This monospaced typeface exudes a remarkable personality, distinguished by its intricate ornamental flourishes. These embellishments not only lend a touch of sophistication but also forge a compelling visual interplay, seamlessly juxtaposing the illustrations' language with an undeniable coherence.
+        </p>
         <div class="lava-img-2">
-          <Image class="lazy-image" src="/images/jhon-boy-lava-circular-5.webp" alt="A registration desk by the ocean for the Lava Circular event. Two posters are displayed above the desk: one reads “Registro” with event details, and the other lists items for sale under “Tienda.” The table is simple, featuring materials like woven baskets and brochures, blending with the serene ocean background. This image highlights the minimalistic setup of the Lava Circular event, part of the brand identity designed by Jhon Boy. Photograph by Adrian Rios." width={750} height={1334} />
-          <Image class="lazy-image" src="/images/jhon-boy-lava-circular-4.webp" alt="A rustic cantina setup with a Lava Circular poster featuring an illustrated figure playing a traditional drum, accompanied by a menu listing food and beverage options. Cups with matching illustrations are also present, tying the visual identity together. The natural wooden textures complement the cultural theme of the event, reinforcing the brand identity created by Jhon Boy. Photograph by Adrian Rios." width={750} height={1334} />
-          <Image class="lazy-image" src="/images/jhon-boy-lava-circular-6.webp" alt="A close-up of a tote bag from the Lava Circular event featuring an illustration by Jhon Boy of a figure playing a drum. The bag prominently displays event details: “Lava Circular, El Hierro, 2–4 Nov 2023, 7a edición, Circuito Cultural.” The design captures the event’s artistic and cultural spirit. Photograph by Adrian Rios." width={750} height={1334} />
-          <Image class="lazy-image" src="/images/jhon-boy-lava-circular-7.webp" alt="A person flipping through a booklet with a Jhon Boy illustration of a figure playing a drum. The text in Spanish details the Lava Circular event’s cultural significance. The booklet is placed on volcanic rock, emphasizing the connection to El Hierro’s natural environment and the event’s essence. Photograph by Adrian Rios." width={750} height={1334} />
+          {projectData.images.slice(3, 7).map(image => (
+            <Image
+              class="lazy-image"
+              src={image.src}
+              alt={image.alt}
+              width={image.width}
+              height={image.height}
+            />
+          ))}
         </div>
       </section>
-      <!-- Drawing Section -->
+
+      <!-- Sección de Dibujo -->
       <section aria-labelledby="drawing" style="height: max-content;">
         <h2 id="drawing">DRAWING</h2>
         <p>
@@ -75,67 +104,65 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
         <p>
           To inject a playful vibe, I experimented with perspectives, resulting in drawings that feel whimsically odd yet visually coherent. Notably, the characters' faces are not visible, emphasising their profession or activity, adding an intriguing layer to the illustrations.
         </p>
-        <div class="lottie-container lazy-lottie" style="grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: 9 / 12" aria-label="Lava drum animation">
-          <LottieAnimation src="/animations/lava-drum.json">
-        </div>
+
+        <!-- Otra Animación Lottie -->
+        {projectData.lottieAnimations.slice(2, 3).map(animation => (
+          <div
+            class="lottie-container lazy-lottie"
+            style={`grid-column-start: 1; grid-column-end: 2; height: 100%; aspect-ratio: ${animation.aspectRatio}`}
+            aria-label={animation.ariaLabel}
+          >
+            <LottieAnimation src={animation.src} />
+          </div>
+        ))}
       </section>
 
-      <!-- Sketches Carousel -->
+      <!-- Sección de Bocetos -->
       <section aria-labelledby="sketches" style="height: max-content;">
         <h2 id="sketches">SKETCHES</h2>
         <p>
-          One particularly beautiful and interesting aspect was the process of creating the illustrations. Many of them were drawn during my time in La Gomera. I decided to spend the summer exploring the island and stayed in a sustainable cabin in the heart of Valle Hermoso. Each night, we were serenaded by the chirping of crickets, fully immersed in nature. I often found myself sketching by the sea, accompanied by the rhythmic crash of waves, or amidst the tranquil mountains.        </p>
+          One particularly beautiful and interesting aspect was the process of creating the illustrations. Many of them were drawn during my time in La Gomera. I decided to spend the summer exploring the island and stayed in a sustainable cabin in the heart of Valle Hermoso. Each night, we were serenaded by the chirping of crickets, fully immersed in nature. I often found myself sketching by the sea, accompanied by the rhythmic crash of waves, or amidst the tranquil mountains.
+        </p>
         <p>
-          My grandfather belonged to the last generation of residents in Las Palmas de Anaga, one of Tenerife's most remote villages. Growing up, I witnessed firsthand the toil of rural life—watching my grandfather craft cheese and observing elders weaving fabrics or carrying potato bags. This upbringing deeply roots me in the land and its traditions.        </p>
+          My grandfather belonged to the last generation of residents in Las Palmas de Anaga, one of Tenerife's most remote villages. Growing up, I witnessed firsthand the toil of rural life—watching my grandfather craft cheese and observing elders weaving fabrics or carrying potato bags. This upbringing deeply roots me in the land and its traditions.
+        </p>
+
+        <!-- Carrusel de Bocetos -->
         <div class="lava-sketches">
-          <button style="font-size: 1.2em; outline: none; background-color: white; padding: 0; border: 0; color: black;"  onclick="plusDivs(-1)" aria-label="Previous Sketch">&lt;</button>
+          <button style="font-size: 1.2em; outline: none; background-color: white; padding: 0; border: 0; color: black;" onclick="plusDivs(-1)" aria-label="Previous Sketch">&lt;</button>
           <div class="w3-content w3-display-container">
-            <Image src="/images/jhon-boy-lava-circular-sketches-4.webp" alt="A minimalistic sketch by Jhon Boy for the Lava Circular brand identity, depicting circular cakes or cheese blocks divided into sections, with one partially covered by a patterned cloth. A knife is placed below, evoking themes of craft and tradition." width={1389} height={1000} loading='lazy' class="mySlides lazy-image"/>
-            <Image src="/images/jhon-boy-lava-circular-sketches-9.webp" alt="This illustration is a part of the creative process for the Lava Circular brand identity, designed by Jhon Boy. It showcases traditional Canarian weaving and tools used in local craftsmanship, integral to the cultural identity of El Hierro." width={1389} height={1000} loading='eager'class="mySlides"  />
-            <Image src="/images/jhon-boy-lava-circular-sketches-14.webp" alt="A thoughtful illustration by Jhon Boy for Lava Circular, featuring a seated milkmaid making cheese with clean geometric patterns. The minimal lines reflect the brand’s emphasis on simplicity and craftsmanship." width={1389} height={1000} loading='eager' class="mySlides lazy-image" />
-            <Image src="/images/jhon-boy-lava-circular-sketches-3.webp" alt="Part of the Lava Circular brand illustrations by Jhon Boy, showing hand-drawn drums with decorative patterns and drumsticks. The variations include drums as containers, highlighting the artisanal and rhythmic elements of the brand." width={1389} height={1000} loading='eager' class="mySlides"  />
-            <Image src="/images/jhon-boy-lava-circular-sketches-1.webp" alt="A detailed illustration by Jhon Boy for the Lava Circular brand identity, featuring a craftsman from El Hierro making a traditional drum. One side depicts the artisan working with the barrel-like drum, while the other shows someone tying materials to complete the drum. This artwork emphasizes the cultural heritage and artisanal craftsmanship integral to Lava Circular’s identity." loading='eager' width={1389} height={1000} class="mySlides" />
-            <Image src="/images/jhon-boy-lava-circular-sketches-5.webp" alt="This final sketch by Jhon Boy for Lava Circular emphasizes the artisanal craft of El Hierro, featuring a figure pouring traditional Canarian cheese using handcrafted tools." width={1389} loading='eager' height={1000} class="mySlides" />
-            <Image src="/images/jhon-boy-lava-circular-sketches-6.webp" alt="A depiction of traditional Canarian cheese-making techniques, this is part of Jhon Boy’s sketches for the Lava Circular project, emphasizing heritage and artisanal practices." width={1389} loading='eager' height={1000} class="mySlides" />
-            <Image src="/images/jhon-boy-lava-circular-sketches-7.webp" alt="This page includes abstracted representation of La Sabina tree and traditional methods for processing cheese, part of the Lava Circular creative process by Jhon Boy." width={1389} loading='eager' height={1000} class="mySlides" />
-            <Image src="/images/jhon-boy-lava-circular-sketches-8.webp" alt="Another concept sketch by Jhon Boy for Lava Circular, depicting a table set with Canarian bread, wine, and produce, reflecting the gastronomy and communal aspects of the Canarian culture." width={1389} height={1000} loading='eager' class="mySlides" />
-            <Image src="/images/jhon-boy-lava-circular-sketches-13.webp" alt="A flowing sketch by Jhon Boy for Lava Circular, showcasing flowers emerging from a rectangular hanging bag. The organic and soft lines embody the brand’s natural and artisanal identity." width={1389} height={1000} loading='eager' class="mySlides" />
-            <Image src="/images/jhon-boy-lava-circular-sketches-10.webp"alt="Jhon Boy’s depiction for Lava Circular, featuring a loom operated by a figure on one page and another figure working below on the opposite page. The sketch emphasizes traditional weaving and artisanal labor, core to the brand’s identity." width={1389} height={1000} loading='eager' class="mySlides" />
-            <Image src="/images/jhon-boy-lava-circular-sketches-11.webp" alt="A conceptual illustration by Jhon Boy for Lava Circular, depicting two figures engaged with woven baskets. One figure raises a hand while the other interacts with tools, representing themes of tradition and manual craftsmanship central to the brand." width={1389} height={1000} loading='eager' class="mySlides" />
-            <Image src="/images/jhon-boy-lava-circular-sketches-12.webp" alt="Another Lava Circular sketch by Jhon Boy, illustrating abstract linework forming loops and a hanging bag. The simple, intentional strokes align with the brand’s handcrafted essence." width={1389} height={1000} loading='eager' class="mySlides" />
+            {projectData.sketches.map((sketch, index) => (
+              <Image
+                src={sketch.src}
+                alt={sketch.alt}
+                width={sketch.width}
+                height={sketch.height}
+                loading={index === 0 ? 'eager' : 'eager'}
+                class={`mySlides ${index === 0 ? 'lazy-image' : ''}`}
+              />
+            ))}
           </div>
           <button style="font-size: 1.2em; outline: none; background-color: white; padding: 0; border: 0; color: black;" onclick="plusDivs(+1)" aria-label="Next Sketch">&gt;</button>
         </div>
       </section>
-      <!-- Project Links -->
+
+      <!-- Sección de Créditos -->
       <section class="project-credits" aria-labelledby="project-links">
         <h2 id="project-links">CREDITS</h2>
         <ul>
-          <li>
-            <h3>PROJECT</h3>
-            <a href="http://lavacircular.com" target="_blank">Lava Circular</a>
-          </li>
-          <li>
-            <h3>ORGANIZERS</h3>
-            <a href="http://hisla.org" target="_blank">Hisla</a>
-          </li>
-          <li>
-            <h3>ART DIRECTION</h3>
-            <a href="https://santanasantana.es" target="_blank">Santanasantana Studio</a>
-          </li>
-          <li>
-            <h3>ANIMATION</h3>
-            <a href="https://www.instagram.com/rjgrullon/" target="_blank">Rafael Grullón</a>
-          </li>
-          <li>
-            <h3>PHOTOGRAPHY</h3>
-            <a href="https://www.adririos.com" target="_blank">Adrián Ríos</a>
-          </li>
+          {projectData.credits.map(credit => (
+            <li>
+              <h3>{credit.title}</h3>
+              {credit.links.map(link => (
+                <a href={link.href} target="_blank" rel="noopener">{link.name}</a>
+              ))}
+            </li>
+          ))}
         </ul>
-      </section>      
+      </section>
     </section>
 
-    <!-- Close Link -->
+    <!-- Enlace de Cierre -->
     <footer class="project-container-bot">
       <a id="lavaCloseLink" href="/works?from=details">CLOSE PROJECT</a>
     </footer>

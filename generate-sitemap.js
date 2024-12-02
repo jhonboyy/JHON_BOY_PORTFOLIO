@@ -8,8 +8,15 @@ import { projects } from './src/data/ProjectsData.js';
 // Base URL del sitio
 const BASE_URL = 'https://jhonboy.com';
 
-// Determinar la carpeta de salida estática para Vercel
-const OUTPUT_DIR = path.resolve('.vercel/output/static');
+// Función para escapar caracteres especiales en XML
+function escapeXML(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
 
 // Procesar subrutas desde `projectDetails`
 const worksSubroutes = Object.entries(projectDetails).map(([key, project]) => {
@@ -51,8 +58,6 @@ const mainPages = [
         height: 2048,
       },
     ],
-    description: `JHON BOY IS AN ILLUSTRATOR FROM TENERIFE, KNOWN FOR MINIMALIST VISUALS THAT INVITE REFLECTION. 
-      COLLABORATED WITH UNIQLO, FRAMA, AND OTHER GLOBAL BRANDS. AWARDED BY D&AD (2023).`,
   },
 ];
 
@@ -67,7 +72,7 @@ function generateSitemap() {
         (img) => `
         <image:image>
           <image:loc>${BASE_URL}${img.src}</image:loc>
-          <image:caption>${img.alt}</image:caption>
+          <image:caption>${escapeXML(img.alt)}</image:caption>
           <image:width>${img.width}</image:width>
           <image:height>${img.height}</image:height>
         </image:image>
@@ -92,12 +97,10 @@ function generateSitemap() {
 </urlset>
 `.trim();
 
-  // Verificar que la carpeta de salida existe
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  const outputPath = path.resolve('.vercel/output/static', 'sitemap.xml');
+  if (!fs.existsSync(path.dirname(outputPath))) {
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   }
-
-  const outputPath = path.resolve(OUTPUT_DIR, 'sitemap.xml');
   fs.writeFileSync(outputPath, sitemapContent, 'utf-8');
   console.log(`Sitemap generado correctamente en: ${outputPath}`);
 }

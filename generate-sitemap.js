@@ -49,14 +49,10 @@ const mainPages = [
       {
         src: '/images/jhon-boy-illustration-portrait.webp',
         alt: 'Portrait photo of Jhon Boy',
-        width: 1296,
-        height: 2048,
       },
       {
         src: '/images/jhon-boy-illustration-portrait-2.webp',
         alt: 'Alternate portrait photo of Jhon Boy',
-        width: 1296,
-        height: 2048,
       },
     ],
   },
@@ -74,8 +70,6 @@ function generateSitemap() {
         <image:image>
           <image:loc>${escapeXML(`${BASE_URL}${img.src}`)}</image:loc>
           <image:caption>${escapeXML(img.alt)}</image:caption>
-          <image:width>${escapeXML(img.width)}</image:width>
-          <image:height>${escapeXML(img.height)}</image:height>
         </image:image>
       `
       )

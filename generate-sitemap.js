@@ -10,6 +10,7 @@ const BASE_URL = 'https://jhonboy.com';
 
 // Función para escapar caracteres especiales en XML
 function escapeXML(value) {
+  if (typeof value !== 'string') return value;
   return value
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
@@ -71,10 +72,10 @@ function generateSitemap() {
       .map(
         (img) => `
         <image:image>
-          <image:loc>${BASE_URL}${img.src}</image:loc>
+          <image:loc>${escapeXML(`${BASE_URL}${img.src}`)}</image:loc>
           <image:caption>${escapeXML(img.alt)}</image:caption>
-          <image:width>${img.width}</image:width>
-          <image:height>${img.height}</image:height>
+          <image:width>${escapeXML(img.width)}</image:width>
+          <image:height>${escapeXML(img.height)}</image:height>
         </image:image>
       `
       )
@@ -82,7 +83,7 @@ function generateSitemap() {
 
     return `
       <url>
-        <loc>${BASE_URL}${url}</loc>
+        <loc>${escapeXML(`${BASE_URL}${url}`)}</loc>
         <lastmod>${new Date().toISOString()}</lastmod>
         ${imagesXML}
       </url>

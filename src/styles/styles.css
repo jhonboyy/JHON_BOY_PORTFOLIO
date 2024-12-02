@@ -600,6 +600,9 @@ figcaption > :first-child {
 	gap: 5px;
 	width: 120%;
 }
+.lava-img img {
+	height: max-content;
+}
 
 .lava-img-2 {
 	display: grid;

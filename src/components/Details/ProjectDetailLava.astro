@@ -137,7 +137,7 @@ const { projectData } = Astro.props;
                 alt={sketch.alt}
                 width={sketch.width}
                 height={sketch.height}
-                loading={index === 0 ? 'eager' : 'eager'}
+                loading={index === 0 ? 'lazy' : 'eager'}
                 class={`mySlides ${index === 0 ? 'lazy-image' : ''}`}
               />
             ))}

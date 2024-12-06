@@ -81,21 +81,30 @@
 .no-pointer-events {
   pointer-events: none;
 }
-
 .lazy-image {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out; /* Animación de transición */
 }
 
 .lazy-image.loaded {
   opacity: 1;
 }
 
+.lazy-image.no-animation {
+  transition: none; /* Desactiva la transición */
+  opacity: 1; /* Garantiza que la imagen sea visible sin animación */
+}
+
 .lazy-lottie {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out; /* Animación de transición */
 }
 
 .lazy-lottie.loaded {
   opacity: 1;
+}
+
+.lazy-lottie.no-animation {
+  transition: none; /* Desactiva la transición */
+  opacity: 1; /* Garantiza que el lottie sea visible sin animación */
 }

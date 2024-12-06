@@ -1,10 +1,10 @@
 ---
 import ProjectsList from './ProjectsList.astro';
 
-const { projectsSectionClass, projectsImagesClass} = Astro.props;
+const { projectsSectionClass, projectsImagesClass, Tag} = Astro.props;
 ---
 
-<main id="works-content" class={projectsSectionClass} role="main">
+<Tag id="works-content" class={projectsSectionClass} role="main">
   <nav role="navigation">
     <ul class="projects-nav">
       <li><a class="button active" id="buttonall">SEE ALL</a></li>
@@ -14,7 +14,7 @@ const { projectsSectionClass, projectsImagesClass} = Astro.props;
   </nav>
   <ProjectsList 
   projectsImagesClass={projectsImagesClass}/>
-</main>
+<Tag/>
 <script>
 function rightWorksButtons() {
   const buttons = [

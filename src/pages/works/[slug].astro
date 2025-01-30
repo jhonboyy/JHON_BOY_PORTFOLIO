@@ -10,6 +10,8 @@ const MenuWorksImage = '/images/white.webp';
 import ProjectDetailLava from '../../components/Details/ProjectDetailLava.astro';
 import ProjectDetailFlourly from '../../components/Details/ProjectDetailFlourly.astro';
 import ProjectDetailFrama from '../../components/Details/ProjectDetailFrama.astro';
+import ProjectDetailUniqlo from '../../components/Details/ProjectDetailUniqlo.astro';
+
 
 // Importamos los datos del proyecto
 import { projectDetails } from '../../data/ProjectsDetailData.js';
@@ -20,6 +22,7 @@ const projects = {
   'lava-circular': ProjectDetailLava,
   'flourly': ProjectDetailFlourly,
   'frama': ProjectDetailFrama,
+  'uniqlo': ProjectDetailUniqlo,
 };
 
 const ProjectComponent = projects[slug];
@@ -38,6 +41,7 @@ export async function getStaticPaths() {
     { params: { slug: 'lava-circular' } },
     { params: { slug: 'flourly' } },
     { params: { slug: 'frama' } },
+    { params: { slug: 'uniqlo' } },
   ];
 }
 ---

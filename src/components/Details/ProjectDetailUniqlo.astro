@@ -1,0 +1,122 @@
+---
+import { Image } from 'astro:assets';
+
+const { projectData } = Astro.props;
+---
+
+<section class="project-container" id="uniqlo-louvre-container">
+  <div class="project-container-top">
+    <p class="text-left">COLLABORATION, PRODUCT DESIGN, FASHION</p>
+    <p class="text-right">◷ 1 MIN READ</p>
+  </div>
+
+  <div class="project-container-mid frama">
+    <h1>UNIQLO X LOUVRE</h1>
+    <p>
+        This project highlights a creative reinterpretation of Johannes Vermeer’s <em>The Lacemaker</em>,
+        as part of a special collaboration between 
+        <a 
+          href="https://www.uniqlo.com" 
+          style="padding: 0;" 
+          target="_blank" 
+          rel="noopener"
+        >UNIQLO</a> and 
+        <a 
+          href="https://www.louvre.fr" 
+          style="padding: 0;" 
+          target="_blank" 
+          rel="noopener"
+        >Louvre Museum</a>.
+        The goal is to fuse the painting’s delicate detail with Uniqlo’s minimalist design philosophy,
+        creating apparel that pays homage to the precision and serenity of Vermeer’s masterpiece.
+    </p>
+
+<h2>PROCESS</h2>
+<p>
+  Inspired by the soft tones and intimate atmosphere of <em>The Lacemaker</em>, 
+  our design approach began with a thorough study of Vermeer’s original artwork. 
+  We then experimented with a minimal yet high-contrast color palette, 
+  intentionally simplifying the shapes while transforming them into an 
+  intricate composition that plays with the body’s contours and the painting’s 
+  inherent structure. 
+</p>
+<p>
+  This reinterpretation was guided by a desire to celebrate timeless art 
+  through modern silhouettes. By spotlighting <em>The Lacemaker</em> 
+  in wearable form, we bridge the gap between past and present—enabling 
+  fashion enthusiasts and art lovers alike to experience Vermeer’s vision 
+  in a fresh, contemporary context.
+</p>
+    <a 
+      href="https://www.uniqlo.com/es/es/spl/ut/utgp" 
+      style="padding: 1em" 
+      target="_blank" 
+      rel="noopener"
+    >
+      View Collection
+    </a>
+
+    {/* Dynamic images */}
+    {projectData.map((image) => (
+      <Image
+        class="lazy-image"
+        src={image.src}
+        width={image.width}
+        height={image.height}
+        alt={image.alt}
+      />
+    ))}
+
+    <section class="project-credits" aria-labelledby="project-links">
+      <h2 id="project-links">CREDITS</h2>
+      <ul>
+        <li>
+            <h3>COLOR PALETTE</h3>
+            <a 
+              href="https://maria-elba.com" 
+              target="_blank" 
+              rel="noopener"
+            >
+              María-Elba García
+            </a>
+          </li>
+        <li>
+          <h3>PRODUCT DESIGN</h3>
+          <a 
+            href="https://www.uniqlo.com" 
+            target="_blank" 
+            rel="noopener"
+          >
+            UNIQLO
+          </a>
+        </li>
+        <li>
+          <h3>COLLABORATION</h3>
+          <a 
+            href="https://www.louvre.fr" 
+            target="_blank" 
+            rel="noopener"
+          >
+            Louvre Museum
+          </a>
+        </li>
+        <li>
+          <h3>PHOTOGRAPHY</h3>
+          <a 
+            href="https://www.instagram.com/dekadensia/" 
+            target="_blank" 
+            rel="noopener"
+          >
+            Elena Navarro
+          </a>
+        </li>
+      </ul>
+    </section>
+  </div>
+
+  <div class="project-container-bot">
+    <a id="uniqloLouvreCloseLink" href="/works?from=details">
+      CLOSE PROJECT
+    </a>
+  </div>
+</section>

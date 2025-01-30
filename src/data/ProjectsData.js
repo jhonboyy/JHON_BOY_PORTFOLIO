@@ -28,6 +28,7 @@ export const projects = [
       right: 'NOV.04.2020',
     },
   },
+  
   {
     type: 'commercial all',
     className: 'grid-solo',
@@ -119,6 +120,18 @@ export const projects = [
     captions: {
       left: 'Illustration for WIX Playground Academy ✨',
       right: 'DEC.12.2021',
+    },
+  },
+  {
+    type: 'commercial all',
+    className: 'grid-solo',
+
+    images: [
+      { src: '/images/jhon-boy-illustration-uniqlo-louvre-1.webp', alt: 'T-Shirt from a collaboration between Uniqlo and the Louvre, featuring a minimalist reimagining of Vermeers The Lacemaker. The design uses a simplified, high-contrast color palette and shapes inspired by the original painting, merging classic art with Uniqlo’s and Jhon Boy´s modern aesthetic.', width: 1500, height: 1529 },
+    ],
+    captions: {
+      left: 'UNIQLO collaboration for UTGP x Louvre collection 👕🖼️ <br /><a id="UniqloLink" title="Read more about the collaboration between Uniqlo, Louvre Museum and Jhon Boy" href="/works/uniqlo">READ CASE STUDY</a>',
+      right: 'FEB.19.2024',
     },
   },
   {

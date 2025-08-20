@@ -17,7 +17,7 @@
     "@astrojs/vercel": "^8.0.4",
     "@emnapi/runtime": "^1.2.0",
     "@vercel/speed-insights": "^1.0.12",
-    "astro": "^5.1.10",
+    "astro": "^5.13.2",
     "astro-compress": "^2.2.28",
     "astro-integration-lottie": "^0.3.1"
   }
